@@ -18,8 +18,11 @@
             <p class="sub">배우고 활용하는 것과 놀이처럼 일하는 것을 좋아합니다.</p>
         </div>
     </section>
-    <section>
-        <ul>
+    <section class="portfolio-section">
+        <ul class="portfolio-img-list">
+            <li><img src="img/screencapture-monocr-about-html-2021-10-01-16_48_56.png" alt="monocr 홈페이지 화면"></li>
+        </ul>
+        <ul class="portfolio-txt-area">
             <li>
                 <h2>monocr 웹사이트 제작</h2>
                 <div class="datetime">
@@ -31,45 +34,18 @@
         </ul>
     </section>
     <footer>
-        <address>
-            <div class="name">Kim Cheung Hoon</div>
-            <ul>
-                <li>mobile. <a href="tel:010-4477-4380" title="바로 전화 걸기">01044774380</a></li>
-                <li>email. <a href="mailto:kch19920726@gmail.com" title="바로 메일 보내기">kch19920726@gmail.com</a></li>
-                <li><a href="https://github.com/clean-teach" title="깃헙으로 이동">Github</a></li>
-            </ul>
-        </address>
+        <div class="card">
+            <address>
+                <div class="name">Kim Cheung Hoon</div>
+                <ul>
+                    <li>mobile. <a href="tel:010-4477-4380" title="바로 전화 걸기">01044774380</a></li>
+                    <li>email. <a href="mailto:kch19920726@gmail.com" title="바로 메일 보내기">kch19920726@gmail.com</a></li>
+                    <li>github. <a href="https://github.com/clean-teach" title="깃헙으로 이동">https://github.com/clean-teach</a></li>
+                </ul>
+            </address>
+        </div>
     </footer>
 
-    <script>
-        const winInnerHeight = window.innerHeight;
-        const card = document.querySelector('footer address');
-        const cardOffsetTop = card.parentElement.offsetTop + card.offsetTop + card.clientHeight;
-        const initialAngleValue = 90;
-        const sensitive = 3.5;
-
-        document.addEventListener('scroll', function() {
-            let scrollBottom = document.documentElement.scrollTop + winInnerHeight;
-            
-            if(scrollBottom > cardOffsetTop) {
-                let resetSct = scrollBottom - cardOffsetTop;
-
-                card.style.transform = `rotateX(${initialAngleValue + resetSct/-sensitive}deg)`;
-            }
-        });
-
-        const sensitiveY = 40;
-        const sensitiveX = 20;
-        const direction = 1; // positive or negative
-        card.addEventListener('mousemove', function(e){
-            card.style.transform = `
-                rotateY(${direction*(window.innerWidth/2 - e.x)/sensitiveY}deg) 
-                rotateX(${direction*(window.innerHeight/2 - e.y)/-sensitiveX}deg)
-            `;
-        });
-        card.addEventListener('mouseleave', function(){
-            card.style.transform = `rotateY(0deg) rotateX(0deg)`;
-        });
-    </script>
+    <script src="index.js" defer></script>
 </body>
 </html>
