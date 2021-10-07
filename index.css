@@ -13,7 +13,7 @@ button {margin: 0; padding: 0; border: none; background: none;}
 .main-section.blow .txt {opacity: 0; top: -100%;}
 
 .portfolio-section {max-width: 1280px; margin: 0 auto; padding: 50vh 0;}
-.portfolio-img-list li {width: 60%; overflow: hidden; margin-bottom: 10rem; box-shadow: 10px 20px 60px rgba(0, 0, 0, .2); transform: skewY(24deg) translateY(400px); transform-origin: 0; transition: .4s;}
+.portfolio-img-list li {width: 60%; overflow: hidden; margin-bottom: 10rem; box-shadow: 10px 20px 60px rgba(0, 0, 0, .2); line-height: 0; transform: skewY(24deg) translateY(400px); transform-origin: 0; transition: .4s;}
 .portfolio-img-list li.on {transform: skewY(0) translateY(0);}
 .portfolio-img-list img {width: 100%;}
 .portfolio-txt-area li {position: fixed; top: 20vh; left: 56%; width: 520px; transform: translateX(1000px) skewX(16deg); transition: .4s;}
