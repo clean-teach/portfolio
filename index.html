@@ -11,20 +11,27 @@
 <body>
     <header>
         <h1>Web Front-end developer Portfolio</h1>
+        <nav id="lnb">
+            <ul>
+                <li><button type="button" title="해당 위치로 이동" data-targetid="main-section">Top</button></li>
+                <li><button type="button" title="해당 위치로 이동" data-targetid="portfolio-section">Portfolio</button></li>
+                <li><button type="button" title="해당 위치로 이동" data-targetid="contact-section">Contact</button></li>
+            </ul>
+        </nav>
     </header>
-    <section class="main-section">
+    <section id="main-section">
         <div class="txt">
             <p class="tit">한 평생 배우러 왔다가 갑니다</p>
             <p class="sub">타고난 자 위에 노력하는 자가 있고 노력하는 자 위에 즐기는 자가 있다고 하였습니다. <br />저는 놀이처럼 배우고 활용하는 것을 좋아합니다.</p>
         </div>
     </section>
-    <section class="portfolio-section">
+    <section id="portfolio-section">
         <ul class="portfolio-img-list">
             <li><img src="img/screencapture-monocr-about-html-2021-10-01-16_48_56.png" alt="monocr 홈페이지 화면"></li>
             <li><img src="img/screencapture-lavidamall-co-kr-main-do-2021-10-07-15_52_42.png" alt="lavida mall 홈페이지 화면"></li>
             <li><img src="img/fur_web_main.jpg" alt="기금도시재생포털 홈페이지 화면"></li>
             <li><img src="img/mockup_mobile_aonecc.jpg" alt="aonecc mobile mockup"></li>
-            <li><img src="img/mockup_mobile_aonecc.jpg" alt="aonecc mobile mockup"></li>
+            <li><img src="img/mockup_mobile_novita.jpg" alt="novita mobile mockup"></li>
         </ul>
         <ul class="portfolio-txt-area">
             <li>
@@ -140,7 +147,7 @@
                 <button type="button" title="새 탭으로 열기">View Live</button>
             </li>
             <li>
-                <h2>다섯 번째 포트폴리오 제목</h2>
+                <h2>Novita</h2>
                 <div class="datetime">
                     <span class="start">2019.10</span>
                     <span class="end">2020.3</span>
@@ -165,11 +172,11 @@
                         </dd>
                     </div>
                 </dl>
-                <button type="button" title="새 탭으로 열기">View Live</button>
+                <button type="button" title="새 탭으로 열기" onclick="window.open('https://play.google.com/store/apps/details?id=lifegood.prayer.novita', '_blank');" tar>Google Play Store</button>
             </li>
         </ul>
     </section>
-    <footer>
+    <footer id="contact-section">
         <div class="card">
             <address>
                 <div class="name">Kim Cheung Hoon</div>

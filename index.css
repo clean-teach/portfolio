@@ -1,31 +1,35 @@
 body {background-color: black;}
-header {position: fixed; top: 0;}
+img {pointer-events: none;}
+a {text-decoration: none;}
+button {margin: 0; padding: 0; border: none; background: none; cursor: pointer;}
+
+header {position: fixed; top: 0; z-index: 999;}
 h1 {opacity: 0;}
 section {width: 100%;}
-img {pointer-events: none;}
-button {margin: 0; padding: 0; border: none; background: none;}
 
-.main-section {height: 100vh; color: #ffffff; text-align: center; display: flex; justify-content: center; align-items: center; overflow: hidden;}
-/* .main-section::before {content: ''; display: block; position: absolute; width: 1000%; height: 1000%; background: linear-gradient(45deg, rgba(238,119,82,.8), rgba(238,119,82,0) 80%), linear-gradient(135deg, rgba(232,60,126,.8), rgba(232,60,126,0) 80%), linear-gradient(225deg, rgba(35,166,213,.8), rgba(35,166,213,0) 80%), linear-gradient(315deg, rgba(35,213,171,.8), rgba(35,213,171,0) 80%); background-size: 100% 100%; transform-origin: center; animation: backgroudRotation 10s ease infinite;} */
-.main-section .txt {position: relative; top: 0; z-index: 100; opacity: 1; transition: .6s;}
-.main-section .tit {font-weight: bold; font-size: 5.6rem;}
-.main-section .sub {margin-top: 2.4rem; font-weight: 200; font-size: 1.6rem; line-height: 2.4rem;}
-.main-section.blow .txt {opacity: 0; top: -100%;}
+#lnb {margin: 2rem;}
+#lnb li+li {margin-top: 2rem;}
+#lnb button {font-size: 3.6rem; color: #ffffff;}
 
-.portfolio-section {max-width: 1280px; margin: 0 auto; padding: 50vh 0;}
-.portfolio-img-list li {width: 60%; overflow: hidden; margin-bottom: 10rem; box-shadow: 10px 20px 60px rgba(0, 0, 0, .2); line-height: 0; transform: skewY(24deg) translateY(400px); transform-origin: 0; transition: .4s;}
+#main-section {height: 100vh; color: #ffffff; text-align: center; display: flex; justify-content: center; align-items: center; overflow: hidden;}
+#main-section .txt {position: relative; top: 0; z-index: 100; opacity: 1; transition: .6s;}
+#main-section .tit {font-weight: bold; font-size: 5.6rem;}
+#main-section .sub {margin-top: 2.4rem; font-weight: 200; font-size: 1.6rem; line-height: 2.4rem;}
+#main-section.blow .txt {opacity: 0; top: -100%;}
+
+#portfolio-section {max-width: 1280px; margin: 0 auto;}
+.portfolio-img-list li {width: 56%; overflow: hidden; margin-bottom: 10rem; box-shadow: 10px 20px 60px rgba(0, 0, 0, .2); line-height: 0; transform: skewY(24deg) translateY(400px); transform-origin: 0; transition: .4s;}
 .portfolio-img-list li.on {transform: skewY(0) translateY(0);}
 .portfolio-img-list img {width: 100%;}
-.portfolio-txt-area li {position: fixed; top: 20vh; left: 56%; width: 520px; transform: translateX(1000px) skewX(16deg); transition: .4s;}
+.portfolio-txt-area li {position: fixed; top: 20vh; left: 60%; width: 520px; transform: translateX(2000px) skewX(64deg); transform-origin: 0; transition: .2s;}
 .portfolio-txt-area h2 {font-weight: bold; font-size: 2.4rem; color: #333333;}
 .portfolio-txt-area .datetime {margin-top: 1rem; font-weight: 200; font-size: 1rem; letter-spacing: .05rem; color: #666666;}
 .portfolio-txt-area .datetime .end::before {content: ' ~ ';}
 .portfolio-txt-area dl {margin-top: 2.4rem;}
 .portfolio-txt-area dt {padding: 1rem 0 .4rem; font-weight: bold; font-size: 1.125rem; color: #333333;}
 .portfolio-txt-area dd {font-weight: 200; font-size: 1rem; line-height: 1.4rem; color: #666666;}
-.portfolio-txt-area button {font-weight: 500; font-size: 1rem; color: #666666; border: 1px solid #666666; padding: .4rem 1rem; margin-top: 1rem; background-color: rgba(255, 255, 255, 0); cursor: pointer;}
+.portfolio-txt-area button {font-weight: 500; font-size: 1rem; color: #666666; border: 1px solid #666666; padding: .4rem 1rem; margin-top: 1rem; background-color: rgba(255, 255, 255, 0);}
 .portfolio-txt-area button:hover {transform: scale(1.1); transition: .4s; background-color: rgba(255, 255, 255, .4); box-shadow: 0 0 20px rgba(0, 0, 0, .2);}
-
 .portfolio-txt-area li.on {transform: translateX(0) skewX(0);}
 
 footer {width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; perspective: 400px;}
@@ -33,7 +37,7 @@ footer .card {position: relative; display: block; width: 540px; height: 300px; b
 footer .card address {position: absolute; bottom: 1rem; right: 1.6rem;}
 footer .card .name {font-weight: bold; color: #333333; font-size: 1.6rem; margin-bottom: 1rem;}
 footer .card li {font-weight: bold; color: #333333; margin-top: .4rem;}
-footer .card li a {font-weight: normal; text-decoration: none; color: #666666;}
+footer .card li a {font-weight: normal; color: #666666;}
 footer .card li a:hover {color: #333333;}
 
 /* @keyframes backgroudRotation {

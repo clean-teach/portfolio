@@ -1,12 +1,12 @@
 const winInnerHeight = window.innerHeight;
 const pageHeight = document.documentElement.offsetHeight;
-const mainSection = document.querySelector('.main-section');
+const lnb = document.querySelector('#lnb');
+const lnbBtn = lnb.querySelectorAll('button');
+const mainSection = document.querySelector('#main-section');
 const portfolioImgBox = document.querySelectorAll('.portfolio-img-list li');
 const portfolioTxtBox = document.querySelectorAll('.portfolio-txt-area li');
 const card = document.querySelector('footer .card');
-const cardOffsetTop = card.parentElement.offsetTop + card.offsetTop + card.clientHeight;
-const initialAngleValue = 90;
-const percentage = () => resetSct/(pageHeight-cardOffsetTop)*-90;
+const footerCardInitialAngleValue = 90;
 
 let mainBackColorR = 0, 
     mainBackColorG = 0, 
@@ -23,8 +23,21 @@ window.addEventListener('load', function(e) {
         setPortfolioTxtAreaAddClass(i,arr);
     });
 
+    setLnbStyle();
+    setMainSectionStyle();
     setBackgroundColor();
-    window.scrollBy( 0, 1 );
+    setFooterCardRotate();
+});
+
+lnbBtn.forEach(btn => {
+    btn.addEventListener('click', function(){
+        console.log(document.getElementById(this.dataset.targetid).offsetTop);
+        window.scrollTo({
+            top: document.getElementById(this.dataset.targetid).offsetTop,
+            behavior: 'smooth'
+        });
+        setFooterCardRotate();
+    });
 });
 
 mainSection.addEventListener('mousemove', function(e){
@@ -42,13 +55,9 @@ mainSection.addEventListener('mousemove', function(e){
 document.addEventListener('scroll', function(e) {
     scrollBottom = document.documentElement.scrollTop + winInnerHeight;
 
+    setLnbStyle();
+    setMainSectionStyle();
     setBackgroundColor();
-
-    if(document.documentElement.scrollTop <= 0) {
-        mainSection.classList.remove('blow');
-    }else{
-        mainSection.classList.add('blow');
-    }
 
     portfolioTxtBox.forEach((obj) => {
         obj.classList.remove('on');
@@ -71,20 +80,15 @@ document.addEventListener('scroll', function(e) {
     }
     
     // footer card
-    if(scrollBottom > cardOffsetTop) {
-        let resetSct = scrollBottom - cardOffsetTop;
-        let percentage = resetSct/(pageHeight-cardOffsetTop)*-90;
-
-        card.style.transform = `rotateX(${initialAngleValue + percentage}deg)`;
-        card.style.transition = '0s';
-    }
+    setFooterCardRotate();
 });
 
 // footer card
-const sensitiveY = 40;
-const sensitiveX = 20;
+const sensitiveY = 20;
+const sensitiveX = 10;
 const direction = 1; // positive or negative
 card.addEventListener('mousemove', function(e){
+    if(getCurrentScrollBottomEnd())
     card.style.transform = `
         rotateY(${direction*(window.innerWidth/2 - e.x)/sensitiveY}deg) 
         rotateX(${direction*(window.innerHeight/2 - e.y)/-sensitiveX}deg)
@@ -92,9 +96,31 @@ card.addEventListener('mousemove', function(e){
     card.style.transition = '0s';
 });
 card.addEventListener('mouseleave', function(){
+    if(getCurrentScrollBottomEnd())
     card.style.transform = `rotateY(0deg) rotateX(0deg)`;
     card.style.transition = '1s';
 });
+
+// scroll, mousemove 에 따른 배경색상 설정 함수
+function setBackgroundColor(){
+    document.body.style.backgroundColor= `rgba(${mainBackColorR},${mainBackColorG},${mainBackColorB},${1-(document.documentElement.scrollTop/mainSection.offsetHeight)})`;
+}
+
+// scroll 상태에 따른 로컬네비게이션 버튼 색상
+function setLnbStyle() {
+    let colorRGB = 255 - ((document.documentElement.scrollTop/mainSection.offsetHeight)*255);
+    if(colorRGB < 0) {colorRGB = 0}
+    lnbBtn.forEach(btn => btn.style.color = `rgba(${colorRGB}, ${colorRGB}, ${colorRGB}, 1)`);
+}
+
+// scroll 상태에 따른 메인화면 style
+function setMainSectionStyle() {
+    if(document.documentElement.scrollTop <= 0) {
+        mainSection.classList.remove('blow');
+    }else{
+        mainSection.classList.add('blow');
+    }
+}
 
 // 포트폴리오 글자 영역 나타나는 조건에 대한 함수
 function setPortfolioTxtAreaAddClass(i,arr) {
@@ -106,9 +132,16 @@ function setPortfolioTxtAreaAddClass(i,arr) {
     }
 }
 
-// scroll, mousemove 에 따른 배경색상 설정 함수
-function setBackgroundColor(){
-    document.body.style.backgroundColor= `rgba(${mainBackColorR},${mainBackColorG},${mainBackColorB},${1-(document.documentElement.scrollTop/mainSection.offsetHeight)})`;
+// scroll 상태에 따른 footer card 회전 모션
+function setFooterCardRotate() {
+    const cardOffsetTop = card.parentElement.offsetTop + card.offsetTop + card.clientHeight;
+    let percentage
+
+    if(scrollBottom > cardOffsetTop) {
+        percentage = (scrollBottom - cardOffsetTop)/(pageHeight-cardOffsetTop)*-90;
+    }
+    card.style.transform = `rotateX(${footerCardInitialAngleValue + percentage}deg)`;
+    card.style.transition = '0s';
 }
 
 // 스크롤 방향 감지
@@ -119,4 +152,10 @@ function getScrollDirection(){
     else result = 'UP';
     scrollBaseValue = window.scrollY;
     return result;
+}
+
+// 현재 스크롤 상태 맨 아래에 있는지 반환
+function getCurrentScrollBottomEnd(){
+    if((pageHeight - scrollBottom) == 0) return true;
+    return false;
 }
