@@ -1,7 +1,6 @@
 const winInnerHeight = window.innerHeight;
-const pageHeight = document.documentElement.offsetHeight;
-const lnb = document.querySelector('#lnb');
-const lnbBtn = lnb.querySelectorAll('button');
+const header = document.querySelector('header');
+const lnbBtn = header.querySelectorAll('#lnb button');
 const mainSection = document.querySelector('#main-section');
 const portfolioImgBox = document.querySelectorAll('.portfolio-img-list li');
 const portfolioTxtBox = document.querySelectorAll('.portfolio-txt-area li');
@@ -12,7 +11,9 @@ let mainBackColorR = 0,
     mainBackColorG = 0, 
     mainBackColorB = 0, 
     effectClassName, 
-    scrollBottom = document.documentElement.scrollTop + winInnerHeight;
+    pageScrollHeight = document.body.scrollHeight,
+    scrollBottom = document.documentElement.scrollTop + winInnerHeight,
+    cardOffsetTop = card.parentElement.offsetTop + card.offsetTop + card.clientHeight;
 
 window.addEventListener('load', function(e) {
     scrollBottom = document.documentElement.scrollTop + winInnerHeight;
@@ -31,7 +32,6 @@ window.addEventListener('load', function(e) {
 
 lnbBtn.forEach(btn => {
     btn.addEventListener('click', function(){
-        console.log(document.getElementById(this.dataset.targetid).offsetTop);
         window.scrollTo({
             top: document.getElementById(this.dataset.targetid).offsetTop,
             behavior: 'smooth'
@@ -79,7 +79,6 @@ document.addEventListener('scroll', function(e) {
         });
     }
     
-    // footer card
     setFooterCardRotate();
 });
 
@@ -100,17 +99,28 @@ card.addEventListener('mouseleave', function(){
     card.style.transform = `rotateY(0deg) rotateX(0deg)`;
     card.style.transition = '1s';
 });
+card.querySelectorAll('a').forEach(a => {
+    a.addEventListener('mouseenter', function(){
+        document.querySelector('footer').classList.add('on');
+    });
+});
 
 // scroll, mousemove 에 따른 배경색상 설정 함수
 function setBackgroundColor(){
     document.body.style.backgroundColor= `rgba(${mainBackColorR},${mainBackColorG},${mainBackColorB},${1-(document.documentElement.scrollTop/mainSection.offsetHeight)})`;
 }
 
-// scroll 상태에 따른 로컬네비게이션 버튼 색상
+// scroll 상태에 따른 Local Navigation Button Style
 function setLnbStyle() {
     let colorRGB = 255 - ((document.documentElement.scrollTop/mainSection.offsetHeight)*255);
     if(colorRGB < 0) {colorRGB = 0}
     lnbBtn.forEach(btn => btn.style.color = `rgba(${colorRGB}, ${colorRGB}, ${colorRGB}, 1)`);
+
+    if(document.documentElement.scrollTop >= winInnerHeight) {
+        header.classList.add('on');
+    }else{
+        header.classList.remove('on');
+    }
 }
 
 // scroll 상태에 따른 메인화면 style
@@ -134,14 +144,13 @@ function setPortfolioTxtAreaAddClass(i,arr) {
 
 // scroll 상태에 따른 footer card 회전 모션
 function setFooterCardRotate() {
-    const cardOffsetTop = card.parentElement.offsetTop + card.offsetTop + card.clientHeight;
-    let percentage
-
     if(scrollBottom > cardOffsetTop) {
-        percentage = (scrollBottom - cardOffsetTop)/(pageHeight-cardOffsetTop)*-90;
+        pageScrollHeight = document.body.scrollHeight;
+        let percentage = (scrollBottom - cardOffsetTop)/(pageScrollHeight-cardOffsetTop)*-90;
+
+        card.style.transform = `rotateX(${footerCardInitialAngleValue + percentage}deg)`;
+        card.style.transition = '0s';
     }
-    card.style.transform = `rotateX(${footerCardInitialAngleValue + percentage}deg)`;
-    card.style.transition = '0s';
 }
 
 // 스크롤 방향 감지
@@ -156,6 +165,6 @@ function getScrollDirection(){
 
 // 현재 스크롤 상태 맨 아래에 있는지 반환
 function getCurrentScrollBottomEnd(){
-    if((pageHeight - scrollBottom) == 0) return true;
+    if((pageScrollHeight - scrollBottom) == 0) return true;
     return false;
 }
