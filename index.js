@@ -25,8 +25,7 @@ window.addEventListener('load', function(e) {
     });
 
     setLnbStyle();
-    setMainSectionStyle();
-    setBackgroundColor();
+    setBackgroundColor(mainBackColorR, mainBackColorG, mainBackColorB, 1-(document.documentElement.scrollTop/mainSection.offsetHeight));
     setFooterCardRotate();
 });
 
@@ -45,7 +44,7 @@ mainSection.addEventListener('mousemove', function(e){
         let moveX = parseInt(e.x/mainSection.offsetWidth*255);
         let moveY = parseInt(e.y/mainSection.offsetHeight*255);
 
-        setBackgroundColor();
+        setBackgroundColor(mainBackColorR, mainBackColorG, mainBackColorB, 1-(document.documentElement.scrollTop/mainSection.offsetHeight));
         mainBackColorR = moveX;
         mainBackColorG = 0;
         mainBackColorB = moveY;
@@ -56,8 +55,11 @@ document.addEventListener('scroll', function(e) {
     scrollBottom = document.documentElement.scrollTop + winInnerHeight;
 
     setLnbStyle();
-    setMainSectionStyle();
-    setBackgroundColor();
+    setBackgroundColor(mainBackColorR, mainBackColorG, mainBackColorB, 1-(document.documentElement.scrollTop/mainSection.offsetHeight));
+
+    mainSection.querySelector('.tit').style.left = `-${document.documentElement.scrollTop}px`;
+    mainSection.querySelector('.sub').style.left = `${document.documentElement.scrollTop}px`;
+    mainSection.querySelector('.vertical').style.top = `-${document.documentElement.scrollTop*.8}px`;
 
     portfolioTxtBox.forEach((obj) => {
         obj.classList.remove('on');
@@ -80,6 +82,13 @@ document.addEventListener('scroll', function(e) {
     }
     
     setFooterCardRotate();
+});
+document.addEventListener('mouseenter', function(e) {
+    document.body.style.transition = '0s';
+});
+document.addEventListener('mouseleave', function(e) {
+    setBackgroundColor(0, 0, 0, 1-(document.documentElement.scrollTop/mainSection.offsetHeight));
+    document.body.style.transition = `1s`;
 });
 
 // footer card
@@ -106,8 +115,8 @@ card.querySelectorAll('a').forEach(a => {
 });
 
 // scroll, mousemove 에 따른 배경색상 설정 함수
-function setBackgroundColor(){
-    document.body.style.backgroundColor= `rgba(${mainBackColorR},${mainBackColorG},${mainBackColorB},${1-(document.documentElement.scrollTop/mainSection.offsetHeight)})`;
+function setBackgroundColor(R, G, B, alpha){
+    document.body.style.backgroundColor= `rgba(${R},${G},${B},${alpha})`;
 }
 
 // scroll 상태에 따른 Local Navigation Button Style
@@ -116,19 +125,10 @@ function setLnbStyle() {
     if(colorRGB < 0) {colorRGB = 0}
     lnbBtn.forEach(btn => btn.style.color = `rgba(${colorRGB}, ${colorRGB}, ${colorRGB}, 1)`);
 
-    if(document.documentElement.scrollTop >= winInnerHeight) {
+    if(document.documentElement.scrollTop >= winInnerHeight-300) {
         header.classList.add('on');
     }else{
         header.classList.remove('on');
-    }
-}
-
-// scroll 상태에 따른 메인화면 style
-function setMainSectionStyle() {
-    if(document.documentElement.scrollTop <= 0) {
-        mainSection.classList.remove('blow');
-    }else{
-        mainSection.classList.add('blow');
     }
 }
 
