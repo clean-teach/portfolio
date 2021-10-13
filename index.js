@@ -39,16 +39,14 @@ lnbBtn.forEach(btn => {
     });
 });
 
-mainSection.addEventListener('mousemove', function(e){
-    if(document.documentElement.scrollTop <= 0) {
-        let moveX = parseInt(e.x/mainSection.offsetWidth*255);
-        let moveY = parseInt(e.y/mainSection.offsetHeight*255);
+document.addEventListener('mousemove', function(e){
+    let moveX = parseInt(e.x/mainSection.offsetWidth*255);
+    let moveY = parseInt(e.y/mainSection.offsetHeight*255);
 
-        setBackgroundColor(mainBackColorR, mainBackColorG, mainBackColorB, 1-(document.documentElement.scrollTop/mainSection.offsetHeight));
-        mainBackColorR = moveX;
-        mainBackColorG = 0;
-        mainBackColorB = moveY;
-    }
+    setBackgroundColor(mainBackColorR, mainBackColorG, mainBackColorB, 1-(document.documentElement.scrollTop/mainSection.offsetHeight));
+    mainBackColorR = 255-moveX;
+    mainBackColorG = moveX-moveY;
+    mainBackColorB = 255-moveY-moveX;
 });
 
 document.addEventListener('scroll', function(e) {
@@ -57,9 +55,9 @@ document.addEventListener('scroll', function(e) {
     setLnbStyle();
     setBackgroundColor(mainBackColorR, mainBackColorG, mainBackColorB, 1-(document.documentElement.scrollTop/mainSection.offsetHeight));
 
-    mainSection.querySelector('.tit').style.left = `-${document.documentElement.scrollTop}px`;
-    mainSection.querySelector('.sub').style.left = `${document.documentElement.scrollTop}px`;
-    mainSection.querySelector('.vertical').style.top = `-${document.documentElement.scrollTop*.8}px`;
+    mainSection.querySelector('.tit').style.left = `-${document.documentElement.scrollTop*4}px`;
+    // mainSection.querySelector('.sub').style.left = `${document.documentElement.scrollTop*4}px`;
+    mainSection.querySelector('.vertical').style.top = `${document.documentElement.scrollTop * .4}px`;
 
     portfolioTxtBox.forEach((obj) => {
         obj.classList.remove('on');

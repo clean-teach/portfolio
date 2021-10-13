@@ -1,36 +1,39 @@
-::selection {
-    background-color: orchid;
-    color: #ffffff;
-}
+::selection {background-color: orchid; color: #ffffff;}
 
-body {width: 100%; background-color: black; font-family: 'Noto Sans KR', 'Nanum Gothic', Helvetica, Arial, sans-serif; overflow-x: hidden;}
+html {scroll-behavior: smooth;}
+html * {font-family: 'Noto Sans KR', 'Noto Sans', 'Nanum Gothic', 'Open Sans', Helvetica, Arial, sans-serif;}
+body {width: 100%; background-color: black; overflow-x: hidden;}
 img {pointer-events: none;}
 a {text-decoration: none;}
 button {margin: 0; padding: 0; border: none; background: none; cursor: pointer;}
+
+#loader {position: fixed; width: 100vw; height: 100vh; background-color: #000000; color: #efefef; font-weight: 400; font-size: 1.6rem; display: flex; justify-content: center; align-items: center; z-index: 99999;}
 
 header {position: absolute; width: 100%; top: 0; right: 0; z-index: 999;}
 h1 {opacity: 0;}
 section {width: 100%;}
 
-#lnb {margin: 8rem 2rem; text-align: center; transition: 1s;}
+#lnb {margin: 24vh 2rem 2rem; text-align: center; transition: 1s;}
 #lnb ul {display: flex; justify-content: center;}
 #lnb li {padding: 2rem; transition: 1s;}
-#lnb button {font-weight: 100; font-size: 1.6rem; color: #ffffff; opacity: .6; transition: 1s;}
+#lnb button {font-weight: 100; font-size: 1.6rem; color: #ffffff; transition: 1s;}
 header.on {position: fixed; width: auto;}
 header.on #lnb {margin: 2rem; text-align: right;}
 header.on #lnb li {padding: 1rem;}
-header.on #lnb button {font-size: 1.2rem;}
+header.on #lnb button {font-size: 1.2rem; opacity: .6; filter: blur(2px);}
+header.on #lnb button:hover {filter: blur(0); transition: .2s;}
 
 #main-section {color: #ffffff; text-align: center; margin-bottom: 50vh;}
 #main-section .txt {position: relative; z-index: 100; opacity: 1; transition: .6s;}
-#main-section .tit {position: relative; padding-top: 40vh; font-weight: 300; font-size: 1.6rem;}
-#main-section .sub {position: relative; margin-top: 1.2rem; font-weight: 600; font-size: 3.6rem; line-height: 5.2rem;}
+#main-section .tit {position: relative; padding-top: 44vh; font-weight: 600; font-size: 3.6rem; line-height: 5.2rem;}
 #main-section .vertical {position: relative; margin: 50vh auto 0; width: 1.4rem; word-wrap: break-word; text-align:center; font-weight: 200; font-size: 1.6rem; line-height: 3.6rem;}
 
 #portfolio-section {max-width: 1280px; margin: 0 auto;}
 .portfolio-img-list li {width: 56%; overflow: hidden; margin-bottom: 10rem; box-shadow: 10px 20px 60px rgba(0, 0, 0, .2); line-height: 0; transform: skewY(24deg) translateY(400px); transform-origin: 0; transition: .4s;}
-.portfolio-img-list li.on {transform: skewY(0) translateY(0);}
 .portfolio-img-list img {width: 100%;}
+.portfolio-img-list li.on {transform: skewY(0) translateY(0);}
+.portfolio-img-list li.portfolio-mockup-mobile-02.on {transform: skewY(0) translateY(0);}
+
 .portfolio-txt-area li {position: fixed; top: 20vh; left: 60%; width: 520px; transform: translateX(2000px) skewX(64deg); transform-origin: 0; transition: .2s ease-in;}
 .portfolio-txt-area h2 {font-weight: bold; font-size: 2.4rem; color: #333333;}
 .portfolio-txt-area .datetime {margin-top: 1rem; font-weight: 200; font-size: 1rem; letter-spacing: .05rem; color: #666666;}

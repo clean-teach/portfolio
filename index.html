@@ -7,8 +7,33 @@
     <title>CH Portfolio</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="index.css">
+    <script>
+        let loader;
+        document.addEventListener('DOMContentLoaded', function () {
+            loader = document.getElementById('loader');
+        });
+        window.onload = function () {
+            let opacity = Number(window.getComputedStyle(loader).getPropertyValue('opacity'));
+
+            setTimeout(function(){
+                let fadeOut = setInterval(() => {
+                    if(opacity > 0) {
+                        opacity -= .01;
+                        loader.style.opacity = opacity;
+                    }else{
+                        clearInterval(fadeOut);
+                        loader.remove();
+                    }
+                }, 10);
+            }, 2000);
+        };
+    </script>
 </head>
 <body>
+    <div id="loader">
+        <p>"천재는 노력하는 사람을 이길 수 없고, 노력하는 사람은 즐기는 사람을 이길 수 없다."</p>
+    </div>
+
     <header>
         <h1>Web Front-end developer Portfolio</h1>
         <nav id="lnb">
@@ -21,10 +46,8 @@
     </header>
     <section id="main-section">
         <div class="txt">
-            <p class="tit">"천재는 노력하는 자를 이기지 못하고, 노력하는 자는 즐기는 자를 이기지 못한다."</p>
-            <p class="sub">
-                저는 놀이처럼 배우고 활용하는 것을 좋아합니다.
-            </p>
+            <p class="tit">저는 놀이처럼 배우고 활용하는 것을 좋아합니다.</p>
+            <!-- <p class="sub"></p> -->
             <p class="vertical">
                 한 평생 배우러 왔다가 갑니다
             </p>
@@ -36,7 +59,7 @@
             <li><img src="img/screencapture-lavidamall-co-kr-main-do-2021-10-07-15_52_42.png" alt="lavida mall 홈페이지 화면"></li>
             <li><img src="img/fur_web_main.jpg" alt="기금도시재생포털 홈페이지 화면"></li>
             <li><img src="img/mockup_mobile_aonecc.jpg" alt="aonecc mobile mockup"></li>
-            <li><img src="img/mockup_mobile_novita.jpg" alt="novita mobile mockup"></li>
+            <li class="portfolio-mockup-mobile-02"><img src="img/mockup_mobile_novita.jpg" alt="novita mobile mockup"></li>
         </ul>
         <ul class="portfolio-txt-area">
             <li>
