@@ -1,0 +1,110 @@
+@charset "utf-8";
+
+/* body {background: url(../../../02_design/durian.png) no-repeat center top;}
+body * {opacity: .9;} */
+
+/* common */
+html {scroll-behavior: smooth;}
+body {font-size: 16px; letter-spacing: -.05em;}
+body * {font-family: 'Noto Sans KR', Helvetica, Arial, sans-serif;}
+a {text-decoration: none;}
+button {padding: 0; background: none; border: none; cursor: pointer;}
+
+.wrapper {width: 1200px; margin: 0 auto;}
+
+/* header */
+header {position: fixed; top: 0; left: 0; width: 100%; height: 90px; background-color: #ffffff; border-bottom: 2px solid #ffcf78; z-index: 99;}
+header .wrapper {position: relative; height: 100%;}
+h1 {position: absolute; width: auto; height: 100%; display: flex; align-items: center;}
+h1 span {display: block; width: 0; height: 0; overflow: hidden;}
+header .lnb {position: absolute; top: 0; left: 466px; height: 100%; font-weight: normal; font-size: 1.125rem; letter-spacing: 0;}
+header .lnb ul {width: 16.8rem; height: 100%; display: flex; justify-content: space-between; align-items: center;}
+header .lnb a {color: #666666;}
+header .lnb a.on {color: #ffa94d; font-weight: bold;}
+header .download-btn-wrap {position: absolute; top: 0; right: 0; height: 100%; display: flex; align-items: center;}
+header .download-btn-wrap a+a {margin-left: .75rem;}
+
+/* section */
+section {height: 778px;}
+
+.rolling-banner {position: relative; width: 100%; height: 100%; overflow: hidden;}
+.rolling-banner .banners {height: 100%;}
+.rolling-banner .banners>li {position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+.indicator {position: absolute; bottom: 3.75rem; width: 100%; text-align: center;}
+.indicator li {display: inline-block; padding: 0 .52rem;}
+.indicator button {width: 1rem; height: 1rem; border-radius: 100%; background-color: #dadada;}
+.indicator button.on {background-color: #ff911c;}
+
+#section-main-banner {padding-top: 92px;}
+#section-main-banner h2 {width: 0; height: 0; overflow: hidden;}
+#section-main-banner .banners>li {box-sizing: border-box; background-color: #ffecca; text-align: center; background-repeat: no-repeat;}
+#section-main-banner .banners h3 {font-weight: 400; font-size: 5rem; letter-spacing: -.16rem; color: #695229;}
+#section-main-banner .banners h3 span {font-weight: 600; color: #ff8a0d;}
+#section-main-banner .banners .cont {margin-top: 4.4rem; font-weight: normal; font-size: 1.25rem; line-height: 1.75rem; color: #9b7e4a;}
+#section-main-banner .banners .sub {margin-top: 1.1rem; font-weight: normal; font-size: 2rem; line-height: 2.625rem; letter-spacing: -.03em; color: #cf802c;}
+#section-main-banner .banners .link-area button {background-color: #ff982b; color: #ffffff; text-transform: uppercase; font-weight: bold; font-size: 1.5rem; height: 4.375rem; padding: 0 3.785rem; border-radius: 2.188rem; margin-top: 3.4rem;}
+#section-main-banner .banners .comming {display: inline-block; margin-top: 6rem; text-transform: uppercase; font-weight: bold; font-size: 2rem; letter-spacing: 0; color: #695229;}
+#section-main-banner .banners .banner-01 {padding-top: 11.4rem; background-image: url(../img/character_durian_01_380x483.png); background-position: calc(50% + 419px) 115%;}
+#section-main-banner .banners .banner-02 {padding-top: 11.4rem; background-image: url(../img/character_durian_02_380x484.png); background-position: calc(50% + 419px) 115%;}
+#section-main-banner .banners .banner-03 {padding-top: 11.4rem; background-image: url(../img/character_durian_03_380x484.png); background-position: calc(50% + 419px) 115%;}
+#section-main-banner .banners .banner-incentive {padding-top: 11.4rem;}
+#section-main-banner .banners .banner-incentive .sub {margin-top: 4.2rem;}
+#section-main-banner .banners .banner-incentive .img-area ul {display: flex; justify-content: center;}
+#section-main-banner .banners .banner-incentive .img-area li {margin-top: 1.5rem; background: url(../img/icon_point_01_122x122.png) no-repeat center top; padding-top: 5.2rem;}
+#section-main-banner .banners .banner-incentive .img-area li+li {margin-left: 1.25rem;}
+#section-main-banner .banners .banner-incentive .img-area .incen {background-color: #ff8a0d; color: #ffffff; font-weight: bold; font-size: 2.125rem; width: 18.75rem; height: 5.625rem; border-radius: .45rem; display: flex; justify-content: center; align-items: center;}
+#section-main-banner .banners .banner-incentive .img-area .terms {font-weight: bold; font-size: 1.5rem; color: #f6860e; margin-top: 1rem;}
+#section-main-banner .banners .banner-gemplus {padding-top: 11.4rem; background-image: url(../img/character_durian_04_381x483.png); background-position: calc(50% + 419px) 115%;}
+#section-main-banner .banners .banner-gemplus .sub {margin-top: 4.2rem;}
+#section-main-banner .banners .banner-gemplus .link-area h4 {margin-top: 3.5rem; font-weight: normal; font-size: 1.625rem; color: #695229; margin-bottom: 2rem;}
+#section-main-banner .banners .banner-gemplus .link-area a {display: inline-block; margin: 0 .34rem;}
+
+#section-durian {position: relative; text-align: center;}
+#section-durian h2 {position: absolute; top: 0; left: 0; width: 100%; text-align: center; font-weight: normal; font-size: 2rem; color: #111111; padding: 2.875rem 0 2.75rem; background: url(../img/bg_section_tit.png) no-repeat center bottom;}
+#section-durian h3 {font-weight: bold; font-size: 1.625rem; color: #333333; padding-top: 11.35rem;}
+#section-durian .box-wrap {margin-top: 1.875rem; display: flex; justify-content: center;}
+#section-durian .box-wrap .box {font-weight: normal; font-size: 1.25rem; color: #ff670b; background-color: #ffffff; border: 2px solid #ff911c; border-radius: 1.25rem; width: 18rem; height: 3.625rem; display: flex; justify-content: center; align-items: center; position: relative;}
+#section-durian .box-wrap .box + .box {margin-left: 1.125rem;}
+#section-durian .box-wrap .box + .box::before {content: ''; display: block; position: absolute; left: calc(-1.125rem - 2px); top: 50%; width: 1.125rem; height: 2px; background-color: #ffc78b; z-index: 1;}
+#section-durian .description {font-weight: 300; font-size: 1.125rem; line-height: 1.625rem; color: #666666; counter-reset: list-number; margin-top: 1.7rem;}
+#section-durian .description li {counter-increment: list-number; position: relative; margin-top: 1.4rem; padding-top: 3rem;}
+#section-durian .description li::before {content: counter(list-number); background-color: #333333; color: #ffffff; font-weight: normal; font-size: 1.5rem; width: 2.5rem; height: 2.5rem; border-radius: 100%; display: flex; justify-content: center; align-items: center; position: absolute; top: 0; left: calc(50% - 1.25rem);}
+#section-durian .sub {color: #ff911c; font-weight: normal; font-size: 2rem; line-height: 2.625rem; margin-top: 1.25rem;}
+#section-durian .link-area {margin-top: 1.5rem;}
+#section-durian .link-area h4 {width: 0; height: 0; overflow: hidden;}
+#section-durian .link-area .comming {display: inline-block; margin-top: 1.375rem; text-transform: uppercase; font-weight: bold; font-size: 2rem; letter-spacing: 0; color: #695229;}
+
+#section-screenshots {background-color: #fff8ea;}
+#section-screenshots h2 {width: 100%; text-align: center; font-weight: normal; font-size: 2rem; color: #111111; padding: 2.875rem 0 2.75rem; background: url(../img/bg_section_tit.png) no-repeat center bottom;}
+#section-screenshots .wrapper {overflow: hidden;}
+#section-screenshots .img-list {display: flex;}
+#section-screenshots .img-list li + li {margin-left: 1.625rem;}
+
+#section-video {height: auto; padding-bottom: 2.25rem;}
+#section-video h2 {width: 100%; text-align: center; font-weight: normal; font-size: 2rem; color: #111111; padding: 2.875rem 0 2.75rem; background: url(../img/bg_section_tit.png) no-repeat center bottom;}
+#section-video .video-list::after {content: ''; display: block; clear: both;}
+#section-video .video-list li {float: left; margin-top: 2rem; width: 48%;}
+#section-video .video-list li:nth-child(even) {margin-left: 4%;}
+#section-video iframe {width: 100%;}
+
+#section-download {height: auto; padding: 3.25rem 0 4.5rem;}
+#section-download h2 {width: 0; height: 0; overflow: hidden;}
+#section-download .download-list {display: flex;}
+#section-download .download-list li {width: 49%; height: 240px; box-sizing: border-box; border: 2px solid #e3e3e3; border-radius: .5rem; overflow: hidden; display: flex;}
+#section-download .download-list li:nth-child(even) {margin-left: 2%;}
+#section-download .download-list .img-wrap {position: relative; width: 50%; height: 100%; overflow: hidden; text-align: center;}
+#section-download .download-list .img-wrap img {position: absolute;}
+#section-download .download-list .durian .img-wrap img {top: 1rem; left: 18%;}
+#section-download .download-list .gemplus .img-wrap img {top: -6rem; left: -32%;}
+#section-download .download-list .link-wrap {width: 50%; height: 100%; overflow: hidden;}
+#section-download .download-list .link-wrap h3, #section-download .download-list .link-wrap a {color: #af9d7d; font-size: 1.25rem; display: flex; justify-content: left; align-items: center; padding: 0 1.5rem; height: 33.33%;}
+#section-download .download-list .link-wrap a {border-top: 2px solid #ece4d0; justify-content: space-between;}
+
+footer {background-color: #f8f8f8; text-align: center; color: #666666; padding: 2.5rem;}
+footer address {max-width: 780px; margin: 0 auto; font-size: .875rem; line-height: 1.375rem;}
+footer address h2 {display: flex; justify-content: center; align-items: center;}
+footer address h2 img {margin-left: .4rem;}
+footer address ul {margin-top: 1.375rem;}
+footer address li {display: inline-block;}
+footer address li + li::before {content: ' / '; color: #9b9b9b; padding: 0 .4rem;}
+footer .copyright {margin-top: 1.375rem; color: #9d9d9d;}
