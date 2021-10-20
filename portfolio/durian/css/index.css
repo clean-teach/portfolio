@@ -27,37 +27,34 @@ header .download-btn-wrap a+a {margin-left: .75rem;}
 /* section */
 section {height: 778px;}
 
-.rolling-banner {position: relative; width: 100%; height: 100%; overflow: hidden;}
-.rolling-banner .banners {height: 100%;}
-.rolling-banner .banners>li {position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+.slider {position: relative; width: 100%; height: 100%;}
 .indicator {position: absolute; bottom: 3.75rem; width: 100%; text-align: center;}
-.indicator li {display: inline-block; padding: 0 .52rem;}
-.indicator button {width: 1rem; height: 1rem; border-radius: 100%; background-color: #dadada;}
+.indicator button {width: 1rem; height: 1rem; border-radius: 100%; margin: 0 .52rem; background-color: #dadada;}
 .indicator button.on {background-color: #ff911c;}
 
 #section-main-banner {padding-top: 92px;}
 #section-main-banner h2 {width: 0; height: 0; overflow: hidden;}
-#section-main-banner .banners>li {box-sizing: border-box; background-color: #ffecca; text-align: center; background-repeat: no-repeat;}
-#section-main-banner .banners h3 {font-weight: 400; font-size: 5rem; letter-spacing: -.16rem; color: #695229;}
-#section-main-banner .banners h3 span {font-weight: 600; color: #ff8a0d;}
-#section-main-banner .banners .cont {margin-top: 4.4rem; font-weight: normal; font-size: 1.25rem; line-height: 1.75rem; color: #9b7e4a;}
-#section-main-banner .banners .sub {margin-top: 1.1rem; font-weight: normal; font-size: 2rem; line-height: 2.625rem; letter-spacing: -.03em; color: #cf802c;}
-#section-main-banner .banners .link-area button {background-color: #ff982b; color: #ffffff; text-transform: uppercase; font-weight: bold; font-size: 1.5rem; height: 4.375rem; padding: 0 3.785rem; border-radius: 2.188rem; margin-top: 3.4rem;}
-#section-main-banner .banners .comming {display: inline-block; margin-top: 6rem; text-transform: uppercase; font-weight: bold; font-size: 2rem; letter-spacing: 0; color: #695229;}
-#section-main-banner .banners .banner-01 {padding-top: 11.4rem; background-image: url(../img/character_durian_01_380x483.png); background-position: calc(50% + 419px) 115%;}
-#section-main-banner .banners .banner-02 {padding-top: 11.4rem; background-image: url(../img/character_durian_02_380x484.png); background-position: calc(50% + 419px) 115%;}
-#section-main-banner .banners .banner-03 {padding-top: 11.4rem; background-image: url(../img/character_durian_03_380x484.png); background-position: calc(50% + 419px) 115%;}
-#section-main-banner .banners .banner-incentive {padding-top: 11.4rem;}
-#section-main-banner .banners .banner-incentive .sub {margin-top: 4.2rem;}
-#section-main-banner .banners .banner-incentive .img-area ul {display: flex; justify-content: center;}
-#section-main-banner .banners .banner-incentive .img-area li {margin-top: 1.5rem; background: url(../img/icon_point_01_122x122.png) no-repeat center top; padding-top: 5.2rem;}
-#section-main-banner .banners .banner-incentive .img-area li+li {margin-left: 1.25rem;}
-#section-main-banner .banners .banner-incentive .img-area .incen {background-color: #ff8a0d; color: #ffffff; font-weight: bold; font-size: 2.125rem; width: 18.75rem; height: 5.625rem; border-radius: .45rem; display: flex; justify-content: center; align-items: center;}
-#section-main-banner .banners .banner-incentive .img-area .terms {font-weight: bold; font-size: 1.5rem; color: #f6860e; margin-top: 1rem;}
-#section-main-banner .banners .banner-gemplus {padding-top: 11.4rem; background-image: url(../img/character_durian_04_381x483.png); background-position: calc(50% + 419px) 115%;}
-#section-main-banner .banners .banner-gemplus .sub {margin-top: 4.2rem;}
-#section-main-banner .banners .banner-gemplus .link-area h4 {margin-top: 3.5rem; font-weight: normal; font-size: 1.625rem; color: #695229; margin-bottom: 2rem;}
-#section-main-banner .banners .banner-gemplus .link-area a {display: inline-block; margin: 0 .34rem;}
+#section-main-banner .banner {box-sizing: border-box; background-color: #ffecca; text-align: center; background-repeat: no-repeat;}
+#section-main-banner .banner h3 {font-weight: 400; font-size: 5rem; letter-spacing: -.16rem; color: #695229;}
+#section-main-banner .banner h3 span {font-weight: 600; color: #ff8a0d;}
+#section-main-banner .banner .cont {margin-top: 4.4rem; font-weight: normal; font-size: 1.25rem; line-height: 1.75rem; color: #9b7e4a;}
+#section-main-banner .banner .sub {margin-top: 1.1rem; font-weight: normal; font-size: 2rem; line-height: 2.625rem; letter-spacing: -.03em; color: #cf802c;}
+#section-main-banner .banner .link-area button {background-color: #ff982b; color: #ffffff; text-transform: uppercase; font-weight: bold; font-size: 1.5rem; height: 4.375rem; padding: 0 3.785rem; border-radius: 2.188rem; margin-top: 3.4rem;}
+#section-main-banner .banner .comming {display: inline-block; margin-top: 6rem; text-transform: uppercase; font-weight: bold; font-size: 2rem; letter-spacing: 0; color: #695229;}
+#section-main-banner .banner-01 {padding-top: 11.4rem; background-image: url(../img/character_durian_01_380x483.png); background-position: calc(50% + 419px) 115%;}
+#section-main-banner .banner-02 {padding-top: 11.4rem; background-image: url(../img/character_durian_02_380x484.png); background-position: calc(50% + 419px) 115%;}
+#section-main-banner .banner-03 {padding-top: 11.4rem; background-image: url(../img/character_durian_03_380x484.png); background-position: calc(50% + 419px) 115%;}
+#section-main-banner .banner-incentive {padding-top: 11.4rem;}
+#section-main-banner .banner-incentive .sub {margin-top: 4.2rem;}
+#section-main-banner .banner-incentive .img-area ul {display: flex; justify-content: center;}
+#section-main-banner .banner-incentive .img-area li {margin-top: 1.5rem; background: url(../img/icon_point_01_122x122.png) no-repeat center top; padding-top: 5.2rem;}
+#section-main-banner .banner-incentive .img-area li+li {margin-left: 1.25rem;}
+#section-main-banner .banner-incentive .img-area .incen {background-color: #ff8a0d; color: #ffffff; font-weight: bold; font-size: 2.125rem; width: 18.75rem; height: 5.625rem; border-radius: .45rem; display: flex; justify-content: center; align-items: center;}
+#section-main-banner .banner-incentive .img-area .terms {font-weight: bold; font-size: 1.5rem; color: #f6860e; margin-top: 1rem;}
+#section-main-banner .banner-gemplus {padding-top: 11.4rem; background-image: url(../img/character_durian_04_381x483.png); background-position: calc(50% + 419px) 115%;}
+#section-main-banner .banner-gemplus .sub {margin-top: 4.2rem;}
+#section-main-banner .banner-gemplus .link-area h4 {margin-top: 3.5rem; font-weight: normal; font-size: 1.625rem; color: #695229; margin-bottom: 2rem;}
+#section-main-banner .banner-gemplus .link-area a {display: inline-block; margin: 0 .34rem;}
 
 #section-durian {position: relative; text-align: center;}
 #section-durian h2 {position: absolute; top: 0; left: 0; width: 100%; text-align: center; font-weight: normal; font-size: 2rem; color: #111111; padding: 2.875rem 0 2.75rem; background: url(../img/bg_section_tit.png) no-repeat center bottom;}
