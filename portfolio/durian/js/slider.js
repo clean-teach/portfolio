@@ -92,7 +92,6 @@ function Slider(target, type) {
     // event method
     return {
         move: function (i) { // 특정 순서
-            console.log(i);
             if (isMoved === true) {
                 index = i;
                 moveSlide(index);
@@ -118,10 +117,10 @@ const s1 = new Slider('#slider1', 'H');
 const s2 = new Slider('#slider2', 'H');
 
 // Slider Auto Play
-setInterval(() => {
-    s1.next();
-    s2.next();
-}, 6000);
+// setInterval(() => {
+//     s1.next();
+//     s2.next();
+// }, 6000);
 
 document.querySelectorAll('.slider').forEach(rollingBanner => {
     rollingBanner.querySelectorAll('.indicator button').forEach(indicatorBtn => {
