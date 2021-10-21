@@ -20,7 +20,7 @@ function Slider(target, type) {
     const container = document.createElement('div');
     container.style['display'] = 'flex';
     container.style['flex-direction'] = type === 'V' ? 'column' : 'row';
-    container.style['width'] = sliderRects.width + 'px';
+    container.style['width'] = '100%';
     container.style['height'] = sliderRects.height + 'px';
     container.style['transform'] = translate(index);
 

@@ -27,6 +27,7 @@ header.querySelectorAll('.lnb a').forEach(btn => {
             behavior: 'smooth'
         });
         header.querySelector('.lnb').classList.remove('on');
+        header.querySelector('.btn-drawer-menu').classList.remove('del');
     });
 });
 
@@ -35,14 +36,18 @@ header.querySelector('.btn-drawer-menu').addEventListener('click', function(){
     header.querySelector('.lnb').classList.toggle('on');
 });
 
-window.addEventListener('resize', function() {
-    winWidth = window.innerWidth;
-    winHeight = window.innerHeight;
-});
-
-
-document.addEventListener('scroll', function(){
+document.addEventListener('scroll', function(e){
     let ScollT = document.documentElement.scrollTop + header.clientHeight;
+
+    // console.log(window.innerWidth);
+    if(window.innerWidth < 1024){
+        if(getScrollDirection.direction() === 'DOWN'){
+            header.style['top'] = -header.clientHeight + 'px';
+        }else {
+            header.style['top'] = '0px';
+        }
+    }
+
     document.querySelectorAll('section').forEach((secSCT, i, arr) => {
         // Scroll Menu Active
         let sectionTop = arr[i].offsetTop - 10;
@@ -65,3 +70,18 @@ function getIndex(ele) {
     } 
     return _i;
 }
+
+// 객체 형식의 스크롤 방향 감지
+const getScrollDirection = {
+    lastScroll: document.documentElement.scrollTop,
+    direction: function() {
+        let result;
+        if(this.lastScroll < document.documentElement.scrollTop){
+            result = 'DOWN';
+        }else if(this.lastScroll > document.documentElement.scrollTop){
+            result = 'UP';
+        }
+        this.lastScroll = document.documentElement.scrollTop;
+        return result;
+    }
+};
