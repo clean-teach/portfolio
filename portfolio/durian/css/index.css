@@ -23,8 +23,8 @@ header .lnb a {color: #666666;}
 header .lnb a.on {color: #ffa94d; font-weight: bold;}
 header .download-btn-wrap {position: absolute; top: 0; right: 30px; height: 100%; display: flex; align-items: center;}
 header .download-btn-wrap a+a {margin-left: .75rem;}
-header .btn-drawer-menu {position: absolute; top: calc(50% - 1.125rem); right: 30px; width: 3rem; height: 2.25rem; display: none; transition: .4s;}
-header .btn-drawer-menu i {position: absolute; right: 0; display: block; width: 100%; height: 4px; border-radius: 4px; background-color: #444444; transition: .4s;}
+header .btn-drawer-menu {position: absolute; top: calc(50% - .8rem); right: 30px; width: 2rem; height: 1.6rem; display: none; transition: .4s;}
+header .btn-drawer-menu i {position: absolute; right: 0; display: block; width: 100%; height: 3px; border-radius: 4px; background-color: #444444; transition: .4s;}
 header .btn-drawer-menu i:nth-child(1) {top: 0;}
 header .btn-drawer-menu i:nth-child(2) {top: calc(50% - 2px); width: 68%;}
 header .btn-drawer-menu i:nth-child(3) {bottom: 0;}
@@ -68,7 +68,7 @@ section {height: 778px;}
 #section-durian {position: relative; text-align: center;}
 #section-durian h2 {position: absolute; top: 0; left: 0; width: 100%; text-align: center; font-weight: normal; font-size: 2rem; color: #111111; padding: 2.875rem 0 2.75rem; background: url(../img/bg_section_tit.png) no-repeat center bottom;}
 #section-durian h3 {font-weight: bold; font-size: 1.625rem; color: #333333; padding-top: 11.35rem;}
-#section-durian .box-wrap {margin-top: 1.875rem; display: flex; justify-content: center;}
+#section-durian .box-wrap {margin-top: 1.875rem; display: flex; justify-content: center; flex-wrap: wrap;}
 #section-durian .box-wrap .box {font-weight: normal; font-size: 1.25rem; color: #ff670b; background-color: #ffffff; border: 2px solid #ff911c; border-radius: 1.25rem; width: 18rem; height: 3.625rem; display: flex; justify-content: center; align-items: center; position: relative;}
 #section-durian .box-wrap .box + .box {margin-left: 1.125rem;}
 #section-durian .box-wrap .box + .box::before {content: ''; display: block; position: absolute; left: calc(-1.125rem - 2px); top: 50%; width: 1.125rem; height: 2px; background-color: #ffc78b; z-index: 1;}
@@ -147,19 +147,31 @@ footer .copyright {margin-top: 1.375rem; color: #9d9d9d;}
     #section-download .download-list svg {display: none;}
 }
 @media (max-width: 768px) {
+    section {height: 90vh;}
     #section-main-banner .banner {padding-top: 4rem; background-position: center 96%; background-size: 60%;}
     #section-main-banner .banner h3 {font-size: 2.5rem;}
-    #section-main-banner .banner .cont {margin-top: 2.2rem; font-size: 1rem; line-height: 1.5rem;}
+    #section-main-banner .banner .cont {margin-top: 2rem; font-size: 1rem; line-height: 1.5rem;}
     #section-main-banner .banner .sub {margin-top: 1rem; font-size: 1.25rem; line-height: 2rem;}
     #section-main-banner .banner .link-area button {font-size: 1rem; height: 3rem; padding: 0 3.785rem; border-radius: 2.188rem; margin-top: 1.7rem;}
-    #section-main-banner .banner .comming {margin-top: 3rem;font-size: 1rem;}
+    #section-main-banner .banner .comming {margin-top: 2rem;font-size: 1rem;}
     #section-main-banner .banner-incentive {padding-top: 4rem;}
-    #section-main-banner .banner-incentive .sub {margin-top: 2rem;}
+    #section-main-banner .banner-incentive .sub {margin-top: 1rem;}
     #section-main-banner .banner-incentive .img-area ul {flex-wrap: wrap;}
-    #section-main-banner .banner-incentive .img-area li {margin-top: 1.5rem; padding-top: 3rem; background-size: 4rem; width: 80%;}
+    #section-main-banner .banner-incentive .img-area li {margin-top: 1.5rem; padding-top: 3rem; background-size: 4rem; width: 60%;}
     #section-main-banner .banner-incentive .img-area li+li {margin-left: 0;}
-    #section-main-banner .banner-incentive .img-area .incen {font-size: 1.5rem; width: 100%; height: 3.5rem; }
+    #section-main-banner .banner-incentive .img-area .incen {font-size: 1rem; width: 100%; height: 3rem; }
     #section-main-banner .banner-incentive .img-area .terms {font-size: 1rem; margin-top: 1rem;}
+    #section-main-banner .banner-gemplus .sub {margin-top: 2rem;}
+    #section-main-banner .banner-gemplus .link-area h4 {margin-top: 2rem; font-size: 1.25rem; margin-bottom: 2rem;}
 
-    #section-durian h3 {padding-top: 10rem;}
+    #section-durian {height: 100vh;}
+    #section-durian h3 {padding-top: 10rem; font-size: 1.25rem;}
+    #section-durian .box-wrap .box {font-size: 1.125rem;width: 100%; height: 3rem;}
+    #section-durian .box-wrap .box + .box {margin-left: 0; margin-top: 1rem;}
+    #section-durian .box-wrap .box + .box::before {top: calc(-1.125rem - 2px); left: 50%; width: 2px; height: 1.125rem;}
+    #section-durian .description {font-size: 1rem; line-height: 1.5rem; margin-top: 1.7rem;}
+    #section-durian .description li {margin-top: 1.2rem; padding-top: 2.4rem;}
+    #section-durian .description li::before {font-size: 1rem; width: 2rem; height: 2rem; left: calc(50% - 1rem);}
+    #section-durian .sub {font-size: 1.25rem; line-height: 2rem; margin-top: 1.25rem;}
+    #section-durian .link-area .comming {margin-top: 1rem; font-size: 1.25rem;}
 }
