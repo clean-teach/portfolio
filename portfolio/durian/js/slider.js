@@ -3,6 +3,8 @@ function Slider(target, type) {
     let index = 1; // current page
     let isMoved = true; // slide 이동이 완료 되었는가?
     const speed = 1000; // ms
+    let interval = 5000; // Auto play interval
+    const leftRightBtn = true; // 좌우버튼 추가
 
     // 속도 & 방향
     const transform = 'transform ' + speed / 1000 + 's';
@@ -13,7 +15,6 @@ function Slider(target, type) {
 
     // slider
     const slider = document.querySelector(target);
-    const sliderRects = slider.getClientRects()[0];
     slider.style['overflow'] = 'hidden';
 
     // slider container
@@ -21,7 +22,7 @@ function Slider(target, type) {
     container.style['display'] = 'flex';
     container.style['flex-direction'] = type === 'V' ? 'column' : 'row';
     container.style['width'] = '100%';
-    container.style['height'] = sliderRects.height + 'px';
+    container.style['height'] = '100%';
     container.style['transform'] = translate(index);
 
     // slider list
@@ -78,6 +79,18 @@ function Slider(target, type) {
     slider.appendChild(container);
     slider.appendChild(indicators);
 
+    // 좌우버튼
+    if (leftRightBtn == true) {
+        const leftBtn = document.createElement('button');
+        const rightBtn = document.createElement('button');
+        leftBtn.classList.add('btn-left');
+        rightBtn.classList.add('btn-right');
+        leftBtn.setAttribute('title', '오른쪽으로 이동');;
+        rightBtn.setAttribute('title', '왼쪽으로 이동');;
+        slider.appendChild(leftBtn);
+        slider.appendChild(rightBtn);
+    }
+
     // slidefn
     function moveSlide(index) {
         container.style['transition'] = transform;
@@ -89,21 +102,38 @@ function Slider(target, type) {
         indicators.querySelector(`button:nth-child(${index})`).classList.add('on');
     }
 
+    indicators.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', function(e){
+            if (isMoved === true) {
+                index = getIndex(this)+1;
+                moveSlide(index);
+            }
+        });
+    });
+
+    // Slider Auto Play
+    setInterval(() => {
+        if (isMoved === true) {
+            index = (index + 1) % size; // 최대 증가 후 0부터 시작
+            moveSlide(index);
+        }
+    }, interval);
+
     // event method
     return {
-        move: function (i) { // 특정 순서
+        move: function (e, i) { // 특정 순서
             if (isMoved === true) {
                 index = i;
                 moveSlide(index);
             }
         },
-        next: function () { // 다음
+        next: function (e) { // 다음
             if (isMoved === true) {
                 index = (index + 1) % size; // 최대 증가 후 0부터 시작
                 moveSlide(index);
             }
         },
-        prev: function () { // 이전
+        prev: function (e) { // 이전
             if (isMoved === true) {
                 index = index === 0 ? index + size : index;
                 index = (index - 1) % size; // 최소 감소 후 최대부터 시작
@@ -116,21 +146,60 @@ function Slider(target, type) {
 const s1 = new Slider('#slider1', 'H');
 const s2 = new Slider('#slider2', 'H');
 
-// Slider Auto Play
-// setInterval(() => {
-//     s1.next();
-//     s2.next();
-// }, 6000);
+document.querySelectorAll('.slider').forEach(slider => {
+    // slider.querySelectorAll('.indicator button').forEach(indicatorBtn => {
+    //     indicatorBtn.addEventListener('click', function(e){
+    //         s1.move(e);
+    //         if(this.parentNode.parentNode.getAttribute('id') == 'slider1'){
+    //             s1.move(getIndex(this) + 1);
+    //         }
+    //         if(this.parentNode.parentNode.getAttribute('id') == 'slider2'){
+    //             s2.move(getIndex(this) + 1);
+    //         }
+    //     });
+    // });
 
-document.querySelectorAll('.slider').forEach(rollingBanner => {
-    rollingBanner.querySelectorAll('.indicator button').forEach(indicatorBtn => {
-        indicatorBtn.addEventListener('click', function(){
-            if(this.parentNode.parentNode.getAttribute('id') == 'slider1'){
-                s1.move(getIndex(this) + 1);
-            }
-            if(this.parentNode.parentNode.getAttribute('id') == 'slider2'){
-                s2.move(getIndex(this) + 1);
-            }
-        });
+    slider.querySelector('.btn-left').addEventListener('click',function(){
+        if(this.parentNode.getAttribute('id') == 'slider1'){
+            s1.prev();
+        }
+        if(this.parentNode.getAttribute('id') == 'slider2'){
+            s2.prev();
+        }
     });
+    slider.querySelector('.btn-right').addEventListener('click',function(){
+        if(this.parentNode.getAttribute('id') == 'slider1'){
+            s1.next();
+        }
+        if(this.parentNode.getAttribute('id') == 'slider2'){
+            s2.next();
+        }
+    });
+    slider.addEventListener('touchstart', function(e){
+        moveTouchSwipe.touchStart(e)
+    });
+    slider.addEventListener('touchend', function(e){
+        moveTouchSwipe.touchEnd(e)
+    });
+    // console.log(moveTouchSwipe.touchStart(e));
+    // console.log(moveTouchSwipe.touchEnd(e));
 });
+
+const moveTouchSwipe = {
+    startX: null, 
+    endX: null,
+    touchStart: function(e){
+        this.startX = e.touches[0].pageX;
+    },
+    touchEnd: function(e){
+        this.endX = e.changedTouches[0].pageX
+        if(this.startX > this.endX ){
+            // if(this.parentNode.getAttribute('id') == 'slider1'){
+            //     s1.next();
+            // }
+            // if(this.parentNode.getAttribute('id') == 'slider2'){
+            //     s2.next();
+            // }
+        }
+    }
+}

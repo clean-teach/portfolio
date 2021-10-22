@@ -9,23 +9,23 @@ let eventClick = new MouseEvent('click',{
     'cancelable' : true
 });
 
-header.querySelector('h1 a').addEventListener('click', function(e){
+// 앵커태그 부드럽게 스크롤 이동
+function moveAnchorTagSmooth(e){
     e.preventDefault();
     window.scrollTo({
-        top: document.querySelector(this.getAttribute('href')).offsetTop,
+        top: document.querySelector(e.currentTarget.getAttribute('href')).offsetTop - header.clientHeight,
         left: 0,
         behavior: 'smooth'
     });
+}
+
+header.querySelector('h1 a').addEventListener('click', function(e){
+    moveAnchorTagSmooth(e);
 });
 
 header.querySelectorAll('.lnb a').forEach(btn => {
     btn.addEventListener('click', function(e){
-        e.preventDefault();
-        window.scrollTo({
-            top: document.querySelector(this.getAttribute('href')).offsetTop - headerHeight,
-            left: 0,
-            behavior: 'smooth'
-        });
+        moveAnchorTagSmooth(e);
         header.querySelector('.lnb').classList.remove('on');
         header.querySelector('.btn-drawer-menu').classList.remove('del');
     });
@@ -46,6 +46,8 @@ document.addEventListener('scroll', function(e){
         }else {
             header.style['top'] = '0px';
         }
+    }else{
+        header.style['top'] = '0px';
     }
 
     document.querySelectorAll('section').forEach((secSCT, i, arr) => {
