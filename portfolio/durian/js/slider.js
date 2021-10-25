@@ -1,4 +1,4 @@
-function Slider(target, type) {
+function Slider(target, type, per = 1) {
     // state
     let index = 1; // current page
     let isMoved = true; // slide 이동이 완료 되었는가?
@@ -8,20 +8,23 @@ function Slider(target, type) {
 
     // 속도 & 방향
     const transform = 'transform ' + speed / 1000 + 's';
-    let translate = (i) => 'translateX(-' + 100 * i + '%)';
+    let translate = (i) => 'translateX(-' + (100/per) * i + '%)';
     if (type === 'V') {
-        translate = (i) => 'translateY(-' + 100 * i + '%)';
+        translate = (i) => 'translateY(-' + (100/per) * i + '%)';
     }
 
     // slider
     const slider = document.querySelector(target);
-    slider.style['overflow'] = 'hidden';
+    slider.style['overflow-x'] = 'hidden';
+    if (type === 'V') {
+        slider.style['overflow-Y'] = 'hidden';
+    }
 
     // slider container
     const container = document.createElement('div');
     container.style['display'] = 'flex';
     container.style['flex-direction'] = type === 'V' ? 'column' : 'row';
-    container.style['width'] = '100%';
+    container.style['max-width'] = '100%';
     container.style['height'] = '100%';
     container.style['transform'] = translate(index);
 
@@ -36,7 +39,7 @@ function Slider(target, type) {
         box.style['flex'] = 'none';
         box.style['flex-wrap'] = 'wrap';
         box.style['height'] = '100%';
-        box.style['width'] = '100%';
+        box.style['width'] = `${100/per}%`;
         container.appendChild(box.cloneNode(true));
     }
 
@@ -79,18 +82,6 @@ function Slider(target, type) {
     slider.appendChild(container);
     slider.appendChild(indicators);
 
-    // 좌우버튼
-    if (leftRightBtn == true) {
-        const leftBtn = document.createElement('button');
-        const rightBtn = document.createElement('button');
-        leftBtn.classList.add('btn-left');
-        rightBtn.classList.add('btn-right');
-        leftBtn.setAttribute('title', '오른쪽으로 이동');;
-        rightBtn.setAttribute('title', '왼쪽으로 이동');;
-        slider.appendChild(leftBtn);
-        slider.appendChild(rightBtn);
-    }
-
     // slidefn
     function moveSlide(index) {
         container.style['transition'] = transform;
@@ -102,43 +93,64 @@ function Slider(target, type) {
         indicators.querySelector(`button:nth-child(${index})`).classList.add('on');
     }
 
-    indicators.querySelectorAll('button').forEach(btn => {
-        btn.addEventListener('click', function(e){
-            if (isMoved === true) {
-                index = getIndex(this)+1;
-                moveSlide(index);
-            }
-        });
-    });
-
-    // Slider Auto Play
-    setInterval(() => {
+    // event method
+    const moveFn = (i) =>{ // 특정 순서
         if (isMoved === true) {
+            index = i;
+            moveSlide(index);
+        }
+    };
+    const nextFn = () =>{
+        if (isMoved === true) { // 다음
             index = (index + 1) % size; // 최대 증가 후 0부터 시작
             moveSlide(index);
         }
+    };
+    const prevFn = () =>{
+        if (isMoved === true) { // 이전
+            index = index === 0 ? index + size : index;
+            index = (index - 1) % size; // 최소 감소 후 최대부터 시작
+            moveSlide(index);
+        }
+    };
+
+    indicators.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', function(e){
+            moveFn(getIndex(this)+1);
+        });
+    });
+    // 좌우버튼
+    if (leftRightBtn == true) {
+        const leftBtn = document.createElement('button');
+        const rightBtn = document.createElement('button');
+        leftBtn.classList.add('btn-left');
+        rightBtn.classList.add('btn-right');
+        leftBtn.setAttribute('title', '오른쪽으로 이동');;
+        rightBtn.setAttribute('title', '왼쪽으로 이동');;
+        slider.appendChild(leftBtn);
+        slider.appendChild(rightBtn);
+        leftBtn.addEventListener('click',function(){
+            prevFn();
+        });
+        rightBtn.addEventListener('click',function(){
+            nextFn();
+        });
+    }
+
+    // Slider Auto Play
+    setInterval(() => {
+        nextFn();
     }, interval);
 
-    // event method
     return {
-        move: function (e, i) { // 특정 순서
-            if (isMoved === true) {
-                index = i;
-                moveSlide(index);
-            }
+        move: function (i) {
+            moveFn(i);
         },
-        next: function (e) { // 다음
-            if (isMoved === true) {
-                index = (index + 1) % size; // 최대 증가 후 0부터 시작
-                moveSlide(index);
-            }
+        next: function () {
+            nextFn();
         },
-        prev: function (e) { // 이전
-            if (isMoved === true) {
-                index = index === 0 ? index + size : index;
-                index = (index - 1) % size; // 최소 감소 후 최대부터 시작
-                moveSlide(index);
-            }
+        prev: function () {
+            prevFn();
         }
     };
 }
@@ -146,43 +158,23 @@ function Slider(target, type) {
 const s1 = new Slider('#slider1', 'H');
 const s2 = new Slider('#slider2', 'H');
 
-document.querySelectorAll('.slider').forEach(slider => {
-    // slider.querySelectorAll('.indicator button').forEach(indicatorBtn => {
-    //     indicatorBtn.addEventListener('click', function(e){
-    //         s1.move(e);
-    //         if(this.parentNode.parentNode.getAttribute('id') == 'slider1'){
-    //             s1.move(getIndex(this) + 1);
-    //         }
-    //         if(this.parentNode.parentNode.getAttribute('id') == 'slider2'){
-    //             s2.move(getIndex(this) + 1);
-    //         }
-    //     });
-    // });
+let GridColWhenResponsive;
+if(window.innerWidth > 1024){
+    GridColWhenResponsive = 4;
+}else if(window.innerWidth < 1024 && window.innerWidth >= 768){
+    GridColWhenResponsive = 2;
+}else {
+    GridColWhenResponsive = 1;
+}
+const s3 = new Slider('#slider3', 'H', GridColWhenResponsive);
 
-    slider.querySelector('.btn-left').addEventListener('click',function(){
-        if(this.parentNode.getAttribute('id') == 'slider1'){
-            s1.prev();
-        }
-        if(this.parentNode.getAttribute('id') == 'slider2'){
-            s2.prev();
-        }
-    });
-    slider.querySelector('.btn-right').addEventListener('click',function(){
-        if(this.parentNode.getAttribute('id') == 'slider1'){
-            s1.next();
-        }
-        if(this.parentNode.getAttribute('id') == 'slider2'){
-            s2.next();
-        }
-    });
+document.querySelectorAll('.slider').forEach(slider => {
     slider.addEventListener('touchstart', function(e){
         moveTouchSwipe.touchStart(e)
     });
     slider.addEventListener('touchend', function(e){
         moveTouchSwipe.touchEnd(e)
     });
-    // console.log(moveTouchSwipe.touchStart(e));
-    // console.log(moveTouchSwipe.touchEnd(e));
 });
 
 const moveTouchSwipe = {
@@ -190,6 +182,7 @@ const moveTouchSwipe = {
     endX: null,
     touchStart: function(e){
         this.startX = e.touches[0].pageX;
+        console.log(this.startX);
     },
     touchEnd: function(e){
         this.endX = e.changedTouches[0].pageX
