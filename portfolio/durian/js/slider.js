@@ -224,9 +224,7 @@ const s2 = new Slider('#slider2', 'H');
 let GridColWhenResponsive;
 if(window.innerWidth > 1024){
     GridColWhenResponsive = 4;
-}else if(window.innerWidth < 1024 && window.innerWidth >= 768){
-    GridColWhenResponsive = 2;
 }else {
-    GridColWhenResponsive = 1;
+    GridColWhenResponsive = 2;
 }
 const s3 = new Slider('#slider3', 'H', GridColWhenResponsive);
