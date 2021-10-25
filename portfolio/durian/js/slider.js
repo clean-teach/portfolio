@@ -2,9 +2,10 @@ function Slider(target, type, per = 1) {
     // state
     let index = 1; // current page
     let isMoved = true; // slide 이동이 완료 되었는가?
-    const speed = 1000; // ms
+    const speed = 500; // ms
     let interval = 5000; // Auto play interval
-    const leftRightBtn = true; // 좌우버튼 추가
+    const isLeftRightBtn = true; // 좌우버튼 추가
+    const isSwipe = true; // 스와이프 기능 추가
 
     // 속도 & 방향
     const transform = 'transform ' + speed / 1000 + 's';
@@ -114,13 +115,19 @@ function Slider(target, type, per = 1) {
         }
     };
 
+    // Slider Auto Play
+    const autoPlay = setInterval(() => {
+        nextFn();
+    }, interval);
+
     indicators.querySelectorAll('button').forEach(btn => {
         btn.addEventListener('click', function(e){
             moveFn(getIndex(this)+1);
         });
     });
+
     // 좌우버튼
-    if (leftRightBtn == true) {
+    if (isLeftRightBtn) {
         const leftBtn = document.createElement('button');
         const rightBtn = document.createElement('button');
         leftBtn.classList.add('btn-left');
@@ -137,10 +144,66 @@ function Slider(target, type, per = 1) {
         });
     }
 
-    // Slider Auto Play
-    setInterval(() => {
-        nextFn();
-    }, interval);
+    // Swipe 기능
+    if (isSwipe) {
+        slider.addEventListener('touchstart', function(e){
+            moveTouchSwipe.touchStart(e);
+        });
+        slider.addEventListener('touchmove', function(e){
+            moveTouchSwipe.touchMoveX(e);
+        });
+        slider.addEventListener('touchend', function(e){
+            moveTouchSwipe.touchEnd(e);
+        });
+        
+        const moveTouchSwipe = {
+            startX: null, 
+            MoveX: null,
+            endX: null,
+            currentTranslateX: null,
+            startMoment: null,
+            touchStart: function(e){
+                this.startX = e.touches[0].pageX;
+                this.currentTranslateX = window.innerWidth/per * index;
+                this.startMoment = Date.now();
+            },
+            touchMoveX: function(e){
+                this.MoveX = this.startX - e.changedTouches[0].pageX;
+                // container.style['transform'] = `translateX(${-this.currentTranslateX - this.MoveX}px)`;
+                // if (type === 'V') {
+                //     container.style['transform'] = `translateY(${-this.currentTranslateX - this.MoveX}px)`;
+                // }
+            },
+            touchEnd: function(e){
+                const touchDuration = Date.now() - this.startMoment;
+                this.endX = e.changedTouches[0].pageX
+
+                // if(touchDuration > 300){
+                //     if(Math.abs(this.MoveX) > 200){
+                //         // if(this.startX > this.endX){
+                //         //     nextFn();
+                //         // }else if(this.startX < this.endX){
+                //         //     prevFn();
+                //         // }
+                //     }else{
+                //         container.style['transition'] = '.1s';
+                //         container.style['transform'] = translate(index);
+                //     }
+                // }else{
+                    
+                // }
+                if(touchDuration > 10){
+                    if(this.startX > this.endX){
+                        nextFn();
+                        console.log('다음');
+                    }else if(this.startX < this.endX){
+                        prevFn();
+                        console.log('이전');
+                    }
+                }
+            }
+        }
+    }
 
     return {
         move: function (i) {
@@ -167,32 +230,3 @@ if(window.innerWidth > 1024){
     GridColWhenResponsive = 1;
 }
 const s3 = new Slider('#slider3', 'H', GridColWhenResponsive);
-
-document.querySelectorAll('.slider').forEach(slider => {
-    slider.addEventListener('touchstart', function(e){
-        moveTouchSwipe.touchStart(e)
-    });
-    slider.addEventListener('touchend', function(e){
-        moveTouchSwipe.touchEnd(e)
-    });
-});
-
-const moveTouchSwipe = {
-    startX: null, 
-    endX: null,
-    touchStart: function(e){
-        this.startX = e.touches[0].pageX;
-        console.log(this.startX);
-    },
-    touchEnd: function(e){
-        this.endX = e.changedTouches[0].pageX
-        if(this.startX > this.endX ){
-            // if(this.parentNode.getAttribute('id') == 'slider1'){
-            //     s1.next();
-            // }
-            // if(this.parentNode.getAttribute('id') == 'slider2'){
-            //     s2.next();
-            // }
-        }
-    }
-}
