@@ -88,6 +88,7 @@ function Slider(target, type, per = 1) {
         container.style['transition'] = transform;
         container.style['transform'] = translate(index);
         if(index == size - 1) index = 1;
+        if(index == 0) index = size - 2;
         indicators.querySelectorAll('button').forEach(indicatorBtn => {
             indicatorBtn.classList.remove('on');
         });
@@ -116,9 +117,22 @@ function Slider(target, type, per = 1) {
     };
 
     // Slider Auto Play
-    const autoPlay = setInterval(() => {
-        nextFn();
-    }, interval);
+    let autoPlay = null;
+    function startAutoPlay() {
+        autoPlay =setInterval(nextFn, interval);
+    }
+    function stopAutoPlay() {
+        if(autoPlay != null) {
+            clearInterval(autoPlay);
+        }
+    }
+    startAutoPlay();
+    slider.addEventListener('mousedown', function(){
+        stopAutoPlay();
+    });
+    slider.addEventListener('mouseup', function(){
+        startAutoPlay();
+    });
 
     indicators.querySelectorAll('button').forEach(btn => {
         btn.addEventListener('click', function(e){
@@ -166,6 +180,7 @@ function Slider(target, type, per = 1) {
                 this.startX = e.touches[0].pageX;
                 this.currentTranslateX = window.innerWidth/per * index;
                 this.startMoment = Date.now();
+                stopAutoPlay();
             },
             touchMoveX: function(e){
                 this.MoveX = this.startX - e.changedTouches[0].pageX;
@@ -192,15 +207,14 @@ function Slider(target, type, per = 1) {
                 // }else{
                     
                 // }
-                if(touchDuration > 10){
+                if(touchDuration > 10 && Math.abs(this.MoveX) > 20){
                     if(this.startX > this.endX){
                         nextFn();
-                        console.log('다음');
                     }else if(this.startX < this.endX){
                         prevFn();
-                        console.log('이전');
                     }
                 }
+                startAutoPlay();
             }
         }
     }
