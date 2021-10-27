@@ -6,35 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH Portfolio</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
-    <link rel="stylesheet" href="index.css">
-    <script>
-    // loading page
-    (function(){
-        let loader;
-        document.addEventListener('DOMContentLoaded', function () {
-            loader = document.getElementById('loader');
-        });
-        window.onload = function () {
-            let opacity = Number(window.getComputedStyle(loader).getPropertyValue('opacity'));
-
-            window.scrollTo({top: 0, left: 0, behavior: 'instant'});
-            setTimeout(function(){
-                let fadeOut = setInterval(() => {
-                    if(opacity > 0) {
-                        opacity -= .01;
-                        loader.querySelectorAll('p').forEach(p => p.style.opacity = opacity);
-                    }else{
-                        clearInterval(fadeOut);
-                    }
-                }, 10);
-            }, 4000);
-            setTimeout(function(){
-                window.scrollTo({top: 0, left: 0, behavior: 'instant'});
-                loader.remove();
-            },6000);
-        };
-    }());
-    </script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/cursor.css">
+    <script src="js/loadingPage.js"></script>
 </head>
 <body>
     <div id="loader">
@@ -233,6 +207,7 @@
         </div>
     </footer>
 
-    <script src="index.js" defer></script>
+    <script src="js/index.js" defer></script>
+    <script src="js/cursor.js" defer></script>
 </body>
 </html>
