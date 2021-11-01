@@ -42,42 +42,47 @@ function portfolioScrollActive(){
 
     // 포트폴리오 글자 영역 나타나는 조건에 대한 함수
     function setTxtActive(i,arr) {
-        if(i === 0) {
-            winHeightHalf = 0;
-        }
-        const startPoint = document.documentElement.scrollTop > arr[i].offsetTop - winHeightHalf;
-        const endPoint = scrollBottom < (arr[i].offsetTop + arr[i].offsetHeight) + winHeightHalf;
-
-        portfolioTxtBox[i].classList.remove('on');
-        if(startPoint && endPoint) {
-            portfolioTxtBox[i].classList.add('on');
-        }
+        
     }
     function setImgActive(i, arr){
 
     }
     
     portfolioImgBox.forEach((obj,i,arr) => {
-        obj.classList.remove('on');
-        console.log(arr[i]);
-        console.log(arr[i].offsetTop);
-        if(portfolioSectionPosiTop < scrollBottom){
-            if(getScrollDirection() == 'DOWN') {
-                if(arr[i].offsetTop < scrollBottom - 200){
-                    arr[i].classList.add('on');
-                }else{
-                    arr[i].classList.remove('on');
-                }
-            }
-            if(getScrollDirection() == 'UP') {
-                if(arr[i].offsetTop > scrollBottom){
-                    arr[i].classList.remove('on');
-                }
-            }
-        }else{
+        obj.classList.add('on');
+
+        if(window.pageYOffset + arr[i].getBoundingClientRect().top < scrollBottom){
+            obj.classList.add('on');
             arr[i].classList.remove('on');
         }
-        setTxtActive(i,arr);
+
+        // if(portfolioSectionPosiTop < scrollBottom){
+        //     if(getScrollDirection() == 'DOWN') {
+        //         if(window.pageYOffset + arr[i].getBoundingClientRect().top < scrollBottom - 200){
+        //             arr[i].classList.remove('on');
+        //         }else{
+        //             arr[i].classList.add('on');
+        //         }
+        //     }
+        //     if(getScrollDirection() == 'UP') {
+        //         if(window.pageYOffset + arr[i].getBoundingClientRect().top > scrollBottom){
+        //             arr[i].classList.add('on');
+        //         }
+        //     }
+        // }else{
+        //     arr[i].classList.remove('on');
+        // }
+    });
+    portfolioTxtBox.forEach((txtBox, i, arr) => {
+        if(i === 0) {
+            winHeightHalf = 0;
+        }
+        const startPoint = document.documentElement.scrollTop > arr[i].getBoundingClientRect().top - winHeightHalf;
+        const endPoint = scrollBottom < (arr[i].getBoundingClientRect().top + arr[i].offsetHeight) + winHeightHalf;
+        arr[i].classList.add('on');
+        if(startPoint && endPoint) {
+            arr[i].classList.remove('on');
+        }
     });
 }
 
@@ -113,7 +118,7 @@ window.addEventListener('load', function(e) {
 
     setLnbStyle();
     setBackgroundColor(mainBackColorR, mainBackColorG, mainBackColorB, 1-(document.documentElement.scrollTop/mainSection.offsetHeight));
-    portfolioScrollActive();
+    // portfolioScrollActive();
     setFooterCardRotate();
 });
 
@@ -143,10 +148,11 @@ document.addEventListener('scroll', function(e) {
     setLnbStyle();
     setBackgroundColor(mainBackColorR, mainBackColorG, mainBackColorB, 1-(document.documentElement.scrollTop/mainSection.offsetHeight));
 
-    mainSection.querySelector('.tit').style.left = `-${document.documentElement.scrollTop*4}px`;
-    mainSection.querySelector('.vertical').style.top = `${document.documentElement.scrollTop * .4}px`;
+    mainSection.querySelector('.tit').style['left'] = `-${document.documentElement.scrollTop*1}px`;
+    mainSection.querySelector('.txt').style['top'] = `-${document.documentElement.scrollTop*.02}px`;
+    mainSection.querySelector('.vertical').style['top'] = `${document.documentElement.scrollTop * .4}px`;
     
-    portfolioScrollActive();
+    // portfolioScrollActive();
     setFooterCardRotate();
 });
 document.addEventListener('mouseenter', function(e) {
