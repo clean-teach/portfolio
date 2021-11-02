@@ -20,7 +20,7 @@ h1 span {display: block; width: 0; height: 0; overflow: hidden;}
 header .lnb {position: absolute; top: 0; left: 39.2%; height: 100%; font-weight: normal; font-size: 1.125rem; letter-spacing: 0;}
 header .lnb ul {width: 16.8rem; height: 100%; display: flex; justify-content: space-between; align-items: center;}
 header .lnb a {color: #666666;}
-header .lnb a.on {color: #ffa94d; font-weight: bold;}
+header .lnb a.on {color: #ffb808; font-weight: bold;}
 header .download-btn-wrap {position: absolute; top: 0; right: 30px; height: 100%; display: flex; align-items: center;}
 header .download-btn-wrap a+a {margin-left: .75rem;}
 header .btn-drawer-menu {position: absolute; top: calc(50% - .8rem); right: 30px; width: 2rem; height: 1.6rem; display: none; transition: .4s;}
@@ -40,12 +40,13 @@ section {height: 80vh;}
 .slider>div>div {width: 100%;}
 .indicator {position: absolute; bottom: 3.75rem; width: 100%; text-align: center;}
 .indicator button {width: 1rem; height: 1rem; border-radius: 100%; margin: 0 .52rem; background-color: #dadada;}
-.indicator button.on {background-color: #ff911c;}
+.indicator button.on {background-color: #ffb808;}
 .slider .btn-left, .slider .btn-right {position: absolute; top: 50%; width: 4rem; height: 4rem; background-repeat: no-repeat; background-position: center; background-size: contain;}
 .slider .btn-right {right: 4%;}
 .slider .btn-left {left: 4%;}
 
 #section-main-banner {padding-top: 92px;}
+#section-main-banner .indicator button.on {background-color: #ffffff;}
 #section-main-banner h2 {width: 0; height: 0; overflow: hidden;}
 #section-main-banner .banner {box-sizing: border-box; text-align: center; padding-top: 11.4rem; background-repeat: no-repeat; background-position: 92% 84%; background-size: 20%;}
 #section-main-banner .slider .btn-right {background-image: url(../img/icon_anggle_right_ffffff_32x59.png); opacity: .8;}
@@ -54,9 +55,9 @@ section {height: 80vh;}
 #section-main-banner .banner h3 span {font-weight: 600;}
 #section-main-banner .banner .cont {margin-top: 4.4rem; font-weight: normal; font-size: 1.25rem; line-height: 1.75rem;}
 #section-main-banner .banner .sub {margin-top: 1.1rem; font-weight: normal; font-size: 2rem; line-height: 2.625rem; letter-spacing: -.03em; color: #ffffff;}
-#section-main-banner .banner .link-area .btn {background: linear-gradient(90deg, #ffa94d, #ff9728); color: #ffffff; text-transform: uppercase; font-weight: bold; font-size: 1.5rem; display: flex; justify-content: center; align-items: center; width: 16.25rem; height: 4.375rem; border-radius: 2.188rem; margin: 3.4rem auto 0;}
+#section-main-banner .banner .link-area .btn {background: #ff9f08; color: #ffffff; text-transform: uppercase; font-weight: bold; font-size: 1.5rem; display: flex; justify-content: center; align-items: center; width: 16.25rem; height: 4.375rem; border-radius: 2.188rem; margin: 3.4rem auto 0;}
 #section-main-banner .banner .comming {display: inline-block; margin-top: 6rem; text-transform: uppercase; font-weight: bold; font-size: 2rem; letter-spacing: 0;}
-#section-main-banner .banner-01 {background-color: #ff6600; background-image: url(../img/character_durian_01_380x483.png);}
+#section-main-banner .banner-01 {background-color: #ffb808; background-image: url(../img/character_durian_01_380x483.png);}
 #section-main-banner .banner-01 .cont {color: #ffe5d3;}
 #section-main-banner .banner-02 {background-color: #00a22a; background-image: url(../img/character_durian_02_380x484.png);}
 #section-main-banner .banner-02 .cont {color: #e2ffea;}
@@ -82,13 +83,13 @@ section {height: 80vh;}
 #section-durian .slider .btn-left {background-image: url(../img/icon_anggle_left_b7b7b7_32x59.png);}
 #section-durian h3 {font-weight: bold; font-size: 1.25rem; color: #333333; padding-top: 11.35rem;}
 #section-durian .box-wrap {margin-top: 1.5rem; display: flex; justify-content: center; flex-wrap: wrap;}
-#section-durian .box-wrap .box {font-weight: bold; font-size: 1.375rem; line-height: 1.8rem; color: #ffffff; background-color: #ff6e1f; border-radius: .25rem; min-width: 13.75rem; min-height: 2.813rem; padding: .6rem 2rem; display: flex; justify-content: center; align-items: center; position: relative;}
+#section-durian .box-wrap .box {font-weight: bold; font-size: 1.375rem; line-height: 1.8rem; color: #ffffff; background-color: #ffb808; border-radius: .25rem; min-width: 13.75rem; min-height: 2.813rem; padding: .6rem 2rem; display: flex; justify-content: center; align-items: center; position: relative;}
 #section-durian .box-wrap .box + .box {margin-left: 1.125rem;}
 #section-durian .box-wrap .box + .box::before {content: ''; display: block; position: absolute; left: -1.125rem; top: 50%; width: 1.125rem; height: auto; background-color: #ffc78b; z-index: 1;}
 #section-durian .description {font-weight: 300; font-size: 1rem; line-height: 1.313rem; color: #666666; counter-reset: list-number; margin: 1.7rem auto 0; max-width: 640px; word-break: keep-all;}
 #section-durian .description li {counter-increment: list-number; position: relative; margin-top: 1.4rem; padding-top: 2.4rem;}
 #section-durian .description li::before {content: counter(list-number); background-color: #333333; color: #ffffff; font-weight: normal; font-size: 1.25rem; width: 2rem; height: 2rem; border-radius: 100%; display: flex; justify-content: center; align-items: center; position: absolute; top: 0; left: calc(50% - 1.125rem);}
-#section-durian .sub {color: #ff911c; font-weight: normal; font-size: 1.125rem; line-height: 1.406rem; margin-top: 1.25rem;}
+#section-durian .sub {color: #ffb808; font-weight: normal; font-size: 1.125rem; line-height: 1.406rem; margin-top: 1.25rem;}
 #section-durian .link-area {margin-top: 1.5rem;}
 #section-durian .link-area h4 {width: 0; height: 0; overflow: hidden;}
 #section-durian .link-area .comming {display: inline-block; margin-top: 1.375rem; text-transform: uppercase; font-weight: bold; font-size: 1.126rem; letter-spacing: 0; color: #695229;}

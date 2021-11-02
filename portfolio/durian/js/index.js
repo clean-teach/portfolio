@@ -39,7 +39,6 @@ header.querySelector('.btn-drawer-menu').addEventListener('click', function(){
 document.addEventListener('scroll', function(e){
     let ScollT = document.documentElement.scrollTop + header.clientHeight;
 
-    // console.log(window.innerWidth);
     if(window.innerWidth < 1024){
         if(getScrollDirection.direction() === 'DOWN'){
             header.style['top'] = -header.clientHeight + 'px';

@@ -18,11 +18,17 @@
         </div>
     </div>
 
+    <div id="bg-area">
+        <div class="circle"></div>
+    </div>
+
+    <img src="img/circle_scroll.svg" alt="" id="circle-scroll-svg">
+
     <header>
         <h1>Web Front-end developer Portfolio</h1>
         <nav id="lnb">
             <ul>
-                <li><button type="button" title="해당 위치로 이동" data-targetid="main-section">Top</button></li>
+                <li class="top"><button type="button" title="해당 위치로 이동" data-targetid="main-section">Top</button></li>
                 <li><button type="button" title="해당 위치로 이동" data-targetid="portfolio-section">Portfolio</button></li>
                 <li><button type="button" title="해당 위치로 이동" data-targetid="contact-section">Contact</button></li>
                 <li><button type="button" title="해당 위치로 이동" data-targetid="footer">Footer</button></li>
@@ -31,7 +37,7 @@
     </header>
     <section id="main-section">
         <div class="txt">
-            <p class="tit">저는 놀이처럼 배우고 활용하는 것을 좋아합니다. 저는 놀이처럼 배우고 활용하는 것을 좋아합니다.</p>
+            <p class="tit">저는 놀이처럼 배우고 활용하는 것을 좋아합니다. 좋아하는 일을 할 때 능률이 가장 좋아지구요!</p>
             <p class="vertical">
                 한 평생 배우러 왔다가 갑니다
             </p>
@@ -233,10 +239,20 @@
     <section id="contact-section">
         <h2>Contact</h2>
         <form action="" class="center-wrap">
-            <label for="input-name">보내는 분 이름 : </label><input type="text" name="name" id="input-name" placeholder="당신의 이름을 입력해 주세요" required>
-            <label for="input-email">보내는 분 이메일 : </label><input type="email" name="email" id="input-email" placeholder="당신의 이메일을 입력해 주세요" required>
-            <label for="textarea-email-content">내용 : </label><textarea name="message" id="textarea-email-content" cols="30" rows="10" required></textarea>
-            <button type="submit">보내기</button>
+            <ul>
+                <li>
+                    <label for="input-name">이름</label><input type="text" name="name" id="input-name" placeholder="당신의 이름을 입력해 주세요" required>
+                </li>
+                <li>
+                    <label for="input-email">이메일</label><input type="email" name="email" id="input-email" placeholder="당신의 이메일을 입력해 주세요">
+                </li>
+                <li>
+                    <label for="textarea-email-content">내용</label><textarea name="message" id="textarea-email-content" cols="30" rows="10" placeholder="저에게 해주실 말씀, 또는 제 포트폴리오를 보시고 느낀 점이 있다면, &#13;&#10;피드백 부탁드립니다. 비판도 감사하게 받겠습니다" required></textarea>
+                </li>
+            </ul>
+            <div class="btn-area">
+                <button type="submit" title="작성한 내용을 제출">보내기</button>
+            </div>
         </form>
     </section>
     <footer id="footer">

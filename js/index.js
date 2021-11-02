@@ -17,20 +17,56 @@ let mainBackColorR = 0,
     scrollBottom = document.documentElement.scrollTop + winInnerHeight,
     cardOffsetTop = card.parentElement.offsetTop + card.offsetTop + card.clientHeight;
 
+// 직사각형의 대각선 구하기
+function getPythagorean(a, b){
+    const result = Math.sqrt(Math.pow(a,2) + Math.pow(b,2));
+    return result;
+}
+console.log();
+
+// Background Motion Style create
+const elBackCircle = document.querySelector('#bg-area .circle');
+elBackCircle.style['width'] = `${getPythagorean(document.documentElement.clientWidth, document.documentElement.clientHeight)}px`;
+elBackCircle.style['height'] = `${getPythagorean(document.documentElement.clientWidth, document.documentElement.clientHeight)}px`;
+elBackCircle.style['transform'] = `scale(0)`;
+function setBackMotionStyle(){
+    if(scrollBottom > 1000){
+        elBackCircle.style['transform'] = `scale(${scrollBottom/3400})`;
+    }
+}
+
 // scroll, mousemove 에 따른 배경색상 설정 함수
 function setBackgroundColor(R, G, B, alpha){
     document.body.style.backgroundColor= `rgba(${R},${G},${B},${alpha})`;
 }
 
+// scroll에 따른 회전
+function scrollRotate(id) {
+    let obj = document.getElementById(id);
+    obj.style.transform = "rotate(" + window.pageYOffset/10 + "deg)";
+    if (document.documentElement.scrollTop !== 0) {
+        obj.classList.remove('rotate-animate');
+    }else {
+        obj.classList.add('rotate-animate');
+    }
+}
+
 // scroll 상태에 따른 Local Navigation Button Style
-function setLnbStyle() {
+function setLnbStyle(e) {
     let colorRGB = 255 - ((document.documentElement.scrollTop/mainSection.offsetHeight)*255);
     if(colorRGB < 0) {colorRGB = 0}
     lnbBtn.forEach(btn => btn.style.color = `rgba(${colorRGB}, ${colorRGB}, ${colorRGB}, 1)`);
 
-    if(document.documentElement.scrollTop >= winInnerHeight-300) {
+    if(document.documentElement.scrollTop >= portfolioSection.offsetTop) {
         header.classList.add('on');
+        header.style['transition'] = '1s';
+        if(e && getScrollDirection() === 'DOWN'){
+            header.style['top'] = `-${header.offsetHeight}px`;
+        } else if(e && getScrollDirection() === 'UP'){
+            header.style['top'] = 0;
+        }
     }else{
+        header.style['transition'] = 'none';
         header.classList.remove('on');
     }
 }
@@ -115,6 +151,7 @@ function getCurrentScrollBottomEnd(){
 
 window.addEventListener('load', function(e) {
     scrollBottom = document.documentElement.scrollTop + winInnerHeight;
+    cardOffsetTop = card.parentElement.offsetTop + card.offsetTop + card.clientHeight;
 
     setLnbStyle();
     setBackgroundColor(mainBackColorR, mainBackColorG, mainBackColorB, 1-(document.documentElement.scrollTop/mainSection.offsetHeight));
@@ -128,7 +165,6 @@ lnbBtn.forEach(btn => {
             top: document.getElementById(this.dataset.targetid).offsetTop,
             behavior: 'smooth'
         });
-        setFooterCardRotate();
     });
 });
 
@@ -145,13 +181,15 @@ document.addEventListener('mousemove', function(e){
 document.addEventListener('scroll', function(e) {
     scrollBottom = document.documentElement.scrollTop + winInnerHeight;
 
-    setLnbStyle();
+    setLnbStyle(e);
     setBackgroundColor(mainBackColorR, mainBackColorG, mainBackColorB, 1-(document.documentElement.scrollTop/mainSection.offsetHeight));
 
     mainSection.querySelector('.tit').style['left'] = `-${document.documentElement.scrollTop*1}px`;
     mainSection.querySelector('.txt').style['top'] = `-${document.documentElement.scrollTop*.02}px`;
     mainSection.querySelector('.vertical').style['top'] = `${document.documentElement.scrollTop * .4}px`;
     
+    setBackMotionStyle();
+    scrollRotate('circle-scroll-svg');
     // portfolioScrollActive();
     setFooterCardRotate();
 });
