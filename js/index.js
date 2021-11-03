@@ -1,11 +1,12 @@
 const winInnerHeight = window.innerHeight;
 const header = document.querySelector('header');
-const lnbBtn = header.querySelectorAll('#lnb button');
+const lnbBtn = header.querySelectorAll('#lnb a');
 const mainSection = document.querySelector('#main-section');
 const portfolioSection = document.querySelector('#portfolio-section');
 const portfolioSectionPosiTop = portfolioSection.offsetTop;
 const portfolioImgBox = document.querySelectorAll('.portfolio-img-list li');
 const portfolioTxtBox = document.querySelectorAll('.portfolio-txt-area li');
+const contactSection = document.querySelector('#contact-section');
 const card = document.querySelector('footer .card');
 const footerCardInitialAngleValue = 90;
 
@@ -22,22 +23,42 @@ function getPythagorean(a, b){
     const result = Math.sqrt(Math.pow(a,2) + Math.pow(b,2));
     return result;
 }
-console.log();
 
-// Background Motion Style create
-const elBackCircle = document.querySelector('#bg-area .circle');
-elBackCircle.style['width'] = `${getPythagorean(document.documentElement.clientWidth, document.documentElement.clientHeight)}px`;
-elBackCircle.style['height'] = `${getPythagorean(document.documentElement.clientWidth, document.documentElement.clientHeight)}px`;
-elBackCircle.style['transform'] = `scale(0)`;
-function setBackMotionStyle(){
-    if(scrollBottom > 1000){
-        elBackCircle.style['transform'] = `scale(${scrollBottom/3400})`;
-    }
+// 현재 스크롤 상태 맨 아래에 있는지 반환
+function getCurrentScrollBottomEnd(){
+    if((pageScrollHeight - scrollBottom) == 0) return true;
+    return false;
+}
+
+// 앵커태그 부드러운 동작 함수
+function actionAnchorScrollMove(event){
+    const target = event.target || event.srcElement;
+    event.preventDefault();
+    window.scrollTo({
+        top: document.querySelector(target.getAttribute('href')).offsetTop,
+        behavior: 'smooth'
+    });
 }
 
 // scroll, mousemove 에 따른 배경색상 설정 함수
 function setBackgroundColor(R, G, B, alpha){
     document.body.style.backgroundColor= `rgba(${R},${G},${B},${alpha})`;
+}
+
+// Background Motion Style create
+const elBackCircle = document.querySelector('#bg-area .circle');
+const viewportHypotenuse = getPythagorean(document.documentElement.clientWidth, document.documentElement.clientHeight);
+elBackCircle.style['width'] = `${viewportHypotenuse}px`;
+elBackCircle.style['height'] = `${viewportHypotenuse}px`;
+elBackCircle.style['transform'] = `scale(0)`;
+let start = null;
+function setBackMotionStyle(){
+    start = contactSection.offsetTop;
+    if(scrollBottom > start){
+        elBackCircle.style['transform'] = `scale(${(scrollBottom - start)/1000})`;
+    }else{
+        elBackCircle.style['transform'] = `scale(0)`;
+    }
 }
 
 // scroll에 따른 회전
@@ -143,12 +164,6 @@ function getScrollDirection(){
     return result;
 }
 
-// 현재 스크롤 상태 맨 아래에 있는지 반환
-function getCurrentScrollBottomEnd(){
-    if((pageScrollHeight - scrollBottom) == 0) return true;
-    return false;
-}
-
 window.addEventListener('load', function(e) {
     scrollBottom = document.documentElement.scrollTop + winInnerHeight;
     cardOffsetTop = card.parentElement.offsetTop + card.offsetTop + card.clientHeight;
@@ -160,11 +175,8 @@ window.addEventListener('load', function(e) {
 });
 
 lnbBtn.forEach(btn => {
-    btn.addEventListener('click', function(){
-        window.scrollTo({
-            top: document.getElementById(this.dataset.targetid).offsetTop,
-            behavior: 'smooth'
-        });
+    btn.addEventListener('click', function(e){
+        actionAnchorScrollMove(e);
     });
 });
 
