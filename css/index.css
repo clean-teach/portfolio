@@ -39,11 +39,11 @@ h2 {position: sticky; top: 0; text-align: center; font-weight: bold; font-size: 
 #main-section .tit {position: fixed; top: 0; width: 216rem; font-weight: 600; font-size: 5.6rem; line-height: 5.2rem;}
 #main-section .vertical {position: relative; margin: 0 auto; padding: 100vh 0 20vh; width: 1.4rem; word-wrap: break-word; text-align:center; font-weight: 200; font-size: 1.6rem; line-height: 3.6rem;}
 
-#portfolio-section {max-width: 1280px; padding: 1rem; margin: 0 auto;}
+#portfolio-section {max-width: 1280px; padding: 1rem; margin: 0 auto; overflow: hidden;}
 .portfolio-list li {position: relative;}
-.portfolio-list .img-area {width: 56%; overflow: hidden; margin-bottom: 10rem; box-shadow: 10px 20px 60px rgba(0, 0, 0, .2); line-height: 0; transform: skewY(0) translateY(0); transform-origin: 0 0; transition: .4s;}
+.portfolio-list .img-area {width: 56%; overflow: hidden; margin-bottom: 10rem; box-shadow: 10px 20px 60px rgba(0, 0, 0, .2); line-height: 0; transform: skewY(24deg) translateY(400px) scale(1.2); transform-origin: 0 0; opacity: 0;}
 .portfolio-list .img-area img {width: 100%;}
-.portfolio-list .txt-area {position: absolute; top: 0; left: 60%; width: 520px; transform: translateX(0) skewX(0); transform-origin: 0; transition: .2s ease-in;}
+.portfolio-list .txt-area {position: fixed; top: 20vh; left: 60%; width: 520px; transform: translateX(2000px) skewX(64deg); transform-origin: 0; transition: .2s ease-in;}
 .portfolio-list .txt-area h3 {font-weight: bold; font-size: 2.4rem; color: #333333;}
 .portfolio-list .txt-area .datetime {margin-top: 1rem; font-weight: 200; font-size: 1rem; letter-spacing: .05rem; color: #666666;}
 .portfolio-list .txt-area .datetime .end::before {content: ' ~ ';}
@@ -52,9 +52,9 @@ h2 {position: sticky; top: 0; text-align: center; font-weight: bold; font-size: 
 .portfolio-list .txt-area dd {font-weight: 200; font-size: 1rem; line-height: 1.4rem; color: #666666;}
 .portfolio-list .txt-area button {font-weight: 500; font-size: 1rem; color: #666666; border: 1px solid #666666; padding: .4rem 1rem; margin-top: 1rem; background-color: rgba(255, 255, 255, 0);}
 .portfolio-list .txt-area button:hover {transform: scale(1.1); transition: .4s; background-color: rgba(255, 255, 255, .4); box-shadow: 0 0 20px rgba(0, 0, 0, .2);}
-.portfolio-list li.on .img-area {transform: skewY(24deg) translateY(400px) scale(1.2);}
-.portfolio-list li.portfolio-mockup-mobile-02.on .img-area {transform: skewY(0) translateY(0);}
-.portfolio-list li.on .txt-area {transform: translateX(2000px) skewX(64deg);}
+.portfolio-list .img-area.on {transform: skewY(0) translateY(0) scale(1); opacity: 1; transition: .4s;}
+/* .portfolio-list li.portfolio-mockup-mobile-02 .img-area.on {transform: skewY(0) translateY(0);} */
+.portfolio-list .txt-area.on {transform: translateX(0) skewX(0);}
 
 #contact-section .center-wrap {position: relative; max-width: 512px; margin: 0 auto; padding: 2rem; background-color: #ffffff; z-index: 2;}
 #contact-section label {display: block; margin-top: 1rem; padding: 2rem 0; text-align: center; color: #999999; font-weight: bold; font-size: 3rem;}

@@ -1,5 +1,4 @@
 (function(){
-    const winInnerHeight = window.innerHeight;
     const header = document.querySelector('header');
     const lnbBtn = header.querySelectorAll('#lnb a');
     const mainSection = document.querySelector('#main-section');
@@ -14,6 +13,7 @@
         mainBackColorG = 0, 
         mainBackColorB = 0, 
         effectClassName, 
+        winInnerHeight = window.innerHeight;
         pageScrollHeight = document.body.scrollHeight,
         scrollBottom = document.documentElement.scrollTop + winInnerHeight,
         cardOffsetTop = card.parentElement.offsetTop + card.offsetTop + card.clientHeight;
@@ -78,11 +78,11 @@
 
         if(document.documentElement.scrollTop >= portfolioSection.offsetTop) {
             header.classList.add('on');
-            header.style['transition'] = '1s';
             if(e && getScrollDirection() === 'DOWN'){
                 header.style['top'] = `-${header.offsetHeight}px`;
             } else if(e && getScrollDirection() === 'UP'){
                 header.style['top'] = 0;
+                header.style['transition'] = '1s';
             }
         }else{
             header.style['transition'] = 'none';
@@ -92,65 +92,36 @@
 
     // 스크롤 이벤트에 따른 포트폴리오 영역 활성화
     function actionPortfolioScrollActive(){
-        let current = null;
         let winHeightHalf = (window.innerHeight/2);
 
         // 포트폴리오 글자 영역 나타나는 조건에 대한 함수
         function setImgActive(obj, i, arr){
-            const imgBox = obj.querySelector('.img-area');
-            let startPoint = window.pageYOffset + arr[i].getBoundingClientRect().top;
-            // console.log(obj);
-            // console.log(arr);
-            // console.log(arr[i]);
-            // console.log(imgBox);
+            const target = arr[i].querySelector('.img-area');
+            let startPoint = window.pageYOffset + arr[i].getBoundingClientRect().top < scrollBottom;
 
-            imgBox.classList.add('on');
-
-            if(startPoint < scrollBottom){
-                console.log('obj : ');
-                console.log(obj);
-                console.log('arr[i] : ');
-                console.log(arr[i]);
-                
-                arr.classList.remove('on');
-                imgBox.classList.add('on');
+            if(startPoint){
+                target.classList.add('on');
+            }else{
+                target.classList.remove('on');
             }
-
-            // if(portfolioSectionPosiTop < scrollBottom){
-            //     if(getScrollDirection() == 'DOWN') {
-            //         if(window.pageYOffset + arr[i].getBoundingClientRect().top < scrollBottom - 200){
-            //             arr[i].classList.remove('on');
-            //         }else{
-            //             arr[i].classList.add('on');
-            //         }
-            //     }
-            //     if(getScrollDirection() == 'UP') {
-            //         if(window.pageYOffset + arr[i].getBoundingClientRect().top > scrollBottom){
-            //             arr[i].classList.add('on');
-            //         }
-            //     }
-            // }else{
-            //     arr[i].classList.remove('on');
-            // }
         }
 
         function setTxtActive(obj, i,arr) {
-            const txtBox = obj.getElementsByClassName('txt-area');
+            const txtBox = arr[i].querySelector('.txt-area');
+            let 
+                startPoint = scrollBottom - winHeightHalf > window.pageYOffset + arr[i].getBoundingClientRect().top,
+                endPoint = scrollBottom - winHeightHalf < window.pageYOffset + arr[i].getBoundingClientRect().top + arr[i].offsetHeight;
 
-            if(i === 0) {
-                winHeightHalf = 0;
-            }
-            const startPoint = document.documentElement.scrollTop > arr[i].getBoundingClientRect().top - winHeightHalf;
-            const endPoint = scrollBottom < (arr[i].getBoundingClientRect().top + arr[i].offsetHeight) + winHeightHalf;
-            arr[i].classList.add('on');
-            if(startPoint && endPoint) {
-                arr[i].classList.remove('on');
+            if(startPoint && endPoint){
+                txtBox.classList.add('on');
+            }else{
+                txtBox.classList.remove('on');
             }
         }
 
         portfolioList.forEach((obj,i,arr) => {
             setImgActive(obj, i, arr);
-            // setTxtActive(obj, i,arr);
+            setTxtActive(obj, i,arr);
         });
     }
 
