@@ -70,23 +70,47 @@
         }
     }
 
-    // scroll 상태에 따른 Local Navigation Button Style
-    function setLnbStyle(e) {
+    // scroll에 따른 색상 값 (LNB, MainSection)
+    function setColor(){
         let colorRGB = 255 - ((document.documentElement.scrollTop/mainSection.offsetHeight)*255);
         if(colorRGB < 0) {colorRGB = 0}
         lnbBtn.forEach(btn => btn.style.color = `rgba(${colorRGB}, ${colorRGB}, ${colorRGB}, 1)`);
+    }
 
+    // scroll 상태에 따른 Local Navigation Button Style
+    function setLnbStyle(e) {
         if(document.documentElement.scrollTop >= portfolioSection.offsetTop) {
             header.classList.add('on');
-            if(e && getScrollDirection() === 'DOWN'){
-                header.style['top'] = `-${header.offsetHeight}px`;
-            } else if(e && getScrollDirection() === 'UP'){
-                header.style['top'] = 0;
-                header.style['transition'] = '1s';
-            }
         }else{
             header.style['transition'] = 'none';
             header.classList.remove('on');
+        }
+        if(e && getScrollDirection() === 'DOWN'){
+            actionHeaderToggle().hide();
+        } else if(e && getScrollDirection() === 'UP'){
+            actionHeaderToggle().show();
+        }
+    }
+    function actionHeaderToggle(){
+        if(document.documentElement.scrollTop >= portfolioSection.offsetTop) {
+            return {
+                hide: function(){
+                    header.style['top'] = `-${header.offsetHeight}px`;
+                },
+                show: function(){
+                    header.style['top'] = 0;
+                    header.style['transition'] = '1s';
+                }
+            };
+        }else{
+            return {
+                hide: function(){
+                    null;
+                },
+                show: function(){
+                    null;
+                }
+            };
         }
     }
 
@@ -124,6 +148,18 @@
             setTxtActive(obj, i,arr);
         });
     }
+    portfolioList.forEach((obj,i,arr) => {
+        arr[i].querySelector('.txt-area button').addEventListener('focus', function(e){
+            window.scrollTo(0, window.pageYOffset + arr[i].getBoundingClientRect().top);
+            arr[i].querySelector('.img-area').classList.add('on');
+            arr[i].querySelector('.txt-area').classList.add('on');
+        });
+        arr[i].querySelector('.txt-area button').addEventListener('blur', function(){
+            window.scrollTo(0, 0);
+            arr[i].querySelector('.img-area').classList.remove('on');
+            arr[i].querySelector('.txt-area').classList.remove('on');
+        });
+    });
 
     // scroll 상태에 따른 footer card 회전 모션
     function setFooterCardRotate() {
@@ -140,6 +176,7 @@
         scrollBottom = document.documentElement.scrollTop + winInnerHeight;
         cardOffsetTop = card.parentElement.offsetTop + card.offsetTop + card.clientHeight;
 
+        setColor();
         setLnbStyle();
         setBackgroundColor(mainBackColorR, mainBackColorG, mainBackColorB, 1-(document.documentElement.scrollTop/mainSection.offsetHeight));
         actionPortfolioScrollActive();
@@ -149,6 +186,12 @@
     lnbBtn.forEach(btn => {
         btn.addEventListener('click', function(e){
             actionAnchorScrollMove(e);
+        });
+        btn.addEventListener('focus', function(){
+            actionHeaderToggle().show();
+        });
+        btn.addEventListener('blur', function(){
+            actionHeaderToggle().hide();
         });
     });
 
@@ -160,6 +203,7 @@
     document.addEventListener('scroll', function(e) {
         scrollBottom = document.documentElement.scrollTop + winInnerHeight;
 
+        setColor();
         setLnbStyle(e);
         setBackgroundColor(mainBackColorR, mainBackColorG, mainBackColorB, 1-(document.documentElement.scrollTop/mainSection.offsetHeight));
 
