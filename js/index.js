@@ -136,16 +136,6 @@
         }
     }
 
-    // 스크롤 방향 감지
-    let scrollBaseValue = 0;
-    function getScrollDirection(){
-        let result;
-        if(scrollBaseValue < window.scrollY) result = 'DOWN';
-        else result = 'UP';
-        scrollBaseValue = window.scrollY;
-        return result;
-    }
-
     window.addEventListener('load', function(e) {
         scrollBottom = document.documentElement.scrollTop + winInnerHeight;
         cardOffsetTop = card.parentElement.offsetTop + card.offsetTop + card.clientHeight;
