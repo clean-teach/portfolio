@@ -3,7 +3,6 @@
     const lnbBtn = header.querySelectorAll('#lnb a');
     const mainSection = document.querySelector('#main-section');
     const portfolioSection = document.querySelector('#portfolio-section');
-    const portfolioSectionPosiTop = portfolioSection.offsetTop;
     const portfolioList = document.querySelectorAll('.portfolio-list>li');
     const contactSection = document.querySelector('#contact-section');
     const card = document.querySelector('footer .card');
@@ -16,6 +15,7 @@
         winInnerHeight = window.innerHeight;
         pageScrollHeight = document.body.scrollHeight,
         scrollBottom = document.documentElement.scrollTop + winInnerHeight,
+        portfolioSectionPosiTop = portfolioSection.offsetTop;
         cardOffsetTop = card.parentElement.offsetTop + card.offsetTop + card.clientHeight;
 
     // 앵커태그 부드러운 동작 함수
@@ -161,11 +161,47 @@
         });
     });
 
+    // scroll 상태에 따른 Contact 글자
+    function actionContactTxtMotion(){
+        const initialStartValue = document.documentElement.clientWidth/2;
+        const startPoint = window.pageYOffset + contactSection.querySelector('form').getBoundingClientRect().top;
+        const endPoint = window.pageYOffset + contactSection.querySelector('form').getBoundingClientRect().top + winInnerHeight/2;
+        const standard = initialStartValue;
+        function getPercentage(whole, parts, standard){
+            if (whole == '' || parts == '' || standard == ''){
+                return null;
+            }else{
+                return parts/whole * standard;
+            }
+        }
+        // console.log(startPoint);
+        // console.log(endPoint);
+        // console.log(scrollBottom);
+        if(scrollBottom > endPoint){
+            console.log('얍');
+        }
+        if(scrollBottom > startPoint && scrollBottom <= endPoint){
+            let percentage = getPercentage((pageScrollHeight - endPoint), (scrollBottom - startPoint), standard);
+
+            console.log(scrollBottom);
+            console.log(endPoint);
+            // console.log(percentage);
+            // console.log(initialStartValue);
+            // console.log(initialStartValue + percentage);
+            
+            contactSection.querySelector('.sub-tit01').style['left'] = `${-initialStartValue + percentage}px`;
+            contactSection.querySelector('.sub-tit02').style['right'] = `${-initialStartValue + percentage}px`;
+        }else if(scrollBottom >= endPoint){
+            contactSection.querySelector('.sub-tit01').style['left'] = `0px`;
+            contactSection.querySelector('.sub-tit02').style['right'] = `0`;
+        }
+    }
+
     // scroll 상태에 따른 footer card 회전 모션
     function setFooterCardRotate() {
         if(scrollBottom > cardOffsetTop) {
             pageScrollHeight = document.body.scrollHeight;
-            let percentage = (scrollBottom - cardOffsetTop)/(pageScrollHeight-cardOffsetTop)*-90;
+            let percentage = (scrollBottom - cardOffsetTop)/(pageScrollHeight - cardOffsetTop)*-90;
 
             card.style.transform = `rotateX(${footerCardInitialAngleValue + percentage}deg)`;
             card.style.transition = '0s';
@@ -214,6 +250,7 @@
         setBackMotionStyle();
         scrollRotate('circle-scroll-svg');
         actionPortfolioScrollActive();
+        actionContactTxtMotion();
         setFooterCardRotate();
     });
     document.addEventListener('mouseenter', function(e) {
