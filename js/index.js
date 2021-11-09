@@ -163,37 +163,31 @@
 
     // scroll 상태에 따른 Contact 글자
     function actionContactTxtMotion(){
-        const initialStartValue = document.documentElement.clientWidth/2;
-        const startPoint = window.pageYOffset + contactSection.querySelector('form').getBoundingClientRect().top;
-        const endPoint = window.pageYOffset + contactSection.querySelector('form').getBoundingClientRect().top + winInnerHeight/2;
-        const standard = initialStartValue;
-        function getPercentage(whole, parts, standard){
+        const startPoint = window.pageYOffset + contactSection.querySelector('.sub-tit').getBoundingClientRect().top;
+        const endPoint = window.pageYOffset + contactSection.querySelector('.sub-tit').getBoundingClientRect().top + winInnerHeight/1.5;
+        const initialFromRotate = 0;
+        function getPercentage(parts, whole, standard){
             if (whole == '' || parts == '' || standard == ''){
                 return null;
             }else{
-                return parts/whole * standard;
+                return parseFloat(parts/whole) * standard;
             }
         }
-        // console.log(startPoint);
-        // console.log(endPoint);
-        // console.log(scrollBottom);
-        if(scrollBottom > endPoint){
-            console.log('얍');
-        }
-        if(scrollBottom > startPoint && scrollBottom <= endPoint){
-            let percentage = getPercentage((pageScrollHeight - endPoint), (scrollBottom - startPoint), standard);
-
-            console.log(scrollBottom);
-            console.log(endPoint);
-            // console.log(percentage);
-            // console.log(initialStartValue);
-            // console.log(initialStartValue + percentage);
-            
-            contactSection.querySelector('.sub-tit01').style['left'] = `${-initialStartValue + percentage}px`;
-            contactSection.querySelector('.sub-tit02').style['right'] = `${-initialStartValue + percentage}px`;
-        }else if(scrollBottom >= endPoint){
-            contactSection.querySelector('.sub-tit01').style['left'] = `0px`;
-            contactSection.querySelector('.sub-tit02').style['right'] = `0`;
+        return {
+            move: function(){
+                if(scrollBottom > startPoint && scrollBottom <= endPoint){
+                    let percentageMove = getPercentage((endPoint - scrollBottom),(endPoint - startPoint), 20);
+                    let percentageRotate = 90 - getPercentage((endPoint - scrollBottom),(endPoint - startPoint),90);
+                    
+                    contactSection.querySelector('.sub-tit01').style['left'] = `${-percentageMove}%`;
+                    contactSection.querySelector('.sub-tit02').style['right'] = `${-percentageMove}%`;
+                    contactSection.querySelector('form').style['transform'] = `rotateY(${percentageRotate}deg)`;
+                }else if(scrollBottom >= endPoint){
+                    contactSection.querySelector('.sub-tit01').style['left'] = `0px`;
+                    contactSection.querySelector('.sub-tit02').style['right'] = `0`;
+                    contactSection.querySelector('form').style['transform'] = `rotateY(90deg)`;
+                }
+            }
         }
     }
 
@@ -250,7 +244,7 @@
         setBackMotionStyle();
         scrollRotate('circle-scroll-svg');
         actionPortfolioScrollActive();
-        actionContactTxtMotion();
+        actionContactTxtMotion().move();
         setFooterCardRotate();
     });
     document.addEventListener('mouseenter', function(e) {
