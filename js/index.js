@@ -175,7 +175,9 @@
         }
         return {
             move: function(){
-                if(scrollBottom > startPoint && scrollBottom <= endPoint){
+                if(scrollBottom <= startPoint){
+                    contactSection.querySelector('form').style['transform'] = `rotateY(0deg)`;
+                }else if(scrollBottom > startPoint && scrollBottom <= endPoint){
                     let percentageMove = getPercentage((endPoint - scrollBottom),(endPoint - startPoint), 20);
                     let percentageRotate = 90 - getPercentage((endPoint - scrollBottom),(endPoint - startPoint),90);
                     

@@ -50,14 +50,14 @@ h2 {position: sticky; top: 0; text-align: center; font-weight: bold; font-size: 
 .portfolio-list .txt-area dl {margin-top: 2.4rem;}
 .portfolio-list .txt-area dt {padding: 1rem 0 .4rem; font-weight: bold; font-size: 1.125rem; color: #333333;}
 .portfolio-list .txt-area dd {font-weight: 200; font-size: 1rem; line-height: 1.4rem; color: #666666;}
-.portfolio-list .txt-area button {font-weight: 500; font-size: 1rem; color: #666666; border: 1px solid #666666; padding: .4rem 1rem; margin-top: 1rem; background-color: rgba(255, 255, 255, 0);}
-.portfolio-list .txt-area button:hover {transform: scale(1.1); transition: .4s; background-color: rgba(255, 255, 255, .4); box-shadow: 0 0 20px rgba(0, 0, 0, .2);}
+.portfolio-list .txt-area button {font-weight: 500; font-size: 1rem; color: #666666; padding: .4rem 1rem; margin-top: 1rem; border-radius: 4px; background-color: rgba(255, 255, 255, 0); box-shadow: 0 0 16px rgba(0, 0, 0, .2);}
+.portfolio-list .txt-area button:hover, .portfolio-list .txt-area button:focus {transform: translateY(-4px); transition: .4s; background-color: rgba(255, 255, 255, .4); box-shadow: 10px 10px 24px rgba(0, 0, 0, .3);}
 .portfolio-list .img-area.on {transform: skewY(0) translateY(0) scale(1); opacity: 1; transition: .4s;}
 /* .portfolio-list li.portfolio-mockup-mobile-02 .img-area.on {transform: skewY(0) translateY(0);} */
 .portfolio-list .txt-area.on {transform: translateX(0) skewX(0);}
 
 #contact-section {overflow: hidden;}
-#contact-section .sub-tit {position: relative; font-weight: 500; font-size: 1.5rem; color: #333333; text-align: center;}
+#contact-section .sub-tit {position: relative; font-weight: 500; font-size: 1.5rem; color: #333333; text-align: center; margin-top: 50vh;}
 #contact-section .sub-tit::before {content: ''; position: absolute; left: 0; top: 50%; display: block; width: 100%; height: 1px; background-color: #acacac;}
 #contact-section .sub-tit p {position: relative; display: inline; background-color: #ffffff;}
 #contact-section .center-wrap {position: relative; max-width: 512px; margin: 0 auto; padding: 2rem; background-color: #ffffff; z-index: 2;}
@@ -67,8 +67,9 @@ h2 {position: sticky; top: 0; text-align: center; font-weight: bold; font-size: 
 #contact-section input:focus {border-bottom-width: 3px; border-color: #333333;}
 #contact-section textarea {border-width: 1px; border-style: solid;}
 #contact-section textarea:focus {border-width: 3px; border-color: #333333;}
-#contact-section .btn-area {text-align: center; padding: 2rem;}
-#contact-section button[type=submit] {color: #333333; font-weight: bold; font-size: 3rem;}
+#contact-section .btn-area {text-align: center; padding: 2rem 0;}
+#contact-section button[type=submit] {color: #333333; font-weight: bold; font-size: 3rem; width: 100%; padding: 1rem; border-radius: 12px;}
+#contact-section button[type=submit]:hover {box-shadow: 10px 10px 24px rgba(0, 0, 0, .3); transform: translateY(-4px); transition: .4s;}
 
 footer {width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; perspective: 400px;}
 footer .card {position: relative; z-index: 10; display: block; width: 540px; height: 300px; border-radius: 4mm; box-sizing: border-box; background-color: #ffffff; box-shadow: 0 0 60px rgba(0, 0, 0, .1); transform: rotateX(90deg);}
