@@ -1,0 +1,89 @@
+@charset "utf-8";
+/*@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');*/
+
+/**************** tag ****************/
+body * {font-family: 'Noto Sans KR', 'Nanum Gothic', 'Arial', sans-serif; letter-spacing: -.025rem;
+    -webkit-font-smoothing: subpixel-antialiased;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+a {text-decoration: none; color: #333333;}
+button {padding: 0; border: none; background: none;}
+input {border: none;}
+label {cursor: pointer; display: none;}
+strong {color: #333333;}
+caption {display: none}
+
+/**************** attribute ****************/   
+::-webkit-input-placeholder {color: #999999;}/* Edge */
+:-ms-input-placeholder {color: #999999;}/* Internet Explorer 10-11 */
+::placeholder {color: #999999;}
+
+/**************** class ****************/
+.center-wrap {box-sizing: border-box; width: 1400px; margin: 0 auto; padding: 0 40px;}
+
+/**************** header ****************/
+header {width: 100%; min-width: 1400px; height: 5rem; background: url(../../img/visual/visual_05_03.jpg) no-repeat center 20%; background-size: cover; background-color: rgba(0,0,0,.2); z-index: 99;}
+header a {color: #ffffff;}
+header .center-wrap:after {content: ''; display: block; clear: both;}
+header h1 {float: left; margin-top: 2.24rem; font-size: 1.6rem; font-weight: 400; background: url(../../img/logo_fur_ffffff_184x24.png) no-repeat; color: #ffffff;}
+header h1 .hide {visibility: hidden;}
+header h1 .small {margin-left: .5rem; font-size: 1.44rem; font-weight: 400;}
+header h1 a {opacity: 0;}
+header nav {float: right; margin-top: 2.5rem; font-size: 1.1rem; font-weight: 400; text-align: center;}
+header nav li {float: left; padding-bottom: 1.48rem; margin-left: 2.92rem;}
+header nav li:first-child {margin-left: 0;}
+header nav li a {position: relative;}
+header nav li a:after {content: ''; display: block; position: absolute; bottom: -1.2rem; left: 0; width: 0; height: 4px; background-color: #ffffff; transition: .6s;}
+header nav li.active a:after, header nav li.on a:after, header nav li:hover a:after {width: 100%;}
+header nav li.active a:after {background-color: #ffffff;}
+#btn-logout {float: right; margin-top: 2.6rem; margin-left: 2.92rem; border-left: 1px solid #ffffff; padding-left: 1rem; border-right: 1px solid #ffffff; padding-right: 1rem; font-size: .88rem;}
+
+/**************** section ****************/
+section:after {content: ''; display: block; clear: both;}
+section.center-wrap {padding-bottom: 3.2rem; color: #666666;}
+section h2 {padding: 2.74rem 0 1rem; font-size: 1.92rem; font-weight: bold; color: #333333;}
+section>.subtit {font-weight: 600; font-size: .97rem; line-height: 1.8rem; color: #333333;}
+section .col-00 {width: 100%;}
+
+#board-search {margin-top: .6rem; height: 3.8rem; font-size: .88rem;}
+#board-search:after {content: ''; display: block; clear: both;}
+#board-search select {float: left; margin-left: calc(50% - 17rem); border: 1px solid #e6e6e6; height: 100%; background: url(../../img/icon/icon_angle_bottom_666666_14x8.png) no-repeat 82% center; padding: 0 5.5rem 0 1rem; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;  /* 네이티브 외형 감추기 */
+}
+#board-search select::-ms-expand {display: none;} /* IE 10, 11의 네이티브 화살표 숨기기 */
+#board-search .box-search {float: left; width: 100%; max-width: 25rem; height: 100%; background-color: #f5f5f5; margin-left: .8rem;}
+#input-search {float: left; box-sizing: border-box; width: calc(100% - 4rem); height: 100%; background-color: #f5f5f5; padding: 0 1rem; font-size: .94rem;}
+#btn-search {float: right; width: 4rem; height: 100%; background: #f5f5f5 url(../../img/icon/icon_magnifyingglass_333333_23x22.png) no-repeat center;}
+
+
+#paging-btn-area {position: relative; margin: 3.2rem auto 0; text-align: center;}
+#paging-btn-area .btn-prev, #paging-btn-area .btn-next {width: 2rem; height: 2rem; border: 1px solid #ececec; background-repeat: no-repeat; background-position: center;}
+#paging-btn-area .btn-prev {left: -2.2rem; background-image: url(../../img/icon/icon_angle_double_left_000000_32x32.png);}
+#paging-btn-area .btn-next {right: -2.2rem; background-image: url(../../img/icon/icon_angle_double_right_000000_32x32.png);}
+#paging-btn-area ul {display: inline-block; padding: 0 1rem;}
+#paging-btn-area li {position: relative; display: inline-block; padding: 0 .88rem;}
+#paging-btn-area li button {position: absolute; top: -1.8rem; left: 25%; font-size: 1.1rem; padding-bottom: .1rem; color: #999999;}
+#paging-btn-area .active {border-bottom: 1px solid #333333; color: #333333;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

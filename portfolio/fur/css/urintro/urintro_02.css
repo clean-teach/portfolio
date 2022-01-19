@@ -1,0 +1,61 @@
+@charset "utf-8";
+
+#main-top-area {background: url(../../img/visual/visual_07.jpg) no-repeat center 28%; background-size: cover;}
+
+section>ul {padding: 0 1.2rem; color: #666666;}
+section h4 {padding: 2.16rem 0 1.04rem; font-weight: bold; font-size: 1.2rem; color: #333333; background: url(../../img/underline_5caeff_34x2.png) no-repeat left bottom, url(../../img/pixel_cdd8e4.png) repeat-x bottom;}
+section table {width: 100%; border-top: 1px solid #a4a4a4;}
+section table th, section table td {border-left: 1px solid #d6d6d6; border-bottom: 1px solid #e0e0e0; text-align: center; vertical-align: middle;}
+section table th {background-color: #ebebeb; height: 4rem;}
+section table td {height: 3.6rem;}
+section table .col-01 {border-left: none; background-color: #f7f7f7;}
+section .cont {color: #666666; font-size: .97rem; line-height: 1.8rem; margin-bottom: 1.4rem; padding-left: 1rem;}
+section .cont ul {padding-left: 1rem;}
+section .cont:after {content: ''; display: block; clear: both;}
+
+section>ul>li:nth-child(1) dl {margin-top: 2rem;}
+section>ul>li:nth-child(1) dt {float: left; clear: both;}
+section>ul>li:nth-child(1) dd {float: left;}
+
+section>ul>li:nth-child(2) dl {margin-top: 1.9rem;}
+section>ul>li:nth-child(2) dt {margin-top: 1.2rem;}
+
+section>ul>li:nth-child(3) h4 {border-bottom: none;}
+section>ul>li:nth-child(3) table {margin-bottom: 1.6rem;}
+section>ul>li:nth-child(3) td {width: 25%;}
+section>ul>li:nth-child(3) .col-01, section>ul>li:nth-child(3) .col-02 {color: #333333;}
+
+section>ul>li:nth-child(4) h5 {margin-top: 2rem; color: #333333;}
+section>ul>li:nth-child(4) h6 {margin-top: 1.6rem;}
+section>ul>li:nth-child(4) h6 .font-small {font-size: .5rem;}
+section>ul>li:nth-child(4) .law-area {padding-left: 1rem;}
+section>ul>li:nth-child(4) .law-area>ul {padding-left: .4rem;}
+section>ul>li:nth-child(4) .law-area>ul>li>ul {padding-left: .8rem;}
+
+section>ul>li:nth-child(4) .cont>ul>li:nth-child(2) ul:after {content: ''; display: block; clear: both;}
+section>ul>li:nth-child(4) .cont>ul>li:nth-child(2) li {float: left;}
+section>ul>li:nth-child(4) .cont>ul>li:nth-child(2) li:not(:first-child) {margin-left: .4rem; padding-left: calc(.4rem + 4px); background: url(../../img/triangle_right_84c2ff_4x7.png) no-repeat left center;}
+section>ul>li:nth-child(4) .cont>ul>li:nth-child(3) th {width: 25%;}
+
+@media screen and (max-width: 1400px) {
+    section table th, section table td {padding: .4rem;}
+}
+
+@media screen and (max-width: 800px) {
+    section>ul {padding: 0;}
+    section .cont {padding-left: 0;}
+    section .cont ul {padding-left: 0;}
+    section h5, section dt {border-bottom: 1px solid #eeeeee; font-weight: 600;}
+}
+
+
+
+
+
+
+
+
+
+
+
+

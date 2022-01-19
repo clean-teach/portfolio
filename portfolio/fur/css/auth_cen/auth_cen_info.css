@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+#main-top-area {background: url(../../img/visual/visual_01.jpg) no-repeat center 28%; background-size: 100%;}
+
+section>ul {padding: 0 1.2rem; color: #666666;}
+section h4 {padding: 2.9rem 0 1rem; font-weight: bold; font-size: 1.08rem; color: #333333;}
+section p {font-size: .98rem; line-height: 1.6rem; margin-left: 1rem;}
+section table {width: calc(100% - 2rem); border-top: 2px solid #bdbdbd; margin: auto;}
+section table col {width: 14%;}
+section table th, section table td {border: 1px solid #e1e1e1; text-align: center; vertical-align: middle; padding: .88rem 0; font-size: .88rem;}
+section table th {font-weight: 600; color: #666666;}
+section table td {font-weight: 400; color: #999999;}
+section table .col-1 {border-left: none;}
+section table .col-7 {border-right: none;}
+section>ul li li {margin-top: 1rem; margin-left: 1rem;}
+
+section .btn-wrap {margin-top: 4rem; text-align: center;}
+section .btn-wrap button {width: 100%; max-width: 23.4rem; height: 3.6rem; font-size: 1.12rem; font-weight: 200; margin: .4rem;}
+#btn-certificate-join {background-color: #ffffff; color: #666666; border: 1px solid #999999;}
+#btn-certificate-join:focus {outline-color: #4197ec;}
+#btn-certificate-login {background-color: #4197ec; color: #ffffff;}
+#btn-certificate-login:focus {outline-color: #666666;}

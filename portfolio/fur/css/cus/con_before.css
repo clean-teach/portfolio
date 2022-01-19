@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+#main-top-area {background: url(../../img/visual/visual_05_02.jpg) no-repeat center 28%; background-size: cover;}
+
+section:after {content: ''; display: block; clear: both;}
+section .notice {float: left; margin: 2.74rem auto 3.06rem;}
+section .notice h4 {font-size: 1.06rem; font-weight: 600; margin-bottom: 1.3rem;}
+section .notice li {margin-top: .8rem; margin-left: 1rem; font-size: .97rem; color: #666666;}
+section .notice li:first-child {margin-top: 0;}
+section .btn-wrap {float: right; margin: 5rem auto 0; text-align: right;}
+section .btn-wrap button {width: 23.2rem; padding: .92rem 0; margin: 0; font-size: 1.12rem; font-weight: 400;}
+section .btn-wrap button:focus {outline-color: #666666;}
+section .btn-wrap #kakao-verification-02 {background: #fee705 url(../../img/logo_kakaopay_65x23.png) no-repeat 6.6rem center; padding-left: 4.2rem; color: #382d00;}
+
+
+@media screen and (max-width: 1400px) {
+    section .btn-wrap button {margin: .6rem;}
+}
+
+@media screen and (max-width: 800px) {
+    section .btn-wrap button {width: 100%; margin: .6rem 0;}
+    section .btn-wrap #kakao-verification-02 {background: #fee705 none; padding-left: 0;}
+}

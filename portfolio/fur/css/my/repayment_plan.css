@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+#main-top-area {background: url(../../img/visual/visual_06.jpg) no-repeat center 57%; background-size: cover;}
+
+section form {float: right;}
+section select {float: left; border: 1px solid #e6e6e6; height: 3.8rem; background: url(../../img/icon/icon_angle_bottom_666666_14x8.png) no-repeat 88% center; padding: 0 5.5rem 0 1rem; color: #666666; margin-bottom: 1rem; -webkit-appearance: none; -moz-appearance: none; appearance: none;}
+section select::-ms-expand {display: none;}
+section form label {float: left; margin-top: 1.4rem; margin-right: 1rem; color: #333333; font-weight: bold;}
+
+#inquiry-area {clear: both; margin-top: 2.24rem; border-top: 2px solid #a4a4a4; font-size: .97rem;}
+#inquiry-area>ul {width: 100%;}
+#inquiry-area>ul:after {content: ''; display: block; clear: both;}
+#inquiry-area>ul>li {float: left; box-sizing: border-box;}
+#inquiry-area .heading {box-sizing: border-box; color: #333333; font-weight: 600;}
+#inquiry-area .data {box-sizing: border-box; color: #666666;}
+
+#inquiry-area .table-01 {border-top: 1px solid #a4a4a4; border-bottom: 1px solid #e0e0e0; margin-bottom: 2rem;}
+#inquiry-area .table-01 li {width: 33.3%; padding: 1.9rem 0 1.84rem; border-left: 1px solid #d3d3d3;}
+#inquiry-area .table-01 li:first-child {border-left: none;}
+#inquiry-area .table-01 li:after {content: ''; display: block; clear: both;}
+#inquiry-area .table-01 .heading {float: left; padding: 0 1.36rem; border-right: 1px solid #dfdfdf;}
+#inquiry-area .table-01 .data {float: left; padding-left: 1.36rem;}
+
+#inquiry-area .table-scroll-wrap {margin-top: 3.1rem; width: 100%; overflow-x: scroll;}
+#inquiry-area table.table-02 {min-width: 2200px;}
+#inquiry-area table.table-02 th, #inquiry-area table.table-02 td {text-align: center; vertical-align: middle; border: 1px solid #d6d6d6; padding: 0 1rem; box-sizing: border-box;}
+#inquiry-area table.table-02 th:first-child, #inquiry-area table.table-02 td:first-child {border-left: none;}
+#inquiry-area table.table-02 th {height: 3.6rem; border-top: 1px solid #a4a4a4; background-color: #f1f1f1; line-height: 1.2rem;}
+#inquiry-area table.table-02 td {height: 4.2rem; border-bottom: 1px solid #e0e0e0; color: #666666;}
+#inquiry-area table.table-02 .col-01 {width: 4rem;}
+#inquiry-area table.table-02 td.datatype-num {text-align: right; padding-right: 1.6rem;}
+#inquiry-area table.table-02 .total td {color: #333333; font-weight: 600; background-color: #f5f5f5;}
+
+
+@media screen and (max-width: 1400px) {
+    #inquiry-area .table-01 li {padding-left: 1.2rem;}
+    #inquiry-area .table-01 .heading {float: none; padding: 0; border-right: none;}
+    #inquiry-area .table-01 .data {float: none; padding-left: 0; margin-top: .4rem;}
+}
+
+@media screen and (max-width: 800px) {
+    section form {width: 100%;}
+    section form select {float: right; width: 100%; background-position: 94% center;}
+    section form label {width: 100%; margin: 1rem 0; display: none;}
+    #inquiry-area .table-01 li {float: none; width: 100%; padding: 0; margin-bottom: 1.2rem; border-left: none;}
+    #inquiry-area .table-01 li:first-child {margin-top: 1.2rem;}
+}

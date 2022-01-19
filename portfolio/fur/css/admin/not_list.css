@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+#main-board {margin-top: 1.88rem; width: 100%; border-top: 2px solid #666666;}
+#main-board li {box-sizing: border-box;}
+#main-board .heading {font-weight: 600; font-size: 1rem; color: #333333; text-align: center; border-bottom: 1px solid #666666; }
+#main-board .data {font-weight: 400; font-size: .92rem; color: #666666; text-align: center; border-bottom: 1px solid #e6e6e6;}
+#main-board .data a {color: #666666;}
+#main-board .heading li {padding: 1.44rem 0;}
+#main-board .data li {padding: 1.5rem 0;}
+#main-board .col:after {content: ''; display: block; clear: both;}
+#main-board .col>li {float: left; min-height: 3.8rem;}
+#main-board .col .col-01 {width: 9.1%;}
+#main-board .col .col-02 {width: 63.6%; padding-left: 1.9rem;}
+#main-board .col .col-03 {width: 9.1%;}
+#main-board .data .col-03 {padding: 0; position: relative;}
+#main-board .data .col-03 a {position: absolute; top: calc(50% - 1rem); left: calc(50% - 1rem); width: 2rem; height: 2rem;}
+#main-board .col .col-04 {width: 9.1%;}
+#main-board .col .col-05 {width: 9.1%;}
+#main-board .data .col-02 {text-align: left;}
+
+#main-board .main-notice {background-color: #f8f8f8;}
+#main-board .main-notice a {color: #333333;}
+#main-board .main-notice .col-01 {background: url(../../img/icon/icon_megaphone_4f9e9d_19x17.png) no-repeat center;}
+#main-board .attach .col-03 {background: url(../../img/icon/icon_attach_36x36.png) no-repeat center;}
+#main-board .attach-file .col-03 {background: url(../../img/icon/icon_attach_file_36x36.png) no-repeat center;}
+#main-board .attach-hangeul .col-03 {background: url(../../img/icon/icon_attach_hangeul_36x36.png) no-repeat center;}
+#main-board .attach-x .col-03 {background: url(../../img/icon/icon_attach_x_36x36.png) no-repeat center;}
+#main-board .attach-pdf .col-03 {background: url(../../img/icon/icon_attach_pdf_36x36.png) no-repeat center;}
+#main-board .attach-ppt .col-03 {background: url(../../img/icon/icon_attach_ppt_36x36.png) no-repeat center;}
+#main-board .attach-word .col-03 {background: url(../../img/icon/icon_attach_word_36x36.png) no-repeat center;}
+#main-board .attach-img .col-03 {background: url(../../img/icon/icon_attach_img_36x36.png) no-repeat center;}
+
+section a.btn-add {display: block; float: right; background-color: #4197ec; margin: 1.24rem 0 3rem; padding: .94rem 2.14rem; color: #ffffff;}

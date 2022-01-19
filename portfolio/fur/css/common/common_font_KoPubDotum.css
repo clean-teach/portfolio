@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: 'KoPubWordDotum';
+  font-style: normal;
+  font-weight: 400;
+  src: local('KoPub Dotum Light'), local('KoPub-Dotum-Light'), /* local(※) 값은 외부 자원을 참조하기 이전에 시스템에 설치된 글꼴을 우선 참조할 수 있도록 만들어 준다. */
+      url('../../fonts/KoPub/KoPub_Dotum_Light.woff') format('woff'), url('../../fonts/KoPub/KoPub Dotum_Pro Light.otf') format('otf'), url('../../fonts/KoPub/KoPub Dotum Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'KoPubWordDotum';
+  font-style: normal;
+  font-weight: 600;
+  src: local('KoPub Dotum Medium'), local('KoPub-Dotum-Medium'), 
+      url('../../fonts/KoPub/KoPub_Dotum_Medium.woff') format('woff'), url('../../fonts/KoPub/KoPub Dotum_Pro Medium.otf') format('otf'), url('../../fonts/KoPub/KoPub Dotum Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'KoPubWordDotum';
+  font-style: normal;
+  font-weight: 800;
+  src: local('KoPub Dotum Bold'), local('KoPub-Dotum-Bold'), 
+      url('../../fonts/KoPub/KoPub_Dotum_Bold.woff') format('woff'), url('../../fonts/KoPub/KoPub Dotum_Pro Bold.otf') format('otf'), url('../../fonts/KoPub/KoPub Dotum Bold.ttf') format('truetype');
+}

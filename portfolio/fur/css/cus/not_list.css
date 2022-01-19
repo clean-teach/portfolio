@@ -1,0 +1,69 @@
+@charset "utf-8";
+
+#main-top-area {background: url(../../img/visual/visual_05_02.jpg) no-repeat center 28%; background-size: cover;}
+
+section {color: #666666;}
+section h4 {padding: 2.68rem 0 1rem; font-weight: bold; font-size: 1.2rem;}
+
+#board-search {margin-top: 2rem; height: 3.8rem; font-size: .88rem;}
+#board-search:after {content: ''; display: block; clear: both;}
+#board-search label {display: none;}
+#board-search select {float: left; margin-left: calc(50% - 17rem); border: 1px solid #e6e6e6; height: 100%; background: url(../../img/icon/icon_angle_bottom_666666_14x8.png) no-repeat 82% center; padding: 0 5.5rem 0 1rem; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;  /* 네이티브 외형 감추기 */
+}
+#board-search select::-ms-expand {display: none;} /* IE 10, 11의 네이티브 화살표 숨기기 */
+#board-search .box-search {float: left; width: 100%; max-width: 25rem; height: 100%; background-color: #f5f5f5; margin-left: .8rem;}
+#input-search {float: left; box-sizing: border-box; width: calc(100% - 4rem); height: 100%; background-color: #f5f5f5; padding: 0 1rem; font-size: .94rem;}
+#btn-search {float: right; width: 4rem; height: 100%; background: #f5f5f5 url(../../img/icon/icon_magnifyingglass_333333_23x22.png) no-repeat center; overflow: hidden; text-indent: -999px;}
+#btn-search:focus {outline: 1px dotted #4197ec;}
+
+#main-board {margin-top: 1.88rem; width: 100%; border-top: 2px solid #666666;}
+#main-board li {box-sizing: border-box;}
+#main-board .heading {font-weight: 600; font-size: 1rem; color: #333333; text-align: center; border-bottom: 1px solid #666666; }
+#main-board .data {font-weight: 400; font-size: .92rem; color: #666666; text-align: center; border-bottom: 1px solid #e6e6e6;}
+#main-board .data a {color: #666666;}
+#main-board .heading li {padding: 1.44rem 0;}
+#main-board .data li {padding: 1.5rem 0;}
+#main-board .col:after {content: ''; display: block; clear: both;}
+#main-board .col>li {float: left; min-height: 3.8rem;}
+#main-board .col .col-01 {width: 9.1%;}
+#main-board .col .col-02 {width: 63.6%; padding-left: 1.9rem;}
+#main-board .col .col-03 {width: 9.1%;}
+#main-board .data .col-03 {padding: 0; position: relative;}
+#main-board .data .col-03 a {position: absolute; top: calc(50% - 1rem); left: calc(50% - 1rem); width: 2rem; height: 2rem; overflow: hidden; text-indent: -999px;}
+#main-board .col .col-04 {width: 9.1%;}
+#main-board .col .col-05 {width: 9.1%;}
+#main-board .data .col-02 {text-align: left;}
+
+#main-board .main-notice {background-color: #f8f8f8;}
+#main-board .main-notice a {color: #333333;}
+#main-board .main-notice .col-01 {background: url(../../img/icon/icon_megaphone_4f9e9d_19x17.png) no-repeat center; overflow: hidden; text-indent: -999px;}
+#main-board .attach .col-03 {background: url(../../img/icon/icon_attach_36x36.png) no-repeat center;}
+#main-board .attach-file .col-03 {background: url(../../img/icon/icon_attach_file_36x36.png) no-repeat center;}
+#main-board .attach-hangeul .col-03 {background: url(../../img/icon/icon_attach_hangeul_36x36.png) no-repeat center;}
+#main-board .attach-x .col-03 {background: url(../../img/icon/icon_attach_x_36x36.png) no-repeat center;}
+#main-board .attach-pdf .col-03 {background: url(../../img/icon/icon_attach_pdf_36x36.png) no-repeat center;}
+
+@media screen and (max-width: 1400px) {
+    #paging-btn-area {width: 40%;}
+    #paging-btn-area .btn-prev {left: -16%;}
+    #paging-btn-area .btn-next {right: -16%;}
+}
+
+@media screen and (max-width: 800px) {
+    #board-search {height: auto;}
+    #board-search select {height: 3.8rem; margin-left: 0; margin-right: .8rem; margin-bottom: .8rem;}
+    #board-search .box-search {height: 3.8rem; margin-left: 0rem;}
+    #main-board .heading {display: none;}
+    #main-board .data {padding-bottom: 1rem;}
+    #main-board .col .col-01 {width: 16%;}
+    #main-board .col .col-02 {padding-left: 0;}
+    #main-board .col .col-03 {float: right; width: 16%;}
+    #main-board .col .col-04 {clear: both; width: auto; min-height: auto; margin-left: 16%; padding: .2rem 0; font-size: .8rem;}
+    #main-board .col .col-05 {width: auto; min-height: auto; margin-left: 1rem; border-left: 1px solid #e6e6e6; padding: .2rem 0; padding-left: 1rem; font-size: .8rem;}
+    #paging-btn-area {width: 68%;}
+    #paging-btn-area .btn-prev {left: -20%;}
+    #paging-btn-area .btn-next {right: -20%;}
+}

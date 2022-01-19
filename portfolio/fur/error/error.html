@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="Description" content="기금도시재생포털"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <title>기금도시재생포털</title>
+    <link rel="stylesheet" type="text/css" href="../css/common/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/common/common_font_NotoSansKR.css">
+    <link rel="stylesheet" type="text/css" href="../css/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/cus/wiz.css">
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/common.js"></script>
+</head>
+<body>
+    <a href="#error-page" id="btn-skip-content">본문바로가기</a>
+    <header>
+        <h1><a href="../index.html" title="기금도시재생포털 메인 화면으로 이동"><span>기금도시재생포털</span></a></h1>
+        <button type="button" id="main-menu-btn" title="main menu button"></button>
+        <nav id="gnb">
+            <ul>
+                <li><a href="#" class="btn-login">로그인</a></li>
+                <li><a href="../auth_cen/auth_cen.html">인증센터</a></li>
+            </ul>
+        </nav>
+        <nav id="lnb">
+            <ul class="main">
+                <li><a href="../urintro/urintro_01.html">도시재생사업</a></li>
+                <li><a href="../product/total.html">상품안내</a></li>
+                <li class="active"><a href="wiz.html">고객서비스</a></li>
+                <li><a href="../my/con_chek.html">마이페이지</a></li>
+            </ul>
+        </nav>
+        <div id="main-dropdown-area">
+            <ul class="depth-01">
+                <li>
+                    <h2>도시재생사업</h2>
+                    <ul class="depth-02">
+                        <li><a href="../urintro/urintro_01.html">도시재생이란?</a></li>
+                        <li><a href="../urintro/urintro_02.html">도시재생기금안내</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <h2>상품안내</h2>
+                    <ul class="depth-02">
+                        <li><a href="../product/total.html">전체상품</a></li>
+                        <li><a href="../product/cowork_intro.html">수요자중심형</a>
+                            <ul class="depth-03">
+                                <li><a href="../product/cowork_intro.html">코워킹커뮤니티시설 조성자금</a></li>
+                                <li><a href="../product/shop_intro.html">상가리모델링 자금</a></li>
+                                <li><a href="../product/parking_intro.html">생활SOC 조성자금 융자</a></li>
+                                <li><a href="../product/startup_intro.html">창업시설 조성자금</a></li>
+                                <li><a href="../product/rental_intro.html">임대상가 조성자금</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="../product/streethouse_intro.html">소규모주택정비사업</a>
+                            <ul class="depth-03">
+                                <li><a href="../product/streethouse_intro.html">가로주택 정비사업</a></li>
+                                <li><a href="../product/autohouse_intro.html">자율주택 정비사업</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="../product/complex_intro.html">복합개발형</a>
+                            <ul class="depth-03">
+                                <li><a href="../product/complex_intro.html">출자 및 융자</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h2>고객서비스</h2>
+                    <ul class="depth-02">
+                        <li><a href="wiz.html">마법사</a></li>
+                        <li><a href="con_before.html">상담신청</a></li>
+                        <li><a href="qna.html">자주하는 질문</a></li>
+                        <li><a href="not_list.html">공지사항</a></li>
+                        <li><a href="news_list.html">보도자료</a></li>
+                        <li><a href="dat_list.html">자료실</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <h2>마이페이지</h2>
+                    <ul class="depth-02">
+                        <li><a href="../my/con_chek.html">상담신청 조회</a></li>
+                        <li><a href="../my/peinfo_check_individual_info.html">개인정보 조회 및 변경</a></li>
+                        <li><a href="../my/contract_info.html">계약정보 조회</a></li>
+                        <li><a href="../my/payment_breakdown.html">납부내역 조회</a></li>
+                        <li><a href="../my/repayment_plan.html">상환계획 조회</a></li>
+                        <li><a href="../my/transactional_info.html">거래내역 조회</a></li>
+                    </ul>
+                </li>
+                <li class="gnb">
+                    <h2>인증센터</h2>
+                    <ul>
+                        <li><a href="../auth_cen/auth_cen_info.html">공인인증서 안내</a></li>
+                        <li><a href="#">공인인증서 등록</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div> <!-- class="main-dropdown-area" -->
+    </header>
+    
+    <div id="main-top-area">        
+        <div id="main-tit-area">
+            <h2>고객서비스</h2>
+        </div>
+        
+        <div id="location-bar">
+            <div class="center-wrap">
+                <a href="../index.html" class="btn-home" title="기금도시재생포털 메인 화면으로 이동">홈</a>
+                <ul class="location">
+                    <li>고객서비스</li>
+                    <li>마법사</li>
+                </ul>
+                <button type="button" id="btn-page-print" title="현재 화면 인쇄">현재 화면 인쇄</button>
+            </div>
+        </div> <!-- id="location-bar" -->
+    </div> <!-- id="main-top-area" -->
+    
+    <section id="error-page" class="center-wrap">
+        <div class="tit">죄송합니다.</div>
+        <p class="sub"><span>요청하신 페이지를 찾을 수 없습니다.</span><br />현재 페이지가 존재하지 않거나, 현재 이용할 수 없는 페이지 입니다.</p>
+        <a href="../index.html" class="btn-color">메인페이지로 이동</a>
+    </section> <!-- id="error-page" -->
+    
+    <footer>
+        <div class="center-wrap">
+            <ul class="foot-btn-list">
+                <li><a href="http://www.khug.or.kr/hug/web/cs/hg/cshg000020.jsp" target="_blank" title="새창 열기">개인정보처리방침</a></li>
+                <li><a href="http://www.khug.or.kr/hug/web/cs/hg/cshg000022.jsp" target="_blank" title="새창 열기">이메일무단수집거부</a></li>
+                <li><a href="http://www.khug.or.kr/hug/web/cs/hg/cshg000023.jsp" target="_blank" title="새창 열기">저작권 정책</a></li>
+            </ul>
+            <div class="foot-link-select"><button type="button">관련 사이트</button>
+                <ul class="select-option">
+                    <li><a href="http://nhuf.molit.go.kr/" target="_blank">주택도시기금</a></li>
+                    <li><a href="http://www.khug.or.kr/index.jsp" target="_blank">HUG주택도시보증공사</a></li>
+                </ul>
+            </div>
+            <address>
+                <p>우) 48400 부산광역시 남구 문현금융로 40 BIFC TEL : 1566-9009 FAX : 051-955-5405</p>
+                <p>© Korea Housing &amp; Urban Guarantee Corporation. All rights reserved.</p>
+            </address>
+        </div>
+    </footer>
+    
+    <div id="popup-area">
+        <div id="popup-login" class="popup-box">
+            <h2>로그인</h2>
+            <button type="button" class="close" title="닫기"></button>
+            <ul class="tab">
+                <li class="active"><button type="button">개인·개인 사업자</button></li>
+                <li><button type="button">법인 사업자</button></li>
+            </ul>
+            <ul class="cont">
+                <li class="individual">
+                    <h3>간편인증</h3>
+                    <div class="btn-wrap">
+                        <button type="button" id="cellphone-verification">휴대폰 인증</button>
+                    </div>
+                </li>
+                <li class="corporate">
+                    <ul class="btn-wrap">
+                        <li><a href="auth_cen_info.html" class="line-btn">공인인증서 안내</a></li>
+                        <li><button type="button" class="line-btn">공인인증서 등록</button></li>
+                        <li><button type="button" class="color-btn">공인인증서 로그인</button></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="description">
+                <li>* 개인고객과 개인 사업자 고객은 간편인증 “휴대폰인증 및 카카오인증”을 통해서 서비스를 제공 받을 수 있으며 법인 사업자 고객은 공인인증서를 통해서 서비스를 제공 받을 수 있습니다.</li>
+                <li>* 마이페이지 서비스는 개인정보 조회 및 변경, 계약정보 조회, 납부내역 조회, 상환계획 조회, 거래내역 조회가 가능합니다.</li>
+            </ul>
+        </div> <!-- id="popup-login" -->
+    </div> <!-- id="popup-area" -->
+</body>
+</html>
