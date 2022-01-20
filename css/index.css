@@ -41,7 +41,7 @@ h2 {position: sticky; top: 0; text-align: center; font-weight: bold; font-size: 
 
 #portfolio-section {max-width: 1280px; padding: 1rem; margin: 0 auto; overflow: hidden;}
 .portfolio-list li {position: relative;}
-.portfolio-list .img-area {width: 56%; overflow: hidden; margin-bottom: 10rem; box-shadow: 10px 20px 60px rgba(0, 0, 0, .2); line-height: 0; transform: skewY(24deg) translateY(400px) scale(1.2); transform-origin: 0 0; opacity: 0;}
+.portfolio-list .img-area {width: 56%; min-height: 100rem; overflow: hidden; margin-bottom: 10rem; box-shadow: 10px 20px 60px rgba(0, 0, 0, .2); line-height: 0; transform: skewY(24deg) translateY(400px) scale(1.2); transform-origin: 0 0; opacity: 0;}
 .portfolio-list .img-area img {width: 100%;}
 .portfolio-list .txt-area {position: fixed; top: 20vh; left: 60%; width: 520px; transform: translateX(2000px) skewX(64deg); transform-origin: 0; transition: .2s ease-in;}
 .portfolio-list .txt-area h3 {font-weight: bold; font-size: 2.4rem; color: #333333;}
