@@ -1,5 +1,7 @@
 ::selection {background-color: orchid; color: #ffffff;}
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
 html * {font-family: 'Noto Sans KR', 'Noto Sans', 'Nanum Gothic', 'Open Sans', Helvetica, Arial, sans-serif;}
 body {scroll-behavior: smooth; width: 100%; background-color: black; overflow-x: hidden;}
 img {pointer-events: none;}
@@ -41,15 +43,18 @@ h2 {position: sticky; top: 0; text-align: center; font-weight: bold; font-size: 
 
 #portfolio-section {max-width: 1280px; padding: 1rem; margin: 0 auto; overflow: hidden;}
 .portfolio-list li {position: relative;}
-.portfolio-list .img-area {width: 56%; min-height: 100rem; overflow: hidden; margin-bottom: 10rem; box-shadow: 10px 20px 60px rgba(0, 0, 0, .2); line-height: 0; transform: skewY(24deg) translateY(400px) scale(1.2); transform-origin: 0 0; opacity: 0;}
+.portfolio-list .img-area {width: 56%; overflow: hidden; margin-bottom: 10rem; box-shadow: 10px 20px 60px rgba(0, 0, 0, .2); line-height: 0; transform: skewY(24deg) translateY(400px) scale(1.2); transform-origin: 0 0; opacity: 0;}
 .portfolio-list .img-area img {width: 100%;}
 .portfolio-list .txt-area {position: fixed; top: 20vh; left: 60%; width: 520px; transform: translateX(2000px) skewX(64deg); transform-origin: 0; transition: .2s ease-in;}
-.portfolio-list .txt-area h3 {font-weight: bold; font-size: 2.4rem; color: #333333;}
+.portfolio-list .txt-area h3 {font-weight: bold; font-size: 2rem; color: #333333;}
 .portfolio-list .txt-area .datetime {margin-top: 1rem; font-weight: 200; font-size: 1rem; letter-spacing: .05rem; color: #666666;}
 .portfolio-list .txt-area .datetime .end::before {content: ' ~ ';}
 .portfolio-list .txt-area dl {margin-top: 2.4rem;}
 .portfolio-list .txt-area dt {padding: 1rem 0 .4rem; font-weight: bold; font-size: 1.125rem; color: #333333;}
-.portfolio-list .txt-area dd {font-weight: 200; font-size: 1rem; line-height: 1.4rem; color: #666666;}
+.portfolio-list .txt-area dd {font-weight: 300; font-size: 1rem; line-height: 1.4rem; color: #666666;}
+.portfolio-list .txt-area dd dl {margin-top: 0;}
+.portfolio-list .txt-area dd dt, .portfolio-list .txt-area dd dd {display: inline;}
+.portfolio-list .txt-area dd dt {color: #666666; font-weight: 500; font-size: 1rem;}
 .portfolio-list .txt-area button {font-weight: 500; font-size: 1rem; color: #666666; padding: .4rem 1rem; margin-top: 1rem; border-radius: 4px; background-color: rgba(255, 255, 255, 0); box-shadow: 0 0 16px rgba(0, 0, 0, .2);}
 .portfolio-list .txt-area button:hover, .portfolio-list .txt-area button:focus {transform: translateY(-4px); transition: .4s; background-color: rgba(255, 255, 255, .4); box-shadow: 10px 10px 24px rgba(0, 0, 0, .3);}
 .portfolio-list .img-area.on {transform: skewY(0) translateY(0) scale(1); opacity: 1; transition: .4s;}
