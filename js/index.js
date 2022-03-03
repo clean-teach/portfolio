@@ -1,6 +1,8 @@
 (function(){
     const header = document.querySelector('header');
-    const lnbBtn = header.querySelectorAll('#lnb a');
+    const btnMainMenu = header.querySelector('.btn-main-menu')
+    const lnb = header.querySelector('#lnb')
+    const lnbBtn = lnb.querySelectorAll('a');
     const mainSection = document.querySelector('#main-section');
     const portfolioSection = document.querySelector('#portfolio-section');
     const portfolioList = document.querySelectorAll('.portfolio-list>li');
@@ -34,8 +36,8 @@
         let moveY = parseInt(event.y/mainSection.offsetHeight*255);
 
         mainBackColorR = 255-moveX;
-        mainBackColorG = moveX-moveY;
-        mainBackColorB = 255-moveY-moveX;
+        mainBackColorG = moveX;
+        mainBackColorB = 255-moveY;
     }
 
     // scroll, mousemove 에 따른 배경색상 적용 함수
@@ -74,7 +76,13 @@
     function setColor(){
         let colorRGB = 255 - ((document.documentElement.scrollTop/mainSection.offsetHeight)*255);
         if(colorRGB < 0) {colorRGB = 0}
-        lnbBtn.forEach(btn => btn.style.color = `rgba(${colorRGB}, ${colorRGB}, ${colorRGB}, 1)`);
+        lnbBtn.forEach(tg => {
+            tg.style.color = `rgba(${colorRGB}, ${colorRGB}, ${colorRGB}, 1)`
+        });
+        
+        header.querySelectorAll('.btn-main-menu i').forEach(tg => {
+            tg.style.backgroundColor = `rgba(${colorRGB}, ${colorRGB}, ${colorRGB}, 1)`
+        });
     }
 
     // scroll 상태에 따른 Local Navigation Button Style
@@ -161,6 +169,16 @@
         });
     });
 
+    // Contact Section의 form 태그 focus 효과
+    contactSection.querySelectorAll('input, textarea').forEach(formBox => {
+        formBox.addEventListener('focus', function(){
+            this.parentNode.querySelector('label').classList.add('on');
+        });
+        formBox.addEventListener('blur', function(){
+            this.parentNode.querySelector('label').classList.remove('on');
+        });
+    });
+
     // scroll 상태에 따른 Contact 글자
     function actionContactTxtMotion(){
         const startPoint = window.pageYOffset + contactSection.querySelector('.sub-tit').getBoundingClientRect().top;
@@ -215,8 +233,38 @@
         setFooterCardRotate();
     });
 
+    const actionToggleMainMenu = {
+        state : false,
+        className : {
+            btnOnClassName : 'mode-close',
+            menuOnClassName : 'on'
+        },
+        actionMenuOpen: function(btn, menu){
+            btn.classList.add(this.className.btnOnClassName);
+            menu.classList.add(this.className.menuOnClassName);
+            this.state = true;
+        },
+        actionMenuClose: function(btn, menu){
+            btn.classList.remove(this.className.btnOnClassName);
+            menu.classList.remove(this.className.menuOnClassName);
+            this.state = false;
+        },
+        actionToggle: function(btn, menu){
+            if(this.state === false){
+                this.actionMenuOpen(btn, menu);
+            }else{
+                this.actionMenuClose(btn, menu);
+            }
+        }
+        
+    };
+    header.querySelector('.btn-main-menu').addEventListener('click', function(){
+        actionToggleMainMenu.actionToggle(btnMainMenu, lnb)
+    });
+
     lnbBtn.forEach(btn => {
         btn.addEventListener('click', function(e){
+            actionToggleMainMenu.actionMenuClose(btnMainMenu, lnb);
             actionAnchorScrollMove(e);
         });
         btn.addEventListener('focus', function(){
