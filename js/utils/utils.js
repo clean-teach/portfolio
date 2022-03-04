@@ -22,3 +22,9 @@ function getPythagorean(a, b){
     const result = Math.sqrt(Math.pow(a,2) + Math.pow(b,2));
     return result;
 }
+
+// 랜덤 생성 함수
+function random(min, max) {
+    const num = Math.floor(Math.random() * (max - min + 1)) + min;
+    return num;
+}

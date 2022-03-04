@@ -10,9 +10,9 @@
     const card = document.querySelector('footer .card');
     const footerCardInitialAngleValue = 90;
 
-    let mainBackColorR = 0, 
-        mainBackColorG = 0, 
-        mainBackColorB = 0, 
+    let mainBackColorR = random(0, 255), 
+        mainBackColorG = random(0, 255), 
+        mainBackColorB = random(0, 255), 
         effectClassName, 
         winInnerHeight = window.innerHeight;
         pageScrollHeight = document.body.scrollHeight,
@@ -301,7 +301,7 @@
         document.body.style.transition = '0s';
     });
     document.addEventListener('mouseleave', function(e) {
-        setBackgroundColor(0, 0, 0, 1-(document.documentElement.scrollTop/mainSection.offsetHeight));
+        setBackgroundColor(mainBackColorR, mainBackColorG, mainBackColorB, 1-(document.documentElement.scrollTop/mainSection.offsetHeight));
         document.body.style.transition = `1s`;
     });
 
