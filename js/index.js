@@ -20,6 +20,33 @@
         portfolioSectionPosiTop = portfolioSection.offsetTop;
         cardOffsetTop = card.parentElement.offsetTop + card.offsetTop + card.clientHeight;
 
+    // 메인메뉴 버튼 동작함수용 객체
+    const actionToggleMainMenu = {
+        state : false,
+        className : {
+            btnOnClassName : 'mode-close',
+            menuOnClassName : 'on'
+        },
+        actionMenuOpen: function(btn, menu){
+            btn.classList.add(this.className.btnOnClassName);
+            menu.classList.add(this.className.menuOnClassName);
+            this.state = true;
+        },
+        actionMenuClose: function(btn, menu){
+            btn.classList.remove(this.className.btnOnClassName);
+            menu.classList.remove(this.className.menuOnClassName);
+            this.state = false;
+        },
+        actionToggle: function(btn, menu){
+            if(this.state === false){
+                this.actionMenuOpen(btn, menu);
+            }else{
+                this.actionMenuClose(btn, menu);
+            }
+        }
+        
+    };
+
     // 앵커태그 부드러운 동작 함수
     function actionAnchorScrollMove(event){
         const target = event.target || event.srcElement;
@@ -222,6 +249,10 @@
         }
     }
 
+    // 마우스 우클릭 금지
+    document.addEventListener('contextmenu'
+    , event => event.preventDefault());
+
     window.addEventListener('load', function(e) {
         scrollBottom = document.documentElement.scrollTop + winInnerHeight;
         cardOffsetTop = card.parentElement.offsetTop + card.offsetTop + card.clientHeight;
@@ -233,31 +264,6 @@
         setFooterCardRotate();
     });
 
-    const actionToggleMainMenu = {
-        state : false,
-        className : {
-            btnOnClassName : 'mode-close',
-            menuOnClassName : 'on'
-        },
-        actionMenuOpen: function(btn, menu){
-            btn.classList.add(this.className.btnOnClassName);
-            menu.classList.add(this.className.menuOnClassName);
-            this.state = true;
-        },
-        actionMenuClose: function(btn, menu){
-            btn.classList.remove(this.className.btnOnClassName);
-            menu.classList.remove(this.className.menuOnClassName);
-            this.state = false;
-        },
-        actionToggle: function(btn, menu){
-            if(this.state === false){
-                this.actionMenuOpen(btn, menu);
-            }else{
-                this.actionMenuClose(btn, menu);
-            }
-        }
-        
-    };
     header.querySelector('.btn-main-menu').addEventListener('click', function(){
         actionToggleMainMenu.actionToggle(btnMainMenu, lnb)
     });

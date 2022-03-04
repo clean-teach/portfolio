@@ -1,0 +1,7 @@
+#loader {position: fixed; width: 100vw; height: 100vh; background-color: #000000; display: flex; justify-content: center; align-items: center; z-index: 99999;}
+#loader .tit {color: #dedede; font-weight: 200; font-size: 1rem; line-height: 1.6rem; text-align: center;}
+#loader .sub {color: #fefefe; font-weight: 600; font-size: 1.6rem; line-height: 2.4rem; text-align: center; position: relative;}
+#loader p+p {margin-top: 2.4rem;}
+#loader .sub::before, #loader .sub::after {content: '"'; position: absolute; top: 1rem;}
+#loader .sub::before {left: -2rem;}
+#loader .sub::after {right: -2rem;}

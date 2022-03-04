@@ -11,7 +11,9 @@
             let fadeOut = setInterval(() => {
                 if(opacity > 0) {
                     opacity -= .01;
-                    loader.querySelectorAll('p').forEach(p => p.style.opacity = opacity);
+                    loader.querySelectorAll('p').forEach(p => {
+                        p.style.opacity = opacity
+                    });
                 }else{
                     clearInterval(fadeOut);
                 }
