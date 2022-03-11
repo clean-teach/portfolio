@@ -28,3 +28,14 @@ export function random(min, max) {
     const num = Math.floor(Math.random() * (max - min + 1)) + min;
     return num;
 }
+
+// scroll에 따른 회전
+export function scrollRotate(id) {
+    let obj = document.getElementById(id);
+    obj.style.transform = "rotate(" + window.pageYOffset / 10 + "deg)";
+    if (document.documentElement.scrollTop !== 0) {
+        obj.classList.remove('rotate-animate');
+    } else {
+        obj.classList.add('rotate-animate');
+    }
+}

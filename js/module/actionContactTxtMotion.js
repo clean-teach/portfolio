@@ -1,3 +1,5 @@
+const contactSection = document.querySelector('#contact-section');
+
 // scroll 상태에 따른 Contact 글자
 export function actionContactTxtMotion(winInnerHeight) {
     const contactSection = document.querySelector('#contact-section');
@@ -30,3 +32,13 @@ export function actionContactTxtMotion(winInnerHeight) {
         }
     }
 }
+
+// Contact Section의 form 태그 focus 효과
+contactSection.querySelectorAll('input, textarea').forEach(formBox => {
+    formBox.addEventListener('focus', function () {
+        this.parentNode.querySelector('label').classList.add('on');
+    });
+    formBox.addEventListener('blur', function () {
+        this.parentNode.querySelector('label').classList.remove('on');
+    });
+});
