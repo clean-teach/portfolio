@@ -1,0 +1,25 @@
+:root {
+    --color-gray01 : #212529;
+    --color-gray02 : #343a40;
+    --color-gray03 : #495057;
+    --color-gray04 : #868e96;
+    --color-gray05 : #adb5bd;
+    --color-gray06 : #ced4da;
+    --color-gray07 : #e9ecef;
+    --color-gray08 : #f1f3f5;
+    --color-gray09 : #f8f9fa;
+    --color-gray10 : #ffffff;
+
+}
+
+::selection {background-color: orchid; color: #ffffff;}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+html * {font-family: 'Noto Sans KR', 'Noto Sans', 'Nanum Gothic', 'Open Sans', Helvetica, Arial, sans-serif;}
+body {scroll-behavior: smooth; width: 100%; background-color: black; overflow-x: hidden;}
+img {pointer-events: none;}
+a {text-decoration: none;}
+button {margin: 0; padding: 0; border: none; background: none; cursor: pointer;}
+input, textarea {outline: none; margin: 0; padding: 0; border: none;}
+::placeholder {color: #acacac;}

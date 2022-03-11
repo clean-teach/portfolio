@@ -2,8 +2,8 @@
     body {cursor: none;}
     a, button {cursor: none;}
     #mouseCursor {pointer-events: none; position: fixed; z-index: 999999;}
-    #mouseCursor>div {width: 2rem; height: 2rem; border-radius: 100%; border: 1px solid #ffffff; background: rgba(255, 255, 255, .8); box-shadow: .25rem .25rem 3rem rgba(0,0,0,.6); transition: .4s;}
+    #mouseCursor>div {width: 8rem; height: 8rem; border-radius: 100%; border: 1px solid #ffffff; background: rgba(255, 255, 255, .8); box-shadow: .25rem .25rem 3rem rgba(0,0,0,.1); transform: scale(.16); transition: .4s;}
     #mouseCursor>div>div {width: 100%; height: 100%; border-radius: 100%; background-color: #ffffff; opacity: 1; transform: scale(0); transform-origin: center; transition: .4s;}
-    #mouseCursor.pointer>div {transform: scale(3); background: rgba(255, 255, 255, 0);}
+    #mouseCursor.pointer>div {transform: scale(1); background: rgba(255, 255, 255, 0);}
     #mouseCursor.pointer>div>div {transform: scale(1); opacity: 0;}
 }

@@ -1,17 +1,5 @@
-::selection {background-color: orchid; color: #ffffff;}
-
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
-
-html * {font-family: 'Noto Sans KR', 'Noto Sans', 'Nanum Gothic', 'Open Sans', Helvetica, Arial, sans-serif;}
-body {scroll-behavior: smooth; width: 100%; background-color: black; overflow-x: hidden;}
-img {pointer-events: none;}
-a {text-decoration: none;}
-button {margin: 0; padding: 0; border: none; background: none; cursor: pointer;}
-input, textarea {outline: none; margin: 0; padding: 0; border: none;}
-::placeholder {color: #acacac;}
-
 #bg-area {position: fixed; z-index: 1; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; overflow: hidden;}
-#bg-area .circle {border-radius: 100%; width: 0; height: 0; background-color: #f7f7f7;}
+#bg-area .circle {border-radius: 100%; width: 0; height: 0; background-color: var(--color-gray08);}
 
 #circle-scroll-svg {position: fixed; bottom: -10vh; right: -6vh; z-index: 2; width: 36vh; opacity: .08;}
 #circle-scroll-svg.rotate-animate {animation: rotate 8s infinite linear;}
@@ -23,15 +11,15 @@ h1 {margin-top: 1rem; text-align: left; color: rgba(255, 255, 255, 1); font-weig
 #lnb .lnb-portfolio {top: 0; right: 0;}
 #lnb .lnb-contact {bottom: 0; left: 0;}
 #lnb .lnb-footer {bottom: 0; right: 0;}
-#lnb a {font-weight: 400; font-size: 1.5rem; color: #ffffff; opacity: .6; filter: blur(1px); transition: 1s;}
+#lnb a {font-weight: 400; font-size: 1.5rem; color: var(--color-gray10); opacity: .6; filter: blur(1px); transition: 1s;}
 #lnb a:hover {filter: blur(0);opacity: 1; transition: .2s;}
 
 section {position: relative; width: 100%; z-index: 2;}
-h2 {position: sticky; top: 0; text-align: center; font-weight: bold; font-size: 10vw; color: #f7f7f7; padding: 6rem 0 4rem;}
+h2 {position: sticky; top: 0; text-align: center; font-weight: bold; font-size: 10vw; color: var(--color-gray08); padding: 6rem 0 4rem;}
 
-#main-section {color: #ffffff; text-align: center; margin-bottom: 50vh;}
+#main-section {color: var(--color-gray10); text-align: center; margin-bottom: 50vh;}
 #main-section .txt {position: relative; z-index: 2; opacity: 1; transition: .6s; width: 100%;}
-#main-section .tit {position: fixed; top: 40%; width: 224rem; font-weight: 600; font-size: 5.6rem; line-height: 5.2rem;}
+#main-section .tit {position: fixed; top: 40%; width: 228rem; font-weight: 600; font-size: 5.6rem; line-height: 5.2rem;}
 #main-section .vertical {position: relative; margin: 0 auto; padding: 100vh 0 20vh; width: 1.4rem; word-wrap: break-word; text-align:center; font-weight: 200; font-size: 1.6rem; line-height: 3.6rem;}
 
 #portfolio-section {max-width: 1280px; box-sizing: border-box; padding: 1rem; margin: 0 auto; overflow: hidden;}
@@ -39,45 +27,45 @@ h2 {position: sticky; top: 0; text-align: center; font-weight: bold; font-size: 
 .portfolio-list .img-area {width: 50%; overflow: hidden; margin-bottom: 10rem; box-shadow: 10px 20px 60px rgba(0, 0, 0, .2); line-height: 0; transform: skewY(24deg) translateY(400px) scale(1.2); transform-origin: 0 0; opacity: 0;}
 .portfolio-list .img-area img {width: 100%;}
 .portfolio-list .txt-area {position: fixed; top: 20vh; left: 52%; width: 40%; transform: translateX(2000px) skewX(64deg); transform-origin: 0; transition: .2s ease-in;}
-.portfolio-list .txt-area h3 {font-weight: bold; font-size: 2rem; color: #333333;}
-.portfolio-list .txt-area .datetime {margin-top: 1rem; font-weight: 200; font-size: 1rem; letter-spacing: .05rem; color: #666666;}
+.portfolio-list .txt-area h3 {font-weight: bold; font-size: 2rem; color: var(--color-gray01);}
+.portfolio-list .txt-area .datetime {margin-top: 1rem; font-weight: 200; font-size: 1rem; letter-spacing: .05rem; color: var(--color-gray03);}
 .portfolio-list .txt-area .datetime .end::before {content: ' ~ ';}
 .portfolio-list .txt-area dl {margin-top: 2.4rem;}
-.portfolio-list .txt-area dt {padding: 1rem 0 .4rem; font-weight: bold; font-size: 1.125rem; color: #333333;}
-.portfolio-list .txt-area dd {font-weight: 300; font-size: 1rem; line-height: 1.4rem; color: #666666;}
+.portfolio-list .txt-area dt {padding: 1rem 0 .4rem; font-weight: bold; font-size: 1.125rem; color: var(--color-gray01);}
+.portfolio-list .txt-area dd {font-weight: 300; font-size: 1rem; line-height: 1.4rem; color: var(--color-gray03);}
 .portfolio-list .txt-area dd dl {margin-top: 0;}
 .portfolio-list .txt-area dd dt, .portfolio-list .txt-area dd dd {display: inline;}
-.portfolio-list .txt-area dd dt {color: #666666; font-weight: 500; font-size: 1rem;}
-.portfolio-list .txt-area button {font-weight: 500; font-size: 1rem; color: #666666; padding: .4rem 1rem; margin-top: 1rem; border-radius: 4px; background-color: rgba(255, 255, 255, 0); box-shadow: 0 0 16px rgba(0, 0, 0, .2);}
+.portfolio-list .txt-area dd dt {color: var(--color-gray03); font-weight: 500; font-size: 1rem;}
+.portfolio-list .txt-area button {font-weight: 500; font-size: 1rem; color: var(--color-gray03); padding: .4rem 1rem; margin-top: 1rem; border-radius: 4px; background-color: rgba(255, 255, 255, 0); box-shadow: 0 0 16px rgba(0, 0, 0, .2);}
 .portfolio-list .txt-area button:hover, .portfolio-list .txt-area button:focus {transform: translateY(-4px); transition: .4s; background-color: rgba(255, 255, 255, .4); box-shadow: 10px 10px 24px rgba(0, 0, 0, .3);}
 .portfolio-list .img-area.on {transform: skewY(0) translateY(0) scale(1); opacity: 1; transition: .4s;}
 /* .portfolio-list li.portfolio-mockup-mobile-02 .img-area.on {transform: skewY(0) translateY(0);} */
 .portfolio-list .txt-area.on {transform: translateX(0) skewX(0);}
 
 #contact-section {overflow: hidden;}
-#contact-section .sub-tit {position: relative; font-weight: 500; font-size: 1.5rem; line-height: 2rem; color: #333333; text-align: center; margin-top: 50vh; padding: 0 1rem; overflow: hidden;}
+#contact-section .sub-tit {position: relative; font-weight: 500; font-size: 1.5rem; line-height: 2rem; color: var(--color-gray01); text-align: center; margin-top: 50vh; padding: 0 1rem; overflow: hidden;}
 #contact-section .sub-tit::before {content: ''; position: absolute; left: 0; top: 50%; display: block; width: 100%; height: 1px; background-color: #acacac;}
-#contact-section .sub-tit p {position: relative; display: inline; background-color: #ffffff;}
-#contact-section .center-wrap {position: relative; max-width: 512px; margin: 0 auto; padding: 0 2rem; background-color: #ffffff; z-index: 2;}
+#contact-section .sub-tit p {position: relative; display: inline; background-color: var(--color-gray10);}
+#contact-section .center-wrap {position: relative; max-width: 512px; margin: 0 auto; padding: 0 2rem; background-color: var(--color-gray10); z-index: 2;}
 #contact-section label {display: block; margin-top: 1rem; padding: 2rem 0; text-align: center; color: #999999; font-weight: bold; font-size: 3rem;}
-#contact-section label.on {color: #333333;}
+#contact-section label.on {color: var(--color-gray01);}
 #contact-section input, #contact-section textarea {width: 100%; box-sizing: border-box; padding: .6rem; border-color: #999999; font-size: 1rem; transition: .4s;}
 #contact-section input {border-bottom-width: 1px; border-bottom-style: solid;}
-#contact-section input:focus {border-bottom-width: 3px; border-color: #333333;}
+#contact-section input:focus {border-bottom-width: 3px; border-color: var(--color-gray01);}
 #contact-section textarea {border-width: 1px; border-style: solid;}
-#contact-section textarea:focus {border-width: 3px; border-color: #333333;}
+#contact-section textarea:focus {border-width: 3px; border-color: var(--color-gray01);}
 #contact-section .btn-area {text-align: center; padding: 2rem 0;}
-#contact-section button[type=submit] {color: #333333; font-weight: bold; font-size: 3rem; width: 100%; padding: 1rem; border-radius: 12px;}
+#contact-section button[type=submit] {color: var(--color-gray01); font-weight: bold; font-size: 3rem; width: 100%; padding: 1rem; border-radius: 12px;}
 #contact-section button[type=submit]:hover {box-shadow: 10px 10px 24px rgba(0, 0, 0, .3); transform: translateY(-4px); transition: .4s;}
 
 footer {width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; perspective: 400px; overflow: hidden;}
-footer .card {position: relative; z-index: 10; display: block; width: 540px; height: 300px; border-radius: 4mm; box-sizing: border-box; background-color: #ffffff; box-shadow: 0 0 60px rgba(0, 0, 0, .1); transform: rotateX(90deg);}
+footer .card {position: relative; z-index: 10; display: block; width: 540px; height: 300px; border-radius: 4mm; box-sizing: border-box; background-color: var(--color-gray10); box-shadow: 0 0 60px rgba(0, 0, 0, .1); transform: rotateX(90deg);}
 /* footer .card address {position: absolute; bottom: 1.6rem; right: 1.6rem;} */
 footer .card address {margin-top: 6rem; text-align: center;}
-footer .card .name {font-weight: bold; color: #333333; font-size: 1.6rem; margin-bottom: 1.6rem;}
-footer .card li {font-weight: bold; color: #333333; margin-top: .8rem;}
-footer .card li a {font-weight: normal; color: #666666;}
-footer .card li a:hover {color: #333333;}
+footer .card .name {font-weight: bold; color: var(--color-gray01); font-size: 1.6rem; margin-bottom: 1.6rem;}
+footer .card li {font-weight: bold; color: var(--color-gray01); margin-top: .8rem;}
+footer .card li a {font-weight: normal; color: var(--color-gray03);}
+footer .card li a:hover {color: var(--color-gray01);}
 
 footer.on {
     background: linear-gradient(137deg rgba(255, 60, 172, .9), rgba(120, 75, 160, .9), rgba(43, 134, 197, .9));
@@ -104,19 +92,19 @@ footer.on {
 @media screen and (max-width: 1280px) {
     header {padding: 0;}
     .btn-main-menu {position: fixed; top: 2rem; right: 2rem; width: 2rem; height: 1.8rem; z-index: 1000; display: flex; flex-direction: column; justify-content:space-between; align-items: flex-end; transition: .2s;}
-    .btn-main-menu i {background-color: #ffffff; width: 80%; height: .2rem; border-radius: .1rem; transition: .2s;}
+    .btn-main-menu i {background-color: var(--color-gray10); width: 80%; height: .2rem; border-radius: .1rem; transition: .2s;}
     .btn-main-menu i:nth-child(2) {width: 100%;}
     .btn-main-menu.mode-close {transform: rotate(180deg);}
-    .btn-main-menu.mode-close i {width: 113%; background-color: #ffffff !important;}
+    .btn-main-menu.mode-close i {width: 113%; background-color: var(--color-gray10) !important;}
     .btn-main-menu.mode-close i:nth-child(1) {transform: rotate(45deg); transform-origin: top left;}
     .btn-main-menu.mode-close i:nth-child(2) {width: 0;}
     .btn-main-menu.mode-close i:nth-child(3) {transform: rotate(-45deg); transform-origin: bottom left;}
     #lnb {position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; box-sizing: border-box; padding-top: 6rem; text-align: right; z-index: 999; background-color: rgba(0, 0, 0, .9); display: none;}
     #lnb li {position: relative; z-index: 999; padding: 2rem;}
-    #lnb a {font-weight: 400; font-size: 1.5rem; color: #ffffff; opacity: .6; filter: blur(1px); transition: 1s;}
+    #lnb a {font-weight: 400; font-size: 1.5rem; color: var(--color-gray10); opacity: .6; filter: blur(1px); transition: 1s;}
     header #lnb a:hover {filter: blur(0); opacity: 1; transition: .2s;}
     #lnb.on {display: block;}
-    #lnb.on a {color: #ffffff !important;}
+    #lnb.on a {color: var(--color-gray10) !important;}
 
     #portfolio-section {max-width: 1024px; padding: 0;}
 }

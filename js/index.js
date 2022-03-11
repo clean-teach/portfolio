@@ -1,4 +1,11 @@
-(function(){
+import {getScrollDirection, getPythagorean} from "./utils/utils.js";
+import { mouseMoveColor } from "./module/MouseMoveColor.js";
+import { setFooterCardRotate } from "./module/footerCard.js";
+import { backgroundStyleMotion } from "./module/backgroundMotionStyle.js";
+import { actionContactTxtMotion } from "./module/actionContactTxtMotion.js";
+import { setIntervalTitle } from "./module/setIntervalTitle.js";
+
+(function () {
     const header = document.querySelector('header');
     const btnMainMenu = header.querySelector('.btn-main-menu')
     const lnb = header.querySelector('#lnb')
@@ -8,47 +15,45 @@
     const portfolioList = document.querySelectorAll('.portfolio-list>li');
     const contactSection = document.querySelector('#contact-section');
     const card = document.querySelector('footer .card');
-    const footerCardInitialAngleValue = 90;
 
-    let mainBackColorR = random(0, 255), 
-        mainBackColorG = random(0, 255), 
-        mainBackColorB = random(0, 255), 
-        effectClassName, 
-        winInnerHeight = window.innerHeight;
+    let winInnerHeight = window.innerHeight,
         pageScrollHeight = document.body.scrollHeight,
-        scrollBottom = document.documentElement.scrollTop + winInnerHeight,
+        cardOffsetTop = card.parentElement.offsetTop + card.offsetTop + card.clientHeight,
+        scrollBottom,
+        effectClassName,
         portfolioSectionPosiTop = portfolioSection.offsetTop;
-        cardOffsetTop = card.parentElement.offsetTop + card.offsetTop + card.clientHeight;
+
+    
 
     // 메인메뉴 버튼 동작함수용 객체
     const actionToggleMainMenu = {
-        state : false,
-        className : {
-            btnOnClassName : 'mode-close',
-            menuOnClassName : 'on'
+        state: false,
+        className: {
+            btnOnClassName: 'mode-close',
+            menuOnClassName: 'on'
         },
-        actionMenuOpen: function(btn, menu){
+        actionMenuOpen: function (btn, menu) {
             btn.classList.add(this.className.btnOnClassName);
             menu.classList.add(this.className.menuOnClassName);
             this.state = true;
         },
-        actionMenuClose: function(btn, menu){
+        actionMenuClose: function (btn, menu) {
             btn.classList.remove(this.className.btnOnClassName);
             menu.classList.remove(this.className.menuOnClassName);
             this.state = false;
         },
-        actionToggle: function(btn, menu){
-            if(this.state === false){
+        actionToggle: function (btn, menu) {
+            if (this.state === false) {
                 this.actionMenuOpen(btn, menu);
-            }else{
+            } else {
                 this.actionMenuClose(btn, menu);
             }
         }
-        
+
     };
 
     // 앵커태그 부드러운 동작 함수
-    function actionAnchorScrollMove(event){
+    function actionAnchorScrollMove(event) {
         const target = event.target || event.srcElement;
         event.preventDefault();
         window.scrollTo({
@@ -57,56 +62,26 @@
         });
     }
 
-    // scroll, mousemove 에 따른 배경색상 추출 및 설정 함수
-    function getMouseMoveColor(event){
-        let moveX = parseInt(event.x/mainSection.offsetWidth*255);
-        let moveY = parseInt(event.y/mainSection.offsetHeight*255);
-
-        mainBackColorR = 255-moveX;
-        mainBackColorG = moveX;
-        mainBackColorB = 255-moveY;
-    }
-
-    // scroll, mousemove 에 따른 배경색상 적용 함수
-    function setBackgroundColor(R, G, B, alpha){
-        document.body.style.backgroundColor= `rgba(${R},${G},${B},${alpha})`;
-    }
-
-    // Background Motion Style create
-    const elBackCircle = document.querySelector('#bg-area .circle');
-    const viewportHypotenuse = getPythagorean(document.documentElement.clientWidth, document.documentElement.clientHeight);
-    elBackCircle.style['width'] = `${viewportHypotenuse}px`;
-    elBackCircle.style['height'] = `${viewportHypotenuse}px`;
-    elBackCircle.style['transform'] = `scale(0)`;
-    let start = null;
-    function setBackMotionStyle(){
-        start = contactSection.offsetTop;
-        if(scrollBottom > start){
-            elBackCircle.style['transform'] = `scale(${(scrollBottom - start)/1000})`;
-        }else{
-            elBackCircle.style['transform'] = `scale(0)`;
-        }
-    }
-
     // scroll에 따른 회전
     function scrollRotate(id) {
         let obj = document.getElementById(id);
-        obj.style.transform = "rotate(" + window.pageYOffset/10 + "deg)";
+        obj.style.transform = "rotate(" + window.pageYOffset / 10 + "deg)";
         if (document.documentElement.scrollTop !== 0) {
             obj.classList.remove('rotate-animate');
-        }else {
+        } else {
             obj.classList.add('rotate-animate');
         }
     }
 
     // scroll에 따른 색상 값 (LNB, MainSection)
-    function setColor(){
-        let colorRGB = 255 - ((document.documentElement.scrollTop/mainSection.offsetHeight)*255);
-        if(colorRGB < 0) {colorRGB = 0}
+    function setColor() {
+        let colorRGB = 255 - ((document.documentElement.scrollTop / mainSection.offsetHeight) * 255);
+
+        if (colorRGB < 0) { colorRGB = 0 }
         lnbBtn.forEach(tg => {
             tg.style.color = `rgba(${colorRGB}, ${colorRGB}, ${colorRGB}, 1)`
         });
-        
+
         header.querySelectorAll('.btn-main-menu i').forEach(tg => {
             tg.style.backgroundColor = `rgba(${colorRGB}, ${colorRGB}, ${colorRGB}, 1)`
         });
@@ -114,35 +89,35 @@
 
     // scroll 상태에 따른 Local Navigation Button Style
     function setLnbStyle(e) {
-        if(document.documentElement.scrollTop >= portfolioSection.offsetTop) {
+        if (document.documentElement.scrollTop >= portfolioSection.offsetTop) {
             header.classList.add('on');
-        }else{
+        } else {
             header.style['transition'] = 'none';
             header.classList.remove('on');
         }
-        if(e && getScrollDirection() === 'DOWN'){
+        if (e && getScrollDirection() === 'DOWN') {
             actionHeaderToggle().hide();
-        } else if(e && getScrollDirection() === 'UP'){
+        } else if (e && getScrollDirection() === 'UP') {
             actionHeaderToggle().show();
         }
     }
-    function actionHeaderToggle(){
-        if(document.documentElement.scrollTop >= portfolioSection.offsetTop) {
+    function actionHeaderToggle() {
+        if (document.documentElement.scrollTop >= portfolioSection.offsetTop) {
             return {
-                hide: function(){
+                hide: function () {
                     header.style['top'] = `-${header.offsetHeight}px`;
                 },
-                show: function(){
+                show: function () {
                     header.style['top'] = 0;
                     header.style['transition'] = '1s';
                 }
             };
-        }else{
+        } else {
             return {
-                hide: function(){
+                hide: function () {
                     null;
                 },
-                show: function(){
+                show: function () {
                     null;
                 }
             };
@@ -150,46 +125,46 @@
     }
 
     // 스크롤 이벤트에 따른 포트폴리오 영역 활성화
-    function actionPortfolioScrollActive(){
-        let winHeightHalf = (window.innerHeight/2);
+    function actionPortfolioScrollActive() {
+        let winHeightHalf = (window.innerHeight / 2);
 
         // 포트폴리오 글자 영역 나타나는 조건에 대한 함수
-        function setImgActive(obj, i, arr){
+        function setImgActive(obj, i, arr) {
             const target = arr[i].querySelector('.img-area');
             let startPoint = window.pageYOffset + arr[i].getBoundingClientRect().top < scrollBottom;
 
-            if(startPoint){
+            if (startPoint) {
                 target.classList.add('on');
-            }else{
+            } else {
                 target.classList.remove('on');
             }
         }
 
-        function setTxtActive(obj, i,arr) {
+        function setTxtActive(obj, i, arr) {
             const txtBox = arr[i].querySelector('.txt-area');
-            let 
+            let
                 startPoint = scrollBottom - winHeightHalf > window.pageYOffset + arr[i].getBoundingClientRect().top,
                 endPoint = scrollBottom - winHeightHalf < window.pageYOffset + arr[i].getBoundingClientRect().top + arr[i].offsetHeight;
 
-            if(startPoint && endPoint){
+            if (startPoint && endPoint) {
                 txtBox.classList.add('on');
-            }else{
+            } else {
                 txtBox.classList.remove('on');
             }
         }
 
-        portfolioList.forEach((obj,i,arr) => {
+        portfolioList.forEach((obj, i, arr) => {
             setImgActive(obj, i, arr);
-            setTxtActive(obj, i,arr);
+            setTxtActive(obj, i, arr);
         });
     }
-    portfolioList.forEach((obj,i,arr) => {
-        arr[i].querySelector('.txt-area button').addEventListener('focus', function(e){
+    portfolioList.forEach((obj, i, arr) => {
+        arr[i].querySelector('.txt-area button').addEventListener('focus', function (e) {
             window.scrollTo(0, window.pageYOffset + arr[i].getBoundingClientRect().top);
             arr[i].querySelector('.img-area').classList.add('on');
             arr[i].querySelector('.txt-area').classList.add('on');
         });
-        arr[i].querySelector('.txt-area button').addEventListener('blur', function(){
+        arr[i].querySelector('.txt-area button').addEventListener('blur', function () {
             window.scrollTo(0, 0);
             arr[i].querySelector('.img-area').classList.remove('on');
             arr[i].querySelector('.txt-area').classList.remove('on');
@@ -198,139 +173,73 @@
 
     // Contact Section의 form 태그 focus 효과
     contactSection.querySelectorAll('input, textarea').forEach(formBox => {
-        formBox.addEventListener('focus', function(){
+        formBox.addEventListener('focus', function () {
             this.parentNode.querySelector('label').classList.add('on');
         });
-        formBox.addEventListener('blur', function(){
+        formBox.addEventListener('blur', function () {
             this.parentNode.querySelector('label').classList.remove('on');
         });
     });
 
-    // scroll 상태에 따른 Contact 글자
-    function actionContactTxtMotion(){
-        const startPoint = window.pageYOffset + contactSection.querySelector('.sub-tit').getBoundingClientRect().top;
-        const endPoint = window.pageYOffset + contactSection.querySelector('.sub-tit').getBoundingClientRect().top + winInnerHeight/1.5;
-        const initialFromRotate = 0;
-        function getPercentage(parts, whole, standard){
-            if (whole == '' || parts == '' || standard == ''){
-                return null;
-            }else{
-                return parseFloat(parts/whole) * standard;
-            }
-        }
-        return {
-            move: function(){
-                if(scrollBottom <= startPoint){
-                    contactSection.querySelector('form').style['transform'] = `rotateY(0deg)`;
-                }else if(scrollBottom > startPoint && scrollBottom <= endPoint){
-                    let percentageMove = getPercentage((endPoint - scrollBottom),(endPoint - startPoint), 20);
-                    let percentageRotate = 90 - getPercentage((endPoint - scrollBottom),(endPoint - startPoint),90);
-                    
-                    contactSection.querySelector('.sub-tit01').style['left'] = `${-percentageMove}%`;
-                    contactSection.querySelector('.sub-tit02').style['right'] = `${-percentageMove}%`;
-                    contactSection.querySelector('form').style['transform'] = `rotateY(${percentageRotate}deg)`;
-                }else if(scrollBottom >= endPoint){
-                    contactSection.querySelector('.sub-tit01').style['left'] = `0px`;
-                    contactSection.querySelector('.sub-tit02').style['right'] = `0`;
-                    contactSection.querySelector('form').style['transform'] = `rotateY(90deg)`;
-                }
-            }
-        }
-    }
-
-    // scroll 상태에 따른 footer card 회전 모션
-    function setFooterCardRotate() {
-        if(scrollBottom > cardOffsetTop) {
-            pageScrollHeight = document.body.scrollHeight;
-            let percentage = (scrollBottom - cardOffsetTop)/(pageScrollHeight - cardOffsetTop)*-90;
-
-            card.style.transform = `rotateX(${footerCardInitialAngleValue + percentage}deg)`;
-            card.style.transition = '0s';
-        }
-    }
-
-    // 마우스 우클릭 금지
-    document.addEventListener('contextmenu'
-    , event => event.preventDefault());
-
-    window.addEventListener('load', function(e) {
+    window.addEventListener('load', function (e) {
         scrollBottom = document.documentElement.scrollTop + winInnerHeight;
         cardOffsetTop = card.parentElement.offsetTop + card.offsetTop + card.clientHeight;
 
+        setIntervalTitle();
         setColor();
         setLnbStyle();
-        setBackgroundColor(mainBackColorR, mainBackColorG, mainBackColorB, 1-(document.documentElement.scrollTop/mainSection.offsetHeight));
+        mouseMoveColor.setBackgroundColor(1 - (document.documentElement.scrollTop / mainSection.offsetHeight));
         actionPortfolioScrollActive();
-        setFooterCardRotate();
+        setFooterCardRotate(scrollBottom, cardOffsetTop, pageScrollHeight);
     });
 
-    header.querySelector('.btn-main-menu').addEventListener('click', function(){
+    header.querySelector('.btn-main-menu').addEventListener('click', function () {
         actionToggleMainMenu.actionToggle(btnMainMenu, lnb)
     });
 
     lnbBtn.forEach(btn => {
-        btn.addEventListener('click', function(e){
+        btn.addEventListener('click', function (e) {
             actionToggleMainMenu.actionMenuClose(btnMainMenu, lnb);
             actionAnchorScrollMove(e);
         });
-        btn.addEventListener('focus', function(){
+        btn.addEventListener('focus', function () {
             actionHeaderToggle().show();
         });
-        btn.addEventListener('blur', function(){
+        btn.addEventListener('blur', function () {
             actionHeaderToggle().hide();
         });
     });
 
-    document.addEventListener('mousemove', function(e){
-        getMouseMoveColor(e);
-        setBackgroundColor(mainBackColorR, mainBackColorG, mainBackColorB, 1-(document.documentElement.scrollTop/mainSection.offsetHeight));
+    // 마우스 우클릭 금지
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    document.addEventListener('mousemove', function (e) {
+        mouseMoveColor.getMouseMoveColor(e, mainSection);
+        mouseMoveColor.setBackgroundColor(1 - (document.documentElement.scrollTop / mainSection.offsetHeight));
     });
 
-    document.addEventListener('scroll', function(e) {
+    document.addEventListener('scroll', function (e) {
         scrollBottom = document.documentElement.scrollTop + winInnerHeight;
 
         setColor();
         setLnbStyle(e);
-        setBackgroundColor(mainBackColorR, mainBackColorG, mainBackColorB, 1-(document.documentElement.scrollTop/mainSection.offsetHeight));
+        mouseMoveColor.setBackgroundColor(1 - (document.documentElement.scrollTop / mainSection.offsetHeight));
 
-        mainSection.querySelector('.tit').style['left'] = `-${document.documentElement.scrollTop*1}px`;
-        mainSection.querySelector('.txt').style['top'] = `-${document.documentElement.scrollTop*.02}px`;
+        mainSection.querySelector('.tit').style['left'] = `-${document.documentElement.scrollTop * 1}px`;
+        mainSection.querySelector('.txt').style['top'] = `-${document.documentElement.scrollTop * .02}px`;
         mainSection.querySelector('.vertical').style['top'] = `${document.documentElement.scrollTop * .4}px`;
-        
-        setBackMotionStyle();
+
+        backgroundStyleMotion.move(scrollBottom, contactSection);
         scrollRotate('circle-scroll-svg');
         actionPortfolioScrollActive();
-        actionContactTxtMotion().move();
-        setFooterCardRotate();
+        actionContactTxtMotion(winInnerHeight).move(scrollBottom);
+        setFooterCardRotate(scrollBottom, cardOffsetTop, pageScrollHeight);
     });
-    document.addEventListener('mouseenter', function(e) {
+    document.addEventListener('mouseenter', function (e) {
         document.body.style.transition = '0s';
     });
-    document.addEventListener('mouseleave', function(e) {
-        setBackgroundColor(mainBackColorR, mainBackColorG, mainBackColorB, 1-(document.documentElement.scrollTop/mainSection.offsetHeight));
+    document.addEventListener('mouseleave', function (e) {
+        mouseMoveColor.setBackgroundColor(1 - (document.documentElement.scrollTop / mainSection.offsetHeight));
         document.body.style.transition = `1s`;
-    });
-
-    // footer card
-    const sensitiveY = 20;
-    const sensitiveX = 10;
-    const direction = 1; // positive or negative
-    card.addEventListener('mousemove', function(e){
-        if(getCurrentScrollBottomEnd())
-        card.style.transform = `
-            rotateY(${direction*(window.innerWidth/2 - e.x)/sensitiveY}deg) 
-            rotateX(${direction*(window.innerHeight/2 - e.y)/-sensitiveX}deg)
-        `;
-        card.style.transition = '0s';
-    });
-    card.addEventListener('mouseleave', function(){
-        if(getCurrentScrollBottomEnd())
-        card.style.transform = `rotateY(0deg) rotateX(0deg)`;
-        card.style.transition = '1s';
-    });
-    card.querySelectorAll('a').forEach(a => {
-        a.addEventListener('mouseenter', function(){
-            document.querySelector('footer').classList.add('on');
-        });
     });
 }());
