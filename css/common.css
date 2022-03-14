@@ -17,7 +17,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
 html * {font-family: 'Noto Sans KR', 'Noto Sans', 'Nanum Gothic', 'Open Sans', Helvetica, Arial, sans-serif;}
-body {scroll-behavior: smooth; width: 100%; background-color: black; overflow-x: hidden;}
+body {scroll-behavior: smooth; width: 100%; background-color: #ffffff; overflow-x: hidden;}
 img {pointer-events: none;}
 a {text-decoration: none;}
 button {margin: 0; padding: 0; border: none; background: none; cursor: pointer;}

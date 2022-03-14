@@ -15,8 +15,7 @@ import { actionPortfolioScrollActive } from "./module/actionPortfolioScrollActiv
     let winInnerHeight = window.innerHeight,
         pageScrollHeight = document.body.scrollHeight,
         cardOffsetTop = card.parentElement.offsetTop + card.offsetTop + card.clientHeight,
-        scrollBottom,
-        effectClassName;
+        scrollBottom;
 
     window.addEventListener('load', function (e) {
         scrollBottom = document.documentElement.scrollTop + winInnerHeight;
@@ -25,23 +24,27 @@ import { actionPortfolioScrollActive } from "./module/actionPortfolioScrollActiv
         setIntervalTitle();
         setColor(mainSection);
         setLnbStyle();
-        mouseMoveColor.setBackgroundColor(1 - (document.documentElement.scrollTop / mainSection.offsetHeight));
+        mouseMoveColor.setBackgroundColor(mainSection);
         actionPortfolioScrollActive(scrollBottom);
         setFooterCardRotate(scrollBottom, cardOffsetTop, pageScrollHeight);
+    });
+    window.addEventListener('onresize', function(){
+        document.location.reload();
+        console.log('fd');
     });
 
     // 마우스 우클릭 금지
     document.addEventListener('contextmenu', event => event.preventDefault());
     document.addEventListener('mousemove', function (e) {
-        mouseMoveColor.getMouseMoveColor(e, mainSection);
-        mouseMoveColor.setBackgroundColor(1 - (document.documentElement.scrollTop / mainSection.offsetHeight));
+        mouseMoveColor.getMouseMove(e, mainSection);
+        mouseMoveColor.setBackgroundColor(mainSection);
     });
     document.addEventListener('scroll', function (e) {
         scrollBottom = document.documentElement.scrollTop + winInnerHeight;
 
         setColor(mainSection);
         setLnbStyle(e);
-        mouseMoveColor.setBackgroundColor(1 - (document.documentElement.scrollTop / mainSection.offsetHeight));
+        mouseMoveColor.setBackgroundColor(mainSection);
 
         mainSection.querySelector('.tit').style['left'] = `-${document.documentElement.scrollTop * 1}px`;
         mainSection.querySelector('.txt').style['top'] = `-${document.documentElement.scrollTop * .02}px`;
@@ -57,7 +60,7 @@ import { actionPortfolioScrollActive } from "./module/actionPortfolioScrollActiv
         document.body.style.transition = '0s';
     });
     document.addEventListener('mouseleave', function (e) {
-        mouseMoveColor.setBackgroundColor(1 - (document.documentElement.scrollTop / mainSection.offsetHeight));
+        mouseMoveColor.setBackgroundColor(mainSection);
         document.body.style.transition = `1s`;
     });
 }());

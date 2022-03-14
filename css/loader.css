@@ -7,8 +7,8 @@
 #loader .sub::after {right: -2rem;}
 
 @media screen and (max-width: 768px) {
-    #loader .sub {font-size: 1.2rem; line-height: 1.8rem; padding: 0 1rem;}
+    #loader .sub {font-size: 1.125rem; line-height: 1.8rem; padding: 0 1rem;}
     #loader .sub::before {left: 0rem;}
     #loader .sub::after {right: 0rem;}
-    #loader .sub br {display: none;}
+    #loader br {display: none;}
 }
