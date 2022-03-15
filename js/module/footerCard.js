@@ -17,21 +17,25 @@ export function setFooterCardRotate(scrollBottom, cardOffsetTop, pageScrollHeigh
     }
 }
 
-card.addEventListener('mousemove', function (e) {
+function twistCard(){
     if (getCurrentScrollBottomEnd())
         card.style.transform = `
         rotateY(${direction * (window.innerWidth / 2 - e.x) / sensitiveY}deg) 
         rotateX(${direction * (window.innerHeight / 2 - e.y) / -sensitiveX}deg)
     `;
     card.style.transition = '0s';
-});
-card.addEventListener('mouseleave', function () {
-    if (getCurrentScrollBottomEnd())
-        card.style.transform = `rotateY(0deg) rotateX(0deg)`;
-        card.style.transition = '1s';
-});
-card.querySelectorAll('a').forEach(a => {
-    a.addEventListener('mouseenter', function () {
-        document.querySelector('footer').classList.add('on');
+}
+
+export function bindFooterCard(card) {
+    card.addEventListener('mousemove', function (e) {twistCard();});
+    card.addEventListener('mouseleave', function () {
+        if (getCurrentScrollBottomEnd())
+            card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+            card.style.transition = '1s';
     });
-});
+    card.querySelectorAll('a').forEach(a => {
+        a.addEventListener('mouseenter', function () {
+            document.querySelector('footer').classList.add('on');
+        });
+    });
+}

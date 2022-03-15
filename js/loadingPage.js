@@ -18,10 +18,10 @@
                     clearInterval(fadeOut);
                 }
             }, 10);
-        }, 4000);
+        }, 3000);
         setTimeout(function(){
             window.scrollTo({top: 0, left: 0, behavior: 'instant'});
             loader.remove();
-        },6000);
+        }, 5000);
     };
 }());
