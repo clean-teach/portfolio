@@ -29,6 +29,15 @@ export function random(min, max) {
     return num;
 }
 
+// 퍼센티지 구하기
+export function getPercentage(parts, whole, standard) {
+    if (whole == '' || parts == '' || standard == '') {
+        return null;
+    } else {
+        return parseFloat(parts / whole) * standard;
+    }
+}
+
 // scroll에 따른 회전
 export function scrollRotate(id) {
     let obj = document.getElementById(id);

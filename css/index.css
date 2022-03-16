@@ -54,12 +54,12 @@ h2 {position: sticky; top: 0; text-align: center; font-weight: bold; font-size: 
 .portfolio-list li .txt-area.on {transform: translateX(0) skewX(0);}
 /* .portfolio-list li.portfolio-mockup-mobile-02 .img-area.on {transform: skewY(0) translateY(0);} */
 
-#contact-section {overflow: hidden;}
-#contact-section .sub-tit {position: relative; font-weight: 500; font-size: 1.5rem; line-height: 2rem; color: var(--color-gray01); text-align: center; margin-top: 50vh; padding: 0 1rem; overflow: hidden;}
-#contact-section .sub-tit::before {content: ''; position: absolute; left: 0; top: 50%; display: block; width: 100%; height: 1px; background-color: #acacac;}
-#contact-section .sub-tit p {position: relative; display: inline; background-color: var(--color-gray10);}
+#contact-section {position: relative; overflow: hidden;}
+#contact-section h2 {color: #ffffff; text-shadow: 0 0 4rem rgba(0, 0, 0, .8); padding-bottom: 0; line-height: 10vh;}
+#contact-section form {box-shadow: 0 0 4rem rgba(0, 0, 0, .8); background-color: #ffffff;}
+#contact-section li ~ li {margin-top: 1rem;}
 #contact-section .center-wrap {position: relative; max-width: 512px; margin: 0 auto; padding: 0 2rem; background-color: var(--color-gray10); z-index: 2;}
-#contact-section label {display: block; margin-top: 1rem; padding: 2rem 0; text-align: center; color: #999999; font-weight: bold; font-size: 3rem;}
+#contact-section label {display: block; padding: 2rem 0; text-align: center; color: #999999; font-weight: bold; font-size: 2rem;}
 #contact-section label.on {color: var(--color-gray01);}
 #contact-section input, #contact-section textarea {width: 100%; box-sizing: border-box; padding: .6rem; border-color: #999999; font-size: 1rem; transition: .4s;}
 #contact-section input {border-bottom-width: 1px; border-bottom-style: solid;}
@@ -67,14 +67,17 @@ h2 {position: sticky; top: 0; text-align: center; font-weight: bold; font-size: 
 #contact-section textarea {border-width: 1px; border-style: solid;}
 #contact-section textarea:focus {border-width: 3px; border-color: var(--color-gray01);}
 #contact-section .btn-area {text-align: center; padding: 2rem 0;}
-#contact-section button[type=submit] {color: var(--color-gray01); font-weight: bold; font-size: 3rem; width: 100%; padding: 1rem; border-radius: 12px;}
-#contact-section button[type=submit]:hover {box-shadow: 10px 10px 24px rgba(0, 0, 0, .3); transform: translateY(-4px); transition: .4s;}
+#contact-section button[type=submit] {color: var(--color-gray01); font-weight: bold; font-size: 2rem; width: 100%; padding: 1rem; border-radius: 12px;}
+#contact-section button[type=submit]:hover {text-shadow: 10px 10px 1.5rem rgba(0, 0, 0, .8); transform: translateY(-4px); transition: .4s;}
 
-footer {width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; perspective: 400px; overflow: hidden;}
+footer {width: 100%; height: 100vh; position: relative; z-index: 2;}
+footer .door {position: absolute; top: 0; left: 0; width: 100%; height: 100%; font-weight: 500; font-size: 1.5rem; line-height: 2rem; color: var(--color-gray01); text-align: center; margin-top: 50vh; overflow: hidden;}
+footer .door::before {content: ''; position: absolute; left: 0; top: 50%; display: block; width: 100%; height: 1px; background-color: #acacac;}
+footer .door div {position: relative; display: inline; background-color: var(--color-gray10); z-index: 100;}
+footer .card-space {width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; perspective: 400px; overflow: hidden;}
 footer .card {position: relative; z-index: 10; display: block; width: 540px; height: 300px; border-radius: 4mm; box-sizing: border-box; background-color: var(--color-gray10); box-shadow: 0 0 60px rgba(0, 0, 0, .1); transform: rotateX(90deg);}
-/* footer .card address {position: absolute; bottom: 1.6rem; right: 1.6rem;} */
-footer .card address {margin-top: 6rem; text-align: center;}
-footer .card .name {font-weight: bold; color: var(--color-gray01); font-size: 1.6rem; margin-bottom: 1.6rem;}
+footer .card address {margin-top: 4rem; text-align: center;}
+footer .card .name {font-weight: bold; color: var(--color-gray01); font-size: 1.6rem; margin-bottom: 2.6rem;}
 footer .card li {font-weight: bold; color: var(--color-gray01); margin-top: .8rem;}
 footer .card li a {font-weight: normal; color: var(--color-gray03);}
 footer .card li a:hover {color: var(--color-gray01);}
@@ -117,6 +120,7 @@ footer .card li a:hover {color: var(--color-gray01);}
 @media screen and (max-width: 1024px) {
     .portfolio-list .img-area {width: 60%; margin: auto; overflow: hidden; margin-bottom: 10rem; box-shadow: 10px 20px 60px rgba(0, 0, 0, .2); line-height: 0; transform: skewY(24deg) translateY(400px) scale(1.2); transform-origin: 0 0; opacity: 0;}
     .portfolio-list .txt-area {top: auto; bottom: 0; left: 0; width: 100vw; height: 100vh; box-sizing: border-box; padding: 2rem 2rem; text-align: center; background-color: rgba(255, 255, 255, .9); display: flex; flex-direction: column; justify-content: center;}
+    .portfolio-list li:nth-child(odd) .txt-area, .portfolio-list li:nth-child(even) .txt-area {left: 0; right: 0; text-align: center;}
 }
 
 @media screen and (max-width: 768px) {
@@ -126,7 +130,7 @@ footer .card li a:hover {color: var(--color-gray01);}
     .portfolio-list .img-area {width: 100%;}
     #contact-section label {font-size: 1.5rem;}
     #contact-section button[type=submit] {font-size: 1.5rem;}
-    #contact-section .sub-tit {font-size: 1rem;}
+    footer .door {font-size: 1rem;}
     footer .card {width: 80%; height: auto;}
     footer .card address {padding: 2rem 1rem; margin-top: 2rem;}
     footer .card li {margin-top: 1.5rem;}

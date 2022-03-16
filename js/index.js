@@ -1,38 +1,33 @@
+import { setIntervalTitle } from "./module/setIntervalTitle.js";
+import { accessibility } from "./module/accessibility.js";
 import { scrollRotate } from "./utils/utils.js";
 import { mouseMoveColor } from "./module/MouseMoveColor.js";
-import { bindFooterCard, setFooterCardRotate } from "./module/footerCard.js";
+import { bindFooterCard, scollToRotateFooterCard } from "./module/footerCard.js";
 import { backgroundStyleMotion } from "./module/backgroundMotionStyle.js";
 import { actionContactTxtMotion } from "./module/actionContactTxtMotion.js";
-import { setIntervalTitle } from "./module/setIntervalTitle.js";
-import { setColor, setLnbStyle } from "./module/actionHeader.js";
-import { actionPortfolioScrollActive } from "./module/actionPortfolioScrollActive.js";
+import { setColor, lnbStylingByScroll } from "./module/actionHeader.js";
+import { portfolioScrollActive } from "./module/scrollActivePortfolio.js";
 
 function main(){
     const mainSection = document.querySelector('#main-section');
     const contactSection = document.querySelector('#contact-section');
-    const card = document.querySelector('footer .card');
 
     let winInnerHeight = window.innerHeight,
         pageScrollHeight = document.body.scrollHeight,
-        cardOffsetTop = card.parentElement.offsetTop + card.offsetTop + card.clientHeight,
         scrollBottom;
 
+    setIntervalTitle();
+    accessibility();
     bindFooterCard();
 
     window.addEventListener('load', function (e) {
         scrollBottom = document.documentElement.scrollTop + winInnerHeight;
-        cardOffsetTop = card.parentElement.offsetTop + card.offsetTop + card.clientHeight;
 
-        setIntervalTitle();
         setColor(mainSection);
-        setLnbStyle();
+        lnbStylingByScroll();
         mouseMoveColor.setBackgroundColor(mainSection);
-        actionPortfolioScrollActive(scrollBottom);
-        setFooterCardRotate(card, scrollBottom, cardOffsetTop, pageScrollHeight);
-    });
-    window.addEventListener('onresize', function(){
-        document.location.reload();
-        console.log('fd');
+        portfolioScrollActive.action(scrollBottom);
+        scollToRotateFooterCard(scrollBottom, pageScrollHeight);
     });
 
     // 마우스 우클릭 금지
@@ -45,7 +40,7 @@ function main(){
         scrollBottom = document.documentElement.scrollTop + winInnerHeight;
 
         setColor(mainSection);
-        setLnbStyle(e);
+        lnbStylingByScroll(e);
         mouseMoveColor.setBackgroundColor(mainSection);
 
         mainSection.querySelector('.tit').style['left'] = `-${document.documentElement.scrollTop * 1}px`;
@@ -54,9 +49,9 @@ function main(){
 
         backgroundStyleMotion.move(scrollBottom, contactSection);
         scrollRotate('circle-scroll-svg');
-        actionPortfolioScrollActive(scrollBottom);
+        portfolioScrollActive.action(scrollBottom);
         actionContactTxtMotion(winInnerHeight).move(scrollBottom);
-        setFooterCardRotate(card, scrollBottom, cardOffsetTop, pageScrollHeight);
+        scollToRotateFooterCard(scrollBottom, pageScrollHeight);
     });
     document.addEventListener('mouseenter', function (e) {
         document.body.style.transition = '0s';
@@ -67,3 +62,8 @@ function main(){
     });
 }
 document.addEventListener('DOMContentLoaded', main);
+
+// 브라우저 사이즈 변경시 새로고침
+window.addEventListener('resize', function(){
+    document.location.reload();
+});

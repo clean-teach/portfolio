@@ -34,7 +34,7 @@ const actionToggleMainMenu = {
 };
 
 // 스크롤 위아래 방향에 따른 헤더 노출 여부
-function actionHeaderToggle() {
+function actionToggleHeader() {
     if (document.documentElement.scrollTop >= portfolioSection.offsetTop) {
         return {
             hide: function () {
@@ -58,7 +58,7 @@ function actionHeaderToggle() {
 }
 
 // 앵커태그 부드러운 동작 함수
-function actionAnchorScrollMove(event) {
+function moveScrollByAnchor(event) {
     const target = event.target || event.srcElement;
     event.preventDefault();
     window.scrollTo({
@@ -68,7 +68,7 @@ function actionAnchorScrollMove(event) {
 }
 
 // scroll 상태에 따른 Local Navigation Button Style
-export function setLnbStyle(e) {
+export function lnbStylingByScroll(e) {
     if (document.documentElement.scrollTop >= portfolioSection.offsetTop) {
         header.classList.add('on');
     } else {
@@ -76,9 +76,9 @@ export function setLnbStyle(e) {
         header.classList.remove('on');
     }
     if (e && getScrollDirection() === 'DOWN') {
-        actionHeaderToggle().hide();
+        actionToggleHeader().hide();
     } else if (e && getScrollDirection() === 'UP') {
-        actionHeaderToggle().show();
+        actionToggleHeader().show();
     }
 }
 
@@ -103,12 +103,12 @@ header.querySelector('.btn-main-menu').addEventListener('click', function () {
 lnbBtn.forEach(btn => {
     btn.addEventListener('click', function (e) {
         actionToggleMainMenu.actionMenuClose(btnMainMenu, lnb);
-        actionAnchorScrollMove(e);
+        moveScrollByAnchor(e);
     });
     btn.addEventListener('focus', function () {
-        actionHeaderToggle().show();
+        actionToggleHeader().show();
     });
     btn.addEventListener('blur', function () {
-        actionHeaderToggle().hide();
+        actionToggleHeader().hide();
     });
 });
