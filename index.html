@@ -8,8 +8,8 @@
 	<meta name="Keywords" content="포트폴리오, 웹, 사이트, 개인 포트폴리오, 프론트앤드, 퍼블리싱, 퍼블리셔, 웹개발, 웹디자인, 반응형, 웹, 디자인, UI, UX, developer, web, portfolio, front-end, publishing, publisher"/>
 	<meta name="Description" content="김청훈의 포트폴리오 웹사이트 입니다"/>
     <title>CH Portfolio</title>
-    <link rel="stylesheet" href="css/loader.css">
-    <script type="module" src="js/loadingPage.js"></script>
+    <!-- <link rel="stylesheet" href="css/loader.css">
+    <script type="module" src="js/loadingPage.js"></script> -->
     <link rel="shortcut icon" href="img/favicon.ico">
 	<link rel="apple-touch-icon-precomposed" href="img/icon01.png">
 	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/icon02.png">
@@ -19,334 +19,336 @@
     <link rel="stylesheet" href="css/cursor.css">
 </head>
 <body>
-    <div id="loader">
+    <!-- <div id="loader">
         <div class="txt">
             <p class="sub">천재는 노력하는 사람을 이길 수 없고, <br />노력하는 사람은 즐기는 사람을 이길 수 없다.</p>
             <p class="tit">본 사이트는 구글 크롬 브라우저에 최적화된 사이트입니다. <br /> html5, css3, es6 등 신형 문법을 아낌없이 사용하였습니다.</p>
         </div>
-    </div>
+    </div> -->
 
-    <!-- <button type="button" id="btn-switch-mode-gradient" title="배경화면 그라데이션/단색 모드 변경하기">배경색상 모드 변경</button> -->
-    <header>
-        <h1>UI developer Portfolio</h1>
-        <button class="btn-main-menu" title="메인 메뉴 버튼"><i></i><i></i><i></i></button>
-        <nav id="lnb">
-            <ul>
-                <li class="lnb-top"><a href="#main-section" title="해당 위치로 이동">Top</a></li>
-                <li class="lnb-portfolio"><a href="#portfolio-section" title="해당 위치로 이동">Portfolio</a></li>
-                <li class="lnb-contact"><a href="#contact-section" title="해당 위치로 이동">Contact</a></li>
-                <li class="lnb-footer"><a href="#footer" title="해당 위치로 이동">Footer</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section id="main-section">
-        <div class="txt">
-            <p class="tit">저는 놀이처럼 배우고 활용하는 것을 좋아합니다. 좋아하는 일을 할 때 가장 좋은 결과를 만들구요!</p>
-            <p class="vertical">
-                한 평생 배우러 왔다가 갑니다
-            </p>
-        </div>
-    </section>
-    <section id="portfolio-section">
-        <h2>Portfolio</h2>
-        <ul class="portfolio-list">
-            <li>
-                <div class="img-area">
-                    <img src="img/screencapture-monocr-test-researcharum-2022-01-20-14_53_20.png" alt="Research Arum 웹사이트 화면">
-                </div>
-                <div class="txt-area">
-                    <h3>Research Arum 웹사이트 리뉴얼</h3>
-                    <div class="datetime">
-                        <span class="start">2021.12</span>
-                        <span class="end">2022.01</span>
-                    </div>
-                    <dl>
-                        <div>
-                            <dt>사용기술</dt>
-                            <dd>HTML5, CSS3, JavaScript</dd>
-                        </div>
-                        <div>
-                            <dt>기여도</dt>
-                            <dd>
-                                <dl>
-                                    <dt>디자인</dt>
-                                    <dd>20%</dd>
-                                </dl>
-                                <dl>
-                                    <dt>퍼블리싱</dt>
-                                    <dd>100%</dd>
-                                </dl>
-                            </dd>
-                        </div>
-                        <div>
-                            <dt>구현기능</dt>
-                            <dd>반응형, 레이어 팝업</dd>
-                        </div>
-                    </dl>
-                    <button type="button" title="새 탭으로 열기"  onclick="window.open('https://clean-teach.github.io/researcharum')">Local Product</button>
-                    <button type="button" title="새 탭으로 열기"  onclick="window.open('https://seemly-mile-d41.notion.site/researcharum-c5c12a1e1ec240c0932668642f220566')">Notion</button>
-                </div>
-            </li>
-            <li>
-                <div class="img-area">
-                    <img src="img/screencapture-file-D-00-ch-02-work-durian-03-coding-www-index-html-2021-11-01-15_55_08.png" alt="Durian 웹사이트 화면">
-                </div>
-                <div class="txt-area">
-                    <h3>Durian 웹사이트 제작</h3>
-                    <div class="datetime">
-                        <span class="start">2021.10</span>
-                        <span class="end">2021.10</span>
-                    </div>
-                    <dl>
-                        <div>
-                            <dt>사용기술</dt>
-                            <dd>HTML5, CSS3, JavaScript</dd>
-                        </div>
-                        <div>
-                            <dt>기여도</dt>
-                            <dd>60%</dd>
-                        </div>
-                        <div>
-                            <dt>구현기능</dt>
-                            <dd>반응형, 원페이지 스크롤</dd>
-                        </div>
-                        <div>
-                            <dt>Detail</dt>
-                            <dd>
-                                바닐라스크립트만을 사용하여 제작
-                            </dd>
-                        </div>
-                    </dl>
-                    <button type="button" title="새 탭으로 열기"  onclick="window.open('portfolio/durian')">Local Product</button>
-                    <button type="button" title="새 탭으로 열기"  onclick="window.open('https://seemly-mile-d41.notion.site/Durian-2ec3fce0ea2d46d187b16cd9b1af1343')">Notion</button>
-                </div>
-            </li>
-            <li>
-                <div class="img-area">
-                    <img src="img/peauty-web-main.jpg" alt="Peauty 웹사이트 화면">
-                </div>
-                <div class="txt-area">
-                    <h3>Peauty</h3>
-                    <div class="datetime">
-                        <span class="start">2021.1</span>
-                        <span class="end">2021.4</span>
-                    </div>
-                    <dl>
-                        <div>
-                            <dt>사용기술</dt>
-                            <dd>HTML5, CSS3, JavaScript</dd>
-                        </div>
-                        <div>
-                            <dt>Detail</dt>
-                            <dd>
-                                <ul>
-                                    <li>사업상의 사정으로 인하여 프로젝트를 완료하진 못했지만, 디자인 리뉴얼 작업부터 도맡아 작업하며 정적 사이트가 아닌 동적 사이트에 대한 개념과 UIUX에 대한 고민을 할 수 있었던 좋은 경험이었습니다.</li>
-                                </ul>
-                            </dd>
-                        </div>
-                    </dl>
-                    <button type="button" title="새 탭으로 열기"  onclick="window.open('https://seemly-mile-d41.notion.site/Peauty-1782ddf20ee74b3895f35bff1bc741fa')">Notion</button>
-                </div>
-            </li>
-            <li>
-                <div class="img-area"><img src="img/screencapture-lavidamall-co-kr-main-do-2021-10-07-15_52_42.png" alt="lavida mall 홈페이지 화면"></div>
-                <div class="txt-area">
-                    <h3>Lavida mall 웹사이트 제작</h3>
-                    <div class="datetime">
-                        <span class="start">2020.04</span>
-                        <span class="end">2020.10</span>
-                    </div>
-                    <dl>
-                        <div>
-                            <dt>사용기술</dt>
-                            <dd>HTML5, CSS3, JavaScript, jQuery, PagePiling.js, Adobe Photoshop</dd>
-                        </div>
-                        <div>
-                            <dt>기여도</dt>
-                            <dd>90%</dd>
-                        </div>
-                        <div>
-                            <dt>구현기능</dt>
-                            <dd>반응형, google map API</dd>
-                        </div>
-                        <div>
-                            <dt>Detail</dt>
-                            <dd>
-                                222222222222222222222
-                            </dd>
-                        </div>
-                    </dl>
-                    <button type="button" title="새 탭으로 열기" onclick="window.open('https://lavidamall.co.kr/')">View Live</button>
-                </div>
-            </li>
-            <li>
-                <div class="img-area"><img src="img/screencapture-monocr-about-html-2021-10-01-16_48_56.png" alt="monocr 홈페이지 화면"></div>
-                <div class="txt-area">
-                    <h3>Website Renewal : Monocr</h3>
-                    <div class="datetime">
-                        <span class="start">2019.10</span>
-                        <span class="end">2020.3</span>
-                    </div>
-                    <dl>
-                        <div>
-                            <dt>사용기술</dt>
-                            <dd>HTML5, CSS3, JavaScript, jQuery, PagePiling.js, Adobe Photoshop</dd>
-                        </div>
-                        <div>
-                            <dt>기여도</dt>
-                            <dd>90%</dd>
-                        </div>
-                        <div>
-                            <dt>구현기능</dt>
-                            <dd>반응형, google map API</dd>
-                        </div>
-                        <div>
-                            <dt>Detail</dt>
-                            <dd>
-                                기획부터 디자인, 퍼블리싱까지 맡아서 작업하였습니다. <br />
-                                반응형으로 작업하면서도 비주얼을 강조하기 위하여 동적 스크롤 등 각종 이벤트를 통한 UI/UX 설계에 집중하였습니다. 나름대로 형상관리 환경을 구축해보기도 하는 등 혼자 책임을 맡아 작업하다 보니 여러 분야를 관심을 갖고 배울 수 있었습니다. 뿐만 아니라 동료들에게 조언을 구하기도 하고 문제가 발견되면, 학습중인 기술을 적용하여 개선를 하려고 노력 하였습니다. 그만큼 애정을 갖고 담당했던 프로젝트 였습니다.</dd>
-                        </div>
-                    </dl>
-                    <button type="button" title="새 탭으로 열기" onclick="window.open('http://www.monocr.com/')">View Live</button>
-                </div>
-            </li>
-            <li>
-                <div class="img-area"><img src="img/fur-web-main.jpg" alt="기금도시재생포털 홈페이지 화면"></div>
-                <div class="txt-area">
-                    <h3>기금도시재생포털 웹사이트 제작</h3>
-                    <div class="datetime">
-                        <span class="start">2019.7</span>
-                        <span class="end">2019.12</span>
-                    </div>
-                    <dl>
-                        <div>
-                            <dt>사용기술</dt>
-                            <dd>HTML5, CSS3, JavaScript, jQuery, PagePiling.js, Adobe Photoshop</dd>
-                        </div>
-                        <div>
-                            <dt>기여도</dt>
-                            <dd>90%</dd>
-                        </div>
-                        <div>
-                            <dt>구현기능</dt>
-                            <dd>반응형, google map API</dd>
-                        </div>
-                        <div>
-                            <dt>Detail</dt>
-                            <dd>
-                                333333333333333
-                            </dd>
-                        </div>
-                    </dl>
-                    <button type="button" title="새 탭으로 열기" onclick="window.open('https://enhuf.molit.go.kr/fur/index.jsp')">View Live</button>
-                    <button type="button" title="새 탭으로 열기" onclick="window.open('portfolio/fur')">Local Product</button>
-                </div>
-            </li>
-            <li>
-                <div class="img-area"><img src="img/mockup-mobile-aonecc.jpg" alt="aonecc mobile mockup"></div>
-                <div class="txt-area">
-                    <h3>A-one CC 회원용 예약 사이트 리뉴얼 (모바일)</h3>
-                    <div class="datetime">
-                        <span class="start">2019.12</span>
-                        <span class="end">2020.2</span>
-                    </div>
-                    <dl>
-                        <div>
-                            <dt>사용기술</dt>
-                            <dd>HTML5, CSS3, JavaScript, jQuery, PagePiling.js, Adobe Photoshop</dd>
-                        </div>
-                        <div>
-                            <dt>기여도</dt>
-                            <dd>90%</dd>
-                        </div>
-                        <div>
-                            <dt>구현기능</dt>
-                            <dd>반응형, google map API</dd>
-                        </div>
-                        <div>
-                            <dt>Detail</dt>
-                            <dd>
-                                444444444444
-                            </dd>
-                        </div>
-                    </dl>
-                    <button type="button" title="새 탭으로 열기" onclick="window.open('https://www.a-onecc.co.kr/mob/')">View Live</button>
-                </div>
-            </li>
-            <li>
-                <div class="img-area"><img src="img/mockup-mobile-novita.jpg" alt="novita mobile mockup"></div>
-                <div class="txt-area">
-                    <h3>Novita</h3>
-                    <div class="datetime">
-                        <span class="start">2019.10</span>
-                        <span class="end">2020.3</span>
-                    </div>
-                    <dl>
-                        <div>
-                            <dt>사용기술</dt>
-                            <dd>HTML5, CSS3, JavaScript, jQuery, PagePiling.js, Adobe Photoshop</dd>
-                        </div>
-                        <div>
-                            <dt>기여도</dt>
-                            <dd>90%</dd>
-                        </div>
-                        <div>
-                            <dt>구현기능</dt>
-                            <dd>반응형, google map API</dd>
-                        </div>
-                        <div>
-                            <dt>Detail</dt>
-                            <dd>
-                                555555555555
-                            </dd>
-                        </div>
-                    </dl>
-                    <button type="button" title="새 탭으로 열기" onclick="window.open('https://play.google.com/store/apps/details?id=lifegood.prayer.novita', '_blank');" tar>Google Play Store</button>
-                </div>
-            </li>
-        </ul>
-    </section>
-    <section id="contact-section">
-        <h2>Contact</h2>
-        <form action="https://script.google.com/macros/s/AKfycbzVp4qxJjTCJOmaVGxmEQNa97R83zOmFkBNyAyttgR6PjU_OmcTFrhk4Y4x0bchSERE/exec" method="post" class="gform center-wrap">
-            <ul>
-                <li>
-                    <label for="input-name">이름</label><input type="text" name="name" id="input-name" placeholder="당신의 이름을 입력해 주세요" required>
-                </li>
-                <li>
-                    <label for="input-email">이메일</label><input type="email" name="email" id="input-email" placeholder="당신의 이메일을 입력해 주세요">
-                </li>
-                <li>
-                    <label for="textarea-email-content">내용</label><textarea name="message" id="textarea-email-content" cols="30" rows="10" placeholder="저에게 해주실 말씀, 또는 제 포트폴리오를 보시고 느낀 점이 있다면, &#13;&#10;피드백 부탁드립니다. 비판도 감사하게 받겠습니다" required></textarea>
-                </li>
-            </ul>
-            <div class="btn-area">
-                <button type="submit" title="작성한 내용을 제출">보내기</button>
-            </div>
-            <!-- <div style="display:none" class="thankyou_message">
-                <p><em>Thanks</em> for contacting us! We will get back to you soon!
-                </p>
-            </div> -->
-        </form>
-        <div class="sub-tit">
-            <p class="sub-tit01">우리는 연결 될 때 비로소 완전해집니다.</p>
-            <p class="sub-tit02">저와 함께 건강하고 효율적인 연결을 만들어 갈 파트너를 찾습니다!</p>
-        </div>
-    </section>
-    <footer id="footer">
-        <div class="card">
-            <address>
-                <div class="name">Kim Cheung Hoon</div>
+    <div id="main-foreground-area">
+        <!-- <button type="button" id="btn-switch-mode-gradient" title="배경화면 그라데이션/단색 모드 변경하기">배경색상 모드 변경</button> -->
+        <header>
+            <h1>UI developer Portfolio</h1>
+            <button class="btn-main-menu" title="메인 메뉴 버튼"><i></i><i></i><i></i></button>
+            <nav id="lnb">
                 <ul>
-                    <li>mobile. <a href="tel:010-4477-4380" title="바로 전화 걸기">01044774380</a></li>
-                    <li>email. <a href="mailto:kch19920726@gmail.com" title="바로 메일 보내기">kch19920726@gmail.com</a></li>
-                    <li>github. <a href="https://github.com/clean-teach" title="새 탭으로 깃헙 열기" target="_blank">https://github.com/clean-teach</a></li>
-                    <li>Notion. <a href="https://seemly-mile-d41.notion.site/Portfolio-36bf2c8f26a44fcb9007bc2f9d2c9414" title="새 탭으로 노션 열기" target="_blank">Portfolio</a></li>
+                    <li class="lnb-top"><a href="#main-section" title="해당 위치로 이동">Top</a></li>
+                    <li class="lnb-portfolio"><a href="#portfolio-section" title="해당 위치로 이동">Portfolio</a></li>
+                    <li class="lnb-contact"><a href="#contact-section" title="해당 위치로 이동">Contact</a></li>
+                    <li class="lnb-footer"><a href="#footer" title="해당 위치로 이동">Footer</a></li>
                 </ul>
-            </address>
-        </div>
-    </footer>
-    <div id="bg-area">
+            </nav>
+        </header>
+        <section id="main-section">
+            <div class="txt">
+                <p class="tit">저는 놀이처럼 배우고 활용하는 것을 좋아합니다. 좋아하는 일을 할 때 가장 좋은 결과를 만들구요!</p>
+                <p class="vertical">
+                    한 평생 배우러 왔다가 갑니다
+                </p>
+            </div>
+        </section>
+        <section id="portfolio-section">
+            <h2>Portfolio</h2>
+            <ul class="portfolio-list">
+                <li>
+                    <div class="img-area">
+                        <img src="img/screencapture-monocr-test-researcharum-2022-01-20-14_53_20.png" alt="Research Arum 웹사이트 화면">
+                    </div>
+                    <div class="txt-area">
+                        <h3>Research Arum 웹사이트 리뉴얼</h3>
+                        <div class="datetime">
+                            <span class="start">2021.12</span>
+                            <span class="end">2022.01</span>
+                        </div>
+                        <dl>
+                            <div>
+                                <dt>사용기술</dt>
+                                <dd>HTML5, CSS3, JavaScript</dd>
+                            </div>
+                            <div>
+                                <dt>기여도</dt>
+                                <dd>
+                                    <dl>
+                                        <dt>디자인</dt>
+                                        <dd>20%</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>퍼블리싱</dt>
+                                        <dd>100%</dd>
+                                    </dl>
+                                </dd>
+                            </div>
+                            <div>
+                                <dt>구현기능</dt>
+                                <dd>반응형, 레이어 팝업</dd>
+                            </div>
+                        </dl>
+                        <button type="button" title="새 탭으로 열기"  onclick="window.open('https://clean-teach.github.io/researcharum')">Local Product</button>
+                        <button type="button" title="새 탭으로 열기"  onclick="window.open('https://seemly-mile-d41.notion.site/researcharum-c5c12a1e1ec240c0932668642f220566')">Notion</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="img-area">
+                        <img src="img/screencapture-file-D-00-ch-02-work-durian-03-coding-www-index-html-2021-11-01-15_55_08.png" alt="Durian 웹사이트 화면">
+                    </div>
+                    <div class="txt-area">
+                        <h3>Durian 웹사이트 제작</h3>
+                        <div class="datetime">
+                            <span class="start">2021.10</span>
+                            <span class="end">2021.10</span>
+                        </div>
+                        <dl>
+                            <div>
+                                <dt>사용기술</dt>
+                                <dd>HTML5, CSS3, JavaScript</dd>
+                            </div>
+                            <div>
+                                <dt>기여도</dt>
+                                <dd>60%</dd>
+                            </div>
+                            <div>
+                                <dt>구현기능</dt>
+                                <dd>반응형, 원페이지 스크롤</dd>
+                            </div>
+                            <div>
+                                <dt>Detail</dt>
+                                <dd>
+                                    바닐라스크립트만을 사용하여 제작
+                                </dd>
+                            </div>
+                        </dl>
+                        <button type="button" title="새 탭으로 열기"  onclick="window.open('portfolio/durian')">Local Product</button>
+                        <button type="button" title="새 탭으로 열기"  onclick="window.open('https://seemly-mile-d41.notion.site/Durian-2ec3fce0ea2d46d187b16cd9b1af1343')">Notion</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="img-area">
+                        <img src="img/peauty-web-main.jpg" alt="Peauty 웹사이트 화면">
+                    </div>
+                    <div class="txt-area">
+                        <h3>Peauty</h3>
+                        <div class="datetime">
+                            <span class="start">2021.1</span>
+                            <span class="end">2021.4</span>
+                        </div>
+                        <dl>
+                            <div>
+                                <dt>사용기술</dt>
+                                <dd>HTML5, CSS3, JavaScript</dd>
+                            </div>
+                            <div>
+                                <dt>Detail</dt>
+                                <dd>
+                                    <ul>
+                                        <li>사업상의 사정으로 인하여 프로젝트를 완료하진 못했지만, 디자인 리뉴얼 작업부터 도맡아 작업하며 정적 사이트가 아닌 동적 사이트에 대한 개념과 UIUX에 대한 고민을 할 수 있었던 좋은 경험이었습니다.</li>
+                                    </ul>
+                                </dd>
+                            </div>
+                        </dl>
+                        <button type="button" title="새 탭으로 열기"  onclick="window.open('https://seemly-mile-d41.notion.site/Peauty-1782ddf20ee74b3895f35bff1bc741fa')">Notion</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="img-area"><img src="img/screencapture-lavidamall-co-kr-main-do-2021-10-07-15_52_42.png" alt="lavida mall 홈페이지 화면"></div>
+                    <div class="txt-area">
+                        <h3>Lavida mall 웹사이트 제작</h3>
+                        <div class="datetime">
+                            <span class="start">2020.04</span>
+                            <span class="end">2020.10</span>
+                        </div>
+                        <dl>
+                            <div>
+                                <dt>사용기술</dt>
+                                <dd>HTML5, CSS3, JavaScript, jQuery, PagePiling.js, Adobe Photoshop</dd>
+                            </div>
+                            <div>
+                                <dt>기여도</dt>
+                                <dd>90%</dd>
+                            </div>
+                            <div>
+                                <dt>구현기능</dt>
+                                <dd>반응형, google map API</dd>
+                            </div>
+                            <div>
+                                <dt>Detail</dt>
+                                <dd>
+                                    222222222222222222222
+                                </dd>
+                            </div>
+                        </dl>
+                        <button type="button" title="새 탭으로 열기" onclick="window.open('https://lavidamall.co.kr/')">View Live</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="img-area"><img src="img/screencapture-monocr-about-html-2021-10-01-16_48_56.png" alt="monocr 홈페이지 화면"></div>
+                    <div class="txt-area">
+                        <h3>Website Renewal : Monocr</h3>
+                        <div class="datetime">
+                            <span class="start">2019.10</span>
+                            <span class="end">2020.3</span>
+                        </div>
+                        <dl>
+                            <div>
+                                <dt>사용기술</dt>
+                                <dd>HTML5, CSS3, JavaScript, jQuery, PagePiling.js, Adobe Photoshop</dd>
+                            </div>
+                            <div>
+                                <dt>기여도</dt>
+                                <dd>90%</dd>
+                            </div>
+                            <div>
+                                <dt>구현기능</dt>
+                                <dd>반응형, google map API</dd>
+                            </div>
+                            <div>
+                                <dt>Detail</dt>
+                                <dd>
+                                    기획부터 디자인, 퍼블리싱까지 맡아서 작업하였습니다. <br />
+                                    반응형으로 작업하면서도 비주얼을 강조하기 위하여 동적 스크롤 등 각종 이벤트를 통한 UI/UX 설계에 집중하였습니다. 나름대로 형상관리 환경을 구축해보기도 하는 등 혼자 책임을 맡아 작업하다 보니 여러 분야를 관심을 갖고 배울 수 있었습니다. 뿐만 아니라 동료들에게 조언을 구하기도 하고 문제가 발견되면, 학습중인 기술을 적용하여 개선를 하려고 노력 하였습니다. 그만큼 애정을 갖고 담당했던 프로젝트 였습니다.</dd>
+                            </div>
+                        </dl>
+                        <button type="button" title="새 탭으로 열기" onclick="window.open('http://www.monocr.com/')">View Live</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="img-area"><img src="img/fur-web-main.jpg" alt="기금도시재생포털 홈페이지 화면"></div>
+                    <div class="txt-area">
+                        <h3>기금도시재생포털 웹사이트 제작</h3>
+                        <div class="datetime">
+                            <span class="start">2019.7</span>
+                            <span class="end">2019.12</span>
+                        </div>
+                        <dl>
+                            <div>
+                                <dt>사용기술</dt>
+                                <dd>HTML5, CSS3, JavaScript, jQuery, PagePiling.js, Adobe Photoshop</dd>
+                            </div>
+                            <div>
+                                <dt>기여도</dt>
+                                <dd>90%</dd>
+                            </div>
+                            <div>
+                                <dt>구현기능</dt>
+                                <dd>반응형, google map API</dd>
+                            </div>
+                            <div>
+                                <dt>Detail</dt>
+                                <dd>
+                                    333333333333333
+                                </dd>
+                            </div>
+                        </dl>
+                        <button type="button" title="새 탭으로 열기" onclick="window.open('https://enhuf.molit.go.kr/fur/index.jsp')">View Live</button>
+                        <button type="button" title="새 탭으로 열기" onclick="window.open('portfolio/fur')">Local Product</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="img-area"><img src="img/mockup-mobile-aonecc.jpg" alt="aonecc mobile mockup"></div>
+                    <div class="txt-area">
+                        <h3>A-one CC 회원용 예약 사이트 리뉴얼 (모바일)</h3>
+                        <div class="datetime">
+                            <span class="start">2019.12</span>
+                            <span class="end">2020.2</span>
+                        </div>
+                        <dl>
+                            <div>
+                                <dt>사용기술</dt>
+                                <dd>HTML5, CSS3, JavaScript, jQuery, PagePiling.js, Adobe Photoshop</dd>
+                            </div>
+                            <div>
+                                <dt>기여도</dt>
+                                <dd>90%</dd>
+                            </div>
+                            <div>
+                                <dt>구현기능</dt>
+                                <dd>반응형, google map API</dd>
+                            </div>
+                            <div>
+                                <dt>Detail</dt>
+                                <dd>
+                                    444444444444
+                                </dd>
+                            </div>
+                        </dl>
+                        <button type="button" title="새 탭으로 열기" onclick="window.open('https://www.a-onecc.co.kr/mob/')">View Live</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="img-area"><img src="img/mockup-mobile-novita.jpg" alt="novita mobile mockup"></div>
+                    <div class="txt-area">
+                        <h3>Novita</h3>
+                        <div class="datetime">
+                            <span class="start">2019.10</span>
+                            <span class="end">2020.3</span>
+                        </div>
+                        <dl>
+                            <div>
+                                <dt>사용기술</dt>
+                                <dd>HTML5, CSS3, JavaScript, jQuery, PagePiling.js, Adobe Photoshop</dd>
+                            </div>
+                            <div>
+                                <dt>기여도</dt>
+                                <dd>90%</dd>
+                            </div>
+                            <div>
+                                <dt>구현기능</dt>
+                                <dd>반응형, google map API</dd>
+                            </div>
+                            <div>
+                                <dt>Detail</dt>
+                                <dd>
+                                    555555555555
+                                </dd>
+                            </div>
+                        </dl>
+                        <button type="button" title="새 탭으로 열기" onclick="window.open('https://play.google.com/store/apps/details?id=lifegood.prayer.novita', '_blank');" tar>Google Play Store</button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section id="contact-section">
+            <h2>Contact</h2>
+            <form action="https://script.google.com/macros/s/AKfycbzVp4qxJjTCJOmaVGxmEQNa97R83zOmFkBNyAyttgR6PjU_OmcTFrhk4Y4x0bchSERE/exec" method="post" class="gform center-wrap">
+                <ul>
+                    <li>
+                        <label for="input-name">이름</label><input type="text" name="name" id="input-name" placeholder="당신의 이름을 입력해 주세요" required>
+                    </li>
+                    <li>
+                        <label for="input-email">이메일</label><input type="email" name="email" id="input-email" placeholder="당신의 이메일을 입력해 주세요">
+                    </li>
+                    <li>
+                        <label for="textarea-email-content">내용</label><textarea name="message" id="textarea-email-content" cols="30" rows="10" placeholder="저에게 해주실 말씀, 또는 제 포트폴리오를 보시고 느낀 점이 있다면, &#13;&#10;피드백 부탁드립니다. 비판도 감사하게 받겠습니다" required></textarea>
+                    </li>
+                </ul>
+                <div class="btn-area">
+                    <button type="submit" title="작성한 내용을 제출">보내기</button>
+                </div>
+                <!-- <div style="display:none" class="thankyou_message">
+                    <p><em>Thanks</em> for contacting us! We will get back to you soon!
+                    </p>
+                </div> -->
+            </form>
+            <div class="sub-tit">
+                <p class="sub-tit01">우리는 연결 될 때 비로소 완전해집니다.</p>
+                <p class="sub-tit02">저와 함께 건강하고 효율적인 연결을 만들어 갈 파트너를 찾습니다!</p>
+            </div>
+        </section>
+        <footer id="footer">
+            <div class="card">
+                <address>
+                    <div class="name">Kim Cheung Hoon</div>
+                    <ul>
+                        <li>mobile. <a href="tel:010-4477-4380" title="바로 전화 걸기">01044774380</a></li>
+                        <li>email. <a href="mailto:kch19920726@gmail.com" title="바로 메일 보내기">kch19920726@gmail.com</a></li>
+                        <li>github. <a href="https://github.com/clean-teach" title="새 탭으로 깃헙 열기" target="_blank">https://github.com/clean-teach</a></li>
+                        <li>Notion. <a href="https://seemly-mile-d41.notion.site/Portfolio-36bf2c8f26a44fcb9007bc2f9d2c9414" title="새 탭으로 노션 열기" target="_blank">Portfolio</a></li>
+                    </ul>
+                </address>
+            </div>
+        </footer>
+    </div>
+    <div id="main-background-area">
         <div class="circle"></div>
         <img src="img/circle-scroll.svg" alt="" id="circle-scroll-svg">
     </div>

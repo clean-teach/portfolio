@@ -1,7 +1,5 @@
 import { random } from "../utils/utils.js";
 
-const bgTg = document.querySelector('#bg-area');
-
 // const btnSwitchModeGradient = document.querySelector('#btn-switch-mode-gradient');
 // btnSwitchModeGradient.addEventListener('click', function(){
 //     mouseMoveColor.gradient ? mouseMoveColor.gradient = false :  mouseMoveColor.gradient = true;
@@ -53,7 +51,9 @@ export const mouseMoveColor = {
     },
     setBackgroundColor (targetSection) {
     // scroll, mousemove 에 따른 배경색상 적용 함수
+        const bgTg = document.querySelector('#main-background-area');
         let alpha = this.getScrollForAlpha(targetSection);
+        
         if(this.mediaCondition){
             if(this.gradient){
                 bgTg.style.background = `linear-gradient(${this.degree}deg, rgba(${this.G},${this.B},${this.R},${alpha}) 0%, rgba(${this.B},${this.R},${this.G},${alpha}) 100%)`;

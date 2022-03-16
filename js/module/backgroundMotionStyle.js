@@ -2,7 +2,7 @@ import { getPythagorean } from "../utils/utils.js";
 
 // Background Motion Style create
 export const backgroundStyleMotion = {
-    elBackCircle: document.querySelector('#bg-area .circle'),
+    elBackCircle: document.querySelector('#main-background-area .circle'),
     viewportHypotenuse: getPythagorean(document.documentElement.clientWidth, document.documentElement.clientHeight),
     start: null,
     setInit: function() {

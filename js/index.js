@@ -1,13 +1,13 @@
 import { scrollRotate } from "./utils/utils.js";
 import { mouseMoveColor } from "./module/MouseMoveColor.js";
-import { setFooterCardRotate } from "./module/footerCard.js";
+import { bindFooterCard, setFooterCardRotate } from "./module/footerCard.js";
 import { backgroundStyleMotion } from "./module/backgroundMotionStyle.js";
 import { actionContactTxtMotion } from "./module/actionContactTxtMotion.js";
 import { setIntervalTitle } from "./module/setIntervalTitle.js";
 import { setColor, setLnbStyle } from "./module/actionHeader.js";
 import { actionPortfolioScrollActive } from "./module/actionPortfolioScrollActive.js";
 
-(function () {
+function main(){
     const mainSection = document.querySelector('#main-section');
     const contactSection = document.querySelector('#contact-section');
     const card = document.querySelector('footer .card');
@@ -16,6 +16,8 @@ import { actionPortfolioScrollActive } from "./module/actionPortfolioScrollActiv
         pageScrollHeight = document.body.scrollHeight,
         cardOffsetTop = card.parentElement.offsetTop + card.offsetTop + card.clientHeight,
         scrollBottom;
+
+    bindFooterCard();
 
     window.addEventListener('load', function (e) {
         scrollBottom = document.documentElement.scrollTop + winInnerHeight;
@@ -26,7 +28,7 @@ import { actionPortfolioScrollActive } from "./module/actionPortfolioScrollActiv
         setLnbStyle();
         mouseMoveColor.setBackgroundColor(mainSection);
         actionPortfolioScrollActive(scrollBottom);
-        setFooterCardRotate(scrollBottom, cardOffsetTop, pageScrollHeight);
+        setFooterCardRotate(card, scrollBottom, cardOffsetTop, pageScrollHeight);
     });
     window.addEventListener('onresize', function(){
         document.location.reload();
@@ -54,7 +56,7 @@ import { actionPortfolioScrollActive } from "./module/actionPortfolioScrollActiv
         scrollRotate('circle-scroll-svg');
         actionPortfolioScrollActive(scrollBottom);
         actionContactTxtMotion(winInnerHeight).move(scrollBottom);
-        setFooterCardRotate(scrollBottom, cardOffsetTop, pageScrollHeight);
+        setFooterCardRotate(card, scrollBottom, cardOffsetTop, pageScrollHeight);
     });
     document.addEventListener('mouseenter', function (e) {
         document.body.style.transition = '0s';
@@ -63,4 +65,5 @@ import { actionPortfolioScrollActive } from "./module/actionPortfolioScrollActiv
         mouseMoveColor.setBackgroundColor(mainSection);
         document.body.style.transition = `1s`;
     });
-}());
+}
+document.addEventListener('DOMContentLoaded', main);
