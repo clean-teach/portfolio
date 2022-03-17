@@ -10,11 +10,13 @@ export const getScrollDirection = function(){
 
 // 현재 스크롤 상태 맨 아래에 있는지 반환
 export function getCurrentScrollBottomEnd(){
-    const winInnerHeight = window.innerHeight;
     const pageScrollHeight = document.body.scrollHeight;
-    const scrollBottom = document.documentElement.scrollTop + winInnerHeight;
-    if((pageScrollHeight - scrollBottom) == 0) return true;
-    return false;
+    const scrollBottom = document.documentElement.scrollTop;
+    if((pageScrollHeight - scrollBottom) == 0){
+        return true;
+    }else {
+        return false;
+    }
 }
 
 // 직사각형의 대각선 구하기

@@ -1,7 +1,7 @@
 import { getPythagorean } from "../utils/utils.js";
 
-// Background Motion Style create
-export const backgroundStyleMotion = {
+// create Background Style by Motion
+export const setBackgroundStyleByScroll = {
     elBackCircle: document.querySelector('#main-background-area .circle'),
     viewportHypotenuse: getPythagorean(document.documentElement.clientWidth, document.documentElement.clientHeight),
     start: null,
@@ -10,7 +10,8 @@ export const backgroundStyleMotion = {
         this.elBackCircle.style['height'] = `${viewportHypotenuse}px`;
         this.elBackCircle.style['transform'] = `scale(0)`;
     },
-    move: function (scrollBottom, contactSection) {
+    move: function (scrollBottom) {
+        const contactSection = document.querySelector('#contact-section');
         this.start = contactSection.offsetTop;
         if (scrollBottom > this.start) {
             this.elBackCircle.style['transform'] = `scale(${(scrollBottom - this.start) / 1000})`;

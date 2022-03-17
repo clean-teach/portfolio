@@ -34,7 +34,7 @@ const actionToggleMainMenu = {
 };
 
 // 스크롤 위아래 방향에 따른 헤더 노출 여부
-function actionToggleHeader() {
+function actionToggleHeaderByScroll(portfolioSection) {
     if (document.documentElement.scrollTop >= portfolioSection.offsetTop) {
         return {
             hide: function () {
@@ -58,14 +58,46 @@ function actionToggleHeader() {
 }
 
 // 앵커태그 부드러운 동작 함수
-function moveScrollByAnchor(event) {
-    const target = event.target || event.srcElement;
+function setMoveScrollByAnchor(event) {
     event.preventDefault();
+    const target = event.target || event.srcElement;
+    const targetHref = target.getAttribute('href');
+    let scrollTo;
+    if(targetHref === '#footer'){
+        scrollTo = document.body.scrollHeight;
+    }else{
+        scrollTo = document.querySelector(targetHref).offsetTop;
+    }
     window.scrollTo({
-        top: document.querySelector(target.getAttribute('href')).offsetTop,
+        top: scrollTo,
         behavior: 'smooth'
     });
 }
+
+// LNB 버튼 이벤트 바인드
+export const bindLnbButton = () => {
+    lnbBtn.forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            actionToggleMainMenu.actionMenuClose(btnMainMenu, lnb);
+            setMoveScrollByAnchor(e);
+        });
+        btn.addEventListener('focus', function () {
+            actionToggleHeaderByScroll(portfolioSection).show();
+        });
+        btn.addEventListener('blur', function () {
+            actionToggleHeaderByScroll(portfolioSection).hide();
+        });
+    });
+};
+
+// 메인메뉴 버튼 (햄버거 버튼) 이벤트 바인드
+export const bindMainMenuButton = () => {
+    const mainMenuButton = header.querySelector('.btn-main-menu');
+
+    mainMenuButton.addEventListener('click', function () {
+        actionToggleMainMenu.actionToggle(btnMainMenu, lnb);
+    });
+};
 
 // scroll 상태에 따른 Local Navigation Button Style
 export function lnbStylingByScroll(e) {
@@ -76,39 +108,23 @@ export function lnbStylingByScroll(e) {
         header.classList.remove('on');
     }
     if (e && getScrollDirection() === 'DOWN') {
-        actionToggleHeader().hide();
+        actionToggleHeaderByScroll(portfolioSection).hide();
     } else if (e && getScrollDirection() === 'UP') {
-        actionToggleHeader().show();
+        actionToggleHeaderByScroll(portfolioSection).show();
     }
 }
 
-// scroll에 따른 색상 값 (LNB, MainSection)
-export function setColor(mainSection) {
+// scroll에 따른 색상 값 (LNB, MainMenu)
+export const setHeaderColorByScroll = (mainSection) => {
+    const mainMenuObj = header.querySelectorAll('.btn-main-menu i');
     let colorRGB = 255 - ((document.documentElement.scrollTop / mainSection.offsetHeight) * 255);
+
+    mainMenuObj.forEach(tg => {
+        tg.style.backgroundColor = `rgba(${colorRGB}, ${colorRGB}, ${colorRGB}, 1)`
+    });
 
     if (colorRGB < 0) { colorRGB = 0 }
     lnbBtn.forEach(tg => {
         tg.style.color = `rgba(${colorRGB}, ${colorRGB}, ${colorRGB}, 1)`
     });
-
-    header.querySelectorAll('.btn-main-menu i').forEach(tg => {
-        tg.style.backgroundColor = `rgba(${colorRGB}, ${colorRGB}, ${colorRGB}, 1)`
-    });
 }
-
-header.querySelector('.btn-main-menu').addEventListener('click', function () {
-    actionToggleMainMenu.actionToggle(btnMainMenu, lnb)
-});
-
-lnbBtn.forEach(btn => {
-    btn.addEventListener('click', function (e) {
-        actionToggleMainMenu.actionMenuClose(btnMainMenu, lnb);
-        moveScrollByAnchor(e);
-    });
-    btn.addEventListener('focus', function () {
-        actionToggleHeader().show();
-    });
-    btn.addEventListener('blur', function () {
-        actionToggleHeader().hide();
-    });
-});
