@@ -9,7 +9,7 @@ const startPoint = window.pageYOffset + portfolioSection.getBoundingClientRect()
 const endPoint =  startPoint + contactSectionHeight;
 
 // scroll 상태에 따른 contact 영역 모션
-export const viewContactAreaByScroll = (scrollBottom) => {
+export const motionContactAreaByScroll = (scrollBottom) => {
     // console.log(contactSectionHeight);
     // console.log(readyPoint);
     // console.log(startPoint);

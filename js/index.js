@@ -5,7 +5,7 @@ import { setHeaderColorByScroll, lnbStylingByScroll, bindLnbButton, bindMainMenu
 import { setBackgroundColorByMouseMove } from "./module/setBackgroundColorByMouseMove.js";
 import { setBackgroundStyleByScroll } from "./module/backgroundMotionStyle.js";
 import { activePortfolioByScroll } from "./module/activePortfolioByScroll.js";
-import { actionContactTxtByScroll, bindContactForm, viewContactAreaByScroll } from "./module/actionContactArea.js";
+import { actionContactTxtByScroll, bindContactForm, motionContactAreaByScroll } from "./module/actionContactArea.js";
 import { bindFooterCard, rotateFooterCardByScoll } from "./module/footerCard.js";
 
 function main(){
@@ -29,7 +29,7 @@ function main(){
         lnbStylingByScroll();
         setBackgroundColorByMouseMove.setBackgroundColor(mainSection);
         activePortfolioByScroll.action(scrollBottom);
-        viewContactAreaByScroll(scrollBottom);
+        motionContactAreaByScroll(scrollBottom);
         rotateFooterCardByScoll(scrollBottom, pageScrollHeight, winInnerHeight);
     });
 
@@ -53,7 +53,7 @@ function main(){
         setBackgroundStyleByScroll.move(scrollBottom);
         scrollRotate('circle-scroll-svg');
         activePortfolioByScroll.action(scrollBottom);
-        viewContactAreaByScroll(scrollBottom);
+        motionContactAreaByScroll(scrollBottom);
         actionContactTxtByScroll(winInnerHeight).move(scrollBottom);
         rotateFooterCardByScoll(scrollBottom, pageScrollHeight, winInnerHeight);
     });
