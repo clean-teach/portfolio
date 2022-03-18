@@ -50,3 +50,18 @@ export function scrollRotate(id) {
         obj.classList.add('rotate-animate');
     }
 }
+
+// 애니메이션 최적화
+export function optimizeAnimation(callback) {
+    let ticking = false;
+
+    return () => {
+        if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(() => {
+                callback();
+                ticking = false;
+            });
+        }
+    };
+}
