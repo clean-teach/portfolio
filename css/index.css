@@ -9,14 +9,14 @@ h1 {margin-top: 1rem; text-align: left; color: rgba(255, 255, 255, 1); font-weig
 #lnb .lnb-portfolio {top: 0; right: 0;}
 #lnb .lnb-contact {bottom: 0; left: 0;}
 #lnb .lnb-footer {bottom: 0; right: 0;}
-#lnb a {font-weight: 400; font-size: 1.5rem; color: var(--color-gray10); opacity: .6; filter: blur(1px); transition: 1s;}
+#lnb a {font-weight: 400; font-size: 1.5rem; color: var(--color-gray10); opacity: .6; filter: blur(1px);}
 #lnb a:hover {filter: blur(0);opacity: 1; transition: .2s;}
 
 #main-scroll-layer {position: relative; z-index: 10; background-color: #ffffff; box-shadow: 0 2rem 4rem rgba(0, 0, 0, .2); margin-bottom: 100vh;}
 #main-background-area {position: fixed; top: 0; left: 0; z-index: 1; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; overflow: hidden;}
 #main-background-area .circle {border-radius: 100%; width: 0; height: 0; background-color: var(--color-gray08);}
 
-#circle-scroll-svg {position: fixed; bottom: -10vh; right: -6vh; z-index: 2; width: 36vh; opacity: .08;}
+#circle-scroll-svg {position: absolute; bottom: -10vh; right: -6vh; z-index: 2; width: 36vh; opacity: .08;}
 #circle-scroll-svg.rotate-animate {animation: rotate 8s infinite linear;}
 
 section {position: relative; width: 100%; z-index: 2;}
@@ -24,10 +24,10 @@ section h2 {top: 0; text-align: center; font-weight: bold; font-size: 12rem; lin
 
 #main-section {color: var(--color-gray10); text-align: center; margin-bottom: 50vh;}
 #main-section .txt {position: relative; z-index: 2; opacity: 1; transition: .6s; width: 100%;}
-#main-section .tit {position: fixed; top: 40%; width: 228rem; font-weight: 600; font-size: 5.6rem; line-height: 5.2rem;}
+#main-section .tit {position: fixed; top: 40vh; width: 228rem; font-weight: 600; font-size: 5.6rem; line-height: 5.2rem;}
 #main-section .vertical {position: relative; margin: 0 auto; padding: 100vh 0 20vh; width: 1.4rem; word-wrap: break-word; text-align:center; font-weight: 200; font-size: 1.6rem; line-height: 3.6rem;}
 
-#portfolio-section {z-index: 3; background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);}
+#portfolio-section {z-index: 3; background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%); box-sizing: border-box; overflow-x: hidden;}
 #portfolio-section h2 {position: sticky; }
 #portfolio-section .center-wrap {max-width: 1280px; box-sizing: border-box; padding: 0 1rem; margin: 0 auto; }
 .portfolio-list>li {position: relative; display: flex; justify-content: space-between;}
@@ -53,7 +53,7 @@ section h2 {top: 0; text-align: center; font-weight: bold; font-size: 12rem; lin
 .portfolio-list>li .txt-area.on {transform: translateX(0) skewX(0);}
 /* .portfolio-list>li.portfolio-mockup-mobile-02 .img-area.on {transform: skewY(0) translateY(0);} */
 
-#contact-section {position: relative; overflow: hidden; height: 1000vh;}
+#contact-section {position: relative; overflow: hidden; height: 700vh;}
 .join-motion-txt-area {position: absolute; top: 200vh; left: 0; width: 100%; font-weight: 500; font-size: 1.5rem; line-height: 2rem; color: var(--color-gray01); text-align: center; overflow: hidden; z-index: 3;}
 .join-motion-txt-area.fixed {position: fixed; top: 50vh; left: 0;}
 .join-motion-txt-area .line {position: absolute; top: 50%; display: block; width: 50%; height: 1px; background-color: #acacac; transform: scaleX(0);}
@@ -62,11 +62,12 @@ section h2 {top: 0; text-align: center; font-weight: bold; font-size: 12rem; lin
 .join-motion-txt-area .txt {position: relative; top: 0; left: 0; display: inline-block; background-color: var(--color-gray10); z-index: 100; opacity: 0;}
 .join-motion-txt-area .txt.txt01 {transform: translateX(-100vw); transform-origin: top right;}
 .join-motion-txt-area .txt.txt02 {transform: translateX(100vw); transform-origin: top left;}
-#contact-section h2 {position: absolute; top: 400vh; left: 0; width: 100%; height: 100vh; color: #ffffff; text-shadow: 0 0 4rem rgba(0, 0, 0, .8); padding-bottom: 0; z-index: 3; display: flex; justify-content: center; align-items: center; padding: 0;}
-#contact-section h2.fixed {position: fixed; top: 0; left: 0;}
-#contact-section form {position: absolute; top: 700vh; left: 0; width: 100%; margin-top: 100vh; position: relative; box-shadow: 0 0 4rem rgba(0, 0, 0, .8); background-color: #ffffff; z-index: 2;}
+#contact-section h2 {position: fixed; top: 0; left: 0; width: 100%; height: 100vh; color: #ffffff; text-shadow: 0 0 4rem rgba(0, 0, 0, .8); padding-bottom: 0; z-index: 3; display: flex; justify-content: center; align-items: center; padding: 0;}
+#contact-section .form-area {position: absolute; top: 600vh; left: 0; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; z-index: 4; transform: scale(0);}
+#contact-section .form-area.fixed {position: fixed; top: 0; left: 0;}
+#contact-section .form-area form {box-shadow: 0 0 4rem rgba(0, 0, 0, .8); background-color: #ffffff;}
 #contact-section li ~ li {margin-top: 1rem;}
-#contact-section .center-wrap {max-width: 512px; margin: 0 auto; padding: 0 2rem; background-color: var(--color-gray10);}
+#contact-section .center-wrap {width: 100%; max-width: 640px; margin: 0 auto; padding: 0 2rem; background-color: var(--color-gray10);}
 #contact-section label {display: block; padding: 2rem 0; text-align: center; color: #999999; font-weight: bold; font-size: 2rem;}
 #contact-section label.on {color: var(--color-gray01);}
 #contact-section input, #contact-section textarea {width: 100%; box-sizing: border-box; padding: .6rem; border-color: #999999; font-size: 1rem; transition: .4s;}
@@ -78,7 +79,7 @@ section h2 {top: 0; text-align: center; font-weight: bold; font-size: 12rem; lin
 #contact-section button[type=submit] {color: var(--color-gray01); font-weight: bold; font-size: 2rem; width: 100%; padding: 1rem; border-radius: 12px;}
 #contact-section button[type=submit]:hover {text-shadow: 10px 10px 1.5rem rgba(0, 0, 0, .8); transform: translateY(-4px); transition: .4s;}
 
-footer {width: 100%; height: 100vh; position: fixed; top: 0; left: 0; z-index: 2;}
+footer {width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; z-index: 2;}
 footer .card-space {width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; perspective: 400px; overflow: hidden;}
 footer .card-space.bg-mobile {background-color: aquamarine !important;}
 footer .card-space.bg-email {background-color: lightsalmon !important;}
@@ -109,11 +110,12 @@ footer .card li a:hover {color: var(--color-gray01);}
 
 @media screen and (max-width: 1280px) {
     header {padding: 0;}
+    
     .btn-main-menu {position: fixed; top: 2rem; right: 2rem; width: 2rem; height: 1.8rem; z-index: 1000; display: flex; flex-direction: column; justify-content:space-between; align-items: flex-end; transition: .2s;}
     .btn-main-menu i {background-color: var(--color-gray10); width: 80%; height: .2rem; border-radius: .1rem; transition: .2s;}
     .btn-main-menu i:nth-child(2) {width: 100%;}
     .btn-main-menu.mode-close {transform: rotate(180deg);}
-    .btn-main-menu.mode-close i {width: 113%; background-color: var(--color-gray10) !important;}
+    .btn-main-menu.mode-close i {width: 116%; background-color: var(--color-gray10) !important;}
     .btn-main-menu.mode-close i:nth-child(1) {transform: rotate(45deg); transform-origin: top left;}
     .btn-main-menu.mode-close i:nth-child(2) {width: 0;}
     .btn-main-menu.mode-close i:nth-child(3) {transform: rotate(-45deg); transform-origin: bottom left;}
@@ -127,9 +129,13 @@ footer .card li a:hover {color: var(--color-gray01);}
     #portfolio-section {max-width: 1024px; padding: 0;}
 }
 @media screen and (max-width: 1024px) {
+    section h2 {font-size: 6rem; line-height: 8rem; padding: 4rem 0 2rem;}
+    
     .portfolio-list .img-area {width: 60%; margin: auto; overflow: hidden; margin-bottom: 10rem; box-shadow: 10px 20px 60px rgba(0, 0, 0, .2); line-height: 0; transform: skewY(24deg) translateY(400px) scale(1.2); transform-origin: 0 0; opacity: 0;}
     .portfolio-list .txt-area {top: auto; bottom: 0; left: 0; width: 100vw; height: 100vh; box-sizing: border-box; padding: 2rem 2rem; text-align: center; background-color: rgba(255, 255, 255, .9); display: flex; flex-direction: column; justify-content: center;}
     .portfolio-list>li:nth-child(odd) .txt-area, .portfolio-list>li:nth-child(even) .txt-area {left: 0; right: 0; text-align: center;}
+
+    #contact-section .form-area form {min-height: 100vh;}
 }
 
 @media screen and (max-width: 768px) {
