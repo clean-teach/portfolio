@@ -53,17 +53,18 @@ section h2 {top: 0; text-align: center; font-weight: bold; font-size: 12rem; lin
 .portfolio-list>li .txt-area.on {transform: translateX(0) skewX(0);}
 /* .portfolio-list>li.portfolio-mockup-mobile-02 .img-area.on {transform: skewY(0) translateY(0);} */
 
-.join-motion-txt-area {position: fixed; top: 50vh; left: 0; width: 100%; font-weight: 500; font-size: 1.5rem; line-height: 2rem; color: var(--color-gray01); text-align: center; overflow: hidden; z-index: 3;}
+#contact-section {position: relative; overflow: hidden; height: 1000vh;}
+.join-motion-txt-area {position: absolute; top: 200vh; left: 0; width: 100%; font-weight: 500; font-size: 1.5rem; line-height: 2rem; color: var(--color-gray01); text-align: center; overflow: hidden; z-index: 3;}
+.join-motion-txt-area.fixed {position: fixed; top: 50vh; left: 0;}
 .join-motion-txt-area .line {position: absolute; top: 50%; display: block; width: 50%; height: 1px; background-color: #acacac; transform: scaleX(0);}
 .join-motion-txt-area .line.left {left: 50%; transform-origin: top left;}
 .join-motion-txt-area .line.right {right: 50%; transform-origin: top right;}
-.join-motion-txt-area .txt {position: relative; top: 0; left: 0; display: inline-block; background-color: var(--color-gray10); z-index: 100; opacity: .2;}
+.join-motion-txt-area .txt {position: relative; top: 0; left: 0; display: inline-block; background-color: var(--color-gray10); z-index: 100; opacity: 0;}
 .join-motion-txt-area .txt.txt01 {transform: translateX(-100vw); transform-origin: top right;}
-.join-motion-txt-area .txt.txt02 {transform: translateX(0vw); transform-origin: top left;}
-
-#contact-section {overflow: hidden; padding-top: 400vh;}
-#contact-section h2 {color: #ffffff; text-shadow: 0 0 4rem rgba(0, 0, 0, .8); padding-bottom: 0; line-height: 10vw;}
-#contact-section form {position: relative; box-shadow: 0 0 4rem rgba(0, 0, 0, .8); background-color: #ffffff; z-index: 2;}
+.join-motion-txt-area .txt.txt02 {transform: translateX(100vw); transform-origin: top left;}
+#contact-section h2 {position: absolute; top: 400vh; left: 0; width: 100%; height: 100vh; color: #ffffff; text-shadow: 0 0 4rem rgba(0, 0, 0, .8); padding-bottom: 0; z-index: 3; display: flex; justify-content: center; align-items: center; padding: 0;}
+#contact-section h2.fixed {position: fixed; top: 0; left: 0;}
+#contact-section form {position: absolute; top: 700vh; left: 0; width: 100%; margin-top: 100vh; position: relative; box-shadow: 0 0 4rem rgba(0, 0, 0, .8); background-color: #ffffff; z-index: 2;}
 #contact-section li ~ li {margin-top: 1rem;}
 #contact-section .center-wrap {max-width: 512px; margin: 0 auto; padding: 0 2rem; background-color: var(--color-gray10);}
 #contact-section label {display: block; padding: 2rem 0; text-align: center; color: #999999; font-weight: bold; font-size: 2rem;}
