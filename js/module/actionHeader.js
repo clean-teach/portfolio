@@ -78,17 +78,15 @@ function setMoveScrollByAnchor(event) {
 
 // LNB 버튼 이벤트 바인드
 export const bindLnbButton = () => {
-    lnbBtn.forEach(btn => {
-        btn.addEventListener('click', function (e) {
-            actionToggleMainMenu.actionMenuClose(btnMainMenu, lnb);
-            setMoveScrollByAnchor(e);
-        });
-        btn.addEventListener('focus', function () {
-            actionToggleHeaderByScroll(portfolioSection).show();
-        });
-        btn.addEventListener('blur', function () {
-            actionToggleHeaderByScroll(portfolioSection).hide();
-        });
+    lnb.addEventListener('click', function (e) {
+        actionToggleMainMenu.actionMenuClose(btnMainMenu, lnb);
+        setMoveScrollByAnchor(e);
+    });
+    lnb.addEventListener('focus', function () {
+        actionToggleHeaderByScroll(portfolioSection).show();
+    });
+    lnb.addEventListener('blur', function () {
+        actionToggleHeaderByScroll(portfolioSection).hide();
     });
 };
 
