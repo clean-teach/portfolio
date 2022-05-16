@@ -14,7 +14,31 @@ import { bindFooterCard, rotateFooterCardByScoll } from "./module/footerCard.js"
         pageScrollHeight,
         scrollBottom;
 
-    function main(){
+    /*** Event ***/
+    ///////////////////////////////////////////
+    document.addEventListener('DOMContentLoaded', mainHandler);
+    window.addEventListener('load', windowLoadHandler);
+
+    // 브라우저 사이즈 변경시 새로고침
+    window.addEventListener('resize', function(){
+        document.location.reload();
+    });
+    
+    // 마우스 우클릭 금지
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.addEventListener('mousemove', documentMouseMoveHandler);
+    document.addEventListener('scroll', documentScrollHandler, { passive: true });
+    document.addEventListener('mouseenter', function (e) {
+        document.body.style.transition = '0s';
+    });
+    document.addEventListener('mouseleave', function (e) {
+        setBackgroundColorByMouseMove.setBackgroundColor(mainSection);
+        document.body.style.transition = `1s`;
+    });
+
+    /*** Event Handler ***/
+    ///////////////////////////////////////////
+    function mainHandler(){
         mainSection = document.querySelector('#main-section');
     
         setIntervalTitle();
@@ -23,30 +47,25 @@ import { bindFooterCard, rotateFooterCardByScoll } from "./module/footerCard.js"
         bindMainMenuButton();
         bindContactForm();
         bindFooterCard();
-    
-        window.addEventListener('load', function (e) {
-            winInnerHeight = window.innerHeight,
-            pageScrollHeight = document.body.scrollHeight;
-            scrollBottom = document.documentElement.scrollTop + winInnerHeight;
-    
-            setHeaderColorByScroll(mainSection);
-            lnbStylingByScroll();
-            setBackgroundColorByMouseMove.setBackgroundColor(mainSection);
-            activePortfolioByScroll.action(scrollBottom);
-            motionContactAreaByScroll.get(winInnerHeight);
-            motionContactAreaByScroll.scroll(scrollBottom);
-            rotateFooterCardByScoll(scrollBottom, pageScrollHeight, winInnerHeight);
-        });
     }
-    document.addEventListener('DOMContentLoaded', main);
-    
-    // 마우스 우클릭 금지
-    document.addEventListener('contextmenu', event => event.preventDefault());
-    document.addEventListener('mousemove', function (e) {
+    function windowLoadHandler(){
+        winInnerHeight = window.innerHeight,
+        pageScrollHeight = document.body.scrollHeight;
+        scrollBottom = document.documentElement.scrollTop + winInnerHeight;
+
+        setHeaderColorByScroll(mainSection);
+        lnbStylingByScroll();
+        setBackgroundColorByMouseMove.setBackgroundColor(mainSection);
+        activePortfolioByScroll.action(scrollBottom);
+        motionContactAreaByScroll.get(winInnerHeight);
+        motionContactAreaByScroll.scroll(scrollBottom);
+        rotateFooterCardByScoll(scrollBottom, pageScrollHeight, winInnerHeight);
+    }
+    function documentMouseMoveHandler(e){
         setBackgroundColorByMouseMove.getMouseMove(e, mainSection);
         setBackgroundColorByMouseMove.setBackgroundColor(mainSection);
-    });
-    document.addEventListener('scroll', function (e) {
+    }
+    function documentScrollHandler(e){
         scrollBottom = document.documentElement.scrollTop + winInnerHeight;
     
         setHeaderColorByScroll(mainSection);
@@ -64,17 +83,5 @@ import { bindFooterCard, rotateFooterCardByScoll } from "./module/footerCard.js"
             motionContactAreaByScroll.scroll(scrollBottom)
         );
         rotateFooterCardByScoll(scrollBottom, pageScrollHeight, winInnerHeight);
-    }, { passive: true });
-    document.addEventListener('mouseenter', function (e) {
-        document.body.style.transition = '0s';
-    });
-    document.addEventListener('mouseleave', function (e) {
-        setBackgroundColorByMouseMove.setBackgroundColor(mainSection);
-        document.body.style.transition = `1s`;
-    });
-    
-    // 브라우저 사이즈 변경시 새로고침
-    window.addEventListener('resize', function(){
-        document.location.reload();
-    });
+    }
 })()
