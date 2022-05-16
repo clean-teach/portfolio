@@ -6,6 +6,59 @@ const lnb = header.querySelector('#lnb');
 const lnbBtn = lnb.querySelectorAll('a');
 const portfolioSection = document.querySelector('#portfolio-section');
 
+// LNB 버튼 이벤트 바인드
+export const bindLnbButton = () => {
+    lnb.addEventListener('click', function (e) {
+        actionToggleMainMenu.actionMenuClose(btnMainMenu, lnb);
+        setMoveScrollByAnchor(e);
+    });
+    lnb.addEventListener('focus', function () {
+        actionToggleHeaderByScroll(portfolioSection).show();
+    });
+    lnb.addEventListener('blur', function () {
+        actionToggleHeaderByScroll(portfolioSection).hide();
+    });
+};
+
+// 메인메뉴 버튼 (햄버거 버튼) 이벤트 바인드
+export const bindMainMenuButton = () => {
+    const mainMenuButton = header.querySelector('.btn-main-menu');
+
+    mainMenuButton.addEventListener('click', function () {
+        actionToggleMainMenu.actionToggle(btnMainMenu, lnb);
+    });
+};
+
+// scroll 상태에 따른 Local Navigation Button Style
+export function lnbStylingByScroll(e) {
+    if (document.documentElement.scrollTop >= portfolioSection.offsetTop) {
+        header.classList.add('on');
+    } else {
+        header.style['transition'] = 'none';
+        header.classList.remove('on');
+    }
+    if (e && getScrollDirection() === 'DOWN') {
+        actionToggleHeaderByScroll(portfolioSection).hide();
+    } else if (e && getScrollDirection() === 'UP') {
+        actionToggleHeaderByScroll(portfolioSection).show();
+    }
+}
+
+// scroll에 따른 색상 값 (LNB, MainMenu)
+export const setHeaderColorByScroll = (mainSection) => {
+    const mainMenuObj = header.querySelectorAll('.btn-main-menu i');
+    let colorRGB = 255 - ((document.documentElement.scrollTop / mainSection.offsetHeight) * 255);
+
+    mainMenuObj.forEach(tg => {
+        tg.style.backgroundColor = `rgba(${colorRGB}, ${colorRGB}, ${colorRGB}, 1)`
+    });
+
+    if (colorRGB < 0) { colorRGB = 0 }
+    lnbBtn.forEach(tg => {
+        tg.style.color = `rgba(${colorRGB}, ${colorRGB}, ${colorRGB}, 1)`
+    });
+}
+
 // 메인메뉴 버튼 동작함수용 객체
 const actionToggleMainMenu = {
     state: false,
@@ -58,10 +111,12 @@ function actionToggleHeaderByScroll(portfolioSection) {
 }
 
 // 앵커태그 부드러운 동작 함수
-function setMoveScrollByAnchor(event) {
+export function setMoveScrollByAnchor(event, targetHref) {
     event.preventDefault();
     const target = event.target || event.srcElement;
-    const targetHref = target.getAttribute('href');
+    if(event.type === 'click'){
+        targetHref = target.getAttribute('href');
+    }  
     let scrollTo;
     if(targetHref === '#footer'){
         scrollTo = document.body.scrollHeight;
@@ -73,58 +128,5 @@ function setMoveScrollByAnchor(event) {
     window.scrollTo({
         top: scrollTo,
         behavior: 'smooth'
-    });
-}
-
-// LNB 버튼 이벤트 바인드
-export const bindLnbButton = () => {
-    lnb.addEventListener('click', function (e) {
-        actionToggleMainMenu.actionMenuClose(btnMainMenu, lnb);
-        setMoveScrollByAnchor(e);
-    });
-    lnb.addEventListener('focus', function () {
-        actionToggleHeaderByScroll(portfolioSection).show();
-    });
-    lnb.addEventListener('blur', function () {
-        actionToggleHeaderByScroll(portfolioSection).hide();
-    });
-};
-
-// 메인메뉴 버튼 (햄버거 버튼) 이벤트 바인드
-export const bindMainMenuButton = () => {
-    const mainMenuButton = header.querySelector('.btn-main-menu');
-
-    mainMenuButton.addEventListener('click', function () {
-        actionToggleMainMenu.actionToggle(btnMainMenu, lnb);
-    });
-};
-
-// scroll 상태에 따른 Local Navigation Button Style
-export function lnbStylingByScroll(e) {
-    if (document.documentElement.scrollTop >= portfolioSection.offsetTop) {
-        header.classList.add('on');
-    } else {
-        header.style['transition'] = 'none';
-        header.classList.remove('on');
-    }
-    if (e && getScrollDirection() === 'DOWN') {
-        actionToggleHeaderByScroll(portfolioSection).hide();
-    } else if (e && getScrollDirection() === 'UP') {
-        actionToggleHeaderByScroll(portfolioSection).show();
-    }
-}
-
-// scroll에 따른 색상 값 (LNB, MainMenu)
-export const setHeaderColorByScroll = (mainSection) => {
-    const mainMenuObj = header.querySelectorAll('.btn-main-menu i');
-    let colorRGB = 255 - ((document.documentElement.scrollTop / mainSection.offsetHeight) * 255);
-
-    mainMenuObj.forEach(tg => {
-        tg.style.backgroundColor = `rgba(${colorRGB}, ${colorRGB}, ${colorRGB}, 1)`
-    });
-
-    if (colorRGB < 0) { colorRGB = 0 }
-    lnbBtn.forEach(tg => {
-        tg.style.color = `rgba(${colorRGB}, ${colorRGB}, ${colorRGB}, 1)`
     });
 }

@@ -8,20 +8,32 @@ const sensitiveY = 20;
 const sensitiveX = 10;
 const direction = 1; // positive or negative
 
-// scroll 상태에 따른 footer card 회전 모션
-export function rotateFooterCardByScoll(scrollBottom, pageScrollHeight, winInnerHeight) {
-    const startPoint = pageScrollHeight - winInnerHeight;
-    if (scrollBottom > startPoint) {
-        pageScrollHeight = document.body.scrollHeight;
-        let percentage = (scrollBottom - startPoint) / (pageScrollHeight - startPoint) * 90;
-
-        footerCard.style.transform = `rotateX(${footerCardInitialAngleValue + percentage}deg)`;
-        footerCard.style.transition = '0s';
-    }
-}
-
 export function bindFooterCard() {
     const card = document.querySelector('footer .card');
+
+    card.addEventListener('mousemove', function (e) {
+        twistCard(card, e);
+    });
+    card.addEventListener('mouseleave', function () {
+        returnToOriginStateCard(card)
+    });
+
+    card.querySelectorAll('a').forEach((a, i) => {
+        a.addEventListener('mouseenter', function () {
+            hoverFootCardButton.enter(i);
+        });
+        a.addEventListener('focus', function () {
+            hoverFootCardButton.enter(i);
+            window.scrollTo(0, document.body.scrollHeight);
+        });
+        a.addEventListener('mouseleave', function(){
+            hoverFootCardButton.leave(i);
+        });
+        a.addEventListener('blur', function(){
+            hoverFootCardButton.leave(i);
+        });
+    });
+
     const twistCard = (card, e) => {
         if (getCurrentScrollBottomEnd()){
             card.style.transform = `
@@ -52,20 +64,16 @@ export function bindFooterCard() {
             this.target.classList.remove(this.arrClassName[i]);
         }
     };
+}
 
-    card.addEventListener('mousemove', function (e) {
-        twistCard(card, e);
-    });
-    card.addEventListener('mouseleave', function () {
-        returnToOriginStateCard(card)
-    });
+// scroll 상태에 따른 footer card 회전 모션
+export function rotateFooterCardByScoll(scrollBottom, pageScrollHeight, winInnerHeight) {
+    const startPoint = pageScrollHeight - winInnerHeight;
+    if (scrollBottom > startPoint) {
+        pageScrollHeight = document.body.scrollHeight;
+        let percentage = (scrollBottom - startPoint) / (pageScrollHeight - startPoint) * 90;
 
-    card.querySelectorAll('a').forEach((a, i) => {
-        a.addEventListener('mouseenter', function () {
-            hoverFootCardButton.enter(i);
-        });
-        a.addEventListener('mouseleave', function(){
-            hoverFootCardButton.leave(i);
-        });
-    });
+        footerCard.style.transform = `rotateX(${footerCardInitialAngleValue + percentage}deg)`;
+        footerCard.style.transition = '0s';
+    }
 }

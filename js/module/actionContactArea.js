@@ -122,8 +122,8 @@ export const motionContactAreaByScroll = {
         });
     },
     moveEmboss(scrollBottom, startScroll, endScroll){
-        const opacity = this.setOpacity(scrollBottom, startScroll, endScroll, 0, .8);
-        const maxShadowSizeValue = 1.6;
+        const opacity = this.setOpacity(scrollBottom, startScroll, endScroll, 0, .6);
+        const maxShadowSizeValue = .4;
         let shadowSizeValue = this.convertScrollToPercentage(startScroll, endScroll, maxShadowSizeValue, scrollBottom);
 
         if(scrollBottom < startScroll) {
@@ -154,7 +154,7 @@ export const motionContactAreaByScroll = {
             ColorValue = minValue;
         }
         
-        target.style['background-color'] = `rgb(${ColorValue}, ${ColorValue}, ${ColorValue})`;
+        // target.style['background-color'] = `rgb(${ColorValue}, ${ColorValue}, ${ColorValue})`;
     },
     setDisplay(scrollBottom, startScroll, endScroll, target, display){
         if(endScroll){
@@ -191,7 +191,7 @@ export const bindContactForm = () => {
     const contactFormTag = document.querySelectorAll('#contact-section input, textarea');
 
     contactFormTag.forEach(formBox => {
-        formBox.addEventListener('focus', function () {
+        formBox.addEventListener('focus', function (e) {
             this.parentNode.querySelector('label').classList.add('on');
         });
         formBox.addEventListener('blur', function () {
