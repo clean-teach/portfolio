@@ -3,7 +3,9 @@
     document.addEventListener('DOMContentLoaded', function () {
         loader = document.getElementById('loader');
     });
-    window.onload = function () {
+    window.addEventListener('load', windowLoadHandler);
+    
+    function windowLoadHandler(){
         let opacity = Number(window.getComputedStyle(loader).getPropertyValue('opacity'));
 
         window.scrollTo({top: 0, left: 0, behavior: 'instant'});
@@ -23,5 +25,5 @@
             window.scrollTo({top: 0, left: 0, behavior: 'instant'});
             loader.remove();
         }, 5000);
-    };
+    }
 }());

@@ -3,10 +3,10 @@ import { accessibility } from "./module/accessibility.js";
 import { optimizeAnimation, scrollRotate } from "./utils/utils.js";
 import { setHeaderColorByScroll, lnbStylingByScroll, bindLnbButton, bindMainMenuButton } from "./module/actionHeader.js";
 import { setBackgroundColorByMouseMove } from "./module/setBackgroundColorByMouseMove.js";
-import { setBackgroundStyleByScroll } from "./module/backgroundMotionStyle.js";
-import { activePortfolioByScroll } from "./module/activePortfolioByScroll.js";
-import { bindContactForm, motionContactAreaByScroll } from "./module/actionContactArea.js";
-import { bindFooterCard, rotateFooterCardByScoll } from "./module/footerCard.js";
+import { setBackgroundStyleByScroll } from "./module/setBackgroundStyleByScroll.js";
+import { activePortfolioByScroll } from "./module/actionStylePortfolioByScroll.js";
+import { bindContactForm, motionContactAreaByScroll } from "./module/actionStyleContactArea.js";
+import { bindFooterCard, rotateFooterCardByScoll } from "./module/actionStyleFooterCard.js";
 
 (function(){
     let mainSection,
