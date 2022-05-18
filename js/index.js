@@ -20,12 +20,10 @@ import { bindFooterCard, rotateFooterCardByScoll } from "./module/actionStyleFoo
     window.addEventListener('load', windowLoadHandler);
 
     // 브라우저 사이즈 변경시 새로고침
-    window.addEventListener('resize', function(){
-        document.location.reload();
-    });
+    window.addEventListener('resize', document.location.reload);
     
     // 마우스 우클릭 금지
-    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('mousemove', documentMouseMoveHandler);
     document.addEventListener('scroll', documentScrollHandler, { passive: true });
     document.addEventListener('mouseenter', function (e) {
@@ -61,15 +59,15 @@ import { bindFooterCard, rotateFooterCardByScoll } from "./module/actionStyleFoo
         motionContactAreaByScroll.scroll(scrollBottom);
         rotateFooterCardByScoll(scrollBottom, pageScrollHeight, winInnerHeight);
     }
-    function documentMouseMoveHandler(e){
-        setBackgroundColorByMouseMove.getMouseMove(e, mainSection);
+    function documentMouseMoveHandler(event){
+        setBackgroundColorByMouseMove.getMouseMove(event, mainSection);
         setBackgroundColorByMouseMove.setBackgroundColor(mainSection);
     }
-    function documentScrollHandler(e){
+    function documentScrollHandler(event){
         scrollBottom = document.documentElement.scrollTop + winInnerHeight;
     
         setHeaderColorByScroll(mainSection);
-        lnbStylingByScroll(e);
+        lnbStylingByScroll(event);
         setBackgroundColorByMouseMove.setBackgroundColor(mainSection);
     
         mainSection.querySelector('.tit').style['left'] = `-${document.documentElement.scrollTop * 1}px`;

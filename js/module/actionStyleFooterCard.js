@@ -11,13 +11,8 @@ const direction = 1; // positive or negative
 export function bindFooterCard() {
     const card = document.querySelector('footer .card');
 
-    card.addEventListener('mousemove', function (e) {
-        twistCard(card, e);
-    });
-    card.addEventListener('mouseleave', function () {
-        returnToOriginStateCard(card)
-    });
-
+    card.addEventListener('mousemove', twistCardHandler);
+    card.addEventListener('mouseleave', returnToOriginStateCardHandler);
     card.querySelectorAll('a').forEach((a, i) => {
         a.addEventListener('mouseenter', function () {
             hoverFootCardButton.enter(i);
@@ -34,19 +29,19 @@ export function bindFooterCard() {
         });
     });
 
-    const twistCard = (card, e) => {
+    function twistCardHandler (event) {
         if (getCurrentScrollBottomEnd()){
-            card.style.transform = `
-                rotateY(${direction * (window.innerWidth / 2 - e.x) / sensitiveY}deg) 
-                rotateX(${direction * (window.innerHeight / 2 - e.y) / -sensitiveX}deg)
+            this.style.transform = `
+                rotateY(${direction * (window.innerWidth / 2 - event.x) / sensitiveY}deg) 
+                rotateX(${direction * (window.innerHeight / 2 - event.y) / -sensitiveX}deg)
             `;
-            card.style.transition = '0s';
+            this.style.transition = '0s';
         }
     }
-    const returnToOriginStateCard = (card) => {
+    function returnToOriginStateCardHandler() {
         if (getCurrentScrollBottomEnd()){
-            card.style.transform = `rotateY(0deg) rotateX(0deg)`;
-            card.style.transition = '.4s';
+            this.style.transform = `rotateY(0deg) rotateX(0deg)`;
+            this.style.transition = '.4s';
         }
     }
     const hoverFootCardButton = {

@@ -12,12 +12,8 @@ export const bindLnbButton = () => {
         actionToggleMainMenu.actionMenuClose(btnMainMenu, lnb);
         setMoveScrollByAnchor(e);
     });
-    lnb.addEventListener('focus', function () {
-        actionToggleHeaderByScroll(portfolioSection).show();
-    });
-    lnb.addEventListener('blur', function () {
-        actionToggleHeaderByScroll(portfolioSection).hide();
-    });
+    lnb.addEventListener('focus', actionToggleHeaderByScroll(portfolioSection).show);
+    lnb.addEventListener('blur', actionToggleHeaderByScroll(portfolioSection).hide);
 };
 
 // 메인메뉴 버튼 (햄버거 버튼) 이벤트 바인드

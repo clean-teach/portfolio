@@ -13,21 +13,20 @@ export function accessibility() {
         const targetPortfolio = arr[i];
         const button = targetPortfolio.querySelector('.txt-area button');
 
-        button.addEventListener('focus', function (e) {
+        button.addEventListener('focus', (e) => {
             focusPortfolioButtonHandler(e, window.pageYOffset + targetPortfolio.getBoundingClientRect().top);
         });
-        button.addEventListener('blur', function () {
-            blurPortfolioButtonHandler();
-        });
+        button.addEventListener('blur', blurPortfolioButtonHandler);
     });
-    lastPortfolioLastButton.addEventListener('blur', function (e) {
+    lastPortfolioLastButton.addEventListener('blur', lastPortfolioLastButtonHandler);
+
+    function lastPortfolioLastButtonHandler(event) {
         const contactSection = '#contact-section';
-        setMoveScrollByAnchor(e, contactSection);
+        setMoveScrollByAnchor(event, contactSection);
         document.querySelector(contactSection).querySelector('input').focus();
-        
-    });
-    function focusPortfolioButtonHandler(e, scrollY){
-        activePortfolioButton = e.target;
+    }
+    function focusPortfolioButtonHandler(event, scrollY){
+        activePortfolioButton = event.target;
         activePortfolioButton.classList.add(CLASS_NAME_ON);
         if(!scrollY == ''){
             window.scrollTo(0, scrollY);
