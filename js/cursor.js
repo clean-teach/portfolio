@@ -1,16 +1,16 @@
 (function createSetMouseCursorStyle () {
-    const mouseCursorId = 'mouseCursor'
-    const mouseCursorPointerClassName = 'pointer';
+    const ID_NAME_MOUSE_CURSOR = 'mouseCursor'
+    const CLASS_NAME_MOUSE_CURSOR_POINTER = 'pointer';
     const mouseCursor = document.createElement('div');
-    mouseCursor.id = mouseCursorId;
+    mouseCursor.id = ID_NAME_MOUSE_CURSOR;
     mouseCursor.innerHTML = '<div><div></div></div>';
     document.body.appendChild(mouseCursor);
     document.querySelectorAll('a, button').forEach(tg => {
         tg.addEventListener('mouseenter',function(e){
-            mouseCursor.classList.add(mouseCursorPointerClassName);
+            mouseCursor.classList.add(CLASS_NAME_MOUSE_CURSOR_POINTER);
         });
         tg.addEventListener('mouseleave',function(e){
-            mouseCursor.classList.remove(mouseCursorPointerClassName)
+            mouseCursor.classList.remove(CLASS_NAME_MOUSE_CURSOR_POINTER)
         });
     });
     document.addEventListener('mousemove',function(e){

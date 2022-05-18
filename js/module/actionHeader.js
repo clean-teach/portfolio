@@ -31,11 +31,12 @@ export const bindMainMenuButton = () => {
 
 // scroll 상태에 따른 Local Navigation Button Style
 export function lnbStylingByScroll(e) {
+    const CLASS_NAME_ON = 'on';
     if (document.documentElement.scrollTop >= portfolioSection.offsetTop) {
-        header.classList.add('on');
+        header.classList.add(CLASS_NAME_ON);
     } else {
         header.style['transition'] = 'none';
-        header.classList.remove('on');
+        header.classList.remove(CLASS_NAME_ON);
     }
     if (e && getScrollDirection() === 'DOWN') {
         actionToggleHeaderByScroll(portfolioSection).hide();

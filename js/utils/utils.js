@@ -43,12 +43,12 @@ export function getPercentage(parts, whole, standard) {
 // scroll에 따른 회전
 export function scrollRotate(id) {
     const obj = document.getElementById(id);
-    const animationClassName = 'rotate-animate';
+    const CLASS_NAME_ANIMATION = 'rotate-animate';
     obj.style.transform = "rotate(" + window.pageYOffset / 10 + "deg)";
     if (document.documentElement.scrollTop !== 0) {
-        obj.classList.remove(animationClassName);
+        obj.classList.remove(CLASS_NAME_ANIMATION);
     } else {
-        obj.classList.add(animationClassName);
+        obj.classList.add(CLASS_NAME_ANIMATION);
     }
 }
 

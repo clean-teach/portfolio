@@ -51,17 +51,17 @@ export function bindFooterCard() {
     }
     const hoverFootCardButton = {
         target: document.querySelector('footer .card-space'),
-        arrClassName: [
+        ARR_CLASS_NAME: [
             'bg-mobile',
             'bg-email',
             'bg-git',
             'bg-notion'
         ],
         enter(i) {
-            this.target.classList.add(this.arrClassName[i]);
+            this.target.classList.add(this.ARR_CLASS_NAME[i]);
         },
         leave(i) {
-            this.target.classList.remove(this.arrClassName[i]);
+            this.target.classList.remove(this.ARR_CLASS_NAME[i]);
         }
     };
 }

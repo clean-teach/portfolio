@@ -71,11 +71,11 @@ export const motionContactAreaByScroll = {
         contactSection.querySelector('.center-wrap').style['transform'] = `rotateY(${degree}deg)`;
     },
     fixedPosition(scrollBottom, startScroll, endScroll, target){
-        const fiexdClassName = 'fixed';
+        const CLASS_NAME_FIEXD = 'fixed';
         if(scrollBottom > startScroll && scrollBottom < endScroll){
-            target.classList.add(fiexdClassName);
+            target.classList.add(CLASS_NAME_FIEXD);
         }else{
-            target.classList.remove(fiexdClassName);
+            target.classList.remove(CLASS_NAME_FIEXD);
         }
     },
     moveJoinLine(scrollBottom, startScroll, endScroll){  
@@ -190,14 +190,14 @@ export const motionContactAreaByScroll = {
 // Contact Section의 form 태그 focus 효과
 export const bindContactForm = () => {
     const contactFormTag = document.querySelectorAll('#contact-section input, textarea');
-    const onClassName = 'on';
+    const CLASS_NAME_ON = 'on';
 
     contactFormTag.forEach(formBox => {
         formBox.addEventListener('focus', function (e) {
-            this.parentNode.querySelector('label').classList.add(onClassName);
+            this.parentNode.querySelector('label').classList.add(CLASS_NAME_ON);
         });
         formBox.addEventListener('blur', function () {
-            this.parentNode.querySelector('label').classList.remove(onClassName);
+            this.parentNode.querySelector('label').classList.remove(CLASS_NAME_ON);
         });
     });
 };
