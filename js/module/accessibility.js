@@ -12,11 +12,12 @@ export function accessibility() {
     portfolioList.forEach((obj, i, arr) => {
         const targetPortfolio = arr[i];
         const button = targetPortfolio.querySelector('.txt-area button');
-
-        button.addEventListener('focus', (e) => {
-            focusPortfolioButtonHandler(e, window.pageYOffset + targetPortfolio.getBoundingClientRect().top);
-        });
-        button.addEventListener('blur', blurPortfolioButtonHandler);
+        if(button){
+            button.addEventListener('focus', (e) => {
+                focusPortfolioButtonHandler(e, window.pageYOffset + targetPortfolio.getBoundingClientRect().top);
+            });
+            button.addEventListener('blur', blurPortfolioButtonHandler);
+        }
     });
     lastPortfolioLastButton.addEventListener('blur', lastPortfolioLastButtonHandler);
 

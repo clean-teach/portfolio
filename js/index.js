@@ -7,6 +7,7 @@ import { setBackgroundStyleByScroll } from "./module/setBackgroundStyleByScroll.
 import { activePortfolioByScroll } from "./module/actionStylePortfolioByScroll.js";
 import { bindContactForm, motionContactAreaByScroll } from "./module/actionStyleContactArea.js";
 import { bindFooterCard, rotateFooterCardByScoll } from "./module/actionStyleFooterCard.js";
+import { bindTabButton } from "./module/actionTab.js";
 
 (function(){
     let mainSection,
@@ -20,7 +21,7 @@ import { bindFooterCard, rotateFooterCardByScoll } from "./module/actionStyleFoo
     window.addEventListener('load', windowLoadHandler);
 
     // 브라우저 사이즈 변경시 새로고침
-    window.addEventListener('resize', document.location.reload);
+    window.addEventListener('resize', windowResizeHandler);
     
     // 마우스 우클릭 금지
     document.addEventListener('contextmenu', e => e.preventDefault());
@@ -58,6 +59,14 @@ import { bindFooterCard, rotateFooterCardByScoll } from "./module/actionStyleFoo
         motionContactAreaByScroll.get(winInnerHeight);
         motionContactAreaByScroll.scroll(scrollBottom);
         rotateFooterCardByScoll(scrollBottom, pageScrollHeight, winInnerHeight);
+        bindTabButton(document.querySelector('#portfolio-section .category-tab-wrap'));
+    }
+    function windowResizeHandler(){
+        activePortfolioByScroll.action(scrollBottom);
+        motionContactAreaByScroll.get(winInnerHeight);
+        motionContactAreaByScroll.scroll(scrollBottom);
+        rotateFooterCardByScoll(scrollBottom, pageScrollHeight, winInnerHeight);
+        // document.location.reload();
     }
     function documentMouseMoveHandler(event){
         setBackgroundColorByMouseMove.getMouseMove(event, mainSection);
@@ -70,9 +79,7 @@ import { bindFooterCard, rotateFooterCardByScoll } from "./module/actionStyleFoo
         lnbStylingByScroll(event);
         setBackgroundColorByMouseMove.setBackgroundColor(mainSection);
     
-        mainSection.querySelector('.tit').style['left'] = `-${document.documentElement.scrollTop * 1}px`;
-        mainSection.querySelector('.txt').style['top'] = `-${document.documentElement.scrollTop * .02}px`;
-        mainSection.querySelector('.vertical').style['top'] = `${document.documentElement.scrollTop * .4}px`;
+        animationMainSectionByScroll();
     
         setBackgroundStyleByScroll.move(scrollBottom);
         scrollRotate('circle-scroll-svg');
@@ -81,5 +88,10 @@ import { bindFooterCard, rotateFooterCardByScoll } from "./module/actionStyleFoo
             motionContactAreaByScroll.scroll(scrollBottom)
         );
         rotateFooterCardByScoll(scrollBottom, pageScrollHeight, winInnerHeight);
+    }
+    function animationMainSectionByScroll(){
+        mainSection.querySelector('.tit').style['left'] = `-${document.documentElement.scrollTop * 1}px`;
+        mainSection.querySelector('.txt').style['top'] = `-${document.documentElement.scrollTop * .02}px`;
+        mainSection.querySelector('.vertical').style['top'] = `${document.documentElement.scrollTop * .4}px`;
     }
 })()

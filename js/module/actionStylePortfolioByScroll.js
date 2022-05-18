@@ -4,26 +4,29 @@ export const activePortfolioByScroll = {
     winHeightHalf : (window.innerHeight / 2),
     setImgActive(scrollBottom, i, arr) {
         const target = arr[i].querySelector('.img-area');
-        const CLASS_NAME_ON = 'on';
-        let startPoint = window.pageYOffset + arr[i].getBoundingClientRect().top < scrollBottom;
-
-        if (startPoint) {
-            target.classList.add(CLASS_NAME_ON);
-        } else {
-            target.classList.remove(CLASS_NAME_ON);
+        if(target){
+            const CLASS_NAME_ON = 'on';
+            let startPoint = window.pageYOffset + arr[i].getBoundingClientRect().top < scrollBottom;
+            if (startPoint) {
+                target.classList.add(CLASS_NAME_ON);
+            } else {
+                target.classList.remove(CLASS_NAME_ON);
+            }
         }
     },
     setTxtActive(scrollBottom, i, arr) {
         const txtBox = arr[i].querySelector('.txt-area');
-        const CLASS_NAME_ON = 'on';
-        let
-            startPoint = scrollBottom - this.winHeightHalf > window.pageYOffset + arr[i].getBoundingClientRect().top,
-            endPoint = scrollBottom - this.winHeightHalf < window.pageYOffset + arr[i].getBoundingClientRect().top + arr[i].offsetHeight;
+        if(txtBox){
+            const CLASS_NAME_ON = 'on';
+            let
+                startPoint = scrollBottom - this.winHeightHalf > window.pageYOffset + arr[i].getBoundingClientRect().top,
+                endPoint = scrollBottom - this.winHeightHalf < window.pageYOffset + arr[i].getBoundingClientRect().top + arr[i].offsetHeight;
 
-        if (startPoint && endPoint) {
-            txtBox.classList.add(CLASS_NAME_ON);
-        } else {
-            txtBox.classList.remove(CLASS_NAME_ON);
+            if (startPoint && endPoint) {
+                txtBox.classList.add(CLASS_NAME_ON);
+            } else {
+                txtBox.classList.remove(CLASS_NAME_ON);
+            }
         }
     },
     action(scrollBottom){

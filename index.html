@@ -49,8 +49,30 @@
         </section>
         <section id="portfolio-section">
             <h2>Portfolio</h2>
+            <div class="category-tab-wrap">
+                <button type="button" class="on" data-category="total">Total</button>
+                <button type="button" data-category="study">Study</button>
+                <button type="button" data-category="work">Work</button>
+                <button type="button" data-category="side-project">Side Project</button>
+            </div>
             <ul class="portfolio-list center-wrap">
-                <li>
+                <li data-category="study">
+                    <h3>.localStorage</h3>
+                    <p>공부용 프로젝트 입니다.</p>
+                </li>
+                <li data-category="study">
+                    <h3>유튜브</h3>
+                    <p>공부용 프로젝트 입니다.</p>
+                </li>
+                <li data-category="side-project">
+                    <h3>Side Project</h3>
+                    <p>사이드 프로젝트 입니다.</p>
+                </li>
+                <li data-category="side-project">
+                    <h3>Side Project</h3>
+                    <p>사이드 프로젝트 입니다.</p>
+                </li>
+                <li data-category="work">
                     <div class="img-area">
                         <img src="img/work-researcharum-01.jpg" alt="Research Arum 웹사이트 화면">
                     </div>
@@ -87,7 +109,7 @@
                         <button type="button" title="새 탭으로 열기"  onclick="window.open('https://seemly-mile-d41.notion.site/researcharum-c5c12a1e1ec240c0932668642f220566')">Notion</button>
                     </div>
                 </li>
-                <li>
+                <li data-category="work">
                     <div class="img-area">
                         <img src="img/work-durian-01.jpg" alt="Durian 웹사이트 화면">
                     </div>
@@ -121,7 +143,7 @@
                         <button type="button" title="새 탭으로 열기"  onclick="window.open('https://seemly-mile-d41.notion.site/Durian-2ec3fce0ea2d46d187b16cd9b1af1343')">Notion</button>
                     </div>
                 </li>
-                <li>
+                <li data-category="work">
                     <div class="img-area">
                         <img src="img/work-peauty-01.jpg" alt="Peauty 웹사이트 화면">
                     </div>
@@ -148,7 +170,7 @@
                         <button type="button" title="새 탭으로 열기"  onclick="window.open('https://seemly-mile-d41.notion.site/Peauty-1782ddf20ee74b3895f35bff1bc741fa')">Notion</button>
                     </div>
                 </li>
-                <li>
+                <li data-category="work">
                     <div class="img-area"><img src="img/work-lavidamall-01.jpg" alt="lavida mall 홈페이지 화면"></div>
                     <div class="txt-area">
                         <h3>Lavida mall 웹사이트 제작</h3>
@@ -179,7 +201,7 @@
                         <button type="button" title="새 탭으로 열기" onclick="window.open('https://lavidamall.co.kr/')">View Live</button>
                     </div>
                 </li>
-                <li>
+                <li data-category="work">
                     <div class="img-area"><img src="img/work-monocr-01.jpg" alt="monocr 홈페이지 화면"></div>
                     <div class="txt-area">
                         <h3>Website Renewal : Monocr</h3>
@@ -210,7 +232,7 @@
                         <button type="button" title="새 탭으로 열기" onclick="window.open('http://www.monocr.com/')">View Live</button>
                     </div>
                 </li>
-                <li>
+                <li data-category="work">
                     <div class="img-area"><img src="img/work-fur-01.jpg" alt="기금도시재생포털 홈페이지 화면"></div>
                     <div class="txt-area">
                         <h3>기금도시재생포털 웹사이트 제작</h3>
@@ -242,7 +264,7 @@
                         <button type="button" title="새 탭으로 열기" onclick="window.open('portfolio/fur')">Local Product</button>
                     </div>
                 </li>
-                <!-- <li>
+                <!-- <li data-category="work">
                     <div class="img-area"><img src="img/work-mockup-mobile-aonecc-01.jpg" alt="aonecc mobile mockup"></div>
                     <div class="txt-area">
                         <h3>A-one CC 회원용 예약 사이트 리뉴얼 (모바일)</h3>
@@ -273,7 +295,7 @@
                         <button type="button" title="새 탭으로 열기" onclick="window.open('https://www.a-onecc.co.kr/mob/')">View Live</button>
                     </div>
                 </li>
-                <li>
+                <li data-category="work">
                     <div class="img-area"><img src="img/work-mockup-mobile-novita-01.jpg" alt="novita mobile mockup"></div>
                     <div class="txt-area">
                         <h3>Novita</h3>
