@@ -62,10 +62,11 @@ export function bindFooterCard() {
 }
 
 // scroll 상태에 따른 footer card 회전 모션
-export function rotateFooterCardByScoll(scrollBottom, pageScrollHeight, winInnerHeight) {
+export function rotateFooterCardByScoll(scrollBottom, winInnerHeight) {
+    const pageScrollHeight = document.body.scrollHeight;
     const startPoint = pageScrollHeight - winInnerHeight;
+
     if (scrollBottom > startPoint) {
-        pageScrollHeight = document.body.scrollHeight;
         let percentage = (scrollBottom - startPoint) / (pageScrollHeight - startPoint) * 90;
 
         footerCard.style.transform = `rotateX(${footerCardInitialAngleValue + percentage}deg)`;

@@ -1,3 +1,5 @@
+// import { motionContactAreaByScroll } from "./actionStyleContactArea";
+
 export function bindTabButton (tabArea) {
     const CLASS_NAME_ON = 'on';
     let currentTab = tabArea.querySelector(`button.${CLASS_NAME_ON}`);
@@ -12,6 +14,7 @@ export function bindTabButton (tabArea) {
             currentTab = event.target;
             filteringCategoryByTab(event.target);
         }
+        motionContactAreaByScroll.get(winInnerHeight);
     }
 };
 

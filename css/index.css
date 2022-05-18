@@ -34,7 +34,7 @@ section h2 {top: 0; text-align: center; font-weight: bold; font-size: 12rem; lin
 .category-tab-wrap button {margin: 0 2rem; font-weight: 300; font-size: 1.25rem; color: var(--color-gray04);}
 .category-tab-wrap button.on {font-weight: bold; color: var(--color-gray01);}
 .portfolio-list>li {position: relative; display: flex; justify-content: space-between; margin-top: 10rem;}
-.portfolio-list>li.hidden {display: none;}
+.portfolio-list>li.hidden {display: none}
 .portfolio-list>li:nth-child(even) {flex-direction: row-reverse;}
 .portfolio-list .img-area {width: 50%; overflow: hidden; box-shadow: 10px 20px 60px rgba(0, 0, 0, .2); line-height: 0; transform: skewY(24deg) translateY(400px) scale(1.2); transform-origin: 0 0; opacity: 0;}
 .portfolio-list .img-area img {width: 100%;}
@@ -56,18 +56,14 @@ section h2 {top: 0; text-align: center; font-weight: bold; font-size: 12rem; lin
 .portfolio-list>li .txt-area.on {transform: translateX(0) skewX(0);}
 /* .portfolio-list>li.portfolio-mockup-mobile-02 .img-area.on {transform: skewY(0) translateY(0);} */
 
-#contact-section {position: relative; overflow: hidden; height: 700vh;}
-.join-motion-txt-area {position: absolute; top: 200vh; left: 0; width: 100%; font-weight: 500; font-size: 1.5rem; line-height: 2rem; color: var(--color-gray01); text-align: center; overflow: hidden; z-index: 3;}
-.join-motion-txt-area.fixed {position: fixed; top: 50vh; left: 0;}
-.join-motion-txt-area .line {position: absolute; top: 50%; display: block; width: 50%; height: 1px; background-color: #acacac; transform: scaleX(0);}
-.join-motion-txt-area .line.left {left: 50%; transform-origin: top left;}
-.join-motion-txt-area .line.right {right: 50%; transform-origin: top right;}
-.join-motion-txt-area .txt {position: relative; top: 0; left: 0; display: inline-block; background-color: var(--color-gray10); z-index: 100; opacity: 0;}
-.join-motion-txt-area .txt.txt01 {transform: translateX(-100vw); transform-origin: top right;}
-.join-motion-txt-area .txt.txt02 {transform: translateX(100vw); transform-origin: top left;}
-#contact-section h2 {position: fixed; top: 0; left: 0; width: 100%; height: 100vh; color: #ffffff; text-shadow: 0 0 4rem rgba(0, 0, 0, .8); padding-bottom: 0; z-index: 3; display: flex; justify-content: center; align-items: center; padding: 0;}
-#contact-section .form-area {position: absolute; top: 600vh; left: 0; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; z-index: 4; transform: scale(0);}
-#contact-section .form-area.fixed {position: fixed; top: 0; left: 0;}
+#contact-section {position: relative; overflow: hidden; padding: 10rem 0;}
+.join-motion-txt-area {position: relative; font-weight: 500; font-size: 1.5rem; line-height: 2rem; color: var(--color-gray01); text-align: center; overflow: hidden; z-index: 3;}
+.join-motion-txt-area .line {position: absolute; top: 1rem; display: block; width: 50%; height: 1px; background-color: #acacac;}
+.join-motion-txt-area .line.left {left: 0;}
+.join-motion-txt-area .line.right {right: 0;}
+.join-motion-txt-area .txt {position: relative; top: 0; left: 0; display: inline-block; background-color: var(--color-gray10); z-index: 100;}
+#contact-section h2 {height: 100vh; color: #ffffff; text-shadow: 0 0 4rem rgba(0, 0, 0, .8); padding-bottom: 0; z-index: 3; display: flex; justify-content: center; align-items: center; padding: 0;}
+#contact-section .form-area {display: flex; justify-content: center; align-items: center;}
 #contact-section .form-area form {box-shadow: 0 0 4rem rgba(0, 0, 0, .1); background-color: #ffffff;}
 #contact-section li ~ li {margin-top: 1rem;}
 #contact-section .center-wrap {width: 100%; max-width: 640px; margin: 0 auto; padding: 0 2rem; background-color: var(--color-gray10);}
@@ -81,6 +77,27 @@ section h2 {top: 0; text-align: center; font-weight: bold; font-size: 12rem; lin
 #contact-section .btn-area {text-align: center; padding: 2rem 0;}
 #contact-section button[type=submit] {color: var(--color-gray01); font-weight: bold; font-size: 2rem; width: 100%; padding: 1rem; border-radius: 12px;}
 #contact-section button[type=submit]:hover {text-shadow: 10px 10px 1.5rem rgba(0, 0, 0, .8); transform: translateY(-4px); transition: .4s;}
+
+/* animate script style */
+:root {
+    --animation-by-scroll-style-speed: 1; /* 해당 스크립트 참고 */
+    --animation-by-scroll-style-contact-section-height: 1100vh;
+    --animation-by-scroll-style-join-area-top: 500vh;
+    --animation-by-scroll-style-form-area-top: 1000vh;
+}
+#contact-section.animation-by-scroll-style {height: calc(var(--animation-by-scroll-style-contact-section-height) * var(--animation-by-scroll-style-speed)); padding: 0;}
+.animation-by-scroll-style .join-motion-txt-area {position: absolute; top: calc(var(--animation-by-scroll-style-join-area-top) * var(--animation-by-scroll-style-speed)); left: 0; width: 100%;}
+.animation-by-scroll-style .join-motion-txt-area.fixed {position: fixed; top: 50vh; left: 0;}
+.animation-by-scroll-style .join-motion-txt-area .line {top: 50%; transform: scaleX(0);}
+.animation-by-scroll-style .join-motion-txt-area .line.left {left: 50%; transform-origin: top left;}
+.animation-by-scroll-style .join-motion-txt-area .line.right {right: 50%; transform-origin: top right;}
+.animation-by-scroll-style .join-motion-txt-area .txt {opacity: 0;}
+.animation-by-scroll-style .join-motion-txt-area .txt.txt01 {transform: translateX(-100vw); transform-origin: top right;}
+.animation-by-scroll-style .join-motion-txt-area .txt.txt02 {transform: translateX(100vw); transform-origin: top left;}
+#contact-section.animation-by-scroll-style h2 {position: fixed; top: 0; left: 0; width: 100%; height: 100vh;}
+#contact-section.animation-by-scroll-style .form-area {position: absolute; top: calc(var(--animation-by-scroll-style-form-area-top) * var(--animation-by-scroll-style-speed)); left: 0; width: 100vw; height: 100vh; z-index: 4; transform: scale(0);}
+#contact-section.animation-by-scroll-style .form-area.fixed {position: fixed; top: 0; left: 0;}
+
 
 footer {width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; z-index: 2;}
 footer .card-space {width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; perspective: 400px; overflow: hidden;}

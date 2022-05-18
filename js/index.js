@@ -12,7 +12,6 @@ import { bindTabButton } from "./module/actionTab.js";
 (function(){
     let mainSection,
         winInnerHeight,
-        pageScrollHeight,
         scrollBottom;
 
     /*** Event ***/
@@ -49,7 +48,6 @@ import { bindTabButton } from "./module/actionTab.js";
     }
     function windowLoadHandler(){
         winInnerHeight = window.innerHeight,
-        pageScrollHeight = document.body.scrollHeight;
         scrollBottom = document.documentElement.scrollTop + winInnerHeight;
 
         setHeaderColorByScroll(mainSection);
@@ -57,15 +55,44 @@ import { bindTabButton } from "./module/actionTab.js";
         setBackgroundColorByMouseMove.setBackgroundColor(mainSection);
         activePortfolioByScroll.action(scrollBottom);
         motionContactAreaByScroll.get(winInnerHeight);
-        motionContactAreaByScroll.scroll(scrollBottom);
-        rotateFooterCardByScoll(scrollBottom, pageScrollHeight, winInnerHeight);
+        motionContactAreaByScroll.scrollHandler(scrollBottom);
+        rotateFooterCardByScoll(scrollBottom, winInnerHeight);
         bindTabButton(document.querySelector('#portfolio-section .category-tab-wrap'));
+        function bindTabButton (tabArea) {
+            const CLASS_NAME_ON = 'on';
+            let currentTab = tabArea.querySelector(`button.${CLASS_NAME_ON}`);
+        
+            filteringCategoryByTab(tabArea.querySelector(`.${CLASS_NAME_ON}`));
+            tabArea.addEventListener('click', tabClickHandler);
+        
+            function tabClickHandler(event){
+                if(event.target.type === 'button'){
+                    currentTab.classList.remove(CLASS_NAME_ON);
+                    event.target.classList.add(CLASS_NAME_ON);
+                    currentTab = event.target;
+                    filteringCategoryByTab(event.target);
+                }
+                motionContactAreaByScroll.get(winInnerHeight);
+            }
+        };
+        
+        function filteringCategoryByTab(currentBtn){
+            const list = document.querySelectorAll('#portfolio-section .portfolio-list > li');
+            const CLASS_NAME_HIDDEN = 'hidden';
+        
+            list.forEach(item => {
+                item.classList.add(CLASS_NAME_HIDDEN);
+                if(currentBtn.dataset.category === 'total' || currentBtn.dataset.category === item.dataset.category) {
+                    item.classList.remove(CLASS_NAME_HIDDEN);
+                }
+            });
+        }
     }
     function windowResizeHandler(){
         activePortfolioByScroll.action(scrollBottom);
         motionContactAreaByScroll.get(winInnerHeight);
-        motionContactAreaByScroll.scroll(scrollBottom);
-        rotateFooterCardByScoll(scrollBottom, pageScrollHeight, winInnerHeight);
+        motionContactAreaByScroll.scrollHandler(scrollBottom);
+        rotateFooterCardByScoll(scrollBottom, winInnerHeight);
         // document.location.reload();
     }
     function documentMouseMoveHandler(event){
@@ -85,9 +112,9 @@ import { bindTabButton } from "./module/actionTab.js";
         scrollRotate('circle-scroll-svg');
         activePortfolioByScroll.action(scrollBottom);
         optimizeAnimation(
-            motionContactAreaByScroll.scroll(scrollBottom)
+            motionContactAreaByScroll.scrollHandler(scrollBottom)
         );
-        rotateFooterCardByScoll(scrollBottom, pageScrollHeight, winInnerHeight);
+        rotateFooterCardByScoll(scrollBottom, winInnerHeight);
     }
     function animationMainSectionByScroll(){
         mainSection.querySelector('.tit').style['left'] = `-${document.documentElement.scrollTop * 1}px`;

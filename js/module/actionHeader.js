@@ -111,19 +111,21 @@ function actionToggleHeaderByScroll(portfolioSection) {
 export function setMoveScrollByAnchor(event, targetHref) {
     event.preventDefault();
     const target = event.target || event.srcElement;
-    if(event.type === 'click'){
-        targetHref = target.getAttribute('href');
-    }  
-    let scrollTo;
-    if(targetHref === '#footer'){
-        scrollTo = document.body.scrollHeight;
-    }else if(targetHref === '#contact-section'){
-        scrollTo = document.querySelector(targetHref).offsetTop + document.querySelector(targetHref).clientHeight - window.innerHeight;
-    }else{
-        scrollTo = document.querySelector(targetHref).offsetTop;
+    if(target.tagName === 'A'){
+        if(event.type === 'click'){
+            targetHref = target.getAttribute('href');
+        }  
+        let scrollTo;
+        if(targetHref === '#footer'){
+            scrollTo = document.body.scrollHeight;
+        }else if(targetHref === '#contact-section'){
+            scrollTo = document.querySelector(targetHref).offsetTop + document.querySelector(targetHref).clientHeight - window.innerHeight;
+        }else{
+            scrollTo = document.querySelector(targetHref).offsetTop;
+        }
+        window.scrollTo({
+            top: scrollTo,
+            behavior: 'smooth'
+        });
     }
-    window.scrollTo({
-        top: scrollTo,
-        behavior: 'smooth'
-    });
 }
