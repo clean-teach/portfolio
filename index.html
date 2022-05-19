@@ -10,13 +10,13 @@
     <title>CH Portfolio</title>
     <!-- <link rel="stylesheet" href="css/loader.css">
     <script type="module" src="js/loadingPage.js"></script> -->
-    <link rel="shortcut icon" href="img/favicon.ico">
-	<link rel="apple-touch-icon-precomposed" href="img/icon01.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/icon02.png">
+    <link rel="shortcut icon" href="dist/img/favicon.ico">
+	<link rel="apple-touch-icon-precomposed" href="dist/img/icon01.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="dist/img/icon02.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/cursor.css">
+    <link rel="stylesheet" href="dist/css/common.css">
+    <link rel="stylesheet" href="dist/css/index.css">
+    <link rel="stylesheet" href="dist/css/cursor.css">
 </head>
 <body>
     <!-- <div id="loader">
@@ -74,7 +74,7 @@
                 </li>
                 <li data-category="work">
                     <div class="img-area">
-                        <img src="img/work-researcharum-01.jpg" alt="Research Arum 웹사이트 화면">
+                        <img src="dist/img/work-researcharum-01.jpg" alt="Research Arum 웹사이트 화면">
                     </div>
                     <div class="txt-area">
                         <h3>Research Arum 웹사이트 리뉴얼</h3>
@@ -111,7 +111,7 @@
                 </li>
                 <li data-category="work">
                     <div class="img-area">
-                        <img src="img/work-durian-01.jpg" alt="Durian 웹사이트 화면">
+                        <img src="dist/img/work-durian-01.jpg" alt="Durian 웹사이트 화면">
                     </div>
                     <div class="txt-area">
                         <h3>Durian 웹사이트 제작</h3>
@@ -145,7 +145,7 @@
                 </li>
                 <li data-category="work">
                     <div class="img-area">
-                        <img src="img/work-peauty-01.jpg" alt="Peauty 웹사이트 화면">
+                        <img src="dist/img/work-peauty-01.jpg" alt="Peauty 웹사이트 화면">
                     </div>
                     <div class="txt-area">
                         <h3>Peauty</h3>
@@ -171,7 +171,7 @@
                     </div>
                 </li>
                 <li data-category="work">
-                    <div class="img-area"><img src="img/work-lavidamall-01.jpg" alt="lavida mall 홈페이지 화면"></div>
+                    <div class="img-area"><img src="dist/img/work-lavidamall-01.jpg" alt="lavida mall 홈페이지 화면"></div>
                     <div class="txt-area">
                         <h3>Lavida mall 웹사이트 제작</h3>
                         <div class="datetime">
@@ -202,7 +202,7 @@
                     </div>
                 </li>
                 <li data-category="work">
-                    <div class="img-area"><img src="img/work-monocr-01.jpg" alt="monocr 홈페이지 화면"></div>
+                    <div class="img-area"><img src="dist/img/work-monocr-01.jpg" alt="monocr 홈페이지 화면"></div>
                     <div class="txt-area">
                         <h3>Website Renewal : Monocr</h3>
                         <div class="datetime">
@@ -233,7 +233,7 @@
                     </div>
                 </li>
                 <li data-category="work">
-                    <div class="img-area"><img src="img/work-fur-01.jpg" alt="기금도시재생포털 홈페이지 화면"></div>
+                    <div class="img-area"><img src="dist/img/work-fur-01.jpg" alt="기금도시재생포털 홈페이지 화면"></div>
                     <div class="txt-area">
                         <h3>기금도시재생포털 웹사이트 제작</h3>
                         <div class="datetime">
@@ -265,7 +265,7 @@
                     </div>
                 </li>
                 <!-- <li data-category="work">
-                    <div class="img-area"><img src="img/work-mockup-mobile-aonecc-01.jpg" alt="aonecc mobile mockup"></div>
+                    <div class="img-area"><img src="dist/img/work-mockup-mobile-aonecc-01.jpg" alt="aonecc mobile mockup"></div>
                     <div class="txt-area">
                         <h3>A-one CC 회원용 예약 사이트 리뉴얼 (모바일)</h3>
                         <div class="datetime">
@@ -296,7 +296,7 @@
                     </div>
                 </li>
                 <li data-category="work">
-                    <div class="img-area"><img src="img/work-mockup-mobile-novita-01.jpg" alt="novita mobile mockup"></div>
+                    <div class="img-area"><img src="dist/img/work-mockup-mobile-novita-01.jpg" alt="novita mobile mockup"></div>
                     <div class="txt-area">
                         <h3>Novita</h3>
                         <div class="datetime">
@@ -361,10 +361,15 @@
         </section>
         <div id="main-background-area">
             <div class="circle"></div>
-            <img src="img/circle-scroll.svg" alt="" id="circle-scroll-svg">
+            <img src="dist/img/circle-scroll.svg" alt="" id="circle-scroll-svg">
         </div>
     </main>
     <footer id="footer">
+        <div class="clock-arae">
+            <div id="time-the-current-user-is-staying">
+               00:00:00 
+            </div>
+        </div>
         <div class="card-space">
             <div class="card">
                 <address>
@@ -380,9 +385,9 @@
         </div>
     </footer>
 
-    <script type="module" src="js/index.js" defer></script>
-    <script src="js/cursor.js" defer></script>
+    <script type="module" src="dist/js/index.js" defer></script>
+    <script src="dist/js/cursor.js" defer></script>
     <script data-cfasync="false" type="text/javascript"
-src="js/module/form-submission-handler.js"></script>
+src="dist/js/module/form-submission-handler.js"></script>
 </body>
 </html>

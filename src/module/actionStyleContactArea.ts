@@ -6,7 +6,7 @@ export const motionContactAreaByScroll = {
     },
     scrollBottom: null,
     winInnerHeight: null,
-    portfolioSection:  null,
+    portfolioSection: null,
     contactSection: null,
     contactSectionHeading: null,
     joinArea: null,
@@ -34,7 +34,7 @@ export const motionContactAreaByScroll = {
             posiStart: null,
         }
     },
-    get(winInnerHeight){
+    get(winInnerHeight: any){
     // 페이지의 모든 리소스가 로딩된 시점에서 가져올 정보 및 세팅
         const speed = Math.abs(this.option.animateSpeed);
 
@@ -79,7 +79,7 @@ export const motionContactAreaByScroll = {
         this.actionScrollPoint.formArea.posiStart = 
             this.actionScrollPoint.formArea.scaleEnd + (this.winInnerHeight*(.5 * speed));
     },
-    convertScrollToPercentage(startScroll, endScroll, percentTotal, currentScroll){
+    convertScrollToPercentage(startScroll: number, endScroll: number, percentTotal: number, currentScroll: number | null){
     // 스크롤을 퍼센트 값으로 변환 시키는 함수
         if(currentScroll >= startScroll && currentScroll <= endScroll){
             let percentage = getPercentage((currentScroll - startScroll), (endScroll - startScroll), percentTotal);
@@ -88,10 +88,10 @@ export const motionContactAreaByScroll = {
         }
         return null;
     },
-    rotateYForm(degree){
+    rotateYForm(degree: any) {
         contactSection.querySelector('.center-wrap').style['transform'] = `rotateY(${degree}deg)`;
     },
-    fixedPosition(startScroll, endScroll, target){
+    fixedPosition(startScroll: number | null, endScroll: number | null, target: { classList: { add: (arg0: string) => void; remove: (arg0: string) => void; }; } | null){
         const CLASS_NAME_FIEXD = 'fixed';
         if(this.scrollBottom > startScroll && this.scrollBottom < endScroll){
             target.classList.add(CLASS_NAME_FIEXD);
@@ -99,7 +99,7 @@ export const motionContactAreaByScroll = {
             target.classList.remove(CLASS_NAME_FIEXD);
         }
     },
-    moveJoinLine(startScroll, endScroll){  
+    moveJoinLine(startScroll: number | null, endScroll: number | null){  
         const maxScaleXValue = 1;
         let scaleXValue = this.convertScrollToPercentage(startScroll, endScroll, maxScaleXValue, this.scrollBottom);
 
@@ -117,7 +117,7 @@ export const motionContactAreaByScroll = {
             });
         }
     },
-    setOpacity(startScroll, endScroll, minOpacity, maxOpacity){
+    setOpacity(startScroll: number | null, endScroll: number | null, minOpacity: number | null, maxOpacity: number | null){
         let opacityValue = this.convertScrollToPercentage(startScroll, endScroll, maxOpacity, this.scrollBottom);
 
         if(this.scrollBottom < startScroll) {
@@ -128,7 +128,7 @@ export const motionContactAreaByScroll = {
 
         return opacityValue;
     },
-    moveJoinTxt(startScroll, endScroll) {
+    moveJoinTxt(startScroll: number | null, endScroll: number | null) {
         const maxpositionValue = 100;
         
         let positionValue = maxpositionValue - this.convertScrollToPercentage(startScroll, endScroll, maxpositionValue, this.scrollBottom);
@@ -147,7 +147,7 @@ export const motionContactAreaByScroll = {
             txt.style['opacity'] = opacity;
         });
     },
-    moveEmboss(startScroll, endScroll){
+    moveEmboss(startScroll: number | null, endScroll: number | null){
         const opacity = this.setOpacity(startScroll, endScroll, 0, .6);
         const maxShadowSizeValue = .4;
         let shadowSizeValue = this.convertScrollToPercentage(startScroll, endScroll, maxShadowSizeValue, this.scrollBottom);
@@ -160,7 +160,7 @@ export const motionContactAreaByScroll = {
         
         this.contactSectionHeading.style['text-shadow'] = `0 0 ${shadowSizeValue}rem rgba(0, 0, 0, ${opacity})`;
     },
-    extendScale(startScroll, endScroll, target, minScale, maxScale){
+    extendScale(startScroll: number | null, endScroll: number | null, target: { style: { [x: string]: string; }; } | null, minScale: number, maxScale: number){
         let scaleValue = minScale + this.convertScrollToPercentage(startScroll, endScroll, maxScale, this.scrollBottom);
 
         if(this.scrollBottom < startScroll) {
@@ -171,7 +171,7 @@ export const motionContactAreaByScroll = {
         
         target.style['transform'] = `scale(${scaleValue})`;
     },
-    setColorMono(startScroll, endScroll, target, minValue, maxValue){
+    setColorMono(startScroll: number | null, endScroll: number | null, target: null, minValue: number, maxValue: number){
         let ColorValue = maxValue - this.convertScrollToPercentage(startScroll, endScroll, maxValue, this.scrollBottom);
 
         if(this.scrollBottom < startScroll) {
@@ -182,7 +182,7 @@ export const motionContactAreaByScroll = {
         
         // target.style['background-color'] = `rgb(${ColorValue}, ${ColorValue}, ${ColorValue})`;
     },
-    setDisplay(startScroll, endScroll, target, display){
+    setDisplay(startScroll: number | null, endScroll: string | number | null, target: { style: { [x: string]: any; }; } | null, display: string){
         if(endScroll){
             if(this.scrollBottom > startScroll && this.scrollBottom < endScroll){
                 target.style['display'] = display;
@@ -197,7 +197,7 @@ export const motionContactAreaByScroll = {
             }
         }
     },
-    scrollHandler(scrollBottom) {
+    scrollHandler(scrollBottom: number | null) {
         this.scrollBottom = scrollBottom;
         this.moveJoinLine(this.actionScrollPoint.moveJoinTxt.lineStart, this.actionScrollPoint.moveJoinTxt.lineEnd);
         this.moveJoinTxt(this.actionScrollPoint.moveJoinTxt.txtStart, this.actionScrollPoint.moveJoinTxt.txtEnd);
