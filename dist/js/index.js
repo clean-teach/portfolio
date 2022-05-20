@@ -8,7 +8,6 @@ import { activePortfolioByScroll } from "./module/actionStylePortfolioByScroll.j
 import { bindContactForm, motionContactAreaByScroll } from "./module/actionStyleContactArea.js";
 import { bindFooterCard, rotateFooterCardByScoll } from "./module/actionStyleFooterCard.js";
 import { filteringCategoryByTab } from "./module/actionTab.js";
-import { getCurrentClockTime } from "./module/clock.js";
 var mainSection, winInnerHeight, scrollBottom;
 /*** Event ***/
 ///////////////////////////////////////////
@@ -31,7 +30,7 @@ document.addEventListener('mouseleave', function (e) {
 ///////////////////////////////////////////
 function mainHandler() {
     mainSection = document.querySelector('#main-section');
-    setInterval(getCurrentClockTime, 1000);
+    // setInterval(getCurrentClockTime, 1000);
     setIntervalTitle();
     accessibility();
     bindLnbButton();

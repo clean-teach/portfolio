@@ -1,55 +1,58 @@
 import { getPercentage } from "../utils/utils.js";
+var portfolioSection = document.querySelector('#portfolio-section');
+var contactSection = document.querySelector('#contact-section');
+var joinArea = document.querySelector('.join-motion-txt-area');
+var joinLine = joinArea.querySelectorAll('.line');
+var joinTxt = joinArea.querySelectorAll('.txt');
+var joinTxt01 = joinArea.querySelector('.txt01');
+var joinTxt02 = joinArea.querySelector('.txt02');
+var contactSectionHeading = contactSection.querySelector('h2');
+var formArea = contactSection.querySelector('.form-area');
+var portfolioSectionHeight = portfolioSection.offsetHeight;
 export var motionContactAreaByScroll = {
     option: {
         animateSpeed: 1 // 양수 입력
     },
-    scrollBottom: null,
-    winInnerHeight: null,
-    portfolioSection: null,
-    contactSection: null,
-    contactSectionHeading: null,
-    joinArea: null,
-    joinLine: null,
-    joinTxt: null,
-    portfolioSectionHeight: null,
+    scrollBottom: 0,
+    winInnerHeight: 0,
     actionScrollPoint: {
         moveJoinTxt: {
-            showReady: null,
-            lineStart: null,
-            lineEnd: null,
-            txtStart: null,
-            txtEnd: null,
-            posiStart: null,
+            showReady: 0,
+            lineStart: 0,
+            lineEnd: 0,
+            txtStart: 0,
+            txtEnd: 0,
+            posiStart: 0,
         },
         heading: {
-            fadeInStart: null,
-            fadeInEnd: null,
-            scaleStart: null,
-            scaleEnd: null,
+            fadeInStart: 0,
+            fadeInEnd: 0,
+            scaleStart: 0,
+            scaleEnd: 0,
         },
         formArea: {
-            scaleStart: null,
-            scaleEnd: null,
-            posiStart: null,
+            scaleStart: 0,
+            scaleEnd: 0,
+            posiStart: 0,
         }
     },
     get: function (winInnerHeight) {
         // 페이지의 모든 리소스가 로딩된 시점에서 가져올 정보 및 세팅
         var speed = Math.abs(this.option.animateSpeed);
+        portfolioSection = document.querySelector('#portfolio-section');
+        contactSection = document.querySelector('#contact-section');
+        joinArea = document.querySelector('.join-motion-txt-area');
+        joinLine = joinArea.querySelectorAll('.line');
+        joinTxt = joinArea.querySelectorAll('.txt');
+        joinTxt01 = joinArea.querySelector('.txt01');
+        joinTxt02 = joinArea.querySelector('.txt02');
+        contactSectionHeading = contactSection.querySelector('h2');
+        formArea = contactSection.querySelector('.form-area');
+        portfolioSectionHeight = portfolioSection.offsetHeight;
+        contactSection.classList.add('animation-by-scroll-style');
         this.winInnerHeight = winInnerHeight;
-        this.portfolioSection = document.querySelector('#portfolio-section');
-        this.contactSection = document.querySelector('#contact-section');
-        this.joinArea = document.querySelector('.join-motion-txt-area');
-        this.joinLine = this.joinArea.querySelectorAll('.line');
-        this.joinTxt = this.joinArea.querySelectorAll('.txt');
-        this.joinTxt01 = this.joinArea.querySelector('.txt01');
-        this.joinTxt02 = this.joinArea.querySelector('.txt02');
-        this.contactSectionHeading = this.contactSection.querySelector('h2');
-        this.formArea = this.contactSection.querySelector('.form-area');
-        this.portfolioSectionHeight = this.portfolioSection.offsetHeight;
-        this.contactSection.classList.add('animation-by-scroll-style');
         this.actionScrollPoint.moveJoinTxt.showReady =
-            window.pageYOffset + this.portfolioSection.getBoundingClientRect().top + this.portfolioSectionHeight + (this.winInnerHeight * .5);
+            window.pageYOffset + portfolioSection.getBoundingClientRect().top + portfolioSectionHeight + (this.winInnerHeight * .5);
         this.actionScrollPoint.moveJoinTxt.lineStart =
             this.actionScrollPoint.moveJoinTxt.showReady + (this.winInnerHeight * (.5 * speed));
         this.actionScrollPoint.moveJoinTxt.lineEnd =
@@ -81,10 +84,11 @@ export var motionContactAreaByScroll = {
             var percentage = getPercentage((currentScroll - startScroll), (endScroll - startScroll), percentTotal);
             return percentage;
         }
-        return null;
+        return 0;
     },
     rotateYForm: function (degree) {
-        contactSection.querySelector('.center-wrap').style['transform'] = "rotateY(".concat(degree, "deg)");
+        var centerWrap = contactSection.querySelector('.center-wrap');
+        centerWrap.style['transform'] = "rotateY(".concat(degree, "deg)");
     },
     fixedPosition: function (startScroll, endScroll, target) {
         var CLASS_NAME_FIEXD = 'fixed';
@@ -104,11 +108,11 @@ export var motionContactAreaByScroll = {
         else if (this.scrollBottom > endScroll) {
             scaleXValue = maxScaleXValue;
         }
-        if (!this.joinLine) {
+        if (!joinLine) {
             document.location.reload();
         }
         else {
-            this.joinLine.forEach(function (line) {
+            joinLine.forEach(function (line) {
                 line.style['transform'] = "scaleX(".concat(scaleXValue, ")");
             });
         }
@@ -132,11 +136,11 @@ export var motionContactAreaByScroll = {
         else if (this.scrollBottom > endScroll) {
             positionValue = 0;
         }
-        this.joinTxt01.style['transform'] = "translateX(".concat(-positionValue, "vw)");
-        this.joinTxt02.style['transform'] = "translateX(".concat(positionValue, "vw)");
+        joinTxt01.style['transform'] = "translateX(".concat(-positionValue, "vw)");
+        joinTxt02.style['transform'] = "translateX(".concat(positionValue, "vw)");
         var opacity = this.setOpacity(startScroll, endScroll, 0, 1);
-        this.joinTxt.forEach(function (txt) {
-            txt.style['opacity'] = opacity;
+        joinTxt.forEach(function (txt) {
+            txt.style.opacity = "".concat(opacity);
         });
     },
     moveEmboss: function (startScroll, endScroll) {
@@ -149,7 +153,7 @@ export var motionContactAreaByScroll = {
         else if (this.scrollBottom > endScroll) {
             shadowSizeValue = maxShadowSizeValue;
         }
-        this.contactSectionHeading.style['text-shadow'] = "0 0 ".concat(shadowSizeValue, "rem rgba(0, 0, 0, ").concat(opacity, ")");
+        contactSectionHeading.style.textShadow = "0 0 ".concat(shadowSizeValue, "rem rgba(0, 0, 0, ").concat(opacity, ")");
     },
     extendScale: function (startScroll, endScroll, target, minScale, maxScale) {
         var scaleValue = minScale + this.convertScrollToPercentage(startScroll, endScroll, maxScale, this.scrollBottom);
@@ -193,15 +197,15 @@ export var motionContactAreaByScroll = {
         this.scrollBottom = scrollBottom;
         this.moveJoinLine(this.actionScrollPoint.moveJoinTxt.lineStart, this.actionScrollPoint.moveJoinTxt.lineEnd);
         this.moveJoinTxt(this.actionScrollPoint.moveJoinTxt.txtStart, this.actionScrollPoint.moveJoinTxt.txtEnd);
-        this.fixedPosition(this.actionScrollPoint.moveJoinTxt.showReady, this.actionScrollPoint.moveJoinTxt.posiStart, this.joinArea);
-        this.setDisplay(this.actionScrollPoint.heading.fadeInStart, this.actionScrollPoint.heading.scaleEnd, this.contactSectionHeading, 'flex');
-        this.contactSectionHeading.style['opacity'] = 1 - this.setOpacity(this.actionScrollPoint.heading.fadeInEnd, this.actionScrollPoint.heading.scaleEnd, 0, 1);
+        this.fixedPosition(this.actionScrollPoint.moveJoinTxt.showReady, this.actionScrollPoint.moveJoinTxt.posiStart, joinArea);
+        this.setDisplay(this.actionScrollPoint.heading.fadeInStart, this.actionScrollPoint.heading.scaleEnd, contactSectionHeading, 'flex');
+        contactSectionHeading.style.opacity = "".concat(1 - this.setOpacity(this.actionScrollPoint.heading.fadeInEnd, this.actionScrollPoint.heading.scaleEnd, 0, 1));
         this.moveEmboss(this.actionScrollPoint.heading.fadeInStart, this.actionScrollPoint.heading.fadeInEnd);
-        this.extendScale(this.actionScrollPoint.heading.scaleStart, this.actionScrollPoint.heading.scaleEnd, this.contactSectionHeading, 1, 100);
-        this.setDisplay(this.actionScrollPoint.formArea.scaleStart, '', this.formArea, 'flex');
-        this.extendScale(this.actionScrollPoint.formArea.scaleStart, this.actionScrollPoint.formArea.scaleEnd, this.formArea, 0, 1);
-        this.fixedPosition(this.actionScrollPoint.formArea.scaleStart, this.actionScrollPoint.formArea.posiStart, this.formArea);
-        this.setColorMono(this.actionScrollPoint.heading.scaleStart, this.actionScrollPoint.formArea.posiStart, this.contactSection, 0, 255);
+        this.extendScale(this.actionScrollPoint.heading.scaleStart, this.actionScrollPoint.heading.scaleEnd, contactSectionHeading, 1, 100);
+        this.setDisplay(this.actionScrollPoint.formArea.scaleStart, '', formArea, 'flex');
+        this.extendScale(this.actionScrollPoint.formArea.scaleStart, this.actionScrollPoint.formArea.scaleEnd, formArea, 0, 1);
+        this.fixedPosition(this.actionScrollPoint.formArea.scaleStart, this.actionScrollPoint.formArea.posiStart, formArea);
+        this.setColorMono(this.actionScrollPoint.heading.scaleStart, this.actionScrollPoint.formArea.posiStart, contactSection, 0, 255);
     }
 };
 // Contact Section의 form 태그 focus 효과
@@ -209,11 +213,13 @@ export var bindContactForm = function () {
     var contactFormTag = document.querySelectorAll('#contact-section input, textarea');
     var CLASS_NAME_ON = 'on';
     contactFormTag.forEach(function (formBox) {
-        formBox.addEventListener('focus', function (e) {
-            this.parentNode.querySelector('label').classList.add(CLASS_NAME_ON);
+        formBox.addEventListener('focus', function () {
+            var label = this.parentNode.querySelector('label');
+            label.classList.add(CLASS_NAME_ON);
         });
         formBox.addEventListener('blur', function () {
-            this.parentNode.querySelector('label').classList.remove(CLASS_NAME_ON);
+            var label = this.parentNode.querySelector('label');
+            label.classList.remove(CLASS_NAME_ON);
         });
     });
 };

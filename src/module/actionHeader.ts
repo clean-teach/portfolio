@@ -43,7 +43,7 @@ export function lnbStylingByScroll(...e:any) {
 }
 
 // scroll에 따른 색상 값 (LNB, MainMenu)
-export const setHeaderColorByScroll = (mainSection: HTMLParagraphElement) => {
+export const setHeaderColorByScroll = (mainSection: HTMLElement) => {
     const mainMenuObj = header.querySelectorAll('.btn-main-menu i');
     let colorRGB = 255 - ((document.documentElement.scrollTop / mainSection.offsetHeight) * 255);
 

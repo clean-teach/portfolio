@@ -32,12 +32,8 @@ export function random(min:number, max:number):number {
 }
 
 // 퍼센티지 구하기
-export function getPercentage(parts:number | null, whole:number | null, standard:number | null):number | null {
-    if (whole == null || parts == null || standard == null) {
-        return null;
-    } else {
-        return Math.floor(parts / whole) * standard;
-    }
+export function getPercentage(parts:number, whole:number, standard:number ):number {
+    return Math.floor(parts / whole) * standard;
 }
 
 // scroll에 따른 회전

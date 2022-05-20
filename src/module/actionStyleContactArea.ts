@@ -1,59 +1,102 @@
 import { getPercentage } from "../utils/utils.js";
 
-export const motionContactAreaByScroll = {
+let portfolioSection = document.querySelector('#portfolio-section') as HTMLElement;
+let contactSection = document.querySelector('#contact-section') as HTMLElement;
+let joinArea = document.querySelector('.join-motion-txt-area') as HTMLElement;
+let joinLine = joinArea.querySelectorAll('.line') as NodeListOf<HTMLElement>;
+let joinTxt = joinArea.querySelectorAll('.txt') as NodeListOf<HTMLElement>;
+let joinTxt01 = joinArea.querySelector('.txt01') as HTMLElement;
+let joinTxt02 = joinArea.querySelector('.txt02') as HTMLElement;
+let contactSectionHeading = contactSection.querySelector('h2') as HTMLElement;
+let formArea = contactSection.querySelector('.form-area') as HTMLElement;
+let portfolioSectionHeight = portfolioSection.offsetHeight;
+
+export const motionContactAreaByScroll: {
+    option: {
+        animateSpeed: number;
+    };
+    scrollBottom: number;
+    winInnerHeight: number;
+    portfolioSectionHeight: number;
+    actionScrollPoint: {
+        moveJoinTxt: {
+            showReady: number;
+            lineStart: number;
+            lineEnd: number;
+            txtStart: number;
+            txtEnd: number;
+            posiStart: number;
+        };
+        heading: {
+            fadeInStart: number;
+            fadeInEnd: number;
+            scaleStart: number;
+            scaleEnd: number;
+        };
+        formArea: {
+            scaleStart: number;
+            scaleEnd: number;
+            posiStart: number;
+        }
+    };
+    get(winInnerHeight: number): void;
+    convertScrollToPercentage(startScroll: number, endScroll: number, percentTotal: number, currentScroll: number): number;
+    rotateYForm(degree: any): void;
+    fixedPosition(startScroll: number, endScroll: number, target: HTMLElement):void;
+    moveJoinLine(startScroll: number, endScroll: number):void;
+    setOpacity(startScroll: number, endScroll: number, minOpacity: number, maxOpacity: number):number;
+    moveJoinTxt(startScroll: number, endScroll: number):void;
+    moveEmboss(startScroll: number, endScroll: number):void;
+    extendScale(startScroll: number, endScroll: number, target: HTMLElement, minScale: number, maxScale: number):void;
+    setColorMono(startScroll: number, endScroll: number, target: HTMLElement, minValue: number, maxValue: number):void;
+    setDisplay(startScroll: number, endScroll: string | number, target: HTMLElement, display: string):void;
+    scrollHandler(scrollBottom: number):void;
+} = {
     option: {
         animateSpeed: 1 // 양수 입력
     },
-    scrollBottom: null,
-    winInnerHeight: null,
-    portfolioSection: null,
-    contactSection: null,
-    contactSectionHeading: null,
-    joinArea: null,
-    joinLine: null,
-    joinTxt: null,
-    portfolioSectionHeight: null,
+    scrollBottom: 0,
+    winInnerHeight: 0,
     actionScrollPoint: {
         moveJoinTxt: {
-            showReady: null,
-            lineStart: null,
-            lineEnd: null,
-            txtStart: null,
-            txtEnd: null,
-            posiStart: null,
+            showReady: 0,
+            lineStart: 0,
+            lineEnd: 0,
+            txtStart: 0,
+            txtEnd: 0,
+            posiStart: 0,
         },
         heading: {
-            fadeInStart: null,
-            fadeInEnd: null,
-            scaleStart: null,
-            scaleEnd: null,
+            fadeInStart: 0,
+            fadeInEnd: 0,
+            scaleStart: 0,
+            scaleEnd: 0,
         },
         formArea: {
-            scaleStart: null,
-            scaleEnd: null,
-            posiStart: null,
+            scaleStart: 0,
+            scaleEnd: 0,
+            posiStart: 0,
         }
     },
-    get(winInnerHeight: any){
+    get(winInnerHeight: number) {
     // 페이지의 모든 리소스가 로딩된 시점에서 가져올 정보 및 세팅
         const speed = Math.abs(this.option.animateSpeed);
+        portfolioSection = document.querySelector('#portfolio-section') as HTMLElement;
+        contactSection = document.querySelector('#contact-section') as HTMLElement;
+        joinArea = document.querySelector('.join-motion-txt-area') as HTMLElement;
+        joinLine = joinArea.querySelectorAll('.line') as NodeListOf<HTMLElement>;
+        joinTxt = joinArea.querySelectorAll('.txt') as NodeListOf<HTMLElement>;
+        joinTxt01 = joinArea.querySelector('.txt01') as HTMLElement;
+        joinTxt02 = joinArea.querySelector('.txt02') as HTMLElement;
+        contactSectionHeading = contactSection.querySelector('h2') as HTMLElement;
+        formArea = contactSection.querySelector('.form-area') as HTMLElement;
+        portfolioSectionHeight = portfolioSection.offsetHeight;
+
+        contactSection.classList.add('animation-by-scroll-style');
 
         this.winInnerHeight = winInnerHeight;
-        this.portfolioSection = document.querySelector('#portfolio-section');
-        this.contactSection = document.querySelector
-        ('#contact-section');
-        this.joinArea = document.querySelector('.join-motion-txt-area');
-        this.joinLine = this.joinArea.querySelectorAll('.line');
-        this.joinTxt = this.joinArea.querySelectorAll('.txt');
-        this.joinTxt01 = this.joinArea.querySelector('.txt01');
-        this.joinTxt02 = this.joinArea.querySelector('.txt02');
-        this.contactSectionHeading = this.contactSection.querySelector('h2');
-        this.formArea = this.contactSection.querySelector('.form-area');
-        this.portfolioSectionHeight = this.portfolioSection.offsetHeight;
-
-        this.contactSection.classList.add('animation-by-scroll-style');
         this.actionScrollPoint.moveJoinTxt.showReady = 
-            window.pageYOffset + this.portfolioSection.getBoundingClientRect().top + this.portfolioSectionHeight + (this.winInnerHeight*.5);
+            window.pageYOffset + portfolioSection.getBoundingClientRect().top + portfolioSectionHeight + (this.winInnerHeight*.5);
         this.actionScrollPoint.moveJoinTxt.lineStart = 
             this.actionScrollPoint.moveJoinTxt.showReady + (this.winInnerHeight*(.5 * speed));
         this.actionScrollPoint.moveJoinTxt.lineEnd = 
@@ -79,27 +122,27 @@ export const motionContactAreaByScroll = {
         this.actionScrollPoint.formArea.posiStart = 
             this.actionScrollPoint.formArea.scaleEnd + (this.winInnerHeight*(.5 * speed));
     },
-    convertScrollToPercentage(startScroll: number, endScroll: number, percentTotal: number, currentScroll: number | null){
+    convertScrollToPercentage(startScroll: number, endScroll: number, percentTotal: number, currentScroll: number): number {
     // 스크롤을 퍼센트 값으로 변환 시키는 함수
         if(currentScroll >= startScroll && currentScroll <= endScroll){
-            let percentage = getPercentage((currentScroll - startScroll), (endScroll - startScroll), percentTotal);
-
+            const percentage = getPercentage((currentScroll - startScroll), (endScroll - startScroll), percentTotal);
             return percentage;
         }
-        return null;
+        return 0;
     },
-    rotateYForm(degree: any) {
-        contactSection.querySelector('.center-wrap').style['transform'] = `rotateY(${degree}deg)`;
+    rotateYForm(degree: any):void {
+        const centerWrap = contactSection.querySelector('.center-wrap') as HTMLElement;
+        centerWrap.style['transform'] = `rotateY(${degree}deg)`;
     },
-    fixedPosition(startScroll: number | null, endScroll: number | null, target: { classList: { add: (arg0: string) => void; remove: (arg0: string) => void; }; } | null){
-        const CLASS_NAME_FIEXD = 'fixed';
+    fixedPosition(startScroll: number, endScroll: number, target: HTMLElement):void {
+        const CLASS_NAME_FIEXD: string = 'fixed';
         if(this.scrollBottom > startScroll && this.scrollBottom < endScroll){
             target.classList.add(CLASS_NAME_FIEXD);
         }else{
             target.classList.remove(CLASS_NAME_FIEXD);
         }
     },
-    moveJoinLine(startScroll: number | null, endScroll: number | null){  
+    moveJoinLine(startScroll: number, endScroll: number):void {  
         const maxScaleXValue = 1;
         let scaleXValue = this.convertScrollToPercentage(startScroll, endScroll, maxScaleXValue, this.scrollBottom);
 
@@ -109,15 +152,15 @@ export const motionContactAreaByScroll = {
             scaleXValue = maxScaleXValue;
         }
 
-        if(!this.joinLine){
+        if(!joinLine){
             document.location.reload();
         }else{
-            this.joinLine.forEach(line => {
+            joinLine.forEach(line => {
                 line.style['transform'] = `scaleX(${scaleXValue})`;
             });
         }
     },
-    setOpacity(startScroll: number | null, endScroll: number | null, minOpacity: number | null, maxOpacity: number | null){
+    setOpacity(startScroll: number, endScroll: number, minOpacity: number, maxOpacity: number):number {
         let opacityValue = this.convertScrollToPercentage(startScroll, endScroll, maxOpacity, this.scrollBottom);
 
         if(this.scrollBottom < startScroll) {
@@ -128,26 +171,25 @@ export const motionContactAreaByScroll = {
 
         return opacityValue;
     },
-    moveJoinTxt(startScroll: number | null, endScroll: number | null) {
-        const maxpositionValue = 100;
-        
-        let positionValue = maxpositionValue - this.convertScrollToPercentage(startScroll, endScroll, maxpositionValue, this.scrollBottom);
+    moveJoinTxt(startScroll: number, endScroll: number):void {
+        const maxpositionValue:number = 100;
 
+        let positionValue:number = maxpositionValue - this.convertScrollToPercentage(startScroll, endScroll, maxpositionValue, this.scrollBottom);
         if(this.scrollBottom < startScroll) {
             positionValue = maxpositionValue;
         }else if(this.scrollBottom > endScroll){
             positionValue = 0;
         }
 
-        this.joinTxt01.style['transform'] = `translateX(${-positionValue}vw)`;
-        this.joinTxt02.style['transform'] = `translateX(${positionValue}vw)`;
+        joinTxt01.style['transform'] = `translateX(${-positionValue}vw)`;
+        joinTxt02.style['transform'] = `translateX(${positionValue}vw)`;
 
         const opacity = this.setOpacity(startScroll, endScroll, 0, 1);
-        this.joinTxt.forEach(txt => {
-            txt.style['opacity'] = opacity;
+        joinTxt.forEach(txt => {
+            txt.style.opacity = `${opacity}`;
         });
     },
-    moveEmboss(startScroll: number | null, endScroll: number | null){
+    moveEmboss(startScroll: number, endScroll: number):void {
         const opacity = this.setOpacity(startScroll, endScroll, 0, .6);
         const maxShadowSizeValue = .4;
         let shadowSizeValue = this.convertScrollToPercentage(startScroll, endScroll, maxShadowSizeValue, this.scrollBottom);
@@ -158,9 +200,10 @@ export const motionContactAreaByScroll = {
             shadowSizeValue = maxShadowSizeValue;
         }
         
-        this.contactSectionHeading.style['text-shadow'] = `0 0 ${shadowSizeValue}rem rgba(0, 0, 0, ${opacity})`;
+        contactSectionHeading.style.textShadow = `0 0 ${shadowSizeValue}rem rgba(0, 0, 0, ${opacity})`;
     },
-    extendScale(startScroll: number | null, endScroll: number | null, target: { style: { [x: string]: string; }; } | null, minScale: number, maxScale: number){
+    extendScale(startScroll: number, endScroll: number, target: HTMLElement, minScale: number, maxScale: number):void {
+
         let scaleValue = minScale + this.convertScrollToPercentage(startScroll, endScroll, maxScale, this.scrollBottom);
 
         if(this.scrollBottom < startScroll) {
@@ -171,7 +214,7 @@ export const motionContactAreaByScroll = {
         
         target.style['transform'] = `scale(${scaleValue})`;
     },
-    setColorMono(startScroll: number | null, endScroll: number | null, target: null, minValue: number, maxValue: number){
+    setColorMono(startScroll: number, endScroll: number, target: HTMLElement, minValue: number, maxValue: number):void {
         let ColorValue = maxValue - this.convertScrollToPercentage(startScroll, endScroll, maxValue, this.scrollBottom);
 
         if(this.scrollBottom < startScroll) {
@@ -182,7 +225,7 @@ export const motionContactAreaByScroll = {
         
         // target.style['background-color'] = `rgb(${ColorValue}, ${ColorValue}, ${ColorValue})`;
     },
-    setDisplay(startScroll: number | null, endScroll: string | number | null, target: { style: { [x: string]: any; }; } | null, display: string){
+    setDisplay(startScroll: number, endScroll: string | number, target: HTMLElement, display: string):void {
         if(endScroll){
             if(this.scrollBottom > startScroll && this.scrollBottom < endScroll){
                 target.style['display'] = display;
@@ -197,33 +240,35 @@ export const motionContactAreaByScroll = {
             }
         }
     },
-    scrollHandler(scrollBottom: number | null) {
+    scrollHandler(scrollBottom: number):void {
         this.scrollBottom = scrollBottom;
         this.moveJoinLine(this.actionScrollPoint.moveJoinTxt.lineStart, this.actionScrollPoint.moveJoinTxt.lineEnd);
         this.moveJoinTxt(this.actionScrollPoint.moveJoinTxt.txtStart, this.actionScrollPoint.moveJoinTxt.txtEnd);
-        this.fixedPosition(this.actionScrollPoint.moveJoinTxt.showReady, this.actionScrollPoint.moveJoinTxt.posiStart, this.joinArea);
-        this.setDisplay(this.actionScrollPoint.heading.fadeInStart, this.actionScrollPoint.heading.scaleEnd, this.contactSectionHeading, 'flex')
-        this.contactSectionHeading.style['opacity'] = 1 - this.setOpacity(this.actionScrollPoint.heading.fadeInEnd, this.actionScrollPoint.heading.scaleEnd, 0, 1);
+        this.fixedPosition(this.actionScrollPoint.moveJoinTxt.showReady, this.actionScrollPoint.moveJoinTxt.posiStart, joinArea);
+        this.setDisplay(this.actionScrollPoint.heading.fadeInStart, this.actionScrollPoint.heading.scaleEnd, contactSectionHeading, 'flex')
+        contactSectionHeading.style.opacity = `${1 - this.setOpacity(this.actionScrollPoint.heading.fadeInEnd, this.actionScrollPoint.heading.scaleEnd, 0, 1)}`;
         this.moveEmboss(this.actionScrollPoint.heading.fadeInStart, this.actionScrollPoint.heading.fadeInEnd);
-        this.extendScale(this.actionScrollPoint.heading.scaleStart, this.actionScrollPoint.heading.scaleEnd, this.contactSectionHeading, 1, 100);
-        this.setDisplay(this.actionScrollPoint.formArea.scaleStart, '', this.formArea, 'flex');
-        this.extendScale(this.actionScrollPoint.formArea.scaleStart, this.actionScrollPoint.formArea.scaleEnd, this.formArea, 0, 1);
-        this.fixedPosition(this.actionScrollPoint.formArea.scaleStart, this.actionScrollPoint.formArea.posiStart, this.formArea);
-        this.setColorMono(this.actionScrollPoint.heading.scaleStart, this.actionScrollPoint.formArea.posiStart, this.contactSection, 0, 255);
+        this.extendScale(this.actionScrollPoint.heading.scaleStart, this.actionScrollPoint.heading.scaleEnd, contactSectionHeading, 1, 100);
+        this.setDisplay(this.actionScrollPoint.formArea.scaleStart, '', formArea, 'flex');
+        this.extendScale(this.actionScrollPoint.formArea.scaleStart, this.actionScrollPoint.formArea.scaleEnd, formArea, 0, 1);
+        this.fixedPosition(this.actionScrollPoint.formArea.scaleStart, this.actionScrollPoint.formArea.posiStart, formArea);
+        this.setColorMono(this.actionScrollPoint.heading.scaleStart, this.actionScrollPoint.formArea.posiStart, contactSection, 0, 255);
     }
 };
 
 // Contact Section의 form 태그 focus 효과
 export const bindContactForm = () => {
-    const contactFormTag = document.querySelectorAll('#contact-section input, textarea');
+    const contactFormTag = document.querySelectorAll('#contact-section input, textarea') as NodeListOf<HTMLElement>;
     const CLASS_NAME_ON = 'on';
 
-    contactFormTag.forEach(formBox => {
-        formBox.addEventListener('focus', function (e) {
-            this.parentNode.querySelector('label').classList.add(CLASS_NAME_ON);
+    contactFormTag.forEach((formBox: HTMLElement) => {
+        formBox.addEventListener('focus', function () {
+            const label = this.parentNode.querySelector('label');
+            label.classList.add(CLASS_NAME_ON);
         });
         formBox.addEventListener('blur', function () {
-            this.parentNode.querySelector('label').classList.remove(CLASS_NAME_ON);
+            const label = this.parentNode.querySelector('label')
+            label.classList.remove(CLASS_NAME_ON);
         });
     });
 };

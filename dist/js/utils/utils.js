@@ -32,12 +32,7 @@ export function random(min, max) {
 }
 // 퍼센티지 구하기
 export function getPercentage(parts, whole, standard) {
-    if (whole == null || parts == null || standard == null) {
-        return null;
-    }
-    else {
-        return Math.floor(parts / whole) * standard;
-    }
+    return Math.floor(parts / whole) * standard;
 }
 // scroll에 따른 회전
 export function scrollRotate(id) {

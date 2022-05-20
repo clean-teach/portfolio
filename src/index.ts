@@ -39,7 +39,7 @@ document.addEventListener('mouseleave', function (e) {
 function mainHandler():void {
     mainSection = document.querySelector('#main-section');
 
-    setInterval(getCurrentClockTime, 1000);
+    // setInterval(getCurrentClockTime, 1000);
 
     setIntervalTitle();
     accessibility();
