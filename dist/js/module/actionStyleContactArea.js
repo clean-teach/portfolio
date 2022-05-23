@@ -206,7 +206,8 @@ export var motionContactAreaByScroll = {
         this.extendScale(this.actionScrollPoint.formArea.scaleStart, this.actionScrollPoint.formArea.scaleEnd, formArea, 0, 1);
         this.fixedPosition(this.actionScrollPoint.formArea.scaleStart, this.actionScrollPoint.formArea.posiStart, formArea);
         this.setColorMono(this.actionScrollPoint.heading.scaleStart, this.actionScrollPoint.formArea.posiStart, contactSection, 0, 255);
-    }
+    },
+    portfolioSectionHeight: 0
 };
 // Contact Section의 form 태그 focus 효과
 export var bindContactForm = function () {
@@ -214,12 +215,18 @@ export var bindContactForm = function () {
     var CLASS_NAME_ON = 'on';
     contactFormTag.forEach(function (formBox) {
         formBox.addEventListener('focus', function () {
-            var label = this.parentNode.querySelector('label');
-            label.classList.add(CLASS_NAME_ON);
+            var li = this.parentElement;
+            if (li !== null) {
+                li.querySelector('label');
+                li.classList.add(CLASS_NAME_ON);
+            }
         });
         formBox.addEventListener('blur', function () {
-            var label = this.parentNode.querySelector('label');
-            label.classList.remove(CLASS_NAME_ON);
+            var li = this.parentElement;
+            if (li !== null) {
+                li.querySelector('label');
+                li.classList.remove(CLASS_NAME_ON);
+            }
         });
     });
 };

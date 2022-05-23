@@ -1,6 +1,6 @@
 (function() {
   // get all data in form and return object
-  function getFormData(form) {
+  function getFormData(form:any) {
     var elements = form.elements;
     var honeypot;
 
@@ -21,9 +21,9 @@
       return self.indexOf(item) == pos && item;
     });
 
-    var formData = {};
+    let formData:any = {};
     fields.forEach(function(name){
-      var element = elements[name];
+      const element = elements[name];
       
       // singular form elements just have one value
       formData[name] = element.value;
@@ -50,7 +50,7 @@
     return {data: formData, honeypot: honeypot};
   }
 
-  function handleFormSubmit(event) {  // handles form submit without any jquery
+  function handleFormSubmit(event: { preventDefault: () => void; target: any; }) {  // handles form submit without any jquery
     event.preventDefault();           // we are submitting via xhr below
     var form = event.target;
     var formData = getFormData(form);
@@ -62,8 +62,8 @@
     }
 
     disableAllButtons(form);
-    var url = form.action;
-    var xhr = new XMLHttpRequest();
+    const url = form.action;
+    const xhr = new XMLHttpRequest();
     xhr.open('POST', url);
     // xhr.withCredentials = true;
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -77,7 +77,7 @@
           var thankYouMessage = form.querySelector(".thankyou_message");
           if (thankYouMessage) {
             thankYouMessage.style.display = "block";
-            thankYouMessage.querySelector('.btn-ok').addEventListener('click', function(){
+            thankYouMessage.querySelector('.btn-ok').addEventListener('click', () =>{
                 console.log(this);
             });
           }else{
@@ -101,7 +101,7 @@
   };
   document.addEventListener("DOMContentLoaded", loaded, false);
 
-  function disableAllButtons(form) {
+  function disableAllButtons(form:any) {
     var buttons = form.querySelectorAll("button");
     for (var i = 0; i < buttons.length; i++) {
       buttons[i].disabled = true;

@@ -33,7 +33,7 @@ export function random(min:number, max:number):number {
 
 // 퍼센티지 구하기
 export function getPercentage(parts:number, whole:number, standard:number ):number {
-    return Math.floor(parts / whole) * standard;
+    return (parts / whole) * standard;
 }
 
 // scroll에 따른 회전

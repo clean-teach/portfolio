@@ -2,7 +2,7 @@
 export const activePortfolioByScroll = {
     portfolioList: document.querySelectorAll('.portfolio-list>li'),
     winHeightHalf : (window.innerHeight / 2),
-    setImgActive(scrollBottom:number, i: number, arr: NodeListOf<Element>) {
+    setImgActive(scrollBottom:number, i: number, arr: NodeListOf<Element>): void  {
         const target = arr[i].querySelector('.img-area');
         if(target){
             const CLASS_NAME_ON = 'on';
@@ -14,13 +14,14 @@ export const activePortfolioByScroll = {
             }
         }
     },
-    setTxtActive(scrollBottom: number, i: number, arr: NodeListOf<HTMLElement>) {
-        const txtBox = arr[i].querySelector('.txt-area');
+    setTxtActive(scrollBottom: number, i: number, arr: NodeListOf<Element>): void  {
+        const currentElement = arr[i] as HTMLElement;
+        const txtBox = currentElement.querySelector('.txt-area') as HTMLElement;
         if(txtBox){
             const CLASS_NAME_ON = 'on';
             let
-                startPoint:boolean = scrollBottom - this.winHeightHalf > window.pageYOffset + arr[i].getBoundingClientRect().top,
-                endPoint:boolean = scrollBottom - this.winHeightHalf < window.pageYOffset + arr[i].getBoundingClientRect().top + arr[i].offsetHeight;
+                startPoint:boolean = scrollBottom - this.winHeightHalf > window.pageYOffset + currentElement.getBoundingClientRect().top,
+                endPoint:boolean = scrollBottom - this.winHeightHalf < window.pageYOffset + currentElement.getBoundingClientRect().top + currentElement.offsetHeight;
 
             if (startPoint && endPoint) {
                 txtBox.classList.add(CLASS_NAME_ON);
@@ -29,7 +30,7 @@ export const activePortfolioByScroll = {
             }
         }
     },
-    action(scrollBottom: number){
+    action(scrollBottom: number): void {
         this.portfolioList.forEach((obj, i, arr) => {
             this.setImgActive(scrollBottom, i, arr);
             this.setTxtActive(scrollBottom, i, arr);

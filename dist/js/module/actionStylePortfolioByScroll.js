@@ -16,10 +16,11 @@ export var activePortfolioByScroll = {
         }
     },
     setTxtActive: function (scrollBottom, i, arr) {
-        var txtBox = arr[i].querySelector('.txt-area');
+        var currentElement = arr[i];
+        var txtBox = currentElement.querySelector('.txt-area');
         if (txtBox) {
             var CLASS_NAME_ON = 'on';
-            var startPoint = scrollBottom - this.winHeightHalf > window.pageYOffset + arr[i].getBoundingClientRect().top, endPoint = scrollBottom - this.winHeightHalf < window.pageYOffset + arr[i].getBoundingClientRect().top + arr[i].offsetHeight;
+            var startPoint = scrollBottom - this.winHeightHalf > window.pageYOffset + currentElement.getBoundingClientRect().top, endPoint = scrollBottom - this.winHeightHalf < window.pageYOffset + currentElement.getBoundingClientRect().top + currentElement.offsetHeight;
             if (startPoint && endPoint) {
                 txtBox.classList.add(CLASS_NAME_ON);
             }

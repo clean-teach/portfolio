@@ -61,6 +61,7 @@
         // xhr.withCredentials = true;
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.onreadystatechange = function () {
+            var _this = this;
             if (xhr.readyState === 4 && xhr.status === 200) {
                 form.reset();
                 var formElements = form.querySelector(".form-elements");
@@ -71,7 +72,7 @@
                 if (thankYouMessage) {
                     thankYouMessage.style.display = "block";
                     thankYouMessage.querySelector('.btn-ok').addEventListener('click', function () {
-                        console.log(this);
+                        console.log(_this);
                     });
                 }
                 else {
