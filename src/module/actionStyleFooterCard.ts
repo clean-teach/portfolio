@@ -3,9 +3,9 @@ import { getCurrentScrollBottomEnd } from "../utils/utils.js";
 const footer = document.querySelector('footer') as HTMLElement;
 const footerCard = footer.querySelector('.card') as HTMLElement;
 const cardOffsetTop = footer.offsetTop + footerCard.offsetTop;
-const footerCardInitialAngleValue:number = 90;
-const sensitiveY:number = 20;
-const sensitiveX:number = 10;
+const footerCardInitialAngleValue:number = 90; // card 의 초기 회전 각도 값
+const sensitiveY:number = 20; // Y축 회전 감도
+const sensitiveX:number = 10; // X축 회전 감도
 const direction:number = 1; // positive or negative
 
 export function bindFooterCard() {

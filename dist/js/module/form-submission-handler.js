@@ -1,6 +1,5 @@
 "use strict";
 (function () {
-    // get all data in form and return object
     function getFormData(form) {
         var elements = form.elements;
         var honeypot;
@@ -13,7 +12,6 @@
         }).map(function (k) {
             if (elements[k].name !== undefined) {
                 return elements[k].name;
-                // special case for Edge's html collection
             }
             else if (elements[k].length > 0) {
                 return elements[k].item(0).name;
@@ -24,9 +22,7 @@
         var formData = {};
         fields.forEach(function (name) {
             var element = elements[name];
-            // singular form elements just have one value
             formData[name] = element.value;
-            // when our element has multiple items, get their values
             if (element.length) {
                 var data = [];
                 for (var i = 0; i < element.length; i++) {
@@ -38,19 +34,17 @@
                 formData[name] = data.join(', ');
             }
         });
-        // add form-specific values into the data
         formData.formDataNameOrder = JSON.stringify(fields);
-        formData.formGoogleSheetName = form.dataset.sheet || "responses"; // default sheet name
+        formData.formGoogleSheetName = form.dataset.sheet || "responses";
         formData.formGoogleSendEmail
-            = form.dataset.email || ""; // no email by default
+            = form.dataset.email || "";
         return { data: formData, honeypot: honeypot };
     }
     function handleFormSubmit(event) {
-        event.preventDefault(); // we are submitting via xhr below
+        event.preventDefault();
         var form = event.target;
         var formData = getFormData(form);
         var data = formData.data;
-        // If a honeypot field is filled, assume it was done so by a spam bot.
         if (formData.honeypot) {
             return false;
         }
@@ -58,7 +52,6 @@
         var url = form.action;
         var xhr = new XMLHttpRequest();
         xhr.open('POST', url);
-        // xhr.withCredentials = true;
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.onreadystatechange = function () {
             var _this = this;
@@ -66,7 +59,7 @@
                 form.reset();
                 var formElements = form.querySelector(".form-elements");
                 if (formElements) {
-                    formElements.style.display = "none"; // hide form
+                    formElements.style.display = "none";
                 }
                 var thankYouMessage = form.querySelector(".thankyou_message");
                 if (thankYouMessage) {
@@ -80,14 +73,12 @@
                 }
             }
         };
-        // url encode form data for sending as post data
         var encoded = Object.keys(data).map(function (k) {
             return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
         }).join('&');
         xhr.send(encoded);
     }
     function loaded() {
-        // bind to the submit event of our form
         var forms = document.querySelectorAll("form.gform");
         for (var i = 0; i < forms.length; i++) {
             forms[i].addEventListener("submit", handleFormSubmit, false);

@@ -9,13 +9,9 @@ import { bindContactForm, motionContactAreaByScroll } from "./module/actionStyle
 import { bindFooterCard, rotateFooterCardByScoll } from "./module/actionStyleFooterCard.js";
 import { filteringCategoryByTab } from "./module/actionTab.js";
 var mainSection, winInnerHeight, scrollBottom;
-/*** Event ***/
-///////////////////////////////////////////
 document.addEventListener('DOMContentLoaded', mainHandler);
 window.addEventListener('load', windowLoadHandler);
-// 브라우저 사이즈 변경시 새로고침
 window.addEventListener('resize', windowResizeHandler);
-// 마우스 우클릭 금지
 document.addEventListener('contextmenu', function (e) { return e.preventDefault(); });
 document.addEventListener('mousemove', documentMouseMoveHandler);
 document.addEventListener('scroll', documentScrollHandler, { passive: true });
@@ -26,11 +22,8 @@ document.addEventListener('mouseleave', function (e) {
     setBackgroundColorByMouseMove.setBackgroundColor(mainSection);
     document.body.style.transition = "1s";
 });
-/*** Event Handler ***/
-///////////////////////////////////////////
 function mainHandler() {
     mainSection = document.querySelector('#main-section');
-    // setInterval(getCurrentClockTime, 1000);
     setIntervalTitle();
     accessibility();
     bindLnbButton();
@@ -58,7 +51,6 @@ function windowResizeHandler() {
     motionContactAreaByScroll.get(winInnerHeight);
     motionContactAreaByScroll.scrollHandler(scrollBottom);
     rotateFooterCardByScoll(scrollBottom, winInnerHeight);
-    // document.location.reload();
 }
 function documentMouseMoveHandler(event) {
     setBackgroundColorByMouseMove.getMouseMove(event, mainSection);

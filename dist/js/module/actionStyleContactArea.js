@@ -11,7 +11,7 @@ var formArea = contactSection.querySelector('.form-area');
 var portfolioSectionHeight = portfolioSection.offsetHeight;
 export var motionContactAreaByScroll = {
     option: {
-        animateSpeed: 1 // 양수 입력
+        animateSpeed: 1
     },
     scrollBottom: 0,
     winInnerHeight: 0,
@@ -37,7 +37,6 @@ export var motionContactAreaByScroll = {
         }
     },
     get: function (winInnerHeight) {
-        // 페이지의 모든 리소스가 로딩된 시점에서 가져올 정보 및 세팅
         var speed = Math.abs(this.option.animateSpeed);
         portfolioSection = document.querySelector('#portfolio-section');
         contactSection = document.querySelector('#contact-section');
@@ -79,7 +78,6 @@ export var motionContactAreaByScroll = {
             this.actionScrollPoint.formArea.scaleEnd + (this.winInnerHeight * (.5 * speed));
     },
     convertScrollToPercentage: function (startScroll, endScroll, percentTotal, currentScroll) {
-        // 스크롤을 퍼센트 값으로 변환 시키는 함수
         if (currentScroll >= startScroll && currentScroll <= endScroll) {
             var percentage = getPercentage((currentScroll - startScroll), (endScroll - startScroll), percentTotal);
             return percentage;
@@ -173,7 +171,6 @@ export var motionContactAreaByScroll = {
         else if (this.scrollBottom > endScroll) {
             ColorValue = minValue;
         }
-        // target.style['background-color'] = `rgb(${ColorValue}, ${ColorValue}, ${ColorValue})`;
     },
     setDisplay: function (startScroll, endScroll, target, display) {
         if (endScroll) {
@@ -209,7 +206,6 @@ export var motionContactAreaByScroll = {
     },
     portfolioSectionHeight: 0
 };
-// Contact Section의 form 태그 focus 효과
 export var bindContactForm = function () {
     var contactFormTag = document.querySelectorAll('#contact-section input, textarea');
     var CLASS_NAME_ON = 'on';

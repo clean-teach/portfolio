@@ -1,5 +1,4 @@
 import { getPythagorean } from "../utils/utils.js";
-// create Background Style by Motion
 export var setBackgroundStyleByScroll = {
     elBackCircle: document.querySelector('#main-background-area .circle'),
     contactSection: document.querySelector('#contact-section'),

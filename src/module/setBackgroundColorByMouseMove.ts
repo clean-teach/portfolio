@@ -1,10 +1,5 @@
 import { random } from "../utils/utils.js";
 
-// const btnSwitchModeGradient = document.querySelector('#btn-switch-mode-gradient');
-// btnSwitchModeGradient.addEventListener('click', function(){
-//     mouseMoveColor.gradient ? mouseMoveColor.gradient = false :  mouseMoveColor.gradient = true;
-// });
-
 export const setBackgroundColorByMouseMove = {
     gradient : true,
     mediaCondition : matchMedia("screen and (min-width: 768px)").matches,
@@ -17,13 +12,13 @@ export const setBackgroundColorByMouseMove = {
     getScrollForAlpha(targetSection: HTMLElement): number{
         return 1 - (document.documentElement.scrollTop / targetSection.offsetHeight);
     },
-    getMouseMove (event: any, target: HTMLElement) {
+    getMouseMove (event: any, target: HTMLElement):void {
     // scroll, mousemove 에 따른 배경색상 추출 및 설정 함수
         if(this.mediaCondition){
             this.eventX = Math.floor(event.x / target.offsetWidth * 100);
             this.eventY = Math.floor(event.y / target.offsetHeight * 100);
 
-            const getColor = () => {
+            const getColor = ():void => {
                 let moveXColor = Math.floor(event.x / target.offsetWidth * 255);
                 let moveYColor = Math.floor(event.y / target.offsetHeight * 255);
             
@@ -31,7 +26,7 @@ export const setBackgroundColorByMouseMove = {
                 this.G = moveXColor;
                 this.B = 255 - moveYColor;
             };
-            const getDegree = () => {
+            const getDegree = ():void => {
                 // 마우스 움직입을 통해서 각도 얻기
                 if(this.gradient){
                     const center = {
@@ -49,15 +44,14 @@ export const setBackgroundColorByMouseMove = {
             getDegree();
         }
     },
-    setBackgroundColor (targetSection: HTMLElement) {
+    setBackgroundColor (targetSection: HTMLElement):void {
     // scroll, mousemove 에 따른 배경색상 적용 함수
         const bgTg = document.querySelector('#main-background-area') as HTMLElement;
-        let alpha = this.getScrollForAlpha(targetSection);
+        const alpha:number = this.getScrollForAlpha(targetSection);
         
         if(this.mediaCondition){
             if(this.gradient){
                 bgTg.style.background = `linear-gradient(${this.degree}deg, rgba(${this.G},${this.B},${this.R},${alpha}) 0%, rgba(${this.B},${this.R},${this.G},${alpha}) 100%)`;
-                // bgTg.style.background = `conic-gradient(at ${this.eventX}% ${this.eventY}%, rgba(${this.R},${this.G},${this.B},${alpha}) 0%, rgba(${this.B},${this.R},${this.G},${alpha}) 100%)`;
             }else{
                 bgTg.style.background = `rgba(${this.R},${this.G},${this.B},${alpha})`;
             }

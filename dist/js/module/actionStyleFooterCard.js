@@ -5,7 +5,7 @@ var cardOffsetTop = footer.offsetTop + footerCard.offsetTop;
 var footerCardInitialAngleValue = 90;
 var sensitiveY = 20;
 var sensitiveX = 10;
-var direction = 1; // positive or negative
+var direction = 1;
 export function bindFooterCard() {
     var card = document.querySelector('footer .card');
     card.addEventListener('mousemove', twistCardHandler);
@@ -53,7 +53,6 @@ export function bindFooterCard() {
         }
     };
 }
-// scroll 상태에 따른 footer card 회전 모션
 export function rotateFooterCardByScoll(scrollBottom, winInnerHeight) {
     var pageScrollHeight = document.body.scrollHeight;
     var startPoint = pageScrollHeight - winInnerHeight;

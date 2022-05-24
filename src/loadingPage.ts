@@ -5,7 +5,7 @@
     });
     window.addEventListener('load', windowLoadHandler);
     
-    function windowLoadHandler(){
+    function windowLoadHandler():void {
         let opacity = Number(window.getComputedStyle(loader).getPropertyValue('opacity'));
 
         window.scrollTo({top: 0, left: 0});

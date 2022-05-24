@@ -1,4 +1,3 @@
-// 타이틀 연속 변경
 export function setIntervalTitle() {
     var title = document.querySelector('title');
     var ARR_TITLE_NAME = [

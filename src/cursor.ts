@@ -1,7 +1,7 @@
-(function createSetMouseCursorStyle () {
-    const ID_NAME_MOUSE_CURSOR = 'mouseCursor'
-    const CLASS_NAME_MOUSE_CURSOR_POINTER = 'pointer';
-    const mouseCursor = document.createElement('div');
+(function createSetMouseCursorStyle ():void {
+    const ID_NAME_MOUSE_CURSOR:string = 'mouseCursor'
+    const CLASS_NAME_MOUSE_CURSOR_POINTER:string = 'pointer';
+    const mouseCursor:HTMLElement = document.createElement('div');
     mouseCursor.id = ID_NAME_MOUSE_CURSOR;
     mouseCursor.innerHTML = '<div><div></div></div>';
     document.body.appendChild(mouseCursor);
