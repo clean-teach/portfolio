@@ -3,7 +3,7 @@ import { getCurrentScrollBottomEnd } from "../utils/utils.js";
 const footer = document.querySelector('footer') as HTMLElement;
 const footerCard = footer.querySelector('.card') as HTMLElement;
 const cardOffsetTop = footer.offsetTop + footerCard.offsetTop;
-const footerCardInitialAngleValue:number = 180;
+const footerCardInitialAngleValue:number = 90;
 const sensitiveY:number = 20;
 const sensitiveX:number = 10;
 const direction:number = 1; // positive or negative
@@ -63,13 +63,16 @@ export function bindFooterCard() {
 
 // scroll 상태에 따른 footer card 회전 모션
 export function rotateFooterCardByScoll(scrollBottom:number, winInnerHeight:number) {
-    const pageScrollHeight = document.body.scrollHeight;
-    const startPoint = pageScrollHeight - winInnerHeight;
+    const pageScrollHeight:number = document.body.scrollHeight;
+    const startPoint:number = pageScrollHeight - winInnerHeight;
 
     if (scrollBottom > startPoint) {
-        let percentage = (scrollBottom - startPoint) / (pageScrollHeight - startPoint) * 90;
+        const percentage:number = (scrollBottom - startPoint) / (pageScrollHeight - startPoint) * 90;   
 
-        footerCard.style.transform = `rotateX(${footerCardInitialAngleValue + percentage}deg)`;
+        footerCard.style.display = 'block';
+        footerCard.style.transform = `rotateX(${footerCardInitialAngleValue - percentage}deg)`;
         footerCard.style.transition = '0s';
+    }else{
+        footerCard.style.display = 'none';
     }
 }

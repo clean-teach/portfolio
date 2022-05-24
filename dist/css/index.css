@@ -101,9 +101,10 @@ section h2 {top: 0; text-align: center; font-weight: bold; font-size: 12rem; lin
 #contact-section.animation-by-scroll-style .form-area.fixed {position: fixed; top: 0; left: 0;}
 
 
-footer {width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; z-index: 2;}
-#time-the-current-user-is-staying {text-align: center; font-weight: 500; font-size: 2.5rem; color: var(--color-gray01); padding: 4rem 0;}
-footer .card-space {width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; perspective: 400px; overflow: hidden;}
+footer {width: 100vw; height: 200vh; position: relative;}
+footer .clock-arae {position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 2; display: flex; justify-content: center; align-items: center; }
+#time-the-current-user-is-staying {text-align: center; font-weight: 500; font-size: 5rem; color: var(--color-gray01); padding: 4rem 0;}
+footer .card-space {position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; perspective: 400px; overflow: hidden; z-index: 3;}
 footer .card-space.bg-mobile {background-color: aquamarine !important;}
 footer .card-space.bg-email {background-color: lightsalmon !important;}
 footer .card-space.bg-git {background-color: yellowgreen !important;}

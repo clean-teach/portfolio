@@ -11,7 +11,9 @@ export const getScrollDirection = function():string {
 // 현재 스크롤 상태 맨 아래에 있는지 반환
 export function getCurrentScrollBottomEnd():boolean {
     const pageScrollHeight:number = document.body.scrollHeight;
-    const scrollBottom:number = document.documentElement.scrollTop;
+    const winInnerHeight:number = window.innerHeight;
+    const scrollBottom:number = document.documentElement.scrollTop + winInnerHeight;
+    
     if((pageScrollHeight - scrollBottom) == 0){
         return true;
     }else {
