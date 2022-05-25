@@ -40,7 +40,6 @@ function mainHandler():void {
     mainSection = document.querySelector('#main-section');
 
     checkTimeUserStay().playClock();
-
     setIntervalTitle();
     accessibility();
     bindLnbButton();
