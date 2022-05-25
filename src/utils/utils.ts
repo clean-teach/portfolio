@@ -64,3 +64,8 @@ export function optimizeAnimation(callback: any) {
         }
     };
 }
+
+// typescript polyfill
+export const padStart = (targetLength: number, padString: string, str: string): string => {
+    return str.length >= targetLength ? str : new Array(targetLength - str.length + 1).join(padString) + str;
+};

@@ -118,9 +118,9 @@ export function setMoveScrollByAnchor(event:any, targetHref?:any):void {
         }  
         let scrollTo;
         if(targetHref === '#footer'){
-            scrollTo = document.body.scrollHeight;
+            scrollTo = document.body.scrollHeight - document.querySelector(targetHref).clientHeight;
         }else if(targetHref === '#contact-section'){
-            scrollTo = document.querySelector(targetHref).offsetTop + document.querySelector(targetHref).clientHeight - window.innerHeight;
+            scrollTo = document.querySelector(targetHref).offsetTop + document.querySelector(targetHref).clientHeight - (window.innerHeight * 4);
         }else{
             scrollTo = document.querySelector(targetHref).offsetTop;
         }

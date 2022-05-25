@@ -108,10 +108,10 @@ export function setMoveScrollByAnchor(event, targetHref) {
         }
         var scrollTo_1;
         if (targetHref === '#footer') {
-            scrollTo_1 = document.body.scrollHeight;
+            scrollTo_1 = document.body.scrollHeight - document.querySelector(targetHref).clientHeight;
         }
         else if (targetHref === '#contact-section') {
-            scrollTo_1 = document.querySelector(targetHref).offsetTop + document.querySelector(targetHref).clientHeight - window.innerHeight;
+            scrollTo_1 = document.querySelector(targetHref).offsetTop + document.querySelector(targetHref).clientHeight - (window.innerHeight * 4);
         }
         else {
             scrollTo_1 = document.querySelector(targetHref).offsetTop;

@@ -12,9 +12,9 @@ h1 {margin-top: 1rem; text-align: left; color: rgba(255, 255, 255, 1); font-weig
 #lnb .lnb-contact {bottom: 0; left: 0;}
 #lnb .lnb-footer {bottom: 0; right: 0;}
 #lnb a {font-weight: 400; font-size: 1.5rem; color: var(--color-gray10); opacity: .6; filter: blur(1px);}
-#lnb a:hover {filter: blur(0);opacity: 1; transition: .2s;}
+#lnb a:hover {filter: blur(0); text-shadow: 0 .125rem .125rem rgba(0, 0, 0, .1); opacity: 1; transition: .2s;}
 
-#main-scroll-layer {position: relative; z-index: 10; background-color: #ffffff; box-shadow: 0 2rem 4rem rgba(0, 0, 0, .2); margin-bottom: 100vh;}
+#main-scroll-layer {position: relative; width: 100%; z-index: 10; margin-bottom: 100vh;}
 #main-background-area {position: fixed; top: 0; left: 0; z-index: 1; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; overflow: hidden;}
 #main-background-area .circle {border-radius: 100%; width: 0; height: 0; background-color: var(--color-gray08);}
 
@@ -58,7 +58,7 @@ section h2 {top: 0; text-align: center; font-weight: bold; font-size: 12rem; lin
 .portfolio-list>li .txt-area.on {transform: translateX(0) skewX(0);}
 /* .portfolio-list>li.portfolio-mockup-mobile-02 .img-area.on {transform: skewY(0) translateY(0);} */
 
-#contact-section {position: relative; overflow: hidden; padding: 10rem 0;}
+#contact-section {position: relative; padding: 10rem 0;}
 .join-motion-txt-area {position: relative; font-weight: 500; font-size: 1.5rem; line-height: 2rem; color: var(--color-gray01); text-align: center; overflow: hidden; z-index: 3;}
 .join-motion-txt-area .line {position: absolute; top: 1rem; display: block; width: 50%; height: 1px; background-color: #acacac;}
 .join-motion-txt-area .line.left {left: 0;}
@@ -102,19 +102,26 @@ section h2 {top: 0; text-align: center; font-weight: bold; font-size: 12rem; lin
 
 
 footer {width: 100vw; height: 200vh; position: relative;}
-footer .clock-arae {position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 2; display: flex; justify-content: center; align-items: center; }
-#time-the-current-user-is-staying {text-align: center; font-weight: 500; font-size: 5rem; color: var(--color-gray01); padding: 4rem 0;}
 footer .card-space {position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; perspective: 400px; overflow: hidden; z-index: 3;}
+footer .card {position: relative; z-index: 10; display: block; width: 540px; height: 300px; box-sizing: border-box; background-color: var(--color-gray10); border-radius: 4mm; box-shadow: 0 0 60px rgba(0, 0, 0, .1); transform: rotateX(90deg); transform-style: preserve-3d;}
+footer .card .front, footer .card .back {position: absolute; top: 0; left: 0;width: 100%; height: 100%; box-sizing: border-box; border-radius: 4mm; backface-visibility: hidden;}
+footer .card .front {transform: translateZ(-1px) rotateY(180deg) rotateZ(180deg);}
+footer .card .back {transform: translateZ(1px) rotateY(0deg);}
+footer .card address {padding-top: 4rem; text-align: center;}
+footer .card .name {font-weight: bold; color: var(--color-gray01); font-size: 1.6rem; margin-bottom: 2.6rem;}
+footer .card li {font-weight: bold; color: var(--color-gray01); margin-top: .8rem;}
+footer .card li a {font-weight: normal; color: var(--color-gray03);}
 footer .card-space.bg-mobile {background-color: aquamarine !important;}
 footer .card-space.bg-email {background-color: lightsalmon !important;}
 footer .card-space.bg-git {background-color: yellowgreen !important;}
 footer .card-space.bg-notion {background-color: violet !important;}
-footer .card {position: relative; z-index: 10; display: block; width: 540px; height: 300px; border-radius: 4mm; box-sizing: border-box; background-color: var(--color-gray10); box-shadow: 0 0 60px rgba(0, 0, 0, .1); transform: rotateX(90deg);}
-footer .card address {margin-top: 4rem; text-align: center;}
-footer .card .name {font-weight: bold; color: var(--color-gray01); font-size: 1.6rem; margin-bottom: 2.6rem;}
-footer .card li {font-weight: bold; color: var(--color-gray01); margin-top: .8rem;}
-footer .card li a {font-weight: normal; color: var(--color-gray03);}
-footer .card li a:hover {color: var(--color-gray01);}
+footer .card-space.bg-mobile .card li a:hover {color: aquamarine !important;}
+footer .card-space.bg-email .card li a:hover {color: lightsalmon !important;}
+footer .card-space.bg-git .card li a:hover {color: yellowgreen !important;}
+footer .card-space.bg-notion .card li a:hover {color: violet !important;}
+footer .clock-arae {display: flex; justify-content: center; align-items: center; background-color: #ffffff;}
+#time-the-current-user-is-staying {text-align: center; font-weight: 400; font-size: 1.25rem; line-height: 1.75rem; color: var(--color-gray01); padding: 4rem 0;}
+#time-the-current-user-is-staying span {font-weight: bold;}
 
 @keyframes backgroudAnimation {
     0%{background-position:0% 50%}
@@ -146,7 +153,6 @@ footer .card li a:hover {color: var(--color-gray01);}
     #lnb {position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; box-sizing: border-box; padding-top: 6rem; text-align: right; z-index: 999; background-color: rgba(0, 0, 0, .9); display: none;}
     #lnb li {position: relative; z-index: 999; padding: 2rem;}
     #lnb a {font-weight: 400; font-size: 1.5rem; color: var(--color-gray10); opacity: .6; filter: blur(1px); transition: 1s;}
-    header #lnb a:hover {filter: blur(0); opacity: 1; transition: .2s;}
     #lnb.on {display: block;}
     #lnb.on a {color: var(--color-gray10) !important;}
 

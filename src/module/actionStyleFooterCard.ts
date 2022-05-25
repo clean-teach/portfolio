@@ -3,7 +3,7 @@ import { getCurrentScrollBottomEnd } from "../utils/utils.js";
 const footer = document.querySelector('footer') as HTMLElement;
 const footerCard = footer.querySelector('.card') as HTMLElement;
 const cardOffsetTop = footer.offsetTop + footerCard.offsetTop;
-const footerCardInitialAngleValue:number = 90; // card 의 초기 회전 각도 값
+const footerCardInitialAngleValue:number = 180; // card 의 초기 회전 각도 값
 const sensitiveY:number = 20; // Y축 회전 감도
 const sensitiveX:number = 10; // X축 회전 감도
 const direction:number = 1; // positive or negative
@@ -66,13 +66,18 @@ export function rotateFooterCardByScoll(scrollBottom:number, winInnerHeight:numb
     const pageScrollHeight:number = document.body.scrollHeight;
     const startPoint:number = pageScrollHeight - winInnerHeight;
 
-    if (scrollBottom > startPoint) {
-        const percentage:number = (scrollBottom - startPoint) / (pageScrollHeight - startPoint) * 90;   
-
+    if(scrollBottom > startPoint - winInnerHeight*2){
         footerCard.style.display = 'block';
+    }else{
+        footerCard.style.display = 'none';
+    }
+
+    if (scrollBottom > startPoint) {
+        const percentage:number = (scrollBottom - startPoint) / (pageScrollHeight - startPoint) * 180;   
+
         footerCard.style.transform = `rotateX(${footerCardInitialAngleValue - percentage}deg)`;
         footerCard.style.transition = '0s';
     }else{
-        footerCard.style.display = 'none';
+        footerCard.style.transform = `rotateX(${footerCardInitialAngleValue}deg)`;
     }
 }

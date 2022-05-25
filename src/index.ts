@@ -8,7 +8,7 @@ import { activePortfolioByScroll } from "./module/actionStylePortfolioByScroll.j
 import { bindContactForm, motionContactAreaByScroll } from "./module/actionStyleContactArea.js";
 import { bindFooterCard, rotateFooterCardByScoll } from "./module/actionStyleFooterCard.js";
 import { filteringCategoryByTab } from "./module/actionTab.js";
-import { getCurrentClockTime } from "./module/clock.js";
+import { checkTimeUserStay } from "./module/clock.js";
 
 let mainSection: any,
     winInnerHeight: number,
@@ -39,7 +39,7 @@ document.addEventListener('mouseleave', function (e) {
 function mainHandler():void {
     mainSection = document.querySelector('#main-section');
 
-    // setInterval(getCurrentClockTime, 1000);
+    checkTimeUserStay().playClock();
 
     setIntervalTitle();
     accessibility();

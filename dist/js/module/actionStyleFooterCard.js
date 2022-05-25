@@ -2,7 +2,7 @@ import { getCurrentScrollBottomEnd } from "../utils/utils.js";
 var footer = document.querySelector('footer');
 var footerCard = footer.querySelector('.card');
 var cardOffsetTop = footer.offsetTop + footerCard.offsetTop;
-var footerCardInitialAngleValue = 90;
+var footerCardInitialAngleValue = 180;
 var sensitiveY = 20;
 var sensitiveX = 10;
 var direction = 1;
@@ -56,14 +56,19 @@ export function bindFooterCard() {
 export function rotateFooterCardByScoll(scrollBottom, winInnerHeight) {
     var pageScrollHeight = document.body.scrollHeight;
     var startPoint = pageScrollHeight - winInnerHeight;
-    if (scrollBottom > startPoint) {
-        var percentage = (scrollBottom - startPoint) / (pageScrollHeight - startPoint) * 90;
+    if (scrollBottom > startPoint - winInnerHeight * 2) {
         footerCard.style.display = 'block';
+    }
+    else {
+        footerCard.style.display = 'none';
+    }
+    if (scrollBottom > startPoint) {
+        var percentage = (scrollBottom - startPoint) / (pageScrollHeight - startPoint) * 180;
         footerCard.style.transform = "rotateX(".concat(footerCardInitialAngleValue - percentage, "deg)");
         footerCard.style.transition = '0s';
     }
     else {
-        footerCard.style.display = 'none';
+        footerCard.style.transform = "rotateX(".concat(footerCardInitialAngleValue, "deg)");
     }
 }
 //# sourceMappingURL=actionStyleFooterCard.js.map

@@ -53,4 +53,7 @@ export function optimizeAnimation(callback) {
         }
     };
 }
+export var padStart = function (targetLength, padString, str) {
+    return str.length >= targetLength ? str : new Array(targetLength - str.length + 1).join(padString) + str;
+};
 //# sourceMappingURL=utils.js.map
