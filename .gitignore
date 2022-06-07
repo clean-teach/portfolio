@@ -3,6 +3,7 @@
 
 #API KEY
 .env
+/api-key.js
 
 #webpack
 /package-lock.json
