@@ -1,6 +1,6 @@
 // 스크롤 이벤트에 따른 포트폴리오 영역 활성화
 export const activePortfolioByScroll = {
-    portfolioList: document.querySelectorAll('.portfolio-list>li'),
+    portfolioList: document.querySelectorAll('.portfolio-list>li.motion'),
     winHeightHalf : (window.innerHeight / 2),
     setImgActive(scrollBottom:number, i: number, arr: NodeListOf<Element>): void  {
         const target = arr[i].querySelector('.img-area');

@@ -1,0 +1,9 @@
+#node modules
+/node_modules
+
+#API KEY
+.env
+
+#webpack
+/package-lock.json
+/package.json

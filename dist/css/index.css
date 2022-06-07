@@ -40,9 +40,9 @@ section h2 {top: 0; text-align: center; font-weight: bold; font-size: 12rem; lin
 .portfolio-list>li:nth-child(even) {flex-direction: row-reverse;}
 .portfolio-list .img-area {width: 50%; overflow: hidden; box-shadow: 10px 20px 60px rgba(0, 0, 0, .2); line-height: 0; transform: skewY(24deg) translateY(400px) scale(1.2); transform-origin: 0 0; opacity: 0;}
 .portfolio-list .img-area img {width: 100%;}
-.portfolio-list .txt-area {position: fixed; top: 20vh; width: 40%; transform-origin: 0; transition: .2s ease-in;}
-.portfolio-list>li:nth-child(odd) .txt-area {left: 52%; text-align: left; transform: translateX(2000px) skewX(64deg);}
-.portfolio-list>li:nth-child(even) .txt-area {right: 52%; text-align: right; transform: translateX(-2000px) skewX(64deg);}
+.portfolio-list>li .txt-area {}
+.portfolio-list>li:nth-child(odd) .txt-area {text-align: left;}
+.portfolio-list>li:nth-child(even) .txt-area {text-align: right;}
 .portfolio-list .txt-area h3 {font-weight: bold; font-size: 2rem; color: var(--color-gray01);}
 .portfolio-list .txt-area .datetime {margin-top: 1rem; font-weight: 200; font-size: 1rem; letter-spacing: .05rem; color: var(--color-gray03);}
 .portfolio-list .txt-area .datetime .end::before {content: ' ~ ';}
@@ -54,8 +54,11 @@ section h2 {top: 0; text-align: center; font-weight: bold; font-size: 12rem; lin
 .portfolio-list .txt-area dd dt {color: var(--color-gray03); font-weight: 500; font-size: 1rem;}
 .portfolio-list .txt-area button {font-weight: 500; font-size: 1rem; color: var(--color-gray03); padding: .4rem 1rem; margin-top: 1rem; border-radius: 4px; background-color: rgba(255, 255, 255, 0); box-shadow: 0 0 16px rgba(0, 0, 0, .2);}
 .portfolio-list .txt-area button:hover, .portfolio-list .txt-area button:focus {transform: translateY(-4px); transition: .4s; background-color: rgba(255, 255, 255, .4); box-shadow: 10px 10px 24px rgba(0, 0, 0, .3);}
-.portfolio-list .img-area.on {transform: skewY(0) translateY(0) scale(1); opacity: 1; transition: .4s;}
-.portfolio-list>li .txt-area.on {transform: translateX(0) skewX(0);}
+.portfolio-list>li.motion .txt-area {position: fixed; top: 20vh; width: 40%; transform-origin: 0; transition: .2s ease-in;}
+.portfolio-list>li.motion:nth-child(odd) .txt-area {left: 52%; text-align: left; transform: translateX(2000px) skewX(64deg);}
+.portfolio-list>li.motion:nth-child(even) .txt-area {right: 52%; text-align: right; transform: translateX(-2000px) skewX(64deg);}
+.portfolio-list>li.motion .img-area.on {transform: skewY(0) translateY(0) scale(1); opacity: 1; transition: .4s;}
+.portfolio-list>li.motion .txt-area.on {transform: translateX(0) skewX(0);}
 /* .portfolio-list>li.portfolio-mockup-mobile-02 .img-area.on {transform: skewY(0) translateY(0);} */
 
 #contact-section {position: relative; padding: 10rem 0;}

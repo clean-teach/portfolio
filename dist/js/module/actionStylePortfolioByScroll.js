@@ -1,5 +1,5 @@
 export var activePortfolioByScroll = {
-    portfolioList: document.querySelectorAll('.portfolio-list>li'),
+    portfolioList: document.querySelectorAll('.portfolio-list>li.motion'),
     winHeightHalf: (window.innerHeight / 2),
     setImgActive: function (scrollBottom, i, arr) {
         var target = arr[i].querySelector('.img-area');
