@@ -22,7 +22,7 @@ export function checkTimeUserStay() {
         hours = padStart(2, '0', String(hours))  
 
         clock.innerHTML = `
-            <p>벌써 <span>${hours}</span>시간 <span>${minutes}</span>분 <span>${seconds}</span>초 동안 관심을 보여주셨어요!</p>
+            <p>벌써 <span>${hours}</span>시간 <span>${minutes}</span>분 <span>${seconds}</span>초 동안 저에게 관심을 보여주셨어요!</p>
             <p>저에 대해 더욱 많은 것을 알고 싶으시면, <br />
             아래 연락처로 연락 주세요</p>
             <p>↓</p>

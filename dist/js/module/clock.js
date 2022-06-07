@@ -16,7 +16,7 @@ export function checkTimeUserStay() {
         seconds = padStart(2, '0', String(seconds));
         minutes = padStart(2, '0', String(minutes));
         hours = padStart(2, '0', String(hours));
-        clock.innerHTML = "\n            <p>\uBC8C\uC368 <span>".concat(hours, "</span>\uC2DC\uAC04 <span>").concat(minutes, "</span>\uBD84 <span>").concat(seconds, "</span>\uCD08 \uB3D9\uC548 \uAD00\uC2EC\uC744 \uBCF4\uC5EC\uC8FC\uC168\uC5B4\uC694!</p>\n            <p>\uC800\uC5D0 \uB300\uD574 \uB354\uC6B1 \uB9CE\uC740 \uAC83\uC744 \uC54C\uACE0 \uC2F6\uC73C\uC2DC\uBA74, <br />\n            \uC544\uB798 \uC5F0\uB77D\uCC98\uB85C \uC5F0\uB77D \uC8FC\uC138\uC694</p>\n            <p>\u2193</p>\n        ");
+        clock.innerHTML = "\n            <p>\uBC8C\uC368 <span>".concat(hours, "</span>\uC2DC\uAC04 <span>").concat(minutes, "</span>\uBD84 <span>").concat(seconds, "</span>\uCD08 \uB3D9\uC548 \uC800\uC5D0\uAC8C \uAD00\uC2EC\uC744 \uBCF4\uC5EC\uC8FC\uC168\uC5B4\uC694!</p>\n            <p>\uC800\uC5D0 \uB300\uD574 \uB354\uC6B1 \uB9CE\uC740 \uAC83\uC744 \uC54C\uACE0 \uC2F6\uC73C\uC2DC\uBA74, <br />\n            \uC544\uB798 \uC5F0\uB77D\uCC98\uB85C \uC5F0\uB77D \uC8FC\uC138\uC694</p>\n            <p>\u2193</p>\n        ");
     }
     return {
         playClock: function () {
