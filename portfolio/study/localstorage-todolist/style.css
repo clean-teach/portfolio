@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+body {display: flex; justify-content: center; align-items: center; width: 100vw; height: 100vh; margin: 0;}
+button {border: none; cursor: pointer;}
+#wrapper {width: 100%; max-width: 360px; margin: 0 auto; box-shadow: 0 0 2rem rgba(0, 0, 0, .1); box-sizing: border-box; padding: 1.5rem;}
+
+.hidden {display: none}
+
+#logout-state-area .guide-area {color: #f00; font-weight: 500; font-size: .875rem;}
+#login-form-area label {display: none;}
+#wrapper input {width: 100%; box-sizing: border-box; padding: 1rem;}
+
+#greeting {font-size: 1.125rem; text-align: center; margin: 1rem 0;}
+
+.btn-primary {width: 100%; box-sizing: border-box; margin-top: 1.5rem; border: none; padding: 1rem; font-weight: 500; font-size: 1.125rem; background-color: aquamarine;}
+.btn-negative {background-color: #ededed;}
+
+#todo-list-area h1 {text-align: center; font-weight: bold; font-size: 1.5rem; margin: 1rem;}
+#todo-list li {box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1); padding: .5rem; margin: 1rem 0;}
+#todo-list li button {width: auto; background-color: #ff0000; color: #ffffff; font-weight: 400; font-size: 1.125rem; margin-left: 1rem;}

@@ -1,12 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Storage 를 이용한 login, Todo list 기능 구현</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div id="wrapper">
+        <div id="logout-state-area" class="hidden">
+            <form id="login-form-area">
+                <label for="user-id">이름 </label><input type="text" id="user-id" class="user-id" placeholder="이름을 입력 하세요." autofocus required maxlength="16">
+                <button type="submit" class="btn-primary">로그인</button>
+                <p class="guide-area"></p>
+            </form>
+        </div>
+        <div id="login-state-area" class="hidden">
+            <p id="greeting"></p>
+            <div id="todo-list-area">
+                <form action="" id="todo-list-form">
+                    <input type="text" required placeholder="할 일을 입력 하세요.">
+                </form>
+                <h1>할 일 목록</h1>
+                <ul id="todo-list"></ul>
+            </div>
+            <button type="button" id="btn-logout" class="btn-primary btn-negative">로그아웃</button>
+        </div>
+    </div>
+    <script src="login.js"></script>
+    <script src="todo.js"></script>
 </body>
 </html>
