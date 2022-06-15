@@ -1,0 +1,30 @@
+{
+  "name": "www",
+  "description": "- 자바스크립트 연습을 위하여 바닐라스크립트를 사용하여 모션효과를 구현해 보았습니다.\r - HTML5, CSS3, ES6 등 신기술을 적극 활용하였습니다.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "^16.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.5",
+    "@babel/node": "^7.18.5",
+    "@babel/preset-typescript": "^7.17.12"
+  },
+  "scripts": {
+    "dev": "babel-node --presets='@babel/preset-env' --ignore='foo|bar|baz'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clean-teach/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clean-teach/portfolio/issues"
+  },
+  "homepage": "https://github.com/clean-teach/portfolio#readme"
+}
