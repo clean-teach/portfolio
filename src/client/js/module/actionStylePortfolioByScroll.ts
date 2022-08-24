@@ -2,8 +2,9 @@
 const portfolioListPc = document.querySelectorAll('.portfolio-list>li.motion.type-pc');
 const portfolioListMob = document.querySelectorAll('.portfolio-list>li.motion.type-mobile');
 
+const winHeightHalf = (window.innerHeight / 2);
+
 export const activePortfolioByScroll = {
-    winHeightHalf : (window.innerHeight / 2),
     setImgActive: {
         pc(scrollBottom:number, i: number, arr: NodeListOf<Element>): void  {
             const target = arr[i].querySelector('.img-area');
@@ -28,7 +29,7 @@ export const activePortfolioByScroll = {
                 } else {
                     mockup.classList.remove(CLASS_NAME_ON);
                 }
-                console.log(scroll);
+                // console.log(scroll);
             }
         },
     },
@@ -39,15 +40,15 @@ export const activePortfolioByScroll = {
             if(txtBox){
                 const CLASS_NAME_ON = 'on';
                 console.log(this);
-                // let
-                //     startPoint:boolean = scrollBottom - this.winHeightHalf > window.pageYOffset + currentElement.getBoundingClientRect().top,
-                //     endPoint:boolean = scrollBottom - this.winHeightHalf < window.pageYOffset + currentElement.getBoundingClientRect().top + currentElement.offsetHeight;
+                let
+                    startPoint:boolean = scrollBottom - winHeightHalf > window.pageYOffset + currentElement.getBoundingClientRect().top,
+                    endPoint:boolean = scrollBottom - winHeightHalf < window.pageYOffset + currentElement.getBoundingClientRect().top + currentElement.offsetHeight;
     
-                // if (startPoint && endPoint) {
-                //     txtBox.classList.add(CLASS_NAME_ON);
-                // } else {
-                //     txtBox.classList.remove(CLASS_NAME_ON);
-                // }
+                if (startPoint && endPoint) {
+                    txtBox.classList.add(CLASS_NAME_ON);
+                } else {
+                    txtBox.classList.remove(CLASS_NAME_ON);
+                }
             }
         },
         mob(scrollBottom: number, i: number, arr: NodeListOf<Element>): void  {

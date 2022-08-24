@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build:assets": "webpack --mode=production",
+    "build:assets": "NODE_ENV=production webpack --mode=production",
     "dev": "babel-node --presets='@babel/preset-env' --ignore='foo|bar|baz'",
-    "dev:assets": "webpack --mode=development -w"
+    "dev:assets": "NODE_ENV=development webpack --mode=development -w"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "@babel/preset-typescript": "^7.17.12",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
+    "css-minimizer-webpack-plugin": "^4.0.0",
     "mini-css-extract-plugin": "^2.6.1",
     "sass": "^1.54.5",
     "sass-loader": "^13.0.2",
