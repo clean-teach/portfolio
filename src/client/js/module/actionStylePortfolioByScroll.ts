@@ -1,10 +1,31 @@
+import { getPercentage } from "../utils/utils";
+
 // 스크롤 이벤트에 따른 포트폴리오 영역 활성화
+const portfolioSection = document.querySelector('#portfolio-section') as HTMLElement;
+const portfolioTitle = document.querySelector('#portfolio-section>h2') as HTMLElement;
 const portfolioListPc = document.querySelectorAll('.portfolio-list>li.motion.type-pc');
 const portfolioListMob = document.querySelectorAll('.portfolio-list>li.motion.type-mobile');
 
 const winHeightHalf = (window.innerHeight / 2);
 
 export const activePortfolioByScroll = {
+    titleMotion: {
+        startPoint : portfolioSection.offsetTop + window.innerHeight,
+        action(scrollBottom:number) {
+            if(scrollBottom > this.startPoint){ 
+                const parts = scrollBottom - this.startPoint;
+                const whole = window.innerHeight;
+                let opacityValue = 1 - getPercentage(parts, whole, 1);
+                if(opacityValue < 0) {
+                    opacityValue = 0;
+                }
+                portfolioTitle.classList.add('on');
+                portfolioTitle.style.opacity = String(opacityValue);
+            }else {
+                portfolioTitle.classList.remove('on');
+            }
+        }
+    },
     setImgActive: {
         pc(scrollBottom:number, i: number, arr: NodeListOf<Element>): void  {
             const target = arr[i].querySelector('.img-area');
@@ -39,7 +60,7 @@ export const activePortfolioByScroll = {
             const txtBox = currentElement.querySelector('.txt-area') as HTMLElement;
             if(txtBox){
                 const CLASS_NAME_ON = 'on';
-                console.log(this);
+                // console.log(this);
                 let
                     startPoint:boolean = scrollBottom - winHeightHalf > window.pageYOffset + currentElement.getBoundingClientRect().top,
                     endPoint:boolean = scrollBottom - winHeightHalf < window.pageYOffset + currentElement.getBoundingClientRect().top + currentElement.offsetHeight;
@@ -69,6 +90,7 @@ export const activePortfolioByScroll = {
         },
     },
     action(scrollBottom: number): void {
+        this.titleMotion.action(scrollBottom);
         portfolioListPc.forEach((obj, i, arr) => {
             this.setImgActive.pc(scrollBottom, i, arr);
             this.setTxtActive.pc(scrollBottom, i, arr);
