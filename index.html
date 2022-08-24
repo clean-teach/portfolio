@@ -8,15 +8,12 @@
 	<meta name="Keywords" content="포트폴리오, 웹, 사이트, 개인 포트폴리오, 프론트앤드, 퍼블리싱, 퍼블리셔, 웹개발, 웹디자인, 반응형, 웹, 디자인, UI, UX, developer, web, portfolio, front-end, publishing, publisher"/>
 	<meta name="Description" content="김청훈의 포트폴리오 웹사이트 입니다"/>
     <title>CH Portfolio</title>
-    <!-- <link rel="stylesheet" href="dist/css/loader.css">
-    <script type="module" src="dist/js/loadingPage.js"></script> -->
-    <link rel="shortcut icon" href="dist/img/favicon.ico">
+    <!-- <script type="module" src="assets/dist/js/loadingPage.js"></script> -->
+    <link rel="shortcut icon" href="assets/dist/img/favicon.ico">
 	<link rel="apple-touch-icon-precomposed" href="dist/img/icon01.png">
 	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="dist/img/icon02.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
-    <link rel="stylesheet" href="dist/css/common.css">
-    <link rel="stylesheet" href="dist/css/index.css">
-    <link rel="stylesheet" href="dist/css/cursor.css">
+    <link rel="stylesheet" href="assets/dist/css/style.css">
 </head>
 <body>
     <!-- <div id="loader">
@@ -56,9 +53,9 @@
                 <button type="button" data-category="side-project" title="분류 별 보기">Side Project</button>
             </div>
             <ul class="portfolio-list center-wrap">
-                <li data-category="work" class="motion">
+                <li data-category="work" class="motion type-pc">
                     <div class="img-area">
-                        <img src="dist/img/work-researcharum-01.jpg" alt="Research Arum 웹사이트 화면">
+                        <img src="assets/img/work-researcharum-01.jpg" alt="Research Arum 웹사이트 화면">
                     </div>
                     <div class="txt-area">
                         <h3>Research Arum 웹사이트 리뉴얼</h3>
@@ -93,9 +90,9 @@
                         <button type="button" title="새 탭으로 열기"  onclick="window.open('https://seemly-mile-d41.notion.site/researcharum-c5c12a1e1ec240c0932668642f220566')">Notion</button>
                     </div>
                 </li>
-                <li data-category="work" class="motion">
+                <li data-category="work" class="motion type-pc">
                     <div class="img-area">
-                        <img src="dist/img/work-durian-01.jpg" alt="Durian 웹사이트 화면">
+                        <img src="assets/img/work-durian-01.jpg" alt="Durian 웹사이트 화면">
                     </div>
                     <div class="txt-area">
                         <h3>Durian 웹사이트 제작</h3>
@@ -110,7 +107,12 @@
                             </div>
                             <div>
                                 <dt>기여도</dt>
-                                <dd>60%</dd>
+                                <dd>
+                                    <dl>
+                                        <dt>퍼블리싱</dt>
+                                        <dd>100%</dd>
+                                    </dl>
+                                </dd>
                             </div>
                             <div>
                                 <dt>구현기능</dt>
@@ -127,9 +129,9 @@
                         <button type="button" title="새 탭으로 열기"  onclick="window.open('https://seemly-mile-d41.notion.site/Durian-2ec3fce0ea2d46d187b16cd9b1af1343')">Notion</button>
                     </div>
                 </li>
-                <li data-category="work" class="motion">
+                <li data-category="work" class="motion type-pc">
                     <div class="img-area">
-                        <img src="dist/img/work-peauty-01.jpg" alt="Peauty 웹사이트 화면">
+                        <img src="assets/img/work-peauty-01.jpg" alt="Peauty 웹사이트 화면">
                     </div>
                     <div class="txt-area">
                         <h3>Peauty</h3>
@@ -140,7 +142,20 @@
                         <dl>
                             <div>
                                 <dt>사용기술</dt>
-                                <dd>HTML5, CSS3, JavaScript</dd>
+                                <dd>HTML5, CSS3, JavaScript, jQuery</dd>
+                            </div>
+                            <div>
+                                <dt>기여도</dt>
+                                <dd>
+                                    <dl>
+                                        <dt>디자인</dt>
+                                        <dd>30%</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>퍼블리싱</dt>
+                                        <dd>100%</dd>
+                                    </dl>
+                                </dd>
                             </div>
                             <div>
                                 <dt>Detail</dt>
@@ -154,8 +169,8 @@
                         <button type="button" title="새 탭으로 열기"  onclick="window.open('https://seemly-mile-d41.notion.site/Peauty-1782ddf20ee74b3895f35bff1bc741fa')">Notion</button>
                     </div>
                 </li>
-                <li data-category="work" class="motion">
-                    <div class="img-area"><img src="dist/img/work-lavidamall-01.jpg" alt="lavida mall 홈페이지 화면"></div>
+                <li data-category="work" class="motion type-pc">
+                    <div class="img-area"><img src="assets/img/work-lavidamall-01.jpg" alt="lavida mall 홈페이지 화면"></div>
                     <div class="txt-area">
                         <h3>Lavida mall 웹사이트 제작</h3>
                         <div class="datetime">
@@ -165,28 +180,33 @@
                         <dl>
                             <div>
                                 <dt>사용기술</dt>
-                                <dd>HTML5, CSS3, JavaScript, jQuery, PagePiling.js, Adobe Photoshop</dd>
+                                <dd>HTML5, CSS3, JavaScript, jQuery</dd>
                             </div>
                             <div>
                                 <dt>기여도</dt>
-                                <dd>90%</dd>
+                                <dd>
+                                    <dl>
+                                        <dt>퍼블리싱</dt>
+                                        <dd>100%</dd>
+                                    </dl>
+                                </dd>
                             </div>
                             <div>
                                 <dt>구현기능</dt>
-                                <dd>반응형, google map API</dd>
+                                <dd>적응형</dd>
                             </div>
                             <div>
                                 <dt>Detail</dt>
                                 <dd>
-                                    222222222222222222222
+                                    모바일 버전의 웹 페이지를 따로 구분하여 작업하였고 공통 코드에 대해 염두해가며 클래스와 파일의 최적화에 신경을 썼습니다.
                                 </dd>
                             </div>
                         </dl>
                         <button type="button" title="새 탭으로 열기" onclick="window.open('https://lavidamall.co.kr/')">View Live</button>
                     </div>
                 </li>
-                <li data-category="work" class="motion">
-                    <div class="img-area"><img src="dist/img/work-monocr-01.jpg" alt="monocr 홈페이지 화면"></div>
+                <li data-category="work" class="motion type-pc">
+                    <div class="img-area"><img src="assets/img/work-monocr-01.jpg" alt="monocr 홈페이지 화면"></div>
                     <div class="txt-area">
                         <h3>Website Renewal : Monocr</h3>
                         <div class="datetime">
@@ -196,15 +216,28 @@
                         <dl>
                             <div>
                                 <dt>사용기술</dt>
-                                <dd>HTML5, CSS3, JavaScript, jQuery, PagePiling.js, Adobe Photoshop</dd>
+                                <dd>Adobe Photoshop, HTML5, CSS3, JavaScript, jQuery, Pagepiling.js (jquery plugin)</dd>
                             </div>
                             <div>
                                 <dt>기여도</dt>
-                                <dd>90%</dd>
+                                <dd>
+                                    <dl>
+                                        <dt>기획</dt>
+                                        <dd>80%</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>디자인</dt>
+                                        <dd>80%</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>퍼블리싱</dt>
+                                        <dd>100%</dd>
+                                    </dl>
+                                </dd>
                             </div>
                             <div>
                                 <dt>구현기능</dt>
-                                <dd>반응형, google map API</dd>
+                                <dd>반응형, google map API, scroll event</dd>
                             </div>
                             <div>
                                 <dt>Detail</dt>
@@ -214,10 +247,11 @@
                             </div>
                         </dl>
                         <button type="button" title="새 탭으로 열기" onclick="window.open('http://www.monocr.com/')">View Live</button>
+                        <button type="button" title="새 탭으로 열기" onclick="window.open('https://seemly-mile-d41.notion.site/Monocr-ee054b8fbd37435eb1460cd664cb98c7')">Notion</button>
                     </div>
                 </li>
-                <li data-category="work" class="motion">
-                    <div class="img-area"><img src="dist/img/work-fur-01.jpg" alt="기금도시재생포털 홈페이지 화면"></div>
+                <li data-category="work" class="motion type-pc">
+                    <div class="img-area"><img src="assets/img/work-fur-01.jpg" alt="기금도시재생포털 홈페이지 화면"></div>
                     <div class="txt-area">
                         <h3>기금도시재생포털 웹사이트 제작</h3>
                         <div class="datetime">
@@ -227,20 +261,37 @@
                         <dl>
                             <div>
                                 <dt>사용기술</dt>
-                                <dd>HTML5, CSS3, JavaScript, jQuery, PagePiling.js, Adobe Photoshop</dd>
+                                <dd>HTML5, CSS3, JavaScript, jQuery, Adobe Photoshop</dd>
                             </div>
                             <div>
                                 <dt>기여도</dt>
-                                <dd>90%</dd>
+                                <dd>
+                                    <dl>
+                                        <dt>기획</dt>
+                                        <dd>30%</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>디자인</dt>
+                                        <dd>30%</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>퍼블리싱</dt>
+                                        <dd>100%</dd>
+                                    </dl>
+                                </dd>
                             </div>
                             <div>
                                 <dt>구현기능</dt>
-                                <dd>반응형, google map API</dd>
+                                <dd>반응형, 마법사 기능 (입력에 따른 간단한 산출식 & 선택에 따른 결과값 도출)</dd>
                             </div>
                             <div>
                                 <dt>Detail</dt>
                                 <dd>
-                                    333333333333333
+                                    <ul>
+                                        <li>기획, 디자인을 보조하면서 퍼블리싱을 하였으며, 전체 프로젝트에 대한 경험을 하였습니다.</li>
+                                        <li>공공기관은 대민 서비스이다 보니, 웹 접근성에 대한 더욱 디테일한 작업을 할 수 있었습니다.</li>
+                                        <li>배포 전 단계에서 끊임없는 테스트를 통하여 디테일한 보수 사항이 나올 때마다 관련된 사항을 처리하며, 협업과 개인 스캐줄 관리 문서화의 중요성을 깨닫게 되었습니다.</li>
+                                    </ul>
                                 </dd>
                             </div>
                         </dl>
@@ -248,8 +299,15 @@
                         <button type="button" title="새 탭으로 열기" onclick="window.open('https://genuine-choux-8d3fa4.netlify.app')">Local Product</button>
                     </div>
                 </li>
-                <!-- <li data-category="work" class="motion">
-                    <div class="img-area"><img src="dist/img/work-mockup-mobile-aonecc-01.jpg" alt="aonecc mobile mockup"></div>
+                <li data-category="work" class="motion type-mobile">
+                    <div class="img-area">
+                        <div class="img-wrap">
+                            <img src="assets/img/aonecc/login.jpg" alt="aonecc mobile mockup">
+                            <img src="assets/img/aonecc/menu_accordion.jpg" alt="aonecc mobile mockup">
+                            <img src="assets/img/aonecc/signup_02.jpg" alt="aonecc mobile mockup">
+                            <img src="assets/img/aonecc/table.jpg" alt="aonecc mobile mockup">
+                        </div>
+                    </div>
                     <div class="txt-area">
                         <h3>A-one CC 회원용 예약 사이트 리뉴얼 (모바일)</h3>
                         <div class="datetime">
@@ -259,28 +317,40 @@
                         <dl>
                             <div>
                                 <dt>사용기술</dt>
-                                <dd>HTML5, CSS3, JavaScript, jQuery, PagePiling.js, Adobe Photoshop</dd>
+                                <dd>HTML5, CSS3, JavaScript, jQuery, Adobe Photoshop</dd>
                             </div>
                             <div>
                                 <dt>기여도</dt>
-                                <dd>90%</dd>
+                                <dd>
+                                    <dl>
+                                        <dt>디자인</dt>
+                                        <dd>80%</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>퍼블리싱</dt>
+                                        <dd>100%</dd>
+                                    </dl>
+                                </dd>
                             </div>
                             <div>
                                 <dt>구현기능</dt>
-                                <dd>반응형, google map API</dd>
+                                <dd>적응형</dd>
                             </div>
                             <div>
                                 <dt>Detail</dt>
                                 <dd>
-                                    444444444444
+                                    <ul>
+                                        <li>UX wrighting 의 중요성에 대한 관심을 사용해 볼 수 있었던 프로잭트입니다. "사용자의 작업 흐름에 따른 정보를 어떻게 제공할것인가"를 중점으로 UI, UX 디자인 및 구현 하였으며, 모바일과 PC 버전으로 나누어서 작업하였습니다.</li>
+                                        <li>내부 사정으로 인하여, 고정된 사이즈로 작업하게 된 점이 아쉬웠습니다.</li>
+                                    </ul>
                                 </dd>
                             </div>
                         </dl>
                         <button type="button" title="새 탭으로 열기" onclick="window.open('https://www.a-onecc.co.kr/mob/')">View Live</button>
                     </div>
                 </li>
-                <li data-category="work" class="motion">
-                    <div class="img-area"><img src="dist/img/work-mockup-mobile-novita-01.jpg" alt="novita mobile mockup"></div>
+                <li data-category="work" class="motion type-mobile">
+                    <div class="img-area"><img src="assets/img/work-mockup-mobile-novita-01.jpg" alt="novita mobile mockup"></div>
                     <div class="txt-area">
                         <h3>Novita</h3>
                         <div class="datetime">
@@ -309,8 +379,8 @@
                         </dl>
                         <button type="button" title="새 탭으로 열기" onclick="window.open('https://play.google.com/store/apps/details?id=lifegood.prayer.novita', '_blank');" tar>Google Play Store</button>
                     </div>
-                </li> -->
-                <li class="txt-version" data-category="study">
+                </li>
+                <li data-category="study" class="txt-version">
                     <div class="txt-area">
                         <h3>유튜브</h3>
                         <div class="datetime">
@@ -332,7 +402,7 @@
                     </div>
                     <h3></h3>
                 </li>
-                <li class="txt-version" data-category="study">
+                <li data-category="study" class="txt-version">
                     <div class="txt-area">
                         <h3>Weather API</h3>
                         <div class="datetime">
@@ -353,7 +423,7 @@
                         <button type="button" title="새 탭으로 열기"  onclick="window.open('https://www.notion.so/JS-dc390e4928b14f0da09d3c5180b7ae23#41f956afdbca43d7bcb994178c015812')">Notion</button>
                     </div>
                 </li>
-                <li class="txt-version" data-category="study">
+                <li data-category="study" class="txt-version">
                     <div class="txt-area">
                         <h3>.localStorage</h3>
                         <div class="datetime">
@@ -374,7 +444,7 @@
                         <button type="button" title="새 탭으로 열기"  onclick="window.open('https://www.notion.so/JS-dc390e4928b14f0da09d3c5180b7ae23#d9188ce9af66416ab75a90ca38c7ba93')">Notion</button>
                     </div>
                 </li>
-                <li class="txt-version" data-category="study">
+                <li data-category="study" class="txt-version">
                     <div class="txt-area">
                         <h3>이 외 공부 중인 내용</h3>
                         <div class="datetime">
@@ -430,7 +500,7 @@
         </section>
         <div id="main-background-area">
             <div class="circle"></div>
-            <img src="dist/img/circle-scroll.svg" alt="" id="circle-scroll-svg">
+            <img src="assets/img/circle-scroll.svg" alt="" id="circle-scroll-svg">
         </div>
     </main>
     <footer id="footer">
@@ -452,9 +522,9 @@
         </div>
     </footer>
 
-    <script type="module" src="dist/js/index.js" defer></script>
-    <script src="dist/js/cursor.js" defer></script>
+    <script type="module" src="assets/dist/js/index.js" defer></script>
+    <script src="assets/dist/js/cursor.js" defer></script>
     <script data-cfasync="false" type="text/javascript"
-src="dist/js/module/form-submission-handler.js"></script>
+src="assets/dist/js/formSubmissionHandler.js"></script>
 </body>
 </html>

@@ -1,12 +1,11 @@
 #node modules
 /node_modules
 
-# VS Code
-/.vscode
-
 #API KEY
 .env
 
 #webpack
-/package-lock.json
+# /package-lock.json
 # /package.json
+
+# /dist
