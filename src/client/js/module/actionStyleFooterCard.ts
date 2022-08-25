@@ -28,7 +28,6 @@ export function bindFooterCard() {
             hoverFootCardButton.leave(i);
         });
     });
-
     function twistCardHandler (this: any, event: any) {
         if (getCurrentScrollBottomEnd()){
             this.style.transform = `

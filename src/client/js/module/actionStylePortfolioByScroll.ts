@@ -3,6 +3,7 @@ import { getPercentage } from "../utils/utils";
 // 스크롤 이벤트에 따른 포트폴리오 영역 활성화
 const portfolioSection = document.querySelector('#portfolio-section') as HTMLElement;
 const portfolioTitle = document.querySelector('#portfolio-section>h2') as HTMLElement;
+const categoryTab = portfolioSection.querySelector('.category-tab-wrap') as HTMLElement;
 const portfolioListPc = document.querySelectorAll('.portfolio-list>li.motion.type-pc');
 const portfolioListMob = document.querySelectorAll('.portfolio-list>li.motion.type-mobile');
 
@@ -11,18 +12,30 @@ const winHeightHalf = (window.innerHeight / 2);
 export const activePortfolioByScroll = {
     titleMotion: {
         startPoint : portfolioSection.offsetTop + window.innerHeight,
+        endPoint: portfolioSection.offsetTop + portfolioSection.scrollHeight,
         action(scrollBottom:number) {
-            if(scrollBottom > this.startPoint){ 
+            if(scrollBottom > this.startPoint && scrollBottom < this.endPoint){ 
                 const parts = scrollBottom - this.startPoint;
                 const whole = window.innerHeight;
                 let opacityValue = 1 - getPercentage(parts, whole, 1);
                 if(opacityValue < 0) {
                     opacityValue = 0;
                 }
-                portfolioTitle.classList.add('on');
                 portfolioTitle.style.opacity = String(opacityValue);
+                portfolioTitle.classList.add('on');
             }else {
                 portfolioTitle.classList.remove('on');
+            }
+        }
+    },
+    tabMotion: {
+        elementRelativeTop: window.pageYOffset + categoryTab.getBoundingClientRect().top,
+        endPoint: portfolioSection.offsetTop + portfolioSection.scrollHeight,
+        action(scrollBottom:number) {
+            if(scrollBottom - window.innerHeight > this.elementRelativeTop && scrollBottom < this.endPoint){
+                categoryTab.classList.add('on');
+            }else {
+                categoryTab.classList.remove('on');
             }
         }
     },
@@ -91,6 +104,7 @@ export const activePortfolioByScroll = {
     },
     action(scrollBottom: number): void {
         this.titleMotion.action(scrollBottom);
+        this.tabMotion.action(scrollBottom);
         portfolioListPc.forEach((obj, i, arr) => {
             this.setImgActive.pc(scrollBottom, i, arr);
             this.setTxtActive.pc(scrollBottom, i, arr);
