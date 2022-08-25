@@ -4,8 +4,9 @@ import { getPercentage } from "../utils/utils";
 const portfolioSection = document.querySelector('#portfolio-section') as HTMLElement;
 const portfolioTitle = document.querySelector('#portfolio-section>h2') as HTMLElement;
 const categoryTab = portfolioSection.querySelector('.category-tab-wrap') as HTMLElement;
-const portfolioListPc = document.querySelectorAll('.portfolio-list>li.motion.type-pc');
-const portfolioListMob = document.querySelectorAll('.portfolio-list>li.motion.type-mobile');
+const portfolioList = document.querySelectorAll('.portfolio-list>li.motion');
+// const portfolioListPc = document.querySelectorAll('.portfolio-list>li.motion.type-pc');
+// const portfolioListMob = document.querySelectorAll('.portfolio-list>li.motion.type-mobile');
 
 const winHeightHalf = (window.innerHeight / 2);
 
@@ -57,7 +58,7 @@ export const activePortfolioByScroll = {
             const scroll = arr[i].querySelector('.img-area .img-wrap');
             if(mockup){
                 const CLASS_NAME_ON = 'on';
-                let startPoint = window.pageYOffset + arr[i].getBoundingClientRect().top < scrollBottom;
+                let startPoint = window.pageYOffset + arr[i].getBoundingClientRect().top + window.innerHeight < scrollBottom;
                 if (startPoint) {
                     mockup.classList.add(CLASS_NAME_ON);
                 } else {
@@ -105,13 +106,13 @@ export const activePortfolioByScroll = {
     action(scrollBottom: number): void {
         this.titleMotion.action(scrollBottom);
         this.tabMotion.action(scrollBottom);
-        portfolioListPc.forEach((obj, i, arr) => {
+        portfolioList.forEach((obj, i, arr) => {
             this.setImgActive.pc(scrollBottom, i, arr);
             this.setTxtActive.pc(scrollBottom, i, arr);
         });
-        portfolioListMob.forEach((obj, i, arr) => {
-            this.setImgActive.mob(scrollBottom, i, arr);
-            this.setTxtActive.mob(scrollBottom, i, arr);
-        });
+        // portfolioListMob.forEach((obj, i, arr) => {
+        //     this.setImgActive.mob(scrollBottom, i, arr);
+        //     this.setTxtActive.mob(scrollBottom, i, arr);
+        // });
     }
 };

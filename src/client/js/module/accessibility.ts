@@ -3,8 +3,8 @@ import { setMoveScrollByAnchor } from "./actionHeader";
 export function accessibility() {
 // 웹 접근성 관련 코드
     const portfolioList = document.querySelectorAll('.portfolio-list>li') as NodeListOf<HTMLElement>;
-    const lastPortfolioButtons = portfolioList[portfolioList.length-1].querySelectorAll('.txt-area button');
-    const lastPortfolioLastButton = lastPortfolioButtons[lastPortfolioButtons.length-1];
+    const lastPortfolioButtons = document.querySelectorAll('.portfolio-list button') as NodeListOf<HTMLElement>;
+    const lastPortfolioLastButton = lastPortfolioButtons[lastPortfolioButtons.length-1] as HTMLElement;
     let activePortfolioButton: any = null;
     const CLASS_NAME_ON = 'on';
 

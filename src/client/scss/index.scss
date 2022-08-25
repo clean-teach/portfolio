@@ -62,12 +62,9 @@ section {
         &::after {content: ""; display: block; clear: both;}
         &>li {
             position: relative; z-index: 4; display: flex; justify-content: space-between;
-            .img-area {
-                width: 50%; overflow: hidden; box-shadow: 10px 20px 60px rgba(0, 0, 0, .2); line-height: 0; transform: skewY(24deg) translateY(400px) scale(1.2); transform-origin: 0 0; opacity: 0;
-                img {width: 100%;}
-            }
             .txt-area {
                 h3 {font-weight: bold; font-size: 2rem; color: var(--color-gray01);}
+                p {margin-top: 2.4rem;}
                 .datetime {
                     margin-top: 1rem; font-weight: 200; font-size: 1rem; letter-spacing: .05rem; color: var(--color-gray03);
                     .end::before {content: ' ~ ';}
@@ -89,28 +86,43 @@ section {
             .txt-area button + button {margin-left: .5rem;}
             &.motion {
                 width: 100%; clear: both; margin-top: 10rem;
+                .img-area {
+                    line-height: 0; transform: skewY(24deg) translateY(400px) scale(1.2); transform-origin: 0 0; opacity: 0;
+                    img {width: 100%; box-shadow: 10px 20px 60px rgba(0, 0, 0, .2);}
+                }
+                .txt-area {
+                    position: fixed; z-index: 5; top: 20vh; width: calc((1280px / 100) * 40); 
+                    transform: translateX(-2000px) skewX(64deg);
+                    transform-origin: 0; transition: .2s ease-in;
+                }
+                &:nth-child(odd) {
+                    flex-direction: row-reverse;
+                    .img-area {margin-right: 50%;}
+                    .txt-area {left: 52%; text-align: left; transform: translateX(2000px) skewX(64deg);}
+                }
+                &:nth-child(even) {
+                    .img-area {margin-left: 50%;}
+                    .txt-area {right: 52%; text-align: right; transform: translateX(-2000px) skewX(64deg);}
+                }
                 &.type-pc {
-                    .txt-area {
-                        position: fixed; z-index: 5; top: 20vh; width: 40%; 
-                        transform: translateX(-2000px) skewX(64deg);
-                        transform-origin: 0; transition: .2s ease-in;
-                    }
-                    &:nth-child(even) {
-                        flex-direction: row-reverse;
-                        .txt-area {right: 52%; text-align: right; transform: translateX(-2000px) skewX(64deg);}
-                    }
-                    &:nth-child(odd) .txt-area {left: 52%; text-align: left; transform: translateX(2000px) skewX(64deg);}
-                    .img-area.on {transform: skewY(0) translateY(0) scale(1); opacity: 1; transition: .4s;}
-                    .txt-area.on {transform: translateX(0) skewX(0);}
+                    .img-area {width: 50%;}
                 }
                 &.type-mobile {
                     .img-area {
-                        position: relative; width: 20rem; height: 43.125rem;-webkit-mask-image: url(../../../assets/img/mockup.png); mask-image: url(../../../assets/img/mockup.png); -webkit-mask-size: cover; mask-size: cover;
-                        &.on {position: fixed; top: 20vh;}
-                        .img-wrap {position: absolute; left: 0; top: 0;}
+                        position: relative; width: 20rem;
+                        // position: absolute; top: 0; width: 20rem; height: 43.125rem;-webkit-mask-image: url(../../../assets/img/mockup.png); mask-image: url(../../../assets/img/mockup.png); -webkit-mask-size: cover; mask-size: cover;
+                        .img-wrap {
+                            width: 100%;
+                            img {
+                                width: 100%;
+                                & + img {margin-top: 1rem;}
+                            }
+                        }
                     }
-                    .txt-area {display: none}
+                    // .txt-area {display: none}
                 }
+                .img-area.on {transform: skewY(0) translateY(0) scale(1); opacity: 1; transition: .4s;}
+                .txt-area.on {transform: translateX(0) skewX(0);}
             }
             &.txt-version {
                 width: 50%; float: left; box-sizing: border-box; padding-top: 6rem;
