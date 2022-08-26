@@ -14,6 +14,9 @@ export const setBackgroundColorByMouseMove = {
     },
     getMouseMove (event: any, target: HTMLElement):void {
     // scroll, mousemove 에 따른 배경색상 추출 및 설정 함수
+        if(!target){
+            return
+        }
         if(this.mediaCondition){
             this.eventX = Math.floor(event.x / target.offsetWidth * 100);
             this.eventY = Math.floor(event.y / target.offsetHeight * 100);

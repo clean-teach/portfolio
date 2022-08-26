@@ -327,7 +327,7 @@ section h2 {
   top: 100vh;
   width: 100%;
   text-align: center;
-  padding: 1rem 0;
+  padding: 2rem 0;
   z-index: 5;
 }
 #portfolio-section .category-tab-wrap button {
@@ -335,6 +335,7 @@ section h2 {
   font-weight: 300;
   font-size: 1.25rem;
   color: var(--color-gray04);
+  transition: 0.4s;
 }
 #portfolio-section .category-tab-wrap button.on {
   font-weight: bold;
@@ -345,6 +346,10 @@ section h2 {
   top: 0;
   left: 0;
   background-color: rgba(255, 255, 255, 0.9);
+}
+#portfolio-section .category-tab-wrap.on button {
+  margin: 0 1rem;
+  font-size: 1rem;
 }
 #portfolio-section .center-wrap {
   max-width: 1280px;

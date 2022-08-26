@@ -49,12 +49,15 @@ section {
         }
     }
     .category-tab-wrap {
-        position: absolute; top: 100vh; width: 100%; text-align: center; padding: 1rem 0; z-index: 5;
+        position: absolute; top: 100vh; width: 100%; text-align: center; padding: 2rem 0; z-index: 5;
         button {
-            margin: 0 2rem; font-weight: 300; font-size: 1.25rem; color: var(--color-gray04);
+            margin: 0 2rem; font-weight: 300; font-size: 1.25rem; color: var(--color-gray04); transition: .4s;
             &.on {font-weight: bold; color: var(--color-gray01);}
         }
-        &.on {position: fixed; top: 0; left: 0; background-color:rgba(255, 255, 255, .9);}
+        &.on {
+            position: fixed; top: 0; left: 0; background-color:rgba(255, 255, 255, .9);
+            button {margin: 0 1rem; font-size: 1rem;}
+        }
     }
     .center-wrap {max-width: 1280px; box-sizing: border-box; padding: 2rem 1rem; margin: 0 auto;}
     .portfolio-list {
