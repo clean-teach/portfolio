@@ -408,13 +408,20 @@ section h2 {
 #portfolio-section .portfolio-list > li .txt-area dd dl {
   margin-top: 0;
 }
-#portfolio-section .portfolio-list > li .txt-area dd dt, #portfolio-section .portfolio-list > li .txt-area dd dd {
+#portfolio-section .portfolio-list > li .txt-area dd dt,
+#portfolio-section .portfolio-list > li .txt-area dd dd {
   display: inline;
 }
 #portfolio-section .portfolio-list > li .txt-area dd dt {
   color: var(--color-gray03);
   font-weight: 500;
   font-size: 1rem;
+}
+#portfolio-section .portfolio-list > li .txt-area dd li {
+  margin-top: 0.5rem;
+}
+#portfolio-section .portfolio-list > li .txt-area dd ul li {
+  list-style: disc inside;
 }
 #portfolio-section .portfolio-list > li .txt-area button {
   font-weight: 500;
@@ -561,7 +568,8 @@ section h2 {
 #contact-section label.on {
   color: var(--color-gray01);
 }
-#contact-section input, #contact-section textarea {
+#contact-section input,
+#contact-section textarea {
   width: 100%;
   box-sizing: border-box;
   padding: 0.6rem;
@@ -758,7 +766,8 @@ footer .card {
   transform: rotateX(90deg);
   transform-style: preserve-3d;
 }
-footer .card .front, footer .card .back {
+footer .card .front,
+footer .card .back {
   position: absolute;
   top: 0;
   left: 0;
@@ -823,11 +832,11 @@ footer .clock-arae {
     background-position: 0% 50%;
   }
   /* 0% {
-      transform: rotateZ(0);
-  }
-  100% {
-      transform: rotateZ(360deg);
-  } */
+        transform: rotateZ(0);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    } */
 }
 @keyframes rotate {
   from {
