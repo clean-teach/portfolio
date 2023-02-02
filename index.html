@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Author" content="김청훈"/>
-	<meta name="Keywords" content="포트폴리오, 웹, 사이트, 개인 포트폴리오, 프론트앤드, 퍼블리싱, 퍼블리셔, 웹개발, 웹디자인, 반응형, 웹, 디자인, UI, UX, developer, web, portfolio, front-end, publishing, publisher"/>
-	<meta name="Description" content="김청훈의 포트폴리오 웹사이트 입니다"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="Author" content="김청훈" />
+    <meta
+      name="Keywords"
+      content="포트폴리오, 웹, 사이트, 개인 포트폴리오, 프론트앤드, 퍼블리싱, 퍼블리셔, 웹개발, 웹디자인, 반응형, 웹, 디자인, UI, UX, developer, web, portfolio, front-end, publishing, publisher"
+    />
+    <meta name="Description" content="김청훈의 포트폴리오 웹사이트 입니다" />
     <title>CH Portfolio</title>
     <!-- <script type="module" src="assets/dist/js/loadingPage.js"></script> -->
-    <link rel="shortcut icon" href="assets/dist/img/favicon.ico">
-	<link rel="apple-touch-icon-precomposed" href="dist/img/icon01.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="dist/img/icon02.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
-    <link rel="stylesheet" href="assets/dist/css/style.css">
-</head>
-<body>
+    <link rel="shortcut icon" href="assets/dist/img/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="dist/img/icon01.png" />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="114x114"
+      href="dist/img/icon02.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+    />
+    <link rel="stylesheet" href="assets/dist/css/style.css" />
+  </head>
+  <body>
     <!-- <div id="loader">
         <div class="txt">
             <p class="sub">천재는 노력하는 사람을 이길 수 없고, <br />노력하는 사람은 즐기는 사람을 이길 수 없다.</p>
@@ -23,517 +33,877 @@
         </div>
     </div> -->
     <header>
-        <h1>UI developer Portfolio</h1>
-        <button class="btn-main-menu" title="메인 메뉴 버튼"><i></i><i></i><i></i></button>
-        <nav id="lnb">
-            <ul>
-                <li class="lnb-top"><a href="#main-section" title="해당 위치로 이동">Top</a></li>
-                <li class="lnb-portfolio"><a href="#portfolio-section" title="해당 위치로 이동">Portfolio</a></li>
-                <li class="lnb-contact"><a href="#contact-section" title="해당 위치로 이동">Contact</a></li>
-                <li class="lnb-footer"><a href="#footer" title="해당 위치로 이동">Footer</a></li>
-            </ul>
-        </nav>
+      <h1>UI developer Portfolio</h1>
+      <button class="btn-main-menu" title="메인 메뉴 버튼">
+        <i></i><i></i><i></i>
+      </button>
+      <nav id="lnb">
+        <ul>
+          <li class="lnb-top">
+            <a href="#main-section" title="해당 위치로 이동">Top</a>
+          </li>
+          <li class="lnb-portfolio">
+            <a href="#portfolio-section" title="해당 위치로 이동">Portfolio</a>
+          </li>
+          <li class="lnb-contact">
+            <a href="#contact-section" title="해당 위치로 이동">Contact</a>
+          </li>
+          <li class="lnb-footer">
+            <a href="#footer" title="해당 위치로 이동">Footer</a>
+          </li>
+        </ul>
+      </nav>
     </header>
     <main id="main-scroll-layer">
-        <!-- <button type="button" id="btn-switch-mode-gradient" title="배경화면 그라데이션/단색 모드 변경하기">배경색상 모드 변경</button> -->
-        <section id="main-section">
-            <div class="txt">
-                <p class="tit">저는 놀이처럼 배우고 활용하는 것을 좋아합니다. 좋아하는 일을 할 때 가장 좋은 결과를 만들구요!</p>
-                <p class="vertical">
-                    한 평생 배우러 왔다가 갑니다
-                </p>
+      <!-- <button type="button" id="btn-switch-mode-gradient" title="배경화면 그라데이션/단색 모드 변경하기">배경색상 모드 변경</button> -->
+      <section id="main-section">
+        <div class="txt">
+          <p class="tit">
+            저는 놀이처럼 배우고 활용하는 것을 좋아합니다. 좋아하는 일을 할 때
+            가장 좋은 결과를 만들구요!
+          </p>
+          <p class="vertical">한 평생 배우러 왔다가 갑니다</p>
+        </div>
+      </section>
+      <section id="portfolio-section">
+        <h2>Portfolio</h2>
+        <div class="category-tab-wrap">
+          <button
+            type="button"
+            class="on"
+            data-category="total"
+            title="전체 보기"
+          >
+            Total
+          </button>
+          <button type="button" data-category="study" title="분류 별 보기">
+            Study
+          </button>
+          <button type="button" data-category="work" title="분류 별 보기">
+            Work
+          </button>
+          <button
+            type="button"
+            data-category="side-project"
+            title="분류 별 보기"
+          >
+            Side Project
+          </button>
+        </div>
+        <ul class="portfolio-list center-wrap">
+          <li data-category="work" class="motion type-pc">
+            <div class="img-area">
+              <img
+                src="assets/img/work-researcharum-01.jpg"
+                alt="Research Arum 웹사이트 화면"
+              />
             </div>
-        </section>
-        <section id="portfolio-section">
-            <h2>Portfolio</h2>
-            <div class="category-tab-wrap">
-                <button type="button" class="on" data-category="total" title="전체 보기">Total</button>
-                <button type="button" data-category="study" title="분류 별 보기">Study</button>
-                <button type="button" data-category="work" title="분류 별 보기">Work</button>
-                <button type="button" data-category="side-project" title="분류 별 보기">Side Project</button>
+            <div class="txt-area">
+              <h3>Research Arum 웹사이트 리뉴얼</h3>
+              <div class="datetime">
+                <span class="start">2021.12</span>
+                <span class="end">2022.01</span>
+              </div>
+              <dl>
+                <div>
+                  <dt>Skill</dt>
+                  <dd>HTML5, CSS3, JavaScript</dd>
+                </div>
+                <div>
+                  <dt>기여도</dt>
+                  <dd>
+                    <dl>
+                      <dt>디자인</dt>
+                      <dd>20%</dd>
+                    </dl>
+                    <dl>
+                      <dt>퍼블리싱</dt>
+                      <dd>100%</dd>
+                    </dl>
+                  </dd>
+                </div>
+                <div>
+                  <dt>구현기능</dt>
+                  <dd>반응형, 레이어 팝업</dd>
+                </div>
+              </dl>
+              <button
+                type="button"
+                title="새 탭으로 열기"
+                onclick="window.open('https://animated-cat-795c86.netlify.app/')"
+              >
+                Local Product
+              </button>
+              <button
+                type="button"
+                title="새 탭으로 열기"
+                onclick="window.open('https://seemly-mile-d41.notion.site/researcharum-c5c12a1e1ec240c0932668642f220566')"
+              >
+                Notion
+              </button>
             </div>
-            <ul class="portfolio-list center-wrap">
-                <li data-category="work" class="motion type-pc">
-                    <div class="img-area">
-                        <img src="assets/img/work-researcharum-01.jpg" alt="Research Arum 웹사이트 화면">
-                    </div>
-                    <div class="txt-area">
-                        <h3>Research Arum 웹사이트 리뉴얼</h3>
-                        <div class="datetime">
-                            <span class="start">2021.12</span>
-                            <span class="end">2022.01</span>
-                        </div>
-                        <dl>
-                            <div>
-                                <dt>Skill</dt>
-                                <dd>HTML5, CSS3, JavaScript</dd>
-                            </div>
-                            <div>
-                                <dt>기여도</dt>
-                                <dd>
-                                    <dl>
-                                        <dt>디자인</dt>
-                                        <dd>20%</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>퍼블리싱</dt>
-                                        <dd>100%</dd>
-                                    </dl>
-                                </dd>
-                            </div>
-                            <div>
-                                <dt>구현기능</dt>
-                                <dd>반응형, 레이어 팝업</dd>
-                            </div>
-                        </dl>
-                        <button type="button" title="새 탭으로 열기"  onclick="window.open('https://animated-cat-795c86.netlify.app/')">Local Product</button>
-                        <button type="button" title="새 탭으로 열기"  onclick="window.open('https://seemly-mile-d41.notion.site/researcharum-c5c12a1e1ec240c0932668642f220566')">Notion</button>
-                    </div>
-                </li>
-                <li data-category="work" class="motion type-pc">
-                    <div class="img-area">
-                        <img src="assets/img/work-durian-01.jpg" alt="Durian 웹사이트 화면">
-                    </div>
-                    <div class="txt-area">
-                        <h3>Durian 웹사이트 제작</h3>
-                        <div class="datetime">
-                            <span class="start">2021.10</span>
-                            <span class="end">2021.10</span>
-                        </div>
-                        <dl>
-                            <div>
-                                <dt>Skill</dt>
-                                <dd>HTML5, CSS3, JavaScript</dd>
-                            </div>
-                            <div>
-                                <dt>기여도</dt>
-                                <dd>
-                                    <dl>
-                                        <dt>퍼블리싱</dt>
-                                        <dd>100%</dd>
-                                    </dl>
-                                </dd>
-                            </div>
-                            <div>
-                                <dt>구현기능</dt>
-                                <dd>반응형, 원페이지 스크롤</dd>
-                            </div>
-                            <div>
-                                <dt>Detail</dt>
-                                <dd>
-                                    바닐라스크립트만을 사용하여 제작
-                                </dd>
-                            </div>
-                        </dl>
-                        <button type="button" title="새 탭으로 열기"  onclick="window.open('https://dreamy-duckanoo-4056ec.netlify.app')">Local Product</button>
-                        <button type="button" title="새 탭으로 열기"  onclick="window.open('https://seemly-mile-d41.notion.site/Durian-2ec3fce0ea2d46d187b16cd9b1af1343')">Notion</button>
-                    </div>
-                </li>
-                <li data-category="work" class="motion type-pc">
-                    <div class="img-area">
-                        <img src="assets/img/work-peauty-01.jpg" alt="Peauty 웹사이트 화면">
-                    </div>
-                    <div class="txt-area">
-                        <h3>Peauty</h3>
-                        <div class="datetime">
-                            <span class="start">2021.1</span>
-                            <span class="end">2021.4</span>
-                        </div>
-                        <dl>
-                            <div>
-                                <dt>Skill</dt>
-                                <dd>HTML5, CSS3, JavaScript, jQuery</dd>
-                            </div>
-                            <div>
-                                <dt>기여도</dt>
-                                <dd>
-                                    <dl>
-                                        <dt>디자인</dt>
-                                        <dd>30%</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>퍼블리싱</dt>
-                                        <dd>100%</dd>
-                                    </dl>
-                                </dd>
-                            </div>
-                            <div>
-                                <dt>Detail</dt>
-                                <dd>
-                                    <ul>
-                                        <li>사업상의 사정으로 인하여 프로젝트를 완료하진 못했지만, 디자인 리뉴얼 작업부터 도맡아 작업하며 정적 사이트가 아닌 동적 사이트에 대한 개념과 UIUX에 대한 고민을 할 수 있었던 좋은 경험이었습니다.</li>
-                                    </ul>
-                                </dd>
-                            </div>
-                        </dl>
-                        <button type="button" title="새 탭으로 열기"  onclick="window.open('https://seemly-mile-d41.notion.site/Peauty-1782ddf20ee74b3895f35bff1bc741fa')">Notion</button>
-                    </div>
-                </li>
-                <li data-category="work" class="motion type-pc">
-                    <div class="img-area"><img src="assets/img/work-lavidamall-01.jpg" alt="lavida mall 홈페이지 화면"></div>
-                    <div class="txt-area">
-                        <h3>Lavida mall 웹사이트 제작</h3>
-                        <div class="datetime">
-                            <span class="start">2020.04</span>
-                            <span class="end">2020.10</span>
-                        </div>
-                        <dl>
-                            <div>
-                                <dt>Skill</dt>
-                                <dd>HTML5, CSS3, JavaScript, jQuery</dd>
-                            </div>
-                            <div>
-                                <dt>기여도</dt>
-                                <dd>
-                                    <dl>
-                                        <dt>퍼블리싱</dt>
-                                        <dd>100%</dd>
-                                    </dl>
-                                </dd>
-                            </div>
-                            <div>
-                                <dt>구현기능</dt>
-                                <dd>적응형</dd>
-                            </div>
-                            <div>
-                                <dt>Detail</dt>
-                                <dd>
-                                    모바일 버전의 웹 페이지를 따로 구분하여 작업하였고 공통 코드에 대해 염두해가며 클래스와 파일의 최적화에 신경을 썼습니다.
-                                </dd>
-                            </div>
-                        </dl>
-                        <button type="button" title="새 탭으로 열기" onclick="window.open('https://lavidamall.co.kr/')">View Live</button>
-                    </div>
-                </li>
-                <li data-category="work" class="motion type-pc">
-                    <div class="img-area"><img src="assets/img/work-monocr-01.jpg" alt="monocr 홈페이지 화면"></div>
-                    <div class="txt-area">
-                        <h3>Website Renewal : Monocr</h3>
-                        <div class="datetime">
-                            <span class="start">2019.10</span>
-                            <span class="end">2020.3</span>
-                        </div>
-                        <dl>
-                            <div>
-                                <dt>Skill</dt>
-                                <dd>Adobe Photoshop, HTML5, CSS3, JavaScript, jQuery, Pagepiling.js (jquery plugin)</dd>
-                            </div>
-                            <div>
-                                <dt>기여도</dt>
-                                <dd>
-                                    <dl>
-                                        <dt>기획</dt>
-                                        <dd>80%</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>디자인</dt>
-                                        <dd>80%</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>퍼블리싱</dt>
-                                        <dd>100%</dd>
-                                    </dl>
-                                </dd>
-                            </div>
-                            <div>
-                                <dt>구현기능</dt>
-                                <dd>반응형, google map API, scroll event</dd>
-                            </div>
-                            <div>
-                                <dt>Detail</dt>
-                                <dd>
-                                    기획부터 디자인, 퍼블리싱까지 맡아서 작업하였습니다. <br />
-                                    반응형으로 작업하면서도 비주얼을 강조하기 위하여 동적 스크롤 등 각종 이벤트를 통한 UI/UX 설계에 집중하였습니다. 나름대로 형상관리 환경을 구축해보기도 하는 등 혼자 책임을 맡아 작업하다 보니 여러 분야를 관심을 갖고 배울 수 있었습니다. 뿐만 아니라 동료들에게 조언을 구하기도 하고 문제가 발견되면, 학습중인 기술을 적용하여 개선를 하려고 노력 하였습니다. 그만큼 애정을 갖고 담당했던 프로젝트 였습니다.</dd>
-                            </div>
-                        </dl>
-                        <button type="button" title="새 탭으로 열기" onclick="window.open('http://www.monocr.com/')">View Live</button>
-                        <button type="button" title="새 탭으로 열기" onclick="window.open('https://seemly-mile-d41.notion.site/Monocr-ee054b8fbd37435eb1460cd664cb98c7')">Notion</button>
-                    </div>
-                </li>
-                <li data-category="work" class="motion type-pc">
-                    <div class="img-area"><img src="assets/img/work-fur-01.jpg" alt="기금도시재생포털 홈페이지 화면"></div>
-                    <div class="txt-area">
-                        <h3>기금도시재생포털 웹사이트 제작</h3>
-                        <div class="datetime">
-                            <span class="start">2019.7</span>
-                            <span class="end">2019.12</span>
-                        </div>
-                        <dl>
-                            <div>
-                                <dt>Skill</dt>
-                                <dd>HTML5, CSS3, JavaScript, jQuery, Adobe Photoshop</dd>
-                            </div>
-                            <div>
-                                <dt>기여도</dt>
-                                <dd>
-                                    <dl>
-                                        <dt>기획</dt>
-                                        <dd>30%</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>디자인</dt>
-                                        <dd>30%</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>퍼블리싱</dt>
-                                        <dd>100%</dd>
-                                    </dl>
-                                </dd>
-                            </div>
-                            <div>
-                                <dt>구현기능</dt>
-                                <dd>반응형, 마법사 기능 (입력에 따른 간단한 산출식 & 선택에 따른 결과값 도출)</dd>
-                            </div>
-                            <div>
-                                <dt>Detail</dt>
-                                <dd>
-                                    <ul>
-                                        <li>기획, 디자인을 보조하면서 퍼블리싱을 하였으며, 전체 프로젝트에 대한 경험을 하였습니다.</li>
-                                        <li>공공기관은 대민 서비스이다 보니, 웹 접근성에 대한 더욱 디테일한 작업을 할 수 있었습니다.</li>
-                                        <li>배포 전 단계에서 끊임없는 테스트를 통하여 디테일한 보수 사항이 나올 때마다 관련된 사항을 처리하며, 협업과 개인 스캐줄 관리 문서화의 중요성을 깨닫게 되었습니다.</li>
-                                    </ul>
-                                </dd>
-                            </div>
-                        </dl>
-                        <button type="button" title="새 탭으로 열기" onclick="window.open('https://enhuf.molit.go.kr/fur/index.jsp')">View Live</button>
-                        <button type="button" title="새 탭으로 열기" onclick="window.open('https://genuine-choux-8d3fa4.netlify.app')">Local Product</button>
-                    </div>
-                </li>
-                <li data-category="work" class="motion type-mobile">
-                    <div class="img-area">
-                        <div class="img-wrap">
-                            <img src="assets/img/aonecc/login.jpg" alt="aonecc mobile mockup : login page">
-                            <img src="assets/img/aonecc/menu_accordion.jpg" alt="aonecc mobile mockup : menu page">
-                            <img src="assets/img/aonecc/signup_02.jpg" alt="aonecc mobile mockup : signup page">
-                            <img src="assets/img/aonecc/table.jpg" alt="aonecc mobile mockup : table page">
-                        </div>
-                    </div>
-                    <div class="txt-area">
-                        <h3>A-one CC 회원용 예약 사이트 리뉴얼 (모바일)</h3>
-                        <div class="datetime">
-                            <span class="start">2019.12</span>
-                            <span class="end">2020.2</span>
-                        </div>
-                        <dl>
-                            <div>
-                                <dt>Skill</dt>
-                                <dd>HTML5, CSS3, JavaScript, jQuery, Adobe Photoshop</dd>
-                            </div>
-                            <div>
-                                <dt>기여도</dt>
-                                <dd>
-                                    <dl>
-                                        <dt>디자인</dt>
-                                        <dd>80%</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>퍼블리싱</dt>
-                                        <dd>100%</dd>
-                                    </dl>
-                                </dd>
-                            </div>
-                            <div>
-                                <dt>구현기능</dt>
-                                <dd>적응형</dd>
-                            </div>
-                            <div>
-                                <dt>Detail</dt>
-                                <dd>
-                                    <ul>
-                                        <li>UX wrighting 의 중요성에 대한 관심을 사용해 볼 수 있었던 프로잭트입니다. "사용자의 작업 흐름에 따른 정보를 어떻게 제공할것인가"를 중점으로 UI, UX 디자인 및 구현 하였으며, 모바일과 PC 버전으로 나누어서 작업하였습니다.</li>
-                                        <li>내부 사정으로 인하여, 고정된 사이즈로 작업하게 된 점이 아쉬웠습니다.</li>
-                                    </ul>
-                                </dd>
-                            </div>
-                        </dl>
-                        <button type="button" title="새 탭으로 열기" onclick="window.open('https://www.a-onecc.co.kr/mob/')">View Live</button>
-                    </div>
-                </li>
-                <li data-category="work" class="motion type-mobile">
-                    <div class="img-area">
-                        <div class="img-wrap">
-                            <img src="assets/img/novita/login.jpg" alt="novita mobile mockup : login page">
-                            <img src="assets/img/novita/add-device.jpg" alt="novita mobile mockup : add-device page">
-                            <img src="assets/img/novita/bidet-filter.jpg" alt="novita mobile mockup : bidet-filter page">
-                        </div>
-                    </div>
-                    <div class="txt-area">
-                        <h3>Novita</h3>
-                        <div class="datetime">
-                            <span class="start">2019.10</span>
-                            <span class="end">2020.3</span>
-                        </div>
-                        <dl>
-                            <div>
-                                <dt>Skill</dt>
-                                <dd>HTML5, CSS3, JavaScript, jQuery, PagePiling.js, Adobe Photoshop</dd>
-                            </div>
-                            <div>
-                                <dt>기여도</dt>
-                                <dd>90%</dd>
-                            </div>
-                            <div>
-                                <dt>구현기능</dt>
-                                <dd>반응형, google map API</dd>
-                            </div>
-                            <div>
-                                <dt>Detail</dt>
-                                <dd>
-                                    555555555555
-                                </dd>
-                            </div>
-                        </dl>
-                        <button type="button" title="새 탭으로 열기" onclick="window.open('https://play.google.com/store/apps/details?id=lifegood.prayer.novita', '_blank');" tar>Google Play Store</button>
-                    </div>
-                </li>
-                <li data-category="study" class="txt-version">
-                    <div class="txt-area">
-                        <h3>wetube</h3>
-                        <div class="datetime">
-                            <span class="start">2022.06</span>
-                            <span class="end">2022.07</span>
-                        </div>
-                        <dl>
-                            <div>
-                                <dt>Summary</dt>
-                                <dd>Back-end 부터 Front-end 까지 전체 작업 흐름을 경험해 보았습니다. 각 파트의 작업들이 어떤 의미가 있고 전체 프로젝트 안에서 어떤 의미가 있는지 이해해 볼 수 있었습니다.</dd>
-                            </div>
-                            <div>
-                                <dt>Skill</dt>
-                                <dd>Node.js, Nodemon, babel, Express, Pug, MongoDB, Mongoose, Session & Cookie, Git Hub Loing, Multer, Webpack, SCSS, VanillaJS, Heroku, MongoDB Atlas, AWS S3 등</dd>
-                            </div>
-                        </dl>
-                        <button type="button" title="새 탭으로 열기"  onclick="window.open('https://github.com/clean-teach/study-nomadcoders-wetube-clone')">Git hub</button>
-                        <button type="button" title="새 탭으로 열기"  onclick="window.open('https://seemly-mile-d41.notion.site/35dfcca4798f46ccb21d2532b36740fd')">Notion</button>
-                        <button type="button" title="새 탭으로 열기"  onclick="window.open('https://nomadcoders-wetube.herokuapp.com/')">Show Live</button>
-                    </div>
-                    <h3></h3>
-                </li>
-                <li data-category="study" class="txt-version">
-                    <div class="txt-area">
-                        <h3>Weather API</h3>
-                        <div class="datetime">
-                            <span class="start">2022.06</span>
-                            <span class="end">2022.06</span>
-                        </div>
-                        <dl>
-                            <div>
-                                <dt>Summary</dt>
-                                <dd>API를 사용해서 현재 위치의 날씨를 가져온다</dd>
-                            </div>
-                            <div>
-                                <dt>Skill</dt>
-                                <dd>navigator.geolocation.getCurrentPosition(), openweathermap API 등</dd>
-                            </div>
-                        </dl>
-                        <button type="button" title="새 탭으로 열기"  onclick="window.open('/portfolio/study/weather-api')">View Live</button>
-                        <button type="button" title="새 탭으로 열기"  onclick="window.open('https://www.notion.so/JS-dc390e4928b14f0da09d3c5180b7ae23#41f956afdbca43d7bcb994178c015812')">Notion</button>
-                    </div>
-                </li>
-                <li data-category="study" class="txt-version">
-                    <div class="txt-area">
-                        <h3>.localStorage</h3>
-                        <div class="datetime">
-                            <span class="start">2022.06</span>
-                            <span class="end">2022.06</span>
-                        </div>
-                        <dl>
-                            <div>
-                                <dt>Summary</dt>
-                                <dd>Local Storage 를 이용한 login, Todo list 기능 구현</dd>
-                            </div>
-                            <div>
-                                <dt>Skill</dt>
-                                <dd>VanillaJS, Local Storage</dd>
-                            </div>
-                        </dl>
-                        <button type="button" title="새 탭으로 열기"  onclick="window.open('/portfolio/study/localstorage-todolist')">View Live</button>
-                        <button type="button" title="새 탭으로 열기"  onclick="window.open('https://www.notion.so/JS-dc390e4928b14f0da09d3c5180b7ae23#d9188ce9af66416ab75a90ca38c7ba93')">Notion</button>
-                    </div>
-                </li>
-                <li data-category="study" class="txt-version">
-                    <div class="txt-area">
-                        <h3>이 외 공부 중인 내용</h3>
-                        <div class="datetime">
-                            <span class="start">2021</span>
-                            <span class="end">ing</span>
-                        </div>
-                        <dl>
-                            <div>
-                                <dt>설명</dt>
-                                <dd>공부는 경험 + 기록 + 숙달 을 하여야 한다는 생각으로 정리하고 있는 페이지 입니다.</dd>
-                            </div>
-                        </dl>
-                        <button type="button" title="새 탭으로 열기"  onclick="window.open('https://seemly-mile-d41.notion.site/76201ced50ac4f13ae84643f6d227777')">Notion</button>
-                    </div>
-                    <h3></h3>
-                </li>
-                <li data-category="side-project" class="txt-version">
-                    <div class="txt-area">
-                        <h3>Side Project</h3>
-                        <p>차곡 차곡 쌓아 갈 예정입니다.</p>
-                    </div>
-                </li>
-            </ul>
-        </section>
-        <section id="contact-section">
-            <div class="join-motion-txt-area">
-                <i class="line left"></i>
-                <i class="line right"></i>
-                <div class="txt txt01">우리는 연결 될 때 비로소 완전해집니다.</div>
-                <div class="txt txt02">저와 함께 건강하고 효율적인 연결을 만들어 갈 파트너를 찾습니다!</div>
+          </li>
+          <li data-category="work" class="motion type-pc">
+            <div class="img-area">
+              <img
+                src="assets/img/work-durian-01.jpg"
+                alt="Durian 웹사이트 화면"
+              />
             </div>
-            <h2>Contact</h2>
-            <div class="form-area">
-                <form action="https://script.google.com/macros/s/AKfycbzVp4qxJjTCJOmaVGxmEQNa97R83zOmFkBNyAyttgR6PjU_OmcTFrhk4Y4x0bchSERE/exec" method="post" class="center-wrap">
-                    <ul class="gform">
-                        <li>
-                            <label for="input-name">이름</label><input type="text" name="name" id="input-name" placeholder="당신의 이름을 입력해 주세요" required>
-                        </li>
-                        <li>
-                            <label for="input-email">이메일</label><input type="email" name="email" id="input-email" placeholder="당신의 이메일을 입력해 주세요">
-                        </li>
-                        <li>
-                            <label for="textarea-email-content">내용</label><textarea name="message" id="textarea-email-content" cols="30" rows="10" placeholder="저에게 해주실 말씀, 또는 제 포트폴리오를 보시고 느낀 점이 있다면, &#13;&#10;피드백 부탁드립니다. 비판도 감사하게 받겠습니다" required></textarea>
-                        </li>
+            <div class="txt-area">
+              <h3>Durian 웹사이트 제작</h3>
+              <div class="datetime">
+                <span class="start">2021.10</span>
+                <span class="end">2021.10</span>
+              </div>
+              <dl>
+                <div>
+                  <dt>Skill</dt>
+                  <dd>HTML5, CSS3, JavaScript</dd>
+                </div>
+                <div>
+                  <dt>기여도</dt>
+                  <dd>
+                    <dl>
+                      <dt>퍼블리싱</dt>
+                      <dd>100%</dd>
+                    </dl>
+                  </dd>
+                </div>
+                <div>
+                  <dt>구현기능</dt>
+                  <dd>반응형, 원페이지 스크롤</dd>
+                </div>
+                <div>
+                  <dt>Detail</dt>
+                  <dd>바닐라스크립트만을 사용하여 제작</dd>
+                </div>
+              </dl>
+              <button
+                type="button"
+                title="새 탭으로 열기"
+                onclick="window.open('https://dreamy-duckanoo-4056ec.netlify.app')"
+              >
+                Local Product
+              </button>
+              <button
+                type="button"
+                title="새 탭으로 열기"
+                onclick="window.open('https://seemly-mile-d41.notion.site/Durian-2ec3fce0ea2d46d187b16cd9b1af1343')"
+              >
+                Notion
+              </button>
+            </div>
+          </li>
+          <li data-category="work" class="motion type-pc">
+            <div class="img-area">
+              <img
+                src="assets/img/work-peauty-01.jpg"
+                alt="Peauty 웹사이트 화면"
+              />
+            </div>
+            <div class="txt-area">
+              <h3>Peauty</h3>
+              <div class="datetime">
+                <span class="start">2021.1</span>
+                <span class="end">2021.4</span>
+              </div>
+              <dl>
+                <div>
+                  <dt>Skill</dt>
+                  <dd>HTML5, CSS3, JavaScript, jQuery</dd>
+                </div>
+                <div>
+                  <dt>기여도</dt>
+                  <dd>
+                    <dl>
+                      <dt>디자인</dt>
+                      <dd>30%</dd>
+                    </dl>
+                    <dl>
+                      <dt>퍼블리싱</dt>
+                      <dd>100%</dd>
+                    </dl>
+                  </dd>
+                </div>
+                <div>
+                  <dt>Detail</dt>
+                  <dd>
+                    <ul>
+                      <li>
+                        사업상의 사정으로 인하여 프로젝트를 완료하진 못했지만,
+                        디자인 리뉴얼 작업부터 도맡아 작업하며 정적 사이트가
+                        아닌 동적 사이트에 대한 개념과 UIUX에 대한 고민을 할 수
+                        있었던 좋은 경험이었습니다.
+                      </li>
                     </ul>
-                    <div class="btn-area">
-                        <button type="submit" title="작성한 내용을 제출">보내기</button>
-                    </div>
-                    <!-- <div style="display:none" class="thankyou_message">
+                  </dd>
+                </div>
+              </dl>
+              <button
+                type="button"
+                title="새 탭으로 열기"
+                onclick="window.open('https://seemly-mile-d41.notion.site/Peauty-1782ddf20ee74b3895f35bff1bc741fa')"
+              >
+                Notion
+              </button>
+            </div>
+          </li>
+          <li data-category="work" class="motion type-pc">
+            <div class="img-area">
+              <img
+                src="assets/img/work-lavidamall-01.jpg"
+                alt="lavida mall 홈페이지 화면"
+              />
+            </div>
+            <div class="txt-area">
+              <h3>Lavida mall 웹사이트 제작</h3>
+              <div class="datetime">
+                <span class="start">2020.04</span>
+                <span class="end">2020.10</span>
+              </div>
+              <dl>
+                <div>
+                  <dt>Skill</dt>
+                  <dd>HTML5, CSS3, JavaScript, jQuery</dd>
+                </div>
+                <div>
+                  <dt>기여도</dt>
+                  <dd>
+                    <dl>
+                      <dt>퍼블리싱</dt>
+                      <dd>100%</dd>
+                    </dl>
+                  </dd>
+                </div>
+                <div>
+                  <dt>구현기능</dt>
+                  <dd>적응형</dd>
+                </div>
+                <div>
+                  <dt>Detail</dt>
+                  <dd>
+                    모바일 버전의 웹 페이지를 따로 구분하여 작업하였고 공통
+                    코드에 대해 염두해가며 클래스와 파일의 최적화에 신경을
+                    썼습니다.
+                  </dd>
+                </div>
+              </dl>
+              <button
+                type="button"
+                title="새 탭으로 열기"
+                onclick="window.open('https://lavidamall.co.kr/')"
+              >
+                View Live
+              </button>
+            </div>
+          </li>
+          <li data-category="work" class="motion type-pc">
+            <div class="img-area">
+              <img
+                src="assets/img/work-monocr-01.jpg"
+                alt="monocr 홈페이지 화면"
+              />
+            </div>
+            <div class="txt-area">
+              <h3>Website Renewal : Monocr</h3>
+              <div class="datetime">
+                <span class="start">2019.10</span>
+                <span class="end">2020.3</span>
+              </div>
+              <dl>
+                <div>
+                  <dt>Skill</dt>
+                  <dd>
+                    Adobe Photoshop, HTML5, CSS3, JavaScript, jQuery,
+                    Pagepiling.js (jquery plugin)
+                  </dd>
+                </div>
+                <div>
+                  <dt>기여도</dt>
+                  <dd>
+                    <dl>
+                      <dt>기획</dt>
+                      <dd>80%</dd>
+                    </dl>
+                    <dl>
+                      <dt>디자인</dt>
+                      <dd>80%</dd>
+                    </dl>
+                    <dl>
+                      <dt>퍼블리싱</dt>
+                      <dd>100%</dd>
+                    </dl>
+                  </dd>
+                </div>
+                <div>
+                  <dt>구현기능</dt>
+                  <dd>반응형, google map API, scroll event</dd>
+                </div>
+                <div>
+                  <dt>Detail</dt>
+                  <dd>
+                    기획부터 디자인, 퍼블리싱까지 맡아서 작업하였습니다. <br />
+                    반응형으로 작업하면서도 비주얼을 강조하기 위하여 동적 스크롤
+                    등 각종 이벤트를 통한 UI/UX 설계에 집중하였습니다. 나름대로
+                    형상관리 환경을 구축해보기도 하는 등 혼자 책임을 맡아
+                    작업하다 보니 여러 분야를 관심을 갖고 배울 수 있었습니다.
+                    뿐만 아니라 동료들에게 조언을 구하기도 하고 문제가 발견되면,
+                    학습중인 기술을 적용하여 개선를 하려고 노력 하였습니다.
+                    그만큼 애정을 갖고 담당했던 프로젝트 였습니다.
+                  </dd>
+                </div>
+              </dl>
+              <button
+                type="button"
+                title="새 탭으로 열기"
+                onclick="window.open('http://www.monocr.com/')"
+              >
+                View Live
+              </button>
+              <button
+                type="button"
+                title="새 탭으로 열기"
+                onclick="window.open('https://seemly-mile-d41.notion.site/Monocr-ee054b8fbd37435eb1460cd664cb98c7')"
+              >
+                Notion
+              </button>
+            </div>
+          </li>
+          <li data-category="work" class="motion type-pc">
+            <div class="img-area">
+              <img
+                src="assets/img/work-fur-01.jpg"
+                alt="기금도시재생포털 홈페이지 화면"
+              />
+            </div>
+            <div class="txt-area">
+              <h3>기금도시재생포털 웹사이트 제작</h3>
+              <div class="datetime">
+                <span class="start">2019.7</span>
+                <span class="end">2019.12</span>
+              </div>
+              <dl>
+                <div>
+                  <dt>Skill</dt>
+                  <dd>HTML5, CSS3, JavaScript, jQuery, Adobe Photoshop</dd>
+                </div>
+                <div>
+                  <dt>기여도</dt>
+                  <dd>
+                    <dl>
+                      <dt>기획</dt>
+                      <dd>30%</dd>
+                    </dl>
+                    <dl>
+                      <dt>디자인</dt>
+                      <dd>30%</dd>
+                    </dl>
+                    <dl>
+                      <dt>퍼블리싱</dt>
+                      <dd>100%</dd>
+                    </dl>
+                  </dd>
+                </div>
+                <div>
+                  <dt>구현기능</dt>
+                  <dd>
+                    반응형, 마법사 기능 (입력에 따른 간단한 산출식 & 선택에 따른
+                    결과값 도출)
+                  </dd>
+                </div>
+                <div>
+                  <dt>Detail</dt>
+                  <dd>
+                    <ul>
+                      <li>
+                        기획, 디자인을 보조하면서 퍼블리싱을 하였으며, 전체
+                        프로젝트에 대한 경험을 하였습니다.
+                      </li>
+                      <li>
+                        공공기관은 대민 서비스이다 보니, 웹 접근성에 대한 더욱
+                        디테일한 작업을 할 수 있었습니다.
+                      </li>
+                      <li>
+                        배포 전 단계에서 끊임없는 테스트를 통하여 디테일한 보수
+                        사항이 나올 때마다 관련된 사항을 처리하며, 협업과 개인
+                        스캐줄 관리 문서화의 중요성을 깨닫게 되었습니다.
+                      </li>
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+              <button
+                type="button"
+                title="새 탭으로 열기"
+                onclick="window.open('https://enhuf.molit.go.kr/fur/index.jsp')"
+              >
+                View Live
+              </button>
+              <button
+                type="button"
+                title="새 탭으로 열기"
+                onclick="window.open('https://genuine-choux-8d3fa4.netlify.app')"
+              >
+                Local Product
+              </button>
+            </div>
+          </li>
+          <li data-category="work" class="motion type-mobile">
+            <div class="img-area">
+              <div class="img-wrap">
+                <img
+                  src="assets/img/aonecc/login.jpg"
+                  alt="aonecc mobile mockup : login page"
+                />
+                <img
+                  src="assets/img/aonecc/menu_accordion.jpg"
+                  alt="aonecc mobile mockup : menu page"
+                />
+                <img
+                  src="assets/img/aonecc/signup_02.jpg"
+                  alt="aonecc mobile mockup : signup page"
+                />
+                <img
+                  src="assets/img/aonecc/table.jpg"
+                  alt="aonecc mobile mockup : table page"
+                />
+              </div>
+            </div>
+            <div class="txt-area">
+              <h3>A-one CC 회원용 예약 사이트 리뉴얼 (모바일)</h3>
+              <div class="datetime">
+                <span class="start">2019.12</span>
+                <span class="end">2020.2</span>
+              </div>
+              <dl>
+                <div>
+                  <dt>Skill</dt>
+                  <dd>HTML5, CSS3, JavaScript, jQuery, Adobe Photoshop</dd>
+                </div>
+                <div>
+                  <dt>기여도</dt>
+                  <dd>
+                    <dl>
+                      <dt>디자인</dt>
+                      <dd>80%</dd>
+                    </dl>
+                    <dl>
+                      <dt>퍼블리싱</dt>
+                      <dd>100%</dd>
+                    </dl>
+                  </dd>
+                </div>
+                <div>
+                  <dt>구현기능</dt>
+                  <dd>적응형</dd>
+                </div>
+                <div>
+                  <dt>Detail</dt>
+                  <dd>
+                    <ul>
+                      <li>
+                        UX wrighting 의 중요성에 대한 관심을 사용해 볼 수 있었던
+                        프로잭트입니다. "사용자의 작업 흐름에 따른 정보를 어떻게
+                        제공할것인가"를 중점으로 UI, UX 디자인 및 구현 하였으며,
+                        모바일과 PC 버전으로 나누어서 작업하였습니다.
+                      </li>
+                      <li>
+                        내부 사정으로 인하여, 고정된 사이즈로 작업하게 된 점이
+                        아쉬웠습니다.
+                      </li>
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+              <button
+                type="button"
+                title="새 탭으로 열기"
+                onclick="window.open('https://www.a-onecc.co.kr/mob/')"
+              >
+                View Live
+              </button>
+            </div>
+          </li>
+          <li data-category="work" class="motion type-mobile">
+            <div class="img-area">
+              <div class="img-wrap">
+                <img
+                  src="assets/img/novita/login.jpg"
+                  alt="novita mobile mockup : login page"
+                />
+                <img
+                  src="assets/img/novita/add-device.jpg"
+                  alt="novita mobile mockup : add-device page"
+                />
+                <img
+                  src="assets/img/novita/bidet-filter.jpg"
+                  alt="novita mobile mockup : bidet-filter page"
+                />
+              </div>
+            </div>
+            <div class="txt-area">
+              <h3>Novita</h3>
+              <div class="datetime">
+                <span class="start">2019.10</span>
+                <span class="end">2020.3</span>
+              </div>
+              <dl>
+                <div>
+                  <dt>Skill</dt>
+                  <dd>
+                    HTML5, CSS3, JavaScript, jQuery, PagePiling.js, Adobe
+                    Photoshop
+                  </dd>
+                </div>
+                <div>
+                  <dt>기여도</dt>
+                  <dd>90%</dd>
+                </div>
+                <div>
+                  <dt>구현기능</dt>
+                  <dd>반응형, google map API</dd>
+                </div>
+                <div>
+                  <dt>Detail</dt>
+                  <dd>555555555555</dd>
+                </div>
+              </dl>
+              <button
+                type="button"
+                title="새 탭으로 열기"
+                onclick="window.open('https://play.google.com/store/apps/details?id=lifegood.prayer.novita', '_blank');"
+                tar
+              >
+                Google Play Store
+              </button>
+            </div>
+          </li>
+          <li data-category="study" class="txt-version">
+            <div class="txt-area">
+              <h3>ReactJS로 영화 웹 서비스 만들기</h3>
+              <div class="datetime">
+                <span class="start">2022.09</span>
+                <span class="end">2022.09</span>
+              </div>
+              <dl>
+                <div>
+                  <dt>Summary</dt>
+                  <dd>
+                    <ul>
+                      <li>2022년 기준, 리액트 기초를 이해 하였다.</li>
+                      <li>State와 Props에 대해서 이해 하였다.</li>
+                      <li>
+                        React에서 HTML Element 와 Event Listener가 어떻게
+                        연결되는지 이해 하였다.
+                      </li>
+                      <li>
+                        React.Memo() .useEffect() Deps 등의 사용 이유를
+                        이해하였다.
+                      </li>
+                      <li>Create React App 의 핵심 사용법을 알아보았다.</li>
+                      <li>
+                        Git hub Pages 를 이용하여 웹 페이지를 배포하는 방법을
+                        이해하였고, 이를 활용 할 방법을 생각해보았다.
+                      </li>
+                    </ul>
+                  </dd>
+                </div>
+                <div>
+                  <dt>Skill</dt>
+                  <dd>React.js 등</dd>
+                </div>
+              </dl>
+              <button
+                type="button"
+                title="새 탭으로 열기"
+                onclick="window.open('https://github.com/clean-teach/nomadcoders-react-beginners')"
+              >
+                Git hub
+              </button>
+              <button
+                type="button"
+                title="새 탭으로 열기"
+                onclick="window.open('https://seemly-mile-d41.notion.site/ReactJS-cf8c9ea9b3df43ffaebf4063ce7edf8d')"
+              >
+                Notion
+              </button>
+              <button
+                type="button"
+                title="새 탭으로 열기"
+                onclick="window.open('https://clean-teach.github.io/nomadcoders-react-beginners/')"
+              >
+                Show Live
+              </button>
+            </div>
+            <h3></h3>
+          </li>
+          <li data-category="study" class="txt-version">
+            <div class="txt-area">
+              <h3>wetube</h3>
+              <div class="datetime">
+                <span class="start">2022.06</span>
+                <span class="end">2022.07</span>
+              </div>
+              <dl>
+                <div>
+                  <dt>Summary</dt>
+                  <dd>
+                    Back-end 부터 Front-end 까지 전체 작업 흐름을 경험해
+                    보았습니다. 각 파트의 작업들이 어떤 의미가 있고 전체
+                    프로젝트 안에서 어떤 의미가 있는지 이해해 볼 수 있었습니다.
+                  </dd>
+                </div>
+                <div>
+                  <dt>Skill</dt>
+                  <dd>
+                    Node.js, Nodemon, babel, Express, Pug, MongoDB, Mongoose,
+                    Session & Cookie, Git Hub Loing, Multer, Webpack, SCSS,
+                    VanillaJS, Heroku, MongoDB Atlas, AWS S3 등
+                  </dd>
+                </div>
+              </dl>
+              <button
+                type="button"
+                title="새 탭으로 열기"
+                onclick="window.open('https://github.com/clean-teach/study-nomadcoders-wetube-clone')"
+              >
+                Git hub
+              </button>
+              <button
+                type="button"
+                title="새 탭으로 열기"
+                onclick="window.open('https://seemly-mile-d41.notion.site/35dfcca4798f46ccb21d2532b36740fd')"
+              >
+                Notion
+              </button>
+              <button
+                type="button"
+                title="새 탭으로 열기"
+                onclick="window.open('https://nomadcoders-wetube.herokuapp.com/')"
+              >
+                Show Live
+              </button>
+            </div>
+            <h3></h3>
+          </li>
+          <li data-category="study" class="txt-version">
+            <div class="txt-area">
+              <h3>Weather API</h3>
+              <div class="datetime">
+                <span class="start">2022.06</span>
+                <span class="end">2022.06</span>
+              </div>
+              <dl>
+                <div>
+                  <dt>Summary</dt>
+                  <dd>API를 사용해서 현재 위치의 날씨를 가져온다</dd>
+                </div>
+                <div>
+                  <dt>Skill</dt>
+                  <dd>
+                    navigator.geolocation.getCurrentPosition(), openweathermap
+                    API 등
+                  </dd>
+                </div>
+              </dl>
+              <button
+                type="button"
+                title="새 탭으로 열기"
+                onclick="window.open('/portfolio/study/weather-api')"
+              >
+                View Live
+              </button>
+              <button
+                type="button"
+                title="새 탭으로 열기"
+                onclick="window.open('https://www.notion.so/JS-dc390e4928b14f0da09d3c5180b7ae23#41f956afdbca43d7bcb994178c015812')"
+              >
+                Notion
+              </button>
+            </div>
+          </li>
+          <li data-category="study" class="txt-version">
+            <div class="txt-area">
+              <h3>.localStorage</h3>
+              <div class="datetime">
+                <span class="start">2022.06</span>
+                <span class="end">2022.06</span>
+              </div>
+              <dl>
+                <div>
+                  <dt>Summary</dt>
+                  <dd>Local Storage 를 이용한 login, Todo list 기능 구현</dd>
+                </div>
+                <div>
+                  <dt>Skill</dt>
+                  <dd>VanillaJS, Local Storage</dd>
+                </div>
+              </dl>
+              <button
+                type="button"
+                title="새 탭으로 열기"
+                onclick="window.open('/portfolio/study/localstorage-todolist')"
+              >
+                View Live
+              </button>
+              <button
+                type="button"
+                title="새 탭으로 열기"
+                onclick="window.open('https://www.notion.so/JS-dc390e4928b14f0da09d3c5180b7ae23#d9188ce9af66416ab75a90ca38c7ba93')"
+              >
+                Notion
+              </button>
+            </div>
+          </li>
+          <li data-category="study" class="txt-version">
+            <div class="txt-area">
+              <h3>이 외 공부 중인 내용</h3>
+              <div class="datetime">
+                <span class="start">2021</span>
+                <span class="end">ing</span>
+              </div>
+              <dl>
+                <div>
+                  <dt>설명</dt>
+                  <dd>
+                    공부는 경험 + 기록 + 숙달 을 하여야 한다는 생각으로 정리하고
+                    있는 페이지 입니다.
+                  </dd>
+                </div>
+              </dl>
+              <button
+                type="button"
+                title="새 탭으로 열기"
+                onclick="window.open('https://seemly-mile-d41.notion.site/76201ced50ac4f13ae84643f6d227777')"
+              >
+                Notion
+              </button>
+            </div>
+            <h3></h3>
+          </li>
+          <li data-category="side-project" class="txt-version">
+            <div class="txt-area">
+              <h3>Side Project</h3>
+              <p>차곡 차곡 쌓아 갈 예정입니다.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section id="contact-section">
+        <div class="join-motion-txt-area">
+          <i class="line left"></i>
+          <i class="line right"></i>
+          <div class="txt txt01">우리는 연결 될 때 비로소 완전해집니다.</div>
+          <div class="txt txt02">
+            저와 함께 건강하고 효율적인 연결을 만들어 갈 파트너를 찾습니다!
+          </div>
+        </div>
+        <h2>Contact</h2>
+        <div class="form-area">
+          <form
+            action="https://script.google.com/macros/s/AKfycbzVp4qxJjTCJOmaVGxmEQNa97R83zOmFkBNyAyttgR6PjU_OmcTFrhk4Y4x0bchSERE/exec"
+            method="post"
+            class="center-wrap"
+          >
+            <ul class="gform">
+              <li>
+                <label for="input-name">이름</label
+                ><input
+                  type="text"
+                  name="name"
+                  id="input-name"
+                  placeholder="당신의 이름을 입력해 주세요"
+                  required
+                />
+              </li>
+              <li>
+                <label for="input-email">이메일</label
+                ><input
+                  type="email"
+                  name="email"
+                  id="input-email"
+                  placeholder="당신의 이메일을 입력해 주세요"
+                />
+              </li>
+              <li>
+                <label for="textarea-email-content">내용</label
+                ><textarea
+                  name="message"
+                  id="textarea-email-content"
+                  cols="30"
+                  rows="10"
+                  placeholder="저에게 해주실 말씀, 또는 제 포트폴리오를 보시고 느낀 점이 있다면, &#13;&#10;피드백 부탁드립니다. 비판도 감사하게 받겠습니다"
+                  required
+                ></textarea>
+              </li>
+            </ul>
+            <div class="btn-area">
+              <button type="submit" title="작성한 내용을 제출">보내기</button>
+            </div>
+            <!-- <div style="display:none" class="thankyou_message">
                         <p><em>Thanks</em> for contacting us! We will get back to you soon!
                         </p>
                     </div> -->
-                </form>
-            </div>
-        </section>
-        <div id="main-background-area">
-            <div class="circle"></div>
-            <img src="assets/img/circle-scroll.svg" alt="" id="circle-scroll-svg">
+          </form>
         </div>
+      </section>
+      <div id="main-background-area">
+        <div class="circle"></div>
+        <img src="assets/img/circle-scroll.svg" alt="" id="circle-scroll-svg" />
+      </div>
     </main>
     <footer id="footer">
-        <div class="card-space">
-            <div class="card">
-                <address class="back">
-                    <div class="name">Kim Cheung Hoon</div>
-                    <ul>
-                        <li>mobile. <a href="tel:010-4477-4380" title="바로 전화 걸기">01044774380</a></li>
-                        <li>email. <a href="mailto:kch19920726@gmail.com" title="바로 메일 보내기">kch19920726@gmail.com</a></li>
-                        <li>github. <a href="https://github.com/clean-teach" title="새 탭으로 깃헙 열기" target="_blank">https://github.com/clean-teach</a></li>
-                        <li>Notion. <a href="https://seemly-mile-d41.notion.site/Portfolio-36bf2c8f26a44fcb9007bc2f9d2c9414" title="새 탭으로 노션 열기" target="_blank">Portfolio</a></li>
-                    </ul>
-                </address>
-                <div class="front clock-arae">
-                    <div id="time-the-current-user-is-staying"></div>
-                </div>
-            </div>
+      <div class="card-space">
+        <div class="card">
+          <address class="back">
+            <div class="name">Kim Cheung Hoon</div>
+            <ul>
+              <li>
+                mobile.
+                <a href="tel:010-4477-4380" title="바로 전화 걸기"
+                  >01044774380</a
+                >
+              </li>
+              <li>
+                email.
+                <a href="mailto:kch19920726@gmail.com" title="바로 메일 보내기"
+                  >kch19920726@gmail.com</a
+                >
+              </li>
+              <li>
+                github.
+                <a
+                  href="https://github.com/clean-teach"
+                  title="새 탭으로 깃헙 열기"
+                  target="_blank"
+                  >https://github.com/clean-teach</a
+                >
+              </li>
+              <li>
+                Notion.
+                <a
+                  href="https://seemly-mile-d41.notion.site/Portfolio-36bf2c8f26a44fcb9007bc2f9d2c9414"
+                  title="새 탭으로 노션 열기"
+                  target="_blank"
+                  >Portfolio</a
+                >
+              </li>
+            </ul>
+          </address>
+          <div class="front clock-arae">
+            <div id="time-the-current-user-is-staying"></div>
+          </div>
         </div>
+      </div>
     </footer>
 
     <script type="module" src="assets/dist/js/index.js" defer></script>
     <script src="assets/dist/js/cursor.js" defer></script>
-    <script data-cfasync="false" type="text/javascript"
-src="assets/dist/js/formSubmissionHandler.js"></script>
-</body>
+    <script
+      data-cfasync="false"
+      type="text/javascript"
+      src="assets/dist/js/formSubmissionHandler.js"
+    ></script>
+  </body>
 </html>
