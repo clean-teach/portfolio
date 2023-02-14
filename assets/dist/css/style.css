@@ -747,11 +747,17 @@ footer .card-space.bg-git {
 footer .card-space.bg-git .card li a:hover {
   color: yellowgreen !important;
 }
-footer .card-space.bg-notion {
+footer .card-space.bg-notion-01 {
   background-color: violet !important;
 }
-footer .card-space.bg-notion .card li a:hover {
+footer .card-space.bg-notion-01 .card li a:hover {
   color: violet !important;
+}
+footer .card-space.bg-notion-02 {
+  background-color: rgb(153, 130, 238) !important;
+}
+footer .card-space.bg-notion-02 .card li a:hover {
+  color: rgb(153, 130, 238) !important;
 }
 footer .card {
   position: relative;

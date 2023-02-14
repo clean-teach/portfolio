@@ -609,8 +609,15 @@ footer {
         color: $color !important;
       }
     }
-    &.bg-notion {
+    &.bg-notion-01 {
       $color: violet;
+      background-color: $color !important;
+      .card li a:hover {
+        color: $color !important;
+      }
+    }
+    &.bg-notion-02 {
+      $color: rgb(153, 130, 238);
       background-color: $color !important;
       .card li a:hover {
         color: $color !important;
