@@ -10,13 +10,13 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/client/scss/style.scss":
+/***/ "./src/client/scss/index.scss":
 /*!************************************!*\
-  !*** ./src/client/scss/style.scss ***!
+  !*** ./src/client/scss/index.scss ***!
   \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://www/./src/client/scss/style.scss?");
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://www/./src/client/scss/index.scss?");
 
 /***/ }),
 
@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
   \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../scss/style.scss */ \"./src/client/scss/style.scss\");\n\r\n\n\n//# sourceURL=webpack://www/./src/client/js/main.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../scss/index.scss */ \"./src/client/scss/index.scss\");\n\r\n\n\n//# sourceURL=webpack://www/./src/client/js/main.ts?");
 
 /***/ })
 

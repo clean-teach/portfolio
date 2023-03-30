@@ -1,0 +1,217 @@
+@charset "UTF-8";
+
+/* animate script style */
+:root {
+  --animation-by-scroll-style-speed: 1; /* 해당 스크립트 참고 */
+  --animation-by-scroll-style-contact-section-height: 1100vh;
+  --animation-by-scroll-style-join-area-top: 500vh;
+  --animation-by-scroll-style-form-area-top: 1000vh;
+}
+
+#contact-section {
+  position: relative;
+  padding: 10rem 0;
+  h2 {
+    height: 100vh;
+    color: #ffffff;
+    text-shadow: 0 0 4rem rgba(0, 0, 0, 0.8);
+    padding-bottom: 0;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+  .form-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    form {
+      box-shadow: 0 0 4rem rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+    }
+  }
+  li ~ li {
+    margin-top: 1rem;
+  }
+  .center-wrap {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    background-color: var(--color-gray10);
+  }
+  label {
+    display: block;
+    padding: 2rem 0;
+    text-align: center;
+    color: #999999;
+    font-weight: bold;
+    font-size: 2rem;
+    &.on {
+      color: var(--color-gray01);
+    }
+  }
+  input,
+  textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.6rem;
+    border-color: #999999;
+    font-size: 1rem;
+    transition: 0.4s;
+  }
+  input {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    &:focus {
+      border-bottom-width: 3px;
+      border-color: var(--color-gray01);
+    }
+  }
+  textarea {
+    border-width: 1px;
+    border-style: solid;
+    &:focus {
+      border-width: 3px;
+      border-color: var(--color-gray01);
+    }
+  }
+  .btn-area {
+    text-align: center;
+    padding: 2rem 0;
+  }
+  button[type='submit'] {
+    color: var(--color-gray01);
+    font-weight: bold;
+    font-size: 2rem;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 12px;
+    &:hover {
+      text-shadow: 10px 10px 1.5rem rgba(0, 0, 0, 0.8);
+      transform: translateY(-4px);
+      transition: 0.4s;
+    }
+  }
+  &.animation-by-scroll-style {
+    height: calc(
+      var(--animation-by-scroll-style-contact-section-height) *
+        var(--animation-by-scroll-style-speed)
+    );
+    padding: 0;
+    .join-motion-txt-area {
+      position: absolute;
+      top: calc(
+        var(--animation-by-scroll-style-join-area-top) *
+          var(--animation-by-scroll-style-speed)
+      );
+      left: 0;
+      width: 100%;
+      &.fixed {
+        position: fixed;
+        top: 50vh;
+        left: 0;
+      }
+      .line {
+        top: 50%;
+        transform: scaleX(0);
+        &.left {
+          left: 50%;
+          transform-origin: top left;
+        }
+        &.right {
+          right: 50%;
+          transform-origin: top right;
+        }
+      }
+      .txt {
+        opacity: 0;
+        &.txt01 {
+          transform: translateX(-100vw);
+          transform-origin: top right;
+        }
+        &.txt02 {
+          transform: translateX(100vw);
+          transform-origin: top left;
+        }
+      }
+    }
+    h2 {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+    }
+    &.form-area {
+      position: absolute;
+      top: calc(
+        var(--animation-by-scroll-style-form-area-top) *
+          var(--animation-by-scroll-style-speed)
+      );
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 4;
+      transform: scale(0);
+      &.fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+}
+
+.join-motion-txt-area {
+  position: relative;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: var(--color-gray01);
+  text-align: center;
+  overflow: hidden;
+  z-index: 3;
+  .line {
+    position: absolute;
+    top: 1rem;
+    display: block;
+    width: 50%;
+    height: 1px;
+    background-color: #acacac;
+    &.left {
+      left: 0;
+    }
+    &.right {
+      right: 0;
+    }
+  }
+  .txt {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    background-color: var(--color-gray10);
+    z-index: 100;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+}
+@media screen and (max-width: 1024px) {
+  #contact-section .form-area form {
+    min-height: 100vh;
+  }
+}
+@media screen and (max-width: 768px) {
+  #contact-section label {
+    font-size: 1.5rem;
+  }
+  #contact-section button[type='submit'] {
+    font-size: 1.5rem;
+  }
+  .join-motion-txt-area {
+    font-size: 1rem;
+  }
+}

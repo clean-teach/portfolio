@@ -2,24 +2,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
 :root {
-    --color-gray01 : #212529;
-    --color-gray02 : #343a40;
-    --color-gray03 : #495057;
-    --color-gray04 : #868e96;
-    --color-gray05 : #adb5bd;
-    --color-gray06 : #ced4da;
-    --color-gray07 : #e9ecef;
-    --color-gray08 : #f1f3f5;
-    --color-gray09 : #f8f9fa;
-    --color-gray10 : #ffffff;
+  --color-gray01: #212529;
+  --color-gray02: #343a40;
+  --color-gray03: #495057;
+  --color-gray04: #868e96;
+  --color-gray05: #adb5bd;
+  --color-gray06: #ced4da;
+  --color-gray07: #e9ecef;
+  --color-gray08: #f1f3f5;
+  --color-gray09: #f8f9fa;
+  --color-gray10: #ffffff;
 }
 
-::selection {background-color: orchid; color: #ffffff;}
+::selection {
+  background-color: orchid;
+  color: #ffffff;
+}
 
-html * {font-family: 'Noto Sans KR', 'Noto Sans', 'Nanum Gothic', 'Open Sans', Helvetica, Arial, sans-serif;}
-body {scroll-behavior: smooth; width: 100vw; background-color: #ffffff; overflow-x: hidden;}
-img {pointer-events: none;}
-a {text-decoration: none;}
-button {margin: 0; padding: 0; border: none; background: none; cursor: pointer;}
-input, textarea {outline: none; margin: 0; padding: 0; border: none;}
-::placeholder {color: #acacac;}
+html * {
+  font-family: 'Noto Sans KR', 'Noto Sans', 'Nanum Gothic', 'Open Sans',
+    Helvetica, Arial, sans-serif;
+}
+body {
+  scroll-behavior: smooth;
+  width: 100vw;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+img {
+  pointer-events: none;
+}
+a {
+  text-decoration: none;
+}
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+input,
+textarea {
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+::placeholder {
+  color: #acacac;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  z-index: 2;
+  h2 {
+    top: 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 12rem;
+    line-height: 12rem;
+    color: var(--color-gray08);
+    padding: 6rem 0 4rem;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+}
+@media screen and (max-width: 1024px) {
+  section h2 {
+    font-size: 6rem;
+    line-height: 8rem;
+    padding: 4rem 0 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+}

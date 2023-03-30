@@ -1,0 +1,144 @@
+@charset "UTF-8";
+
+footer {
+  width: 100vw;
+  height: 200vh;
+  position: relative;
+  .card-space {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 400px;
+    overflow: hidden;
+    z-index: 3;
+    &.bg-mobile {
+      $color: aquamarine;
+      background-color: $color !important;
+      .card li a:hover {
+        color: $color !important;
+      }
+    }
+    &.bg-email {
+      $color: lightsalmon;
+      background-color: $color !important;
+      .card li a:hover {
+        color: $color !important;
+      }
+    }
+    &.bg-git {
+      $color: yellowgreen;
+      background-color: $color !important;
+      .card li a:hover {
+        color: $color !important;
+      }
+    }
+    &.bg-notion-01 {
+      $color: violet;
+      background-color: $color !important;
+      .card li a:hover {
+        color: $color !important;
+      }
+    }
+    &.bg-notion-02 {
+      $color: rgb(153, 130, 238);
+      background-color: $color !important;
+      .card li a:hover {
+        color: $color !important;
+      }
+    }
+  }
+  .card {
+    position: relative;
+    z-index: 10;
+    display: block;
+    width: 540px;
+    height: 300px;
+    box-sizing: border-box;
+    background-color: var(--color-gray10);
+    border-radius: 4mm;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.1);
+    transform: rotateX(90deg);
+    transform-style: preserve-3d;
+    .front,
+    .back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      border-radius: 4mm;
+      backface-visibility: hidden;
+    }
+    .front {
+      transform: translateZ(-1px) rotateY(180deg) rotateZ(180deg);
+    }
+    .back {
+      transform: translateZ(1px) rotateY(0deg);
+    }
+    address {
+      padding-top: 4rem;
+      text-align: center;
+    }
+    .name {
+      font-weight: bold;
+      color: var(--color-gray01);
+      font-size: 1.6rem;
+      margin-bottom: 2.6rem;
+    }
+    li {
+      font-weight: bold;
+      color: var(--color-gray01);
+      margin-top: 0.8rem;
+      a {
+        font-weight: normal;
+        color: var(--color-gray03);
+      }
+    }
+  }
+  .clock-arae {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+  }
+}
+
+#time-the-current-user-is-staying {
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: var(--color-gray01);
+  padding: 4rem 0;
+  span {
+    font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+}
+@media screen and (max-width: 1024px) {
+}
+@media screen and (max-width: 768px) {
+  footer .card {
+    width: 80%;
+    height: auto;
+    address {
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+    li {
+      margin-top: 1.5rem;
+      a {
+        display: block;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+}

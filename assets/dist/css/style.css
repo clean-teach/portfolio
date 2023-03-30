@@ -1,9 +1,9 @@
 /*!*********************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/scss/style.scss ***!
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/scss/index.scss ***!
   \*********************************************************************************************************************/
 @import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap);
 /*!*************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/scss/style.scss (1) ***!
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/scss/index.scss (1) ***!
   \*************************************************************************************************************************/
 @charset "UTF-8";
 :root {
@@ -51,7 +51,8 @@ button {
   cursor: pointer;
 }
 
-input, textarea {
+input,
+textarea {
   outline: none;
   margin: 0;
   padding: 0;
@@ -62,6 +63,28 @@ input, textarea {
   color: #acacac;
 }
 
+section {
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+section h2 {
+  top: 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 12rem;
+  line-height: 12rem;
+  color: var(--color-gray08);
+  padding: 6rem 0 4rem;
+}
+
+@media screen and (max-width: 1024px) {
+  section h2 {
+    font-size: 6rem;
+    line-height: 8rem;
+    padding: 4rem 0 2rem;
+  }
+}
 @media (pointer: fine) and (min-width: 768px) {
   body {
     cursor: none;
@@ -165,6 +188,70 @@ input, textarea {
 /* #btn-switch-mode-gradient {position: absolute; top: 2rem; left: 2rem; color: #ffffff; border: 1px solid #ffffff; width: 8rem; height: 8rem; border-radius: 100%; z-index: 1000;}
 #btn-switch-mode-gradient::after {content: 'click'; background-color: #ffffff; color: #333333; font-size: 1.5rem; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 100%; display: flex; justify-content: center; align-items: center; z-index: 11; transition: .2s;}
 #btn-switch-mode-gradient:hover::after {transform: scale(0);} */
+#main-scroll-layer {
+  position: relative;
+  width: 100%;
+  z-index: 10;
+  margin-bottom: 100vh;
+}
+
+#main-background-area {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+#main-background-area .circle {
+  border-radius: 100%;
+  width: 0;
+  height: 0;
+  background-color: var(--color-gray08);
+}
+
+#circle-scroll-svg {
+  position: absolute;
+  bottom: -6vh;
+  right: -2vw;
+  z-index: 2;
+  width: 48vh;
+  opacity: 0.08;
+}
+#circle-scroll-svg.rotate-animate {
+  animation: rotate 8s infinite linear;
+  transform-origin: 50% 50%;
+}
+
+@keyframes backgroudAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+  /* 0% {
+          transform: rotateZ(0);
+      }
+      100% {
+          transform: rotateZ(360deg);
+      } */
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 header {
   position: absolute;
   padding: 2rem;
@@ -214,60 +301,84 @@ h1 {
   transition: 0.2s;
 }
 
-#main-scroll-layer {
-  position: relative;
-  width: 100%;
-  z-index: 10;
-  margin-bottom: 100vh;
+@media screen and (max-width: 1280px) {
+  header {
+    padding: 0;
+  }
+  .btn-main-menu {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: 2rem;
+    height: 1.8rem;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    transition: 0.2s;
+  }
+  .btn-main-menu i {
+    background-color: var(--color-gray10);
+    width: 80%;
+    height: 0.2rem;
+    border-radius: 0.1rem;
+    transition: 0.2s;
+  }
+  .btn-main-menu i:nth-child(2) {
+    width: 100%;
+  }
+  .btn-main-menu.mode-close {
+    transform: rotate(180deg);
+  }
+  .btn-main-menu.mode-close i {
+    width: 116%;
+    background-color: var(--color-gray10) !important;
+  }
+  .btn-main-menu.mode-close i:nth-child(1) {
+    transform: rotate(45deg);
+    transform-origin: top left;
+  }
+  .btn-main-menu.mode-close i:nth-child(2) {
+    width: 0;
+  }
+  .btn-main-menu.mode-close i:nth-child(3) {
+    transform: rotate(-45deg);
+    transform-origin: bottom left;
+  }
+  #lnb {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    padding-top: 6rem;
+    text-align: right;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
+  }
+  #lnb li {
+    position: relative;
+    z-index: 999;
+    padding: 2rem;
+  }
+  #lnb a {
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: var(--color-gray10);
+    opacity: 0.6;
+    filter: blur(1px);
+    transition: 1s;
+  }
+  #lnb.on {
+    display: block;
+  }
+  #lnb.on a {
+    color: var(--color-gray10) !important;
+  }
 }
-
-#main-background-area {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-#main-background-area .circle {
-  border-radius: 100%;
-  width: 0;
-  height: 0;
-  background-color: var(--color-gray08);
-}
-
-#circle-scroll-svg {
-  position: absolute;
-  bottom: -6vh;
-  right: -2vw;
-  z-index: 2;
-  width: 48vh;
-  opacity: 0.08;
-}
-#circle-scroll-svg.rotate-animate {
-  animation: rotate 8s infinite linear;
-  transform-origin: 50% 50%;
-}
-
-section {
-  position: relative;
-  width: 100%;
-  z-index: 2;
-}
-section h2 {
-  top: 0;
-  text-align: center;
-  font-weight: bold;
-  font-size: 12rem;
-  line-height: 12rem;
-  color: var(--color-gray08);
-  padding: 6rem 0 4rem;
-}
-
 #main-section {
   color: var(--color-gray10);
   text-align: center;
@@ -300,6 +411,16 @@ section h2 {
   line-height: 3.6rem;
 }
 
+@media screen and (max-width: 768px) {
+  #main-section .tit {
+    font-size: 2.5rem;
+    width: 102rem;
+  }
+  #main-section .vertical {
+    font-size: 1.2rem;
+    line-height: 2.4rem;
+  }
+}
 #portfolio-section {
   position: relative;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 100%);
@@ -523,6 +644,54 @@ section h2 {
   padding: 0 2rem;
 }
 
+@media screen and (max-width: 1024px) {
+  .portfolio-list .img-area {
+    width: 60%;
+    margin: auto;
+    overflow: hidden;
+    margin-bottom: 10rem;
+    box-shadow: 10px 20px 60px rgba(0, 0, 0, 0.2);
+    line-height: 0;
+    transform: skewY(24deg) translateY(400px) scale(1.2);
+    transform-origin: 0 0;
+    opacity: 0;
+  }
+  .portfolio-list .txt-area {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 2rem 2rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .portfolio-list > li:nth-child(odd) .txt-area, .portfolio-list > li:nth-child(even) .txt-area {
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  #portfolio-section {
+    padding: 1rem;
+  }
+  .portfolio-list .img-area {
+    width: 100%;
+  }
+}
+/* animate script style */
+:root {
+  --animation-by-scroll-style-speed: 1; /* 해당 스크립트 참고 */
+  --animation-by-scroll-style-contact-section-height: 1100vh;
+  --animation-by-scroll-style-join-area-top: 500vh;
+  --animation-by-scroll-style-form-area-top: 1000vh;
+}
+
 #contact-section {
   position: relative;
   padding: 10rem 0;
@@ -703,14 +872,22 @@ section h2 {
   z-index: 100;
 }
 
-/* animate script style */
-:root {
-  --animation-by-scroll-style-speed: 1; /* 해당 스크립트 참고 */
-  --animation-by-scroll-style-contact-section-height: 1100vh;
-  --animation-by-scroll-style-join-area-top: 500vh;
-  --animation-by-scroll-style-form-area-top: 1000vh;
+@media screen and (max-width: 1024px) {
+  #contact-section .form-area form {
+    min-height: 100vh;
+  }
 }
-
+@media screen and (max-width: 768px) {
+  #contact-section label {
+    font-size: 1.5rem;
+  }
+  #contact-section button[type=submit] {
+    font-size: 1.5rem;
+  }
+  .join-motion-txt-area {
+    font-size: 1rem;
+  }
+}
 footer {
   width: 100vw;
   height: 200vh;
@@ -827,173 +1004,7 @@ footer .clock-arae {
   font-weight: bold;
 }
 
-@keyframes backgroudAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-  /* 0% {
-        transform: rotateZ(0);
-    }
-    100% {
-        transform: rotateZ(360deg);
-    } */
-}
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-@media screen and (max-width: 1280px) {
-  header {
-    padding: 0;
-  }
-  .btn-main-menu {
-    position: fixed;
-    top: 2rem;
-    right: 2rem;
-    width: 2rem;
-    height: 1.8rem;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    transition: 0.2s;
-  }
-  .btn-main-menu i {
-    background-color: var(--color-gray10);
-    width: 80%;
-    height: 0.2rem;
-    border-radius: 0.1rem;
-    transition: 0.2s;
-  }
-  .btn-main-menu i:nth-child(2) {
-    width: 100%;
-  }
-  .btn-main-menu.mode-close {
-    transform: rotate(180deg);
-  }
-  .btn-main-menu.mode-close i {
-    width: 116%;
-    background-color: var(--color-gray10) !important;
-  }
-  .btn-main-menu.mode-close i:nth-child(1) {
-    transform: rotate(45deg);
-    transform-origin: top left;
-  }
-  .btn-main-menu.mode-close i:nth-child(2) {
-    width: 0;
-  }
-  .btn-main-menu.mode-close i:nth-child(3) {
-    transform: rotate(-45deg);
-    transform-origin: bottom left;
-  }
-  #lnb {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    box-sizing: border-box;
-    padding-top: 6rem;
-    text-align: right;
-    z-index: 999;
-    background-color: rgba(0, 0, 0, 0.9);
-    display: none;
-  }
-  #lnb li {
-    position: relative;
-    z-index: 999;
-    padding: 2rem;
-  }
-  #lnb a {
-    font-weight: 400;
-    font-size: 1.5rem;
-    color: var(--color-gray10);
-    opacity: 0.6;
-    filter: blur(1px);
-    transition: 1s;
-  }
-  #lnb.on {
-    display: block;
-  }
-  #lnb.on a {
-    color: var(--color-gray10) !important;
-  }
-}
-@media screen and (max-width: 1024px) {
-  section h2 {
-    font-size: 6rem;
-    line-height: 8rem;
-    padding: 4rem 0 2rem;
-  }
-  .portfolio-list .img-area {
-    width: 60%;
-    margin: auto;
-    overflow: hidden;
-    margin-bottom: 10rem;
-    box-shadow: 10px 20px 60px rgba(0, 0, 0, 0.2);
-    line-height: 0;
-    transform: skewY(24deg) translateY(400px) scale(1.2);
-    transform-origin: 0 0;
-    opacity: 0;
-  }
-  .portfolio-list .txt-area {
-    top: auto;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    box-sizing: border-box;
-    padding: 2rem 2rem;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.9);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .portfolio-list > li:nth-child(odd) .txt-area, .portfolio-list > li:nth-child(even) .txt-area {
-    left: 0;
-    right: 0;
-    text-align: center;
-  }
-  #contact-section .form-area form {
-    min-height: 100vh;
-  }
-}
 @media screen and (max-width: 768px) {
-  #main-section .tit {
-    font-size: 2.5rem;
-    width: 102rem;
-  }
-  #main-section .vertical {
-    font-size: 1.2rem;
-    line-height: 2.4rem;
-  }
-  #portfolio-section {
-    padding: 1rem;
-  }
-  .portfolio-list .img-area {
-    width: 100%;
-  }
-  #contact-section label {
-    font-size: 1.5rem;
-  }
-  #contact-section button[type=submit] {
-    font-size: 1.5rem;
-  }
-  .join-motion-txt-area {
-    font-size: 1rem;
-  }
   footer .card {
     width: 80%;
     height: auto;
