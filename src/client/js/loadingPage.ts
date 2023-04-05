@@ -5,8 +5,6 @@
   });
   window.addEventListener('load', windowLoadHandler);
 
-  console.log('힝');
-
   function windowLoadHandler(): void {
     let opacity = Number(
       window.getComputedStyle(loader).getPropertyValue('opacity'),

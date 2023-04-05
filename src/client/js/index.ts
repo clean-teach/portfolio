@@ -18,8 +18,8 @@ import {
   bindFooterCard,
   rotateFooterCardByScoll,
 } from './module/actionStyleFooterCard';
-import { filteringCategoryByTab } from './module/actionTab';
 import { checkTimeUserStay } from './module/clock';
+import { bindTabButton } from './module/bindTabButton';
 
 let mainSection: any, winInnerHeight: number, scrollBottom;
 
@@ -70,6 +70,7 @@ function windowLoadHandler(): void {
   rotateFooterCardByScoll(scrollBottom, winInnerHeight);
   bindTabButton(
     document.querySelector('#portfolio-section .category-tab-wrap'),
+    winInnerHeight,
   );
 }
 function windowResizeHandler(): void {
@@ -111,22 +112,4 @@ function animationMainSectionByScroll(): void {
   mainSection.querySelector('.vertical').style['top'] = `${
     document.documentElement.scrollTop * 0.4
   }px`;
-}
-
-function bindTabButton(tabArea: any): void {
-  const CLASS_NAME_ON = 'on';
-  let currentTab = tabArea.querySelector(`button.${CLASS_NAME_ON}`);
-
-  filteringCategoryByTab(tabArea.querySelector(`.${CLASS_NAME_ON}`));
-  tabArea.addEventListener('click', tabClickHandler);
-
-  function tabClickHandler(event: any) {
-    if (event.target.type === 'button') {
-      currentTab.classList.remove(CLASS_NAME_ON);
-      event.target.classList.add(CLASS_NAME_ON);
-      currentTab = event.target;
-      filteringCategoryByTab(event.target);
-    }
-    motionContactAreaByScroll.get(winInnerHeight);
-  }
 }
