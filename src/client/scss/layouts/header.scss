@@ -7,8 +7,50 @@ header {
   box-sizing: border-box;
   padding: 2rem;
   &.on {
-    position: fixed;
-    z-index: 11;
+    .btn-main-menu {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      width: 2rem;
+      height: 1.8rem;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      transition: 0.2s;
+      i {
+        background-color: var(--color-gray10);
+        width: 80%;
+        height: 0.2rem;
+        border-radius: 0.1rem;
+        transition: 0.2s;
+        &:nth-child(2) {
+          width: 100%;
+        }
+      }
+      &.mode-close {
+        transform: rotate(180deg);
+        i {
+          width: 116%;
+          background-color: var(--color-gray10) !important;
+          &:nth-child(1) {
+            transform: rotate(45deg);
+            transform-origin: top left;
+          }
+          &:nth-child(2) {
+            width: 0;
+          }
+          &:nth-child(3) {
+            transform: rotate(-45deg);
+            transform-origin: bottom left;
+          }
+        }
+      }
+      &.hide {
+        top: -2rem;
+      }
+    }
   }
 }
 h1 {
@@ -61,50 +103,8 @@ h1 {
 @media screen and (max-width: 1280px) {
   header {
     padding: 0;
-  }
-  .btn-main-menu {
-    position: fixed;
-    top: 2rem;
-    right: 2rem;
-    width: 2rem;
-    height: 1.8rem;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    transition: 0.2s;
-    i {
-      background-color: var(--color-gray10);
-      width: 80%;
-      height: 0.2rem;
-      border-radius: 0.1rem;
-      transition: 0.2s;
-      &:nth-child(2) {
-        width: 100%;
-      }
-    }
-    &.mode-close {
-      transform: rotate(180deg);
-      i {
-        width: 116%;
-        background-color: var(--color-gray10) !important;
-        &:nth-child(1) {
-          transform: rotate(45deg);
-          transform-origin: top left;
-        }
-        &:nth-child(2) {
-          width: 0;
-        }
-        &:nth-child(3) {
-          transform: rotate(-45deg);
-          transform-origin: bottom left;
-        }
-      }
-    }
-    &.hide {
-      top: -2rem;
-    }
+    width: auto;
+    height: auto;
   }
   #lnb {
     position: fixed;

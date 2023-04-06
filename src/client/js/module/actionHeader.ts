@@ -39,7 +39,7 @@ export const bindMainMenuButton = () => {
 export function lnbStylingByScroll(...e: any) {
   const CLASS_NAME_ON = 'on';
 
-  if (document.documentElement.scrollTop > 0) {
+  if (document.documentElement.scrollTop >= portfolioSection.offsetTop) {
     header.classList.add(CLASS_NAME_ON);
   } else {
     header.style['transition'] = 'none';
@@ -104,7 +104,10 @@ const actionToggleMainMenu = {
 
 // 스크롤 위아래 방향에 따른 헤더 노출 여부
 function actionToggleHeaderByScroll(portfolioSection: any) {
-  if (document.documentElement.scrollTop >= portfolioSection.offsetTop) {
+  if (
+    document.documentElement.scrollTop >=
+    portfolioSection.offsetTop + window.innerHeight
+  ) {
     return {
       hide: function (): void {
         btnMainMenu.classList.add('hide');

@@ -59,7 +59,6 @@ function mainHandler(): void {
   bindMainMenuButton();
   bindContactForm();
   bindFooterCard();
-  console.log('DOMContentLoaded');
 }
 function windowLoadHandler(): void {
   winInnerHeight = window.innerHeight;
@@ -77,8 +76,6 @@ function windowLoadHandler(): void {
     document.querySelector('#portfolio-section .category-tab-wrap'),
     winInnerHeight,
   );
-  console.log('load');
-  window.scrollTo(0, 0);
 }
 function windowResizeHandler(): void {
   (winInnerHeight = window.innerHeight),
