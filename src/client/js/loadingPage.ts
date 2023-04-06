@@ -1,4 +1,7 @@
 (function loadingPage() {
+  const textFadeOutTime = 5000;
+  const pageFadeOutTime = 7000;
+
   let loader: Element | HTMLElement;
   document.addEventListener('DOMContentLoaded', function () {
     loader = document.querySelector('#loader') as Element | HTMLElement;
@@ -22,10 +25,10 @@
           clearInterval(fadeOut);
         }
       }, 10);
-    }, 3000);
+    }, textFadeOutTime);
     setTimeout(function () {
       window.scrollTo({ top: 0, left: 0 });
       loader.remove();
-    }, 5000);
+    }, pageFadeOutTime);
   }
 })();

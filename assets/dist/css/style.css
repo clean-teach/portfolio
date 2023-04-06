@@ -140,25 +140,32 @@ section h2 {
   align-items: center;
   z-index: 99999;
 }
-#loader .tit {
+#loader .txt {
+  position: relative;
+}
+#loader .sub {
   color: #dedede;
   font-weight: 200;
   font-size: 1rem;
   line-height: 1.6rem;
   text-align: center;
 }
-#loader .sub {
+#loader .tit {
   color: #fefefe;
-  font-weight: 600;
+  font-weight: 300;
   font-size: 1.6rem;
   line-height: 2.4rem;
   text-align: center;
   position: relative;
 }
+#loader strong {
+  font-weight: bold;
+}
 #loader p + p {
   margin-top: 2.4rem;
 }
-#loader .sub::before, #loader #loader .sub::after {
+#loader .sub::before,
+#loader .sub::after {
   content: '"';
   position: absolute;
   top: 1rem;
@@ -172,9 +179,11 @@ section h2 {
 
 @media screen and (max-width: 768px) {
   #loader .sub {
+    padding: 0 1rem;
+  }
+  #loader .tit {
     font-size: 1.125rem;
     line-height: 1.8rem;
-    padding: 0 1rem;
   }
   #loader .sub::before {
     left: 0rem;
