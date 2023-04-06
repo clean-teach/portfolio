@@ -718,6 +718,10 @@ h1 {
   #portfolio-section .portfolio-list > li.motion.type-mobile .img-area {
     width: 100%;
   }
+  #portfolio-section .portfolio-list > li.motion.type-mobile .img-area .img-wrap {
+    width: 50%;
+    margin: 0 auto;
+  }
   #portfolio-section .portfolio-list > li.motion:nth-child(odd) .img-area, #portfolio-section .portfolio-list > li.motion:nth-child(even) .img-area {
     margin-right: 0;
     margin-left: 0;

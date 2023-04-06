@@ -312,6 +312,10 @@
           &.type-mobile {
             .img-area {
               width: 100%;
+              .img-wrap {
+                width: 50%;
+                margin: 0 auto;
+              }
             }
           }
           &:nth-child(odd) .img-area,
