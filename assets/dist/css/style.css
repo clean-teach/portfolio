@@ -254,7 +254,14 @@ section h2 {
 }
 header {
   position: absolute;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
   padding: 2rem;
+}
+header.on {
+  position: fixed;
+  z-index: 11;
 }
 
 h1 {
@@ -266,8 +273,12 @@ h1 {
   display: none;
 }
 
+.btn-main-menu {
+  display: none;
+}
+
 #lnb li {
-  position: fixed;
+  position: absolute;
   z-index: 999;
   padding: 2rem;
 }
@@ -345,6 +356,9 @@ h1 {
   .btn-main-menu.mode-close i:nth-child(3) {
     transform: rotate(-45deg);
     transform-origin: bottom left;
+  }
+  .btn-main-menu.hide {
+    top: -2rem;
   }
   #lnb {
     position: fixed;
@@ -471,6 +485,9 @@ h1 {
 #portfolio-section .category-tab-wrap.on button {
   margin: 0 1rem;
   font-size: 1rem;
+}
+#portfolio-section .category-tab-wrap.hide {
+  top: -4rem;
 }
 #portfolio-section .center-wrap {
   max-width: 1280px;

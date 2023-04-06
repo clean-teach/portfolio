@@ -2,7 +2,14 @@
 
 header {
   position: absolute;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
   padding: 2rem;
+  &.on {
+    position: fixed;
+    z-index: 11;
+  }
 }
 h1 {
   margin-top: 1rem;
@@ -12,9 +19,12 @@ h1 {
   font-size: 1.5rem;
   display: none;
 }
+.btn-main-menu {
+  display: none;
+}
 #lnb {
   li {
-    position: fixed;
+    position: absolute;
     z-index: 999;
     padding: 2rem;
   }
@@ -91,6 +101,9 @@ h1 {
           transform-origin: bottom left;
         }
       }
+    }
+    &.hide {
+      top: -2rem;
     }
   }
   #lnb {

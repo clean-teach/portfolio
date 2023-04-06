@@ -27,6 +27,10 @@ let mainSection: any, winInnerHeight: number, scrollBottom;
 ///////////////////////////////////////////
 document.addEventListener('DOMContentLoaded', mainHandler);
 window.addEventListener('load', windowLoadHandler);
+// window.addEventListener('onbeforeunload', () => {
+//   console.log('df');
+//   window.scrollTo(0, 0);
+// });
 
 // 브라우저 사이즈 변경시 새로고침
 window.addEventListener('resize', windowResizeHandler);
@@ -55,6 +59,7 @@ function mainHandler(): void {
   bindMainMenuButton();
   bindContactForm();
   bindFooterCard();
+  console.log('DOMContentLoaded');
 }
 function windowLoadHandler(): void {
   winInnerHeight = window.innerHeight;
@@ -72,6 +77,8 @@ function windowLoadHandler(): void {
     document.querySelector('#portfolio-section .category-tab-wrap'),
     winInnerHeight,
   );
+  console.log('load');
+  window.scrollTo(0, 0);
 }
 function windowResizeHandler(): void {
   (winInnerHeight = window.innerHeight),
