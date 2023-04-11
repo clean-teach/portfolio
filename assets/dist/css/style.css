@@ -128,7 +128,7 @@ section h2 {
     opacity: 0;
   }
 }
-#loader {
+#loading-area {
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -140,17 +140,17 @@ section h2 {
   align-items: center;
   z-index: 99999;
 }
-#loader .txt {
+#loading-area .txt {
   position: relative;
 }
-#loader .sub {
+#loading-area .sub {
   color: #dedede;
   font-weight: 200;
   font-size: 1rem;
   line-height: 1.6rem;
   text-align: center;
 }
-#loader .tit {
+#loading-area .tit {
   color: #fefefe;
   font-weight: 300;
   font-size: 1.6rem;
@@ -158,22 +158,22 @@ section h2 {
   text-align: center;
   position: relative;
 }
-#loader strong {
+#loading-area strong {
   font-weight: bold;
 }
-#loader p + p {
+#loading-area p + p {
   margin-top: 2.4rem;
 }
-#loader .sub::before,
-#loader .sub::after {
+#loading-area .sub::before,
+#loading-area .sub::after {
   content: '"';
   position: absolute;
   top: 1rem;
 }
-#loader .sub::before {
+#loading-area .sub::before {
   left: -2rem;
 }
-#loader .sub::after {
+#loading-area .sub::after {
   right: -2rem;
 }
 
@@ -773,6 +773,8 @@ header.on #lnb.on a {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 20;
 }
 #contact-section .form-area form {
   box-shadow: 0 0 4rem rgba(0, 0, 0, 0.1);

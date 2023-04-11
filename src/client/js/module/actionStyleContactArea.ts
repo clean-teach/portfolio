@@ -353,7 +353,7 @@ export const motionContactAreaByScroll: {
         target.style['display'] = 'none';
       }
     } else {
-      if (this.scrollBottom < startScroll) {
+      if (this.scrollBottom < startScroll && this.scrollBottom > startScroll) {
         target.style['display'] = 'none';
       } else {
         target.style['display'] = display;

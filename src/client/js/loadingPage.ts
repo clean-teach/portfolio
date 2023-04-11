@@ -6,7 +6,7 @@ import { getPercentage } from './utils/utils';
 
   let loader: Element | HTMLElement;
   document.addEventListener('DOMContentLoaded', function () {
-    loader = document.querySelector('#loader') as Element | HTMLElement;
+    loader = document.querySelector('#loading-area') as Element | HTMLElement;
     useLoadingBar.createLoadingBar(loader);
     useLoadingBar.playLoadingBar(pageFadeOutTime);
   });
