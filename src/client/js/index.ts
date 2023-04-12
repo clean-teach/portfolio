@@ -69,8 +69,8 @@ function windowLoadHandler(): void {
   setBackgroundStyleByScroll.setInit();
   setBackgroundColorByMouseMove.setBackgroundColor(mainSection);
   activePortfolioByScroll.action(scrollBottom);
-  // motionContactAreaByScroll.get(winInnerHeight);
-  // motionContactAreaByScroll.scrollHandler(scrollBottom);
+  motionContactAreaByScroll.get(winInnerHeight);
+  motionContactAreaByScroll.scrollHandler(scrollBottom);
   rotateFooterCardByScoll(scrollBottom, winInnerHeight);
   bindTabButton(
     document.querySelector('#portfolio-section .category-tab-wrap'),
@@ -82,8 +82,8 @@ function windowResizeHandler(): void {
     (scrollBottom = document.documentElement.scrollTop + winInnerHeight);
 
   activePortfolioByScroll.action(scrollBottom);
-  // motionContactAreaByScroll.get(winInnerHeight);
-  // motionContactAreaByScroll.scrollHandler(scrollBottom);
+  motionContactAreaByScroll.get(winInnerHeight);
+  motionContactAreaByScroll.scrollHandler(scrollBottom);
   rotateFooterCardByScoll(scrollBottom, winInnerHeight);
   // document.location.reload();
 }
@@ -103,7 +103,7 @@ function documentScrollHandler(event: any): void {
   setBackgroundStyleByScroll.move(scrollBottom);
   scrollRotate('circle-scroll-svg');
   activePortfolioByScroll.action(scrollBottom);
-  // optimizeAnimation(motionContactAreaByScroll.scrollHandler(scrollBottom));
+  optimizeAnimation(motionContactAreaByScroll.scrollHandler(scrollBottom));
   rotateFooterCardByScoll(scrollBottom, winInnerHeight);
 }
 function animationMainSectionByScroll(): void {
