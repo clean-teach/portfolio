@@ -1,956 +1,206 @@
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
-var __webpack_exports__ = {};
+/******/ 	var __webpack_modules__ = ({
 
-;// CONCATENATED MODULE: ./src/client/js/module/setIntervalTitle.ts
-function setIntervalTitle() {
-    var title = document.querySelector('title');
-    var ARR_TITLE_NAME = [
-        '안녕하세요',
-        'CH Portfolio',
-        '입니다.'
-    ];
-    var i = 0;
-    setInterval(function () {
-        title.textContent = ARR_TITLE_NAME[i];
-        i++;
-        if (i >= ARR_TITLE_NAME.length) {
-            i = 0;
-        }
-    }, 1000);
-}
+/***/ "./src/client/js/index.ts":
+/*!********************************!*\
+  !*** ./src/client/js/index.ts ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-;// CONCATENATED MODULE: ./src/client/js/utils/utils.ts
-var scrollBaseValue = 0;
-var getScrollDirection = function () {
-    var result;
-    if (scrollBaseValue < window.scrollY)
-        result = 'DOWN';
-    else
-        result = 'UP';
-    scrollBaseValue = window.scrollY;
-    return result;
-};
-function getCurrentScrollBottomEnd() {
-    var pageScrollHeight = document.body.scrollHeight;
-    var winInnerHeight = window.innerHeight;
-    var scrollBottom = document.documentElement.scrollTop + winInnerHeight;
-    if ((pageScrollHeight - scrollBottom) == 0) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-function getPythagorean(a, b) {
-    var result = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
-    return result;
-}
-function random(min, max) {
-    var num = Math.floor(Math.random() * (max - min + 1)) + min;
-    return num;
-}
-function getPercentage(parts, whole, standard) {
-    return (parts / whole) * standard;
-}
-function scrollRotate(id) {
-    var obj = document.getElementById(id);
-    var CLASS_NAME_ANIMATION = 'rotate-animate';
-    obj.style.transform = "rotate(" + window.pageYOffset / 10 + "deg)";
-    if (document.documentElement.scrollTop !== 0) {
-        obj.classList.remove(CLASS_NAME_ANIMATION);
-    }
-    else {
-        obj.classList.add(CLASS_NAME_ANIMATION);
-    }
-}
-function optimizeAnimation(callback) {
-    var ticking = false;
-    return function () {
-        if (!ticking) {
-            ticking = true;
-            requestAnimationFrame(function () {
-                callback();
-                ticking = false;
-            });
-        }
-    };
-}
-var padStart = function (targetLength, padString, str) {
-    return str.length >= targetLength ? str : new Array(targetLength - str.length + 1).join(padString) + str;
-};
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _module_setIntervalTitle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./module/setIntervalTitle */ \"./src/client/js/module/setIntervalTitle.ts\");\n/* harmony import */ var _module_accessibility__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./module/accessibility */ \"./src/client/js/module/accessibility.ts\");\n/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils/utils */ \"./src/client/js/utils/utils.ts\");\n/* harmony import */ var _module_actionHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./module/actionHeader */ \"./src/client/js/module/actionHeader.ts\");\n/* harmony import */ var _module_setBackgroundColorByMouseMove__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./module/setBackgroundColorByMouseMove */ \"./src/client/js/module/setBackgroundColorByMouseMove.ts\");\n/* harmony import */ var _module_setBackgroundStyleByScroll__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./module/setBackgroundStyleByScroll */ \"./src/client/js/module/setBackgroundStyleByScroll.ts\");\n/* harmony import */ var _module_actionStylePortfolioByScroll__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./module/actionStylePortfolioByScroll */ \"./src/client/js/module/actionStylePortfolioByScroll.ts\");\n/* harmony import */ var _module_actionStyleContactArea__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./module/actionStyleContactArea */ \"./src/client/js/module/actionStyleContactArea.ts\");\n/* harmony import */ var _module_actionStyleFooterCard__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./module/actionStyleFooterCard */ \"./src/client/js/module/actionStyleFooterCard.ts\");\n/* harmony import */ var _module_clock__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./module/clock */ \"./src/client/js/module/clock.ts\");\n/* harmony import */ var _module_bindTabButton__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./module/bindTabButton */ \"./src/client/js/module/bindTabButton.ts\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nvar mainSection, winInnerHeight, scrollBottom;\r\ndocument.addEventListener('DOMContentLoaded', mainHandler);\r\nwindow.addEventListener('load', windowLoadHandler);\r\nwindow.addEventListener('resize', windowResizeHandler);\r\ndocument.addEventListener('contextmenu', function (e) { return e.preventDefault(); });\r\ndocument.addEventListener('mousemove', documentMouseMoveHandler);\r\ndocument.addEventListener('scroll', documentScrollHandler, { passive: true });\r\ndocument.addEventListener('mouseenter', function (e) {\r\n    document.body.style.transition = '0s';\r\n});\r\ndocument.addEventListener('mouseleave', function (e) {\r\n    _module_setBackgroundColorByMouseMove__WEBPACK_IMPORTED_MODULE_4__.setBackgroundColorByMouseMove.setBackgroundColor(mainSection);\r\n    document.body.style.transition = \"1s\";\r\n});\r\nfunction mainHandler() {\r\n    mainSection = document.querySelector('#main-section');\r\n    (0,_module_clock__WEBPACK_IMPORTED_MODULE_9__.checkTimeUserStay)().playClock();\r\n    (0,_module_setIntervalTitle__WEBPACK_IMPORTED_MODULE_0__.setIntervalTitle)();\r\n    (0,_module_accessibility__WEBPACK_IMPORTED_MODULE_1__.accessibility)();\r\n    (0,_module_actionHeader__WEBPACK_IMPORTED_MODULE_3__.bindLnbButton)();\r\n    (0,_module_actionHeader__WEBPACK_IMPORTED_MODULE_3__.bindMainMenuButton)();\r\n    (0,_module_actionStyleContactArea__WEBPACK_IMPORTED_MODULE_7__.bindContactForm)();\r\n    (0,_module_actionStyleFooterCard__WEBPACK_IMPORTED_MODULE_8__.bindFooterCard)();\r\n}\r\nfunction windowLoadHandler() {\r\n    winInnerHeight = window.innerHeight;\r\n    scrollBottom = document.documentElement.scrollTop + winInnerHeight;\r\n    (0,_module_actionHeader__WEBPACK_IMPORTED_MODULE_3__.setHeaderColorByScroll)(mainSection);\r\n    (0,_module_actionHeader__WEBPACK_IMPORTED_MODULE_3__.lnbStylingByScroll)();\r\n    _module_setBackgroundStyleByScroll__WEBPACK_IMPORTED_MODULE_5__.setBackgroundStyleByScroll.setInit();\r\n    _module_setBackgroundColorByMouseMove__WEBPACK_IMPORTED_MODULE_4__.setBackgroundColorByMouseMove.setBackgroundColor(mainSection);\r\n    _module_actionStylePortfolioByScroll__WEBPACK_IMPORTED_MODULE_6__.activePortfolioByScroll.action(scrollBottom);\r\n    _module_actionStyleContactArea__WEBPACK_IMPORTED_MODULE_7__.motionContactAreaByScroll.get(winInnerHeight);\r\n    _module_actionStyleContactArea__WEBPACK_IMPORTED_MODULE_7__.motionContactAreaByScroll.scrollHandler(scrollBottom);\r\n    (0,_module_actionStyleFooterCard__WEBPACK_IMPORTED_MODULE_8__.rotateFooterCardByScoll)(scrollBottom, winInnerHeight);\r\n    (0,_module_bindTabButton__WEBPACK_IMPORTED_MODULE_10__.bindTabButton)(document.querySelector('#portfolio-section .category-tab-wrap'), winInnerHeight);\r\n}\r\nfunction windowResizeHandler() {\r\n    (winInnerHeight = window.innerHeight),\r\n        (scrollBottom = document.documentElement.scrollTop + winInnerHeight);\r\n    _module_actionStylePortfolioByScroll__WEBPACK_IMPORTED_MODULE_6__.activePortfolioByScroll.action(scrollBottom);\r\n    _module_actionStyleContactArea__WEBPACK_IMPORTED_MODULE_7__.motionContactAreaByScroll.get(winInnerHeight);\r\n    _module_actionStyleContactArea__WEBPACK_IMPORTED_MODULE_7__.motionContactAreaByScroll.scrollHandler(scrollBottom);\r\n    (0,_module_actionStyleFooterCard__WEBPACK_IMPORTED_MODULE_8__.rotateFooterCardByScoll)(scrollBottom, winInnerHeight);\r\n}\r\nfunction documentMouseMoveHandler(event) {\r\n    _module_setBackgroundColorByMouseMove__WEBPACK_IMPORTED_MODULE_4__.setBackgroundColorByMouseMove.getMouseMove(event, mainSection);\r\n    _module_setBackgroundColorByMouseMove__WEBPACK_IMPORTED_MODULE_4__.setBackgroundColorByMouseMove.setBackgroundColor(mainSection);\r\n}\r\nfunction documentScrollHandler(event) {\r\n    scrollBottom = document.documentElement.scrollTop + winInnerHeight;\r\n    (0,_module_actionHeader__WEBPACK_IMPORTED_MODULE_3__.setHeaderColorByScroll)(mainSection);\r\n    (0,_module_actionHeader__WEBPACK_IMPORTED_MODULE_3__.lnbStylingByScroll)(event);\r\n    _module_setBackgroundColorByMouseMove__WEBPACK_IMPORTED_MODULE_4__.setBackgroundColorByMouseMove.setBackgroundColor(mainSection);\r\n    animationMainSectionByScroll();\r\n    _module_setBackgroundStyleByScroll__WEBPACK_IMPORTED_MODULE_5__.setBackgroundStyleByScroll.move(scrollBottom);\r\n    (0,_utils_utils__WEBPACK_IMPORTED_MODULE_2__.scrollRotate)('circle-scroll-svg');\r\n    _module_actionStylePortfolioByScroll__WEBPACK_IMPORTED_MODULE_6__.activePortfolioByScroll.action(scrollBottom);\r\n    (0,_utils_utils__WEBPACK_IMPORTED_MODULE_2__.optimizeAnimation)(_module_actionStyleContactArea__WEBPACK_IMPORTED_MODULE_7__.motionContactAreaByScroll.scrollHandler(scrollBottom));\r\n    (0,_module_actionStyleFooterCard__WEBPACK_IMPORTED_MODULE_8__.rotateFooterCardByScoll)(scrollBottom, winInnerHeight);\r\n}\r\nfunction animationMainSectionByScroll() {\r\n    mainSection.querySelector('.tit').style['left'] = \"-\".concat(document.documentElement.scrollTop * 1, \"px\");\r\n    mainSection.querySelector('.txt').style['top'] = \"-\".concat(document.documentElement.scrollTop * 0.02, \"px\");\r\n    mainSection.querySelector('.vertical').style['top'] = \"\".concat(document.documentElement.scrollTop * 0.4, \"px\");\r\n}\r\n\n\n//# sourceURL=webpack://www/./src/client/js/index.ts?");
 
-;// CONCATENATED MODULE: ./src/client/js/module/actionHeader.ts
+/***/ }),
 
-var header = document.querySelector('header');
-var btnMainMenu = header.querySelector('.btn-main-menu');
-var lnb = header.querySelector('#lnb');
-var lnbBtn = lnb.querySelectorAll('a');
-var portfolioSection = document.querySelector('#portfolio-section');
-var bindLnbButton = function () {
-    lnb.addEventListener('click', function (e) {
-        actionToggleMainMenu.actionMenuClose(btnMainMenu, lnb);
-        setMoveScrollByAnchor(e);
-    });
-    lnb.addEventListener('focus', actionToggleHeaderByScroll(portfolioSection).show);
-    lnb.addEventListener('blur', actionToggleHeaderByScroll(portfolioSection).hide);
-};
-var bindMainMenuButton = function () {
-    var mainMenuButton = header.querySelector('.btn-main-menu');
-    mainMenuButton.addEventListener('click', function () {
-        actionToggleMainMenu.actionToggle(btnMainMenu, lnb);
-    });
-};
-function lnbStylingByScroll() {
-    var e = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        e[_i] = arguments[_i];
-    }
-    var CLASS_NAME_ON = 'on';
-    if (document.documentElement.scrollTop >= portfolioSection.offsetTop) {
-        header.classList.add(CLASS_NAME_ON);
-    }
-    else {
-        header.style['transition'] = 'none';
-        header.classList.remove(CLASS_NAME_ON);
-    }
-    if (e && getScrollDirection() === 'DOWN') {
-        actionToggleHeaderByScroll(portfolioSection).hide();
-    }
-    else if (e && getScrollDirection() === 'UP') {
-        actionToggleHeaderByScroll(portfolioSection).show();
-    }
-}
-var setHeaderColorByScroll = function (mainSection) {
-    var mainMenuObj = header.querySelectorAll('.btn-main-menu i');
-    var colorRGB = 255 - (document.documentElement.scrollTop / mainSection.offsetHeight) * 255;
-    mainMenuObj.forEach(function (tg) {
-        tg.style.backgroundColor = "rgba(".concat(colorRGB, ", ").concat(colorRGB, ", ").concat(colorRGB, ", 1)");
-    });
-    if (colorRGB < 0) {
-        colorRGB = 0;
-    }
-    lnbBtn.forEach(function (tg) {
-        tg.style.color = "rgba(".concat(colorRGB, ", ").concat(colorRGB, ", ").concat(colorRGB, ", 1)");
-    });
-};
-var actionToggleMainMenu = {
-    state: false,
-    className: {
-        btnOnClassName: 'mode-close',
-        menuOnClassName: 'on',
-    },
-    actionMenuOpen: function (btn, menu) {
-        btn.classList.add(this.className.btnOnClassName);
-        menu.classList.add(this.className.menuOnClassName);
-        this.state = true;
-    },
-    actionMenuClose: function (btn, menu) {
-        btn.classList.remove(this.className.btnOnClassName);
-        menu.classList.remove(this.className.menuOnClassName);
-        this.state = false;
-    },
-    actionToggle: function (btn, menu) {
-        if (this.state === false) {
-            this.actionMenuOpen(btn, menu);
-        }
-        else {
-            this.actionMenuClose(btn, menu);
-        }
-    },
-};
-function actionToggleHeaderByScroll(portfolioSection) {
-    if (document.documentElement.scrollTop >=
-        portfolioSection.offsetTop + window.innerHeight) {
-        return {
-            hide: function () {
-                btnMainMenu.classList.add('hide');
-            },
-            show: function () {
-                btnMainMenu.classList.remove('hide');
-            },
-        };
-    }
-    else {
-        return {
-            hide: function () {
-                null;
-            },
-            show: function () {
-                null;
-            },
-        };
-    }
-}
-function setMoveScrollByAnchor(event, targetHref) {
-    event.preventDefault();
-    var target = event.target || event.srcElement;
-    if (target.tagName === 'A') {
-        if (event.type === 'click') {
-            targetHref = target.getAttribute('href');
-        }
-        var scrollTo_1;
-        if (targetHref === '#footer') {
-            scrollTo_1 =
-                document.body.scrollHeight -
-                    document.querySelector(targetHref).clientHeight;
-        }
-        else if (targetHref === '#contact-section') {
-            scrollTo_1 =
-                document.querySelector(targetHref).offsetTop +
-                    document.querySelector(targetHref).clientHeight -
-                    window.innerHeight * 4;
-        }
-        else {
-            scrollTo_1 = document.querySelector(targetHref).offsetTop;
-        }
-        window.scrollTo({
-            top: scrollTo_1,
-            behavior: 'smooth',
-        });
-    }
-}
+/***/ "./src/client/js/module/accessibility.ts":
+/*!***********************************************!*\
+  !*** ./src/client/js/module/accessibility.ts ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-;// CONCATENATED MODULE: ./src/client/js/module/accessibility.ts
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"accessibility\": () => (/* binding */ accessibility)\n/* harmony export */ });\n/* harmony import */ var _actionHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actionHeader */ \"./src/client/js/module/actionHeader.ts\");\n\r\nfunction accessibility() {\r\n    var portfolioList = document.querySelectorAll('.portfolio-list>li');\r\n    var lastPortfolioButtons = document.querySelectorAll('.portfolio-list button');\r\n    var lastPortfolioLastButton = lastPortfolioButtons[lastPortfolioButtons.length - 1];\r\n    var activePortfolioButton = null;\r\n    var CLASS_NAME_ON = 'on';\r\n    portfolioList.forEach(function (obj, i, arr) {\r\n        var targetPortfolio = arr[i];\r\n        var button = targetPortfolio.querySelector('.txt-area button');\r\n        if (button) {\r\n            button.addEventListener('focus', function (e) {\r\n                focusPortfolioButtonHandler(e, window.pageYOffset + targetPortfolio.getBoundingClientRect().top);\r\n            });\r\n            button.addEventListener('blur', blurPortfolioButtonHandler);\r\n        }\r\n    });\r\n    lastPortfolioLastButton.addEventListener('blur', lastPortfolioLastButtonHandler);\r\n    function lastPortfolioLastButtonHandler(event) {\r\n        var contactSection = '#contact-section';\r\n        (0,_actionHeader__WEBPACK_IMPORTED_MODULE_0__.setMoveScrollByAnchor)(event, contactSection);\r\n        document.querySelector(contactSection).querySelector('input').focus();\r\n    }\r\n    function focusPortfolioButtonHandler(event, scrollY) {\r\n        activePortfolioButton = event.target;\r\n        activePortfolioButton.classList.add(CLASS_NAME_ON);\r\n        if (scrollY !== null) {\r\n            window.scrollTo(0, scrollY);\r\n        }\r\n    }\r\n    function blurPortfolioButtonHandler() {\r\n        activePortfolioButton.classList.remove(CLASS_NAME_ON);\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://www/./src/client/js/module/accessibility.ts?");
 
-function accessibility() {
-    var portfolioList = document.querySelectorAll('.portfolio-list>li');
-    var lastPortfolioButtons = document.querySelectorAll('.portfolio-list button');
-    var lastPortfolioLastButton = lastPortfolioButtons[lastPortfolioButtons.length - 1];
-    var activePortfolioButton = null;
-    var CLASS_NAME_ON = 'on';
-    portfolioList.forEach(function (obj, i, arr) {
-        var targetPortfolio = arr[i];
-        var button = targetPortfolio.querySelector('.txt-area button');
-        if (button) {
-            button.addEventListener('focus', function (e) {
-                focusPortfolioButtonHandler(e, window.pageYOffset + targetPortfolio.getBoundingClientRect().top);
-            });
-            button.addEventListener('blur', blurPortfolioButtonHandler);
-        }
-    });
-    lastPortfolioLastButton.addEventListener('blur', lastPortfolioLastButtonHandler);
-    function lastPortfolioLastButtonHandler(event) {
-        var contactSection = '#contact-section';
-        setMoveScrollByAnchor(event, contactSection);
-        document.querySelector(contactSection).querySelector('input').focus();
-    }
-    function focusPortfolioButtonHandler(event, scrollY) {
-        activePortfolioButton = event.target;
-        activePortfolioButton.classList.add(CLASS_NAME_ON);
-        if (scrollY !== null) {
-            window.scrollTo(0, scrollY);
-        }
-    }
-    function blurPortfolioButtonHandler() {
-        activePortfolioButton.classList.remove(CLASS_NAME_ON);
-    }
-}
+/***/ }),
 
-;// CONCATENATED MODULE: ./src/client/js/module/setBackgroundColorByMouseMove.ts
+/***/ "./src/client/js/module/actionHeader.ts":
+/*!**********************************************!*\
+  !*** ./src/client/js/module/actionHeader.ts ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-var setBackgroundColorByMouseMove = {
-    gradient: true,
-    mediaCondition: matchMedia("screen and (min-width: 768px)").matches,
-    eventX: 0,
-    eventY: 0,
-    R: random(0, 255),
-    G: random(0, 255),
-    B: random(0, 255),
-    degree: 90,
-    getScrollForAlpha: function (targetSection) {
-        return 1 - (document.documentElement.scrollTop / targetSection.offsetHeight);
-    },
-    getMouseMove: function (event, target) {
-        var _this = this;
-        if (!target) {
-            return;
-        }
-        if (this.mediaCondition) {
-            this.eventX = Math.floor(event.x / target.offsetWidth * 100);
-            this.eventY = Math.floor(event.y / target.offsetHeight * 100);
-            var getColor = function () {
-                var moveXColor = Math.floor(event.x / target.offsetWidth * 255);
-                var moveYColor = Math.floor(event.y / target.offsetHeight * 255);
-                _this.R = 255 - moveXColor;
-                _this.G = moveXColor;
-                _this.B = 255 - moveYColor;
-            };
-            var getDegree = function () {
-                if (_this.gradient) {
-                    var center = {
-                        x: target.getBoundingClientRect().left + (target.clientWidth / 2),
-                        y: target.getBoundingClientRect().top + (target.clientHeight / 2)
-                    };
-                    var x = center.x - event.clientX;
-                    var y = center.y - event.clientY;
-                    var radian = Math.atan2(y, x);
-                    _this.degree = Number((radian * 180 / Math.PI).toFixed(0));
-                }
-            };
-            getColor();
-            getDegree();
-        }
-    },
-    setBackgroundColor: function (targetSection) {
-        var bgTg = document.querySelector('#main-background-area');
-        var alpha = this.getScrollForAlpha(targetSection);
-        if (this.mediaCondition) {
-            if (this.gradient) {
-                bgTg.style.background = "linear-gradient(".concat(this.degree, "deg, rgba(").concat(this.G, ",").concat(this.B, ",").concat(this.R, ",").concat(alpha, ") 0%, rgba(").concat(this.B, ",").concat(this.R, ",").concat(this.G, ",").concat(alpha, ") 100%)");
-            }
-            else {
-                bgTg.style.background = "rgba(".concat(this.R, ",").concat(this.G, ",").concat(this.B, ",").concat(alpha, ")");
-            }
-        }
-        else {
-            bgTg.style.background = "linear-gradient(90deg, rgba(".concat(this.G, ",").concat(this.B, ",").concat(this.R, ",").concat(alpha, ") 0%, rgba(").concat(this.B, ",").concat(this.R, ",").concat(this.G, ",").concat(alpha, ") 100%)");
-        }
-        if (alpha <= 0) {
-            bgTg.style.display = 'none';
-        }
-        else {
-            bgTg.style.display = 'block';
-        }
-    }
-};
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"bindLnbButton\": () => (/* binding */ bindLnbButton),\n/* harmony export */   \"bindMainMenuButton\": () => (/* binding */ bindMainMenuButton),\n/* harmony export */   \"lnbStylingByScroll\": () => (/* binding */ lnbStylingByScroll),\n/* harmony export */   \"setHeaderColorByScroll\": () => (/* binding */ setHeaderColorByScroll),\n/* harmony export */   \"setMoveScrollByAnchor\": () => (/* binding */ setMoveScrollByAnchor)\n/* harmony export */ });\n/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/utils */ \"./src/client/js/utils/utils.ts\");\n\r\nvar header = document.querySelector('header');\r\nvar btnMainMenu = header.querySelector('.btn-main-menu');\r\nvar lnb = header.querySelector('#lnb');\r\nvar lnbBtn = lnb.querySelectorAll('a');\r\nvar portfolioSection = document.querySelector('#portfolio-section');\r\nvar bindLnbButton = function () {\r\n    lnb.addEventListener('click', function (e) {\r\n        actionToggleMainMenu.actionMenuClose(btnMainMenu, lnb);\r\n        setMoveScrollByAnchor(e);\r\n    });\r\n    lnb.addEventListener('focus', actionToggleHeaderByScroll(portfolioSection).show);\r\n    lnb.addEventListener('blur', actionToggleHeaderByScroll(portfolioSection).hide);\r\n};\r\nvar bindMainMenuButton = function () {\r\n    var mainMenuButton = header.querySelector('.btn-main-menu');\r\n    mainMenuButton.addEventListener('click', function () {\r\n        actionToggleMainMenu.actionToggle(btnMainMenu, lnb);\r\n    });\r\n};\r\nfunction lnbStylingByScroll() {\r\n    var e = [];\r\n    for (var _i = 0; _i < arguments.length; _i++) {\r\n        e[_i] = arguments[_i];\r\n    }\r\n    var CLASS_NAME_ON = 'on';\r\n    if (document.documentElement.scrollTop >= portfolioSection.offsetTop) {\r\n        header.classList.add(CLASS_NAME_ON);\r\n    }\r\n    else {\r\n        header.style['transition'] = 'none';\r\n        header.classList.remove(CLASS_NAME_ON);\r\n    }\r\n    if (e && (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getScrollDirection)() === 'DOWN') {\r\n        actionToggleHeaderByScroll(portfolioSection).hide();\r\n    }\r\n    else if (e && (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getScrollDirection)() === 'UP') {\r\n        actionToggleHeaderByScroll(portfolioSection).show();\r\n    }\r\n}\r\nvar setHeaderColorByScroll = function (mainSection) {\r\n    var mainMenuObj = header.querySelectorAll('.btn-main-menu i');\r\n    var colorRGB = 255 - (document.documentElement.scrollTop / mainSection.offsetHeight) * 255;\r\n    mainMenuObj.forEach(function (tg) {\r\n        tg.style.backgroundColor = \"rgba(\".concat(colorRGB, \", \").concat(colorRGB, \", \").concat(colorRGB, \", 1)\");\r\n    });\r\n    if (colorRGB < 0) {\r\n        colorRGB = 0;\r\n    }\r\n    lnbBtn.forEach(function (tg) {\r\n        tg.style.color = \"rgba(\".concat(colorRGB, \", \").concat(colorRGB, \", \").concat(colorRGB, \", 1)\");\r\n    });\r\n};\r\nvar actionToggleMainMenu = {\r\n    state: false,\r\n    className: {\r\n        btnOnClassName: 'mode-close',\r\n        menuOnClassName: 'on',\r\n    },\r\n    actionMenuOpen: function (btn, menu) {\r\n        btn.classList.add(this.className.btnOnClassName);\r\n        menu.classList.add(this.className.menuOnClassName);\r\n        this.state = true;\r\n    },\r\n    actionMenuClose: function (btn, menu) {\r\n        btn.classList.remove(this.className.btnOnClassName);\r\n        menu.classList.remove(this.className.menuOnClassName);\r\n        this.state = false;\r\n    },\r\n    actionToggle: function (btn, menu) {\r\n        if (this.state === false) {\r\n            this.actionMenuOpen(btn, menu);\r\n        }\r\n        else {\r\n            this.actionMenuClose(btn, menu);\r\n        }\r\n    },\r\n};\r\nfunction actionToggleHeaderByScroll(portfolioSection) {\r\n    if (document.documentElement.scrollTop >=\r\n        portfolioSection.offsetTop + window.innerHeight) {\r\n        return {\r\n            hide: function () {\r\n                btnMainMenu.classList.add('hide');\r\n            },\r\n            show: function () {\r\n                btnMainMenu.classList.remove('hide');\r\n            },\r\n        };\r\n    }\r\n    else {\r\n        return {\r\n            hide: function () {\r\n                null;\r\n            },\r\n            show: function () {\r\n                null;\r\n            },\r\n        };\r\n    }\r\n}\r\nfunction setMoveScrollByAnchor(event, targetHref) {\r\n    event.preventDefault();\r\n    var target = event.target || event.srcElement;\r\n    if (target.tagName === 'A') {\r\n        if (event.type === 'click') {\r\n            targetHref = target.getAttribute('href');\r\n        }\r\n        var scrollTo_1;\r\n        if (targetHref === '#footer') {\r\n            scrollTo_1 =\r\n                document.body.scrollHeight -\r\n                    document.querySelector(targetHref).clientHeight;\r\n        }\r\n        else if (targetHref === '#contact-section') {\r\n            scrollTo_1 =\r\n                document.querySelector(targetHref).offsetTop +\r\n                    document.querySelector(targetHref).clientHeight -\r\n                    window.innerHeight * 4;\r\n        }\r\n        else {\r\n            scrollTo_1 = document.querySelector(targetHref).offsetTop;\r\n        }\r\n        window.scrollTo({\r\n            top: scrollTo_1,\r\n            behavior: 'smooth',\r\n        });\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://www/./src/client/js/module/actionHeader.ts?");
 
-;// CONCATENATED MODULE: ./src/client/js/module/setBackgroundStyleByScroll.ts
+/***/ }),
 
-var setBackgroundStyleByScroll = {
-    elBackCircle: document.querySelector('#main-background-area .circle'),
-    contactSection: document.querySelector('#contact-section'),
-    viewportHypotenuse: getPythagorean(document.documentElement.clientWidth, document.documentElement.clientHeight),
-    start: 0,
-    setInit: function () {
-        this.start = this.contactSection.offsetTop;
-        this.elBackCircle.style['width'] = "".concat(this.viewportHypotenuse, "px");
-        this.elBackCircle.style['height'] = "".concat(this.viewportHypotenuse, "px");
-        this.elBackCircle.style['transform'] = "scale(0)";
-    },
-    move: function (scrollBottom) {
-        if (scrollBottom > this.start) {
-            this.elBackCircle.style['transform'] = "scale(".concat((scrollBottom - this.start) / 1000, ")");
-        }
-        else {
-            this.elBackCircle.style['transform'] = "scale(0)";
-        }
-    }
-};
+/***/ "./src/client/js/module/actionStyleContactArea.ts":
+/*!********************************************************!*\
+  !*** ./src/client/js/module/actionStyleContactArea.ts ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-;// CONCATENATED MODULE: ./src/client/js/module/actionStylePortfolioByScroll.ts
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"bindContactForm\": () => (/* binding */ bindContactForm),\n/* harmony export */   \"motionContactAreaByScroll\": () => (/* binding */ motionContactAreaByScroll)\n/* harmony export */ });\n/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/utils */ \"./src/client/js/utils/utils.ts\");\n\r\nvar portfolioSection = document.querySelector('#portfolio-section');\r\nvar contactSection = document.querySelector('#contact-section');\r\nvar joinArea = document.querySelector('.join-motion-txt-area');\r\nvar joinLine = joinArea.querySelectorAll('.line');\r\nvar joinTxt = joinArea.querySelectorAll('.txt');\r\nvar joinTxt01 = joinArea.querySelector('.txt01');\r\nvar joinTxt02 = joinArea.querySelector('.txt02');\r\nvar contactSectionHeading = contactSection.querySelector('h2');\r\nvar formArea = contactSection.querySelector('.form-area');\r\nvar portfolioSectionHeight = portfolioSection.offsetHeight;\r\nvar motionContactAreaByScroll = {\r\n    option: {\r\n        animateSpeed: 1,\r\n    },\r\n    scrollBottom: 0,\r\n    winInnerHeight: 0,\r\n    actionScrollPoint: {\r\n        moveJoinTxt: {\r\n            showReady: 0,\r\n            lineStart: 0,\r\n            lineEnd: 0,\r\n            txtStart: 0,\r\n            txtEnd: 0,\r\n            posiStart: 0,\r\n        },\r\n        heading: {\r\n            fadeInStart: 0,\r\n            fadeInEnd: 0,\r\n            scaleStart: 0,\r\n            scaleEnd: 0,\r\n        },\r\n        formArea: {\r\n            scaleStart: 0,\r\n            scaleEnd: 0,\r\n            posiStart: 0,\r\n        },\r\n    },\r\n    get: function (winInnerHeight) {\r\n        var speed = Math.abs(this.option.animateSpeed);\r\n        portfolioSection = document.querySelector('#portfolio-section');\r\n        contactSection = document.querySelector('#contact-section');\r\n        joinArea = document.querySelector('.join-motion-txt-area');\r\n        joinLine = joinArea.querySelectorAll('.line');\r\n        joinTxt = joinArea.querySelectorAll('.txt');\r\n        joinTxt01 = joinArea.querySelector('.txt01');\r\n        joinTxt02 = joinArea.querySelector('.txt02');\r\n        contactSectionHeading = contactSection.querySelector('h2');\r\n        formArea = contactSection.querySelector('.form-area');\r\n        portfolioSectionHeight = portfolioSection.offsetHeight;\r\n        contactSection.classList.add('animation-by-scroll-style');\r\n        this.winInnerHeight = winInnerHeight;\r\n        this.actionScrollPoint.moveJoinTxt.showReady =\r\n            window.pageYOffset +\r\n                portfolioSection.getBoundingClientRect().top +\r\n                portfolioSectionHeight +\r\n                this.winInnerHeight * 0.5;\r\n        this.actionScrollPoint.moveJoinTxt.lineStart =\r\n            this.actionScrollPoint.moveJoinTxt.showReady +\r\n                this.winInnerHeight * (0.5 * speed);\r\n        this.actionScrollPoint.moveJoinTxt.lineEnd =\r\n            this.actionScrollPoint.moveJoinTxt.lineStart +\r\n                this.winInnerHeight * (2 * speed);\r\n        this.actionScrollPoint.moveJoinTxt.txtStart =\r\n            this.actionScrollPoint.moveJoinTxt.lineEnd + 10;\r\n        this.actionScrollPoint.moveJoinTxt.txtEnd =\r\n            this.actionScrollPoint.moveJoinTxt.txtStart +\r\n                this.winInnerHeight * (2 * speed);\r\n        this.actionScrollPoint.moveJoinTxt.posiStart =\r\n            this.actionScrollPoint.moveJoinTxt.txtEnd +\r\n                this.winInnerHeight * (0.5 * speed);\r\n        this.actionScrollPoint.heading.fadeInStart =\r\n            this.actionScrollPoint.moveJoinTxt.posiStart +\r\n                this.winInnerHeight * (0.5 * speed);\r\n        this.actionScrollPoint.heading.fadeInEnd =\r\n            this.actionScrollPoint.heading.fadeInStart +\r\n                this.winInnerHeight * (2 * speed);\r\n        this.actionScrollPoint.heading.scaleStart =\r\n            this.actionScrollPoint.heading.fadeInEnd;\r\n        this.actionScrollPoint.heading.scaleEnd =\r\n            this.actionScrollPoint.heading.scaleStart +\r\n                this.winInnerHeight * (1.5 * speed);\r\n        this.actionScrollPoint.formArea.scaleStart =\r\n            this.actionScrollPoint.heading.scaleEnd -\r\n                this.winInnerHeight * (0.5 * speed);\r\n        this.actionScrollPoint.formArea.scaleEnd =\r\n            this.actionScrollPoint.formArea.scaleStart +\r\n                this.winInnerHeight * (1.5 * speed);\r\n        this.actionScrollPoint.formArea.posiStart =\r\n            this.actionScrollPoint.formArea.scaleEnd +\r\n                this.winInnerHeight * (0.5 * speed);\r\n    },\r\n    convertScrollToPercentage: function (startScroll, endScroll, percentTotal, currentScroll) {\r\n        if (currentScroll >= startScroll && currentScroll <= endScroll) {\r\n            var percentage = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getPercentage)(currentScroll - startScroll, endScroll - startScroll, percentTotal);\r\n            return percentage;\r\n        }\r\n        return 0;\r\n    },\r\n    rotateYForm: function (degree) {\r\n        var centerWrap = contactSection.querySelector('.center-wrap');\r\n        centerWrap.style['transform'] = \"rotateY(\".concat(degree, \"deg)\");\r\n    },\r\n    fixedPosition: function (startScroll, endScroll, target) {\r\n        var CLASS_NAME_FIEXD = 'fixed';\r\n        if (this.scrollBottom > startScroll && this.scrollBottom < endScroll) {\r\n            target.classList.add(CLASS_NAME_FIEXD);\r\n        }\r\n        else {\r\n            target.classList.remove(CLASS_NAME_FIEXD);\r\n        }\r\n    },\r\n    moveJoinLine: function (startScroll, endScroll) {\r\n        var maxScaleXValue = 1;\r\n        var scaleXValue = this.convertScrollToPercentage(startScroll, endScroll, maxScaleXValue, this.scrollBottom);\r\n        if (this.scrollBottom < startScroll) {\r\n            scaleXValue = 0;\r\n        }\r\n        else if (this.scrollBottom > endScroll) {\r\n            scaleXValue = maxScaleXValue;\r\n        }\r\n        if (!joinLine) {\r\n            document.location.reload();\r\n        }\r\n        else {\r\n            joinLine.forEach(function (line) {\r\n                line.style['transform'] = \"scaleX(\".concat(scaleXValue, \")\");\r\n            });\r\n        }\r\n    },\r\n    setOpacity: function (startScroll, endScroll, minOpacity, maxOpacity) {\r\n        var opacityValue = this.convertScrollToPercentage(startScroll, endScroll, maxOpacity, this.scrollBottom);\r\n        if (this.scrollBottom < startScroll) {\r\n            opacityValue = minOpacity;\r\n        }\r\n        else if (this.scrollBottom > endScroll) {\r\n            opacityValue = maxOpacity;\r\n        }\r\n        return opacityValue;\r\n    },\r\n    moveJoinTxt: function (startScroll, endScroll) {\r\n        var maxpositionValue = 100;\r\n        var positionValue = maxpositionValue -\r\n            this.convertScrollToPercentage(startScroll, endScroll, maxpositionValue, this.scrollBottom);\r\n        if (this.scrollBottom < startScroll) {\r\n            positionValue = maxpositionValue;\r\n        }\r\n        else if (this.scrollBottom > endScroll) {\r\n            positionValue = 0;\r\n        }\r\n        joinTxt01.style['transform'] = \"translateX(\".concat(-positionValue, \"vw)\");\r\n        joinTxt02.style['transform'] = \"translateX(\".concat(positionValue, \"vw)\");\r\n        var opacity = this.setOpacity(startScroll, endScroll, 0, 1);\r\n        joinTxt.forEach(function (txt) {\r\n            txt.style.opacity = \"\".concat(opacity);\r\n        });\r\n    },\r\n    moveEmboss: function (startScroll, endScroll) {\r\n        var opacity = this.setOpacity(startScroll, endScroll, 0, 0.6);\r\n        var maxShadowSizeValue = 0.4;\r\n        var shadowSizeValue = this.convertScrollToPercentage(startScroll, endScroll, maxShadowSizeValue, this.scrollBottom);\r\n        if (this.scrollBottom < startScroll) {\r\n            shadowSizeValue = 0;\r\n        }\r\n        else if (this.scrollBottom > endScroll) {\r\n            shadowSizeValue = maxShadowSizeValue;\r\n        }\r\n        contactSectionHeading.style.textShadow = \"0 0 \".concat(shadowSizeValue, \"rem rgba(0, 0, 0, \").concat(opacity, \")\");\r\n    },\r\n    extendScale: function (startScroll, endScroll, target, minScale, maxScale) {\r\n        var scaleValue = minScale +\r\n            this.convertScrollToPercentage(startScroll, endScroll, maxScale, this.scrollBottom);\r\n        if (this.scrollBottom < startScroll) {\r\n            scaleValue = minScale;\r\n        }\r\n        else if (this.scrollBottom > endScroll) {\r\n            scaleValue = maxScale;\r\n        }\r\n        target.style['transform'] = \"scale(\".concat(scaleValue, \")\");\r\n    },\r\n    setColorMono: function (startScroll, endScroll, target, minValue, maxValue) {\r\n        var ColorValue = maxValue -\r\n            this.convertScrollToPercentage(startScroll, endScroll, maxValue, this.scrollBottom);\r\n        if (this.scrollBottom < startScroll) {\r\n            ColorValue = maxValue;\r\n        }\r\n        else if (this.scrollBottom > endScroll) {\r\n            ColorValue = minValue;\r\n        }\r\n    },\r\n    setDisplay: function (startScroll, endScroll, target, display) {\r\n        if (endScroll) {\r\n            if (this.scrollBottom > startScroll && this.scrollBottom < endScroll) {\r\n                target.style['display'] = display;\r\n            }\r\n            else {\r\n                target.style['display'] = 'none';\r\n            }\r\n        }\r\n        else {\r\n            if (this.scrollBottom < startScroll && this.scrollBottom > startScroll) {\r\n                target.style['display'] = 'none';\r\n            }\r\n            else {\r\n                target.style['display'] = display;\r\n            }\r\n        }\r\n    },\r\n    scrollHandler: function (scrollBottom) {\r\n        this.scrollBottom = scrollBottom;\r\n        this.moveJoinLine(this.actionScrollPoint.moveJoinTxt.lineStart, this.actionScrollPoint.moveJoinTxt.lineEnd);\r\n        this.moveJoinTxt(this.actionScrollPoint.moveJoinTxt.txtStart, this.actionScrollPoint.moveJoinTxt.txtEnd);\r\n        this.fixedPosition(this.actionScrollPoint.moveJoinTxt.showReady, this.actionScrollPoint.moveJoinTxt.posiStart, joinArea);\r\n        this.setDisplay(this.actionScrollPoint.heading.fadeInStart, this.actionScrollPoint.heading.scaleEnd, contactSectionHeading, 'flex');\r\n        contactSectionHeading.style.opacity = \"\".concat(1 -\r\n            this.setOpacity(this.actionScrollPoint.heading.fadeInEnd, this.actionScrollPoint.heading.scaleEnd, 0, 1));\r\n        this.moveEmboss(this.actionScrollPoint.heading.fadeInStart, this.actionScrollPoint.heading.fadeInEnd);\r\n        this.extendScale(this.actionScrollPoint.heading.scaleStart, this.actionScrollPoint.heading.scaleEnd, contactSectionHeading, 1, 100);\r\n        this.setDisplay(this.actionScrollPoint.formArea.scaleStart, '', formArea, 'flex');\r\n        this.extendScale(this.actionScrollPoint.formArea.scaleStart, this.actionScrollPoint.formArea.scaleEnd, formArea, 0, 1);\r\n        this.fixedPosition(this.actionScrollPoint.formArea.scaleStart, this.actionScrollPoint.formArea.posiStart, formArea);\r\n        this.setColorMono(this.actionScrollPoint.heading.scaleStart, this.actionScrollPoint.formArea.posiStart, contactSection, 0, 255);\r\n    },\r\n    portfolioSectionHeight: 0,\r\n};\r\nvar bindContactForm = function () {\r\n    var contactFormTag = document.querySelectorAll('#contact-section input, textarea');\r\n    var CLASS_NAME_ON = 'on';\r\n    contactFormTag.forEach(function (formBox) {\r\n        formBox.addEventListener('focus', function () {\r\n            var li = this.parentElement;\r\n            if (li !== null) {\r\n                li.querySelector('label');\r\n                li.classList.add(CLASS_NAME_ON);\r\n            }\r\n        });\r\n        formBox.addEventListener('blur', function () {\r\n            var li = this.parentElement;\r\n            if (li !== null) {\r\n                li.querySelector('label');\r\n                li.classList.remove(CLASS_NAME_ON);\r\n            }\r\n        });\r\n    });\r\n};\r\n\n\n//# sourceURL=webpack://www/./src/client/js/module/actionStyleContactArea.ts?");
 
-var actionStylePortfolioByScroll_portfolioSection = document.querySelector('#portfolio-section');
-var portfolioTitle = document.querySelector('#portfolio-section>h2');
-var categoryTab = actionStylePortfolioByScroll_portfolioSection.querySelector('.category-tab-wrap');
-var portfolioList = document.querySelectorAll('.portfolio-list>li.motion');
-var winHeightHalf = window.innerHeight / 2;
-var activePortfolioByScroll = {
-    titleMotion: {
-        startPoint: actionStylePortfolioByScroll_portfolioSection.offsetTop + window.innerHeight,
-        endPoint: actionStylePortfolioByScroll_portfolioSection.offsetTop + actionStylePortfolioByScroll_portfolioSection.scrollHeight,
-        action: function (scrollBottom) {
-            if (scrollBottom > this.startPoint && scrollBottom < this.endPoint) {
-                var parts = scrollBottom - this.startPoint;
-                var whole = window.innerHeight;
-                var opacityValue = 1 - getPercentage(parts, whole, 1);
-                if (opacityValue < 0) {
-                    opacityValue = 0;
-                }
-                portfolioTitle.style.opacity = String(opacityValue);
-                portfolioTitle.classList.add('on');
-            }
-            else {
-                portfolioTitle.classList.remove('on');
-            }
-        },
-    },
-    tabMotion: {
-        elementRelativeTop: window.pageYOffset + categoryTab.getBoundingClientRect().top,
-        endPoint: actionStylePortfolioByScroll_portfolioSection.offsetTop + actionStylePortfolioByScroll_portfolioSection.scrollHeight,
-        action: function (scrollBottom) {
-            if (scrollBottom - window.innerHeight > this.elementRelativeTop &&
-                scrollBottom < this.endPoint) {
-                categoryTab.classList.add('on');
-            }
-            else {
-                categoryTab.classList.remove('on');
-            }
-        },
-    },
-    setImgActive: {
-        pc: function (scrollBottom, i, arr) {
-            var target = arr[i].querySelector('.img-area');
-            if (target) {
-                var CLASS_NAME_ON = 'on';
-                var startPoint = window.pageYOffset + arr[i].getBoundingClientRect().top <
-                    scrollBottom;
-                if (startPoint) {
-                    target.classList.add(CLASS_NAME_ON);
-                }
-                else {
-                    target.classList.remove(CLASS_NAME_ON);
-                }
-            }
-        },
-        mob: function (scrollBottom, i, arr) {
-            var mockup = arr[i].querySelector('.img-area');
-            var scroll = arr[i].querySelector('.img-area .img-wrap');
-            if (mockup) {
-                var CLASS_NAME_ON = 'on';
-                var startPoint = window.pageYOffset +
-                    arr[i].getBoundingClientRect().top +
-                    window.innerHeight <
-                    scrollBottom;
-                if (startPoint) {
-                    mockup.classList.add(CLASS_NAME_ON);
-                }
-                else {
-                    mockup.classList.remove(CLASS_NAME_ON);
-                }
-            }
-        },
-    },
-    setTxtActive: {
-        pc: function (scrollBottom, i, arr) {
-            var currentElement = arr[i];
-            var txtBox = currentElement.querySelector('.txt-area');
-            if (txtBox) {
-                var CLASS_NAME_ON = 'on';
-                var startPoint = scrollBottom - winHeightHalf >
-                    window.pageYOffset + currentElement.getBoundingClientRect().top, endPoint = scrollBottom - winHeightHalf <
-                    window.pageYOffset +
-                        currentElement.getBoundingClientRect().top +
-                        currentElement.offsetHeight;
-                if (startPoint && endPoint) {
-                    txtBox.classList.add(CLASS_NAME_ON);
-                }
-                else {
-                    txtBox.classList.remove(CLASS_NAME_ON);
-                }
-            }
-        },
-        mob: function (scrollBottom, i, arr) {
-            var currentElement = arr[i];
-            var txtBox = currentElement.querySelector('.txt-area');
-            if (txtBox) {
-                var CLASS_NAME_ON = 'on';
-            }
-        },
-    },
-    action: function (scrollBottom) {
-        var _this = this;
-        this.titleMotion.action(scrollBottom);
-        this.tabMotion.action(scrollBottom);
-        portfolioList.forEach(function (obj, i, arr) {
-            _this.setImgActive.pc(scrollBottom, i, arr);
-            _this.setTxtActive.pc(scrollBottom, i, arr);
-        });
-    },
-};
+/***/ }),
 
-;// CONCATENATED MODULE: ./src/client/js/module/actionStyleContactArea.ts
+/***/ "./src/client/js/module/actionStyleFooterCard.ts":
+/*!*******************************************************!*\
+  !*** ./src/client/js/module/actionStyleFooterCard.ts ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-var actionStyleContactArea_portfolioSection = document.querySelector('#portfolio-section');
-var contactSection = document.querySelector('#contact-section');
-var joinArea = document.querySelector('.join-motion-txt-area');
-var joinLine = joinArea.querySelectorAll('.line');
-var joinTxt = joinArea.querySelectorAll('.txt');
-var joinTxt01 = joinArea.querySelector('.txt01');
-var joinTxt02 = joinArea.querySelector('.txt02');
-var contactSectionHeading = contactSection.querySelector('h2');
-var formArea = contactSection.querySelector('.form-area');
-var portfolioSectionHeight = actionStyleContactArea_portfolioSection.offsetHeight;
-var motionContactAreaByScroll = {
-    option: {
-        animateSpeed: 1,
-    },
-    scrollBottom: 0,
-    winInnerHeight: 0,
-    actionScrollPoint: {
-        moveJoinTxt: {
-            showReady: 0,
-            lineStart: 0,
-            lineEnd: 0,
-            txtStart: 0,
-            txtEnd: 0,
-            posiStart: 0,
-        },
-        heading: {
-            fadeInStart: 0,
-            fadeInEnd: 0,
-            scaleStart: 0,
-            scaleEnd: 0,
-        },
-        formArea: {
-            scaleStart: 0,
-            scaleEnd: 0,
-            posiStart: 0,
-        },
-    },
-    get: function (winInnerHeight) {
-        var speed = Math.abs(this.option.animateSpeed);
-        actionStyleContactArea_portfolioSection = document.querySelector('#portfolio-section');
-        contactSection = document.querySelector('#contact-section');
-        joinArea = document.querySelector('.join-motion-txt-area');
-        joinLine = joinArea.querySelectorAll('.line');
-        joinTxt = joinArea.querySelectorAll('.txt');
-        joinTxt01 = joinArea.querySelector('.txt01');
-        joinTxt02 = joinArea.querySelector('.txt02');
-        contactSectionHeading = contactSection.querySelector('h2');
-        formArea = contactSection.querySelector('.form-area');
-        portfolioSectionHeight = actionStyleContactArea_portfolioSection.offsetHeight;
-        contactSection.classList.add('animation-by-scroll-style');
-        this.winInnerHeight = winInnerHeight;
-        this.actionScrollPoint.moveJoinTxt.showReady =
-            window.pageYOffset +
-                actionStyleContactArea_portfolioSection.getBoundingClientRect().top +
-                portfolioSectionHeight +
-                this.winInnerHeight * 0.5;
-        this.actionScrollPoint.moveJoinTxt.lineStart =
-            this.actionScrollPoint.moveJoinTxt.showReady +
-                this.winInnerHeight * (0.5 * speed);
-        this.actionScrollPoint.moveJoinTxt.lineEnd =
-            this.actionScrollPoint.moveJoinTxt.lineStart +
-                this.winInnerHeight * (2 * speed);
-        this.actionScrollPoint.moveJoinTxt.txtStart =
-            this.actionScrollPoint.moveJoinTxt.lineEnd + 10;
-        this.actionScrollPoint.moveJoinTxt.txtEnd =
-            this.actionScrollPoint.moveJoinTxt.txtStart +
-                this.winInnerHeight * (2 * speed);
-        this.actionScrollPoint.moveJoinTxt.posiStart =
-            this.actionScrollPoint.moveJoinTxt.txtEnd +
-                this.winInnerHeight * (0.5 * speed);
-        this.actionScrollPoint.heading.fadeInStart =
-            this.actionScrollPoint.moveJoinTxt.posiStart +
-                this.winInnerHeight * (0.5 * speed);
-        this.actionScrollPoint.heading.fadeInEnd =
-            this.actionScrollPoint.heading.fadeInStart +
-                this.winInnerHeight * (2 * speed);
-        this.actionScrollPoint.heading.scaleStart =
-            this.actionScrollPoint.heading.fadeInEnd;
-        this.actionScrollPoint.heading.scaleEnd =
-            this.actionScrollPoint.heading.scaleStart +
-                this.winInnerHeight * (1.5 * speed);
-        this.actionScrollPoint.formArea.scaleStart =
-            this.actionScrollPoint.heading.scaleEnd -
-                this.winInnerHeight * (0.5 * speed);
-        this.actionScrollPoint.formArea.scaleEnd =
-            this.actionScrollPoint.formArea.scaleStart +
-                this.winInnerHeight * (1.5 * speed);
-        this.actionScrollPoint.formArea.posiStart =
-            this.actionScrollPoint.formArea.scaleEnd +
-                this.winInnerHeight * (0.5 * speed);
-    },
-    convertScrollToPercentage: function (startScroll, endScroll, percentTotal, currentScroll) {
-        if (currentScroll >= startScroll && currentScroll <= endScroll) {
-            var percentage = getPercentage(currentScroll - startScroll, endScroll - startScroll, percentTotal);
-            return percentage;
-        }
-        return 0;
-    },
-    rotateYForm: function (degree) {
-        var centerWrap = contactSection.querySelector('.center-wrap');
-        centerWrap.style['transform'] = "rotateY(".concat(degree, "deg)");
-    },
-    fixedPosition: function (startScroll, endScroll, target) {
-        var CLASS_NAME_FIEXD = 'fixed';
-        if (this.scrollBottom > startScroll && this.scrollBottom < endScroll) {
-            target.classList.add(CLASS_NAME_FIEXD);
-        }
-        else {
-            target.classList.remove(CLASS_NAME_FIEXD);
-        }
-    },
-    moveJoinLine: function (startScroll, endScroll) {
-        var maxScaleXValue = 1;
-        var scaleXValue = this.convertScrollToPercentage(startScroll, endScroll, maxScaleXValue, this.scrollBottom);
-        if (this.scrollBottom < startScroll) {
-            scaleXValue = 0;
-        }
-        else if (this.scrollBottom > endScroll) {
-            scaleXValue = maxScaleXValue;
-        }
-        if (!joinLine) {
-            document.location.reload();
-        }
-        else {
-            joinLine.forEach(function (line) {
-                line.style['transform'] = "scaleX(".concat(scaleXValue, ")");
-            });
-        }
-    },
-    setOpacity: function (startScroll, endScroll, minOpacity, maxOpacity) {
-        var opacityValue = this.convertScrollToPercentage(startScroll, endScroll, maxOpacity, this.scrollBottom);
-        if (this.scrollBottom < startScroll) {
-            opacityValue = minOpacity;
-        }
-        else if (this.scrollBottom > endScroll) {
-            opacityValue = maxOpacity;
-        }
-        return opacityValue;
-    },
-    moveJoinTxt: function (startScroll, endScroll) {
-        var maxpositionValue = 100;
-        var positionValue = maxpositionValue -
-            this.convertScrollToPercentage(startScroll, endScroll, maxpositionValue, this.scrollBottom);
-        if (this.scrollBottom < startScroll) {
-            positionValue = maxpositionValue;
-        }
-        else if (this.scrollBottom > endScroll) {
-            positionValue = 0;
-        }
-        joinTxt01.style['transform'] = "translateX(".concat(-positionValue, "vw)");
-        joinTxt02.style['transform'] = "translateX(".concat(positionValue, "vw)");
-        var opacity = this.setOpacity(startScroll, endScroll, 0, 1);
-        joinTxt.forEach(function (txt) {
-            txt.style.opacity = "".concat(opacity);
-        });
-    },
-    moveEmboss: function (startScroll, endScroll) {
-        var opacity = this.setOpacity(startScroll, endScroll, 0, 0.6);
-        var maxShadowSizeValue = 0.4;
-        var shadowSizeValue = this.convertScrollToPercentage(startScroll, endScroll, maxShadowSizeValue, this.scrollBottom);
-        if (this.scrollBottom < startScroll) {
-            shadowSizeValue = 0;
-        }
-        else if (this.scrollBottom > endScroll) {
-            shadowSizeValue = maxShadowSizeValue;
-        }
-        contactSectionHeading.style.textShadow = "0 0 ".concat(shadowSizeValue, "rem rgba(0, 0, 0, ").concat(opacity, ")");
-    },
-    extendScale: function (startScroll, endScroll, target, minScale, maxScale) {
-        var scaleValue = minScale +
-            this.convertScrollToPercentage(startScroll, endScroll, maxScale, this.scrollBottom);
-        if (this.scrollBottom < startScroll) {
-            scaleValue = minScale;
-        }
-        else if (this.scrollBottom > endScroll) {
-            scaleValue = maxScale;
-        }
-        target.style['transform'] = "scale(".concat(scaleValue, ")");
-    },
-    setColorMono: function (startScroll, endScroll, target, minValue, maxValue) {
-        var ColorValue = maxValue -
-            this.convertScrollToPercentage(startScroll, endScroll, maxValue, this.scrollBottom);
-        if (this.scrollBottom < startScroll) {
-            ColorValue = maxValue;
-        }
-        else if (this.scrollBottom > endScroll) {
-            ColorValue = minValue;
-        }
-    },
-    setDisplay: function (startScroll, endScroll, target, display) {
-        if (endScroll) {
-            if (this.scrollBottom > startScroll && this.scrollBottom < endScroll) {
-                target.style['display'] = display;
-            }
-            else {
-                target.style['display'] = 'none';
-            }
-        }
-        else {
-            if (this.scrollBottom < startScroll && this.scrollBottom > startScroll) {
-                target.style['display'] = 'none';
-            }
-            else {
-                target.style['display'] = display;
-            }
-        }
-    },
-    scrollHandler: function (scrollBottom) {
-        this.scrollBottom = scrollBottom;
-        this.moveJoinLine(this.actionScrollPoint.moveJoinTxt.lineStart, this.actionScrollPoint.moveJoinTxt.lineEnd);
-        this.moveJoinTxt(this.actionScrollPoint.moveJoinTxt.txtStart, this.actionScrollPoint.moveJoinTxt.txtEnd);
-        this.fixedPosition(this.actionScrollPoint.moveJoinTxt.showReady, this.actionScrollPoint.moveJoinTxt.posiStart, joinArea);
-        this.setDisplay(this.actionScrollPoint.heading.fadeInStart, this.actionScrollPoint.heading.scaleEnd, contactSectionHeading, 'flex');
-        contactSectionHeading.style.opacity = "".concat(1 -
-            this.setOpacity(this.actionScrollPoint.heading.fadeInEnd, this.actionScrollPoint.heading.scaleEnd, 0, 1));
-        this.moveEmboss(this.actionScrollPoint.heading.fadeInStart, this.actionScrollPoint.heading.fadeInEnd);
-        this.extendScale(this.actionScrollPoint.heading.scaleStart, this.actionScrollPoint.heading.scaleEnd, contactSectionHeading, 1, 100);
-        this.setDisplay(this.actionScrollPoint.formArea.scaleStart, '', formArea, 'flex');
-        this.extendScale(this.actionScrollPoint.formArea.scaleStart, this.actionScrollPoint.formArea.scaleEnd, formArea, 0, 1);
-        this.fixedPosition(this.actionScrollPoint.formArea.scaleStart, this.actionScrollPoint.formArea.posiStart, formArea);
-        this.setColorMono(this.actionScrollPoint.heading.scaleStart, this.actionScrollPoint.formArea.posiStart, contactSection, 0, 255);
-    },
-    portfolioSectionHeight: 0,
-};
-var bindContactForm = function () {
-    var contactFormTag = document.querySelectorAll('#contact-section input, textarea');
-    var CLASS_NAME_ON = 'on';
-    contactFormTag.forEach(function (formBox) {
-        formBox.addEventListener('focus', function () {
-            var li = this.parentElement;
-            if (li !== null) {
-                li.querySelector('label');
-                li.classList.add(CLASS_NAME_ON);
-            }
-        });
-        formBox.addEventListener('blur', function () {
-            var li = this.parentElement;
-            if (li !== null) {
-                li.querySelector('label');
-                li.classList.remove(CLASS_NAME_ON);
-            }
-        });
-    });
-};
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"bindFooterCard\": () => (/* binding */ bindFooterCard),\n/* harmony export */   \"rotateFooterCardByScoll\": () => (/* binding */ rotateFooterCardByScoll)\n/* harmony export */ });\n/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/utils */ \"./src/client/js/utils/utils.ts\");\n\r\nvar footer = document.querySelector('footer');\r\nvar footerCard = footer.querySelector('.card');\r\nvar cardOffsetTop = footer.offsetTop + footerCard.offsetTop;\r\nvar footerCardInitialAngleValue = 180;\r\nvar sensitiveY = 20;\r\nvar sensitiveX = 10;\r\nvar direction = 1;\r\nfunction bindFooterCard() {\r\n    var card = document.querySelector('footer .card');\r\n    card.addEventListener('mousemove', twistCardHandler);\r\n    card.addEventListener('mouseleave', returnToOriginStateCardHandler);\r\n    card.querySelectorAll('a').forEach(function (a, i) {\r\n        a.addEventListener('mouseenter', function () {\r\n            hoverFootCardButton.enter(i);\r\n        });\r\n        a.addEventListener('focus', function () {\r\n            hoverFootCardButton.enter(i);\r\n            window.scrollTo(0, document.body.scrollHeight);\r\n        });\r\n        a.addEventListener('mouseleave', function () {\r\n            hoverFootCardButton.leave(i);\r\n        });\r\n        a.addEventListener('blur', function () {\r\n            hoverFootCardButton.leave(i);\r\n        });\r\n    });\r\n    function twistCardHandler(event) {\r\n        if ((0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getCurrentScrollBottomEnd)()) {\r\n            this.style.transform = \"\\n                rotateY(\".concat((direction * (window.innerWidth / 2 - event.x)) / sensitiveY, \"deg) \\n                rotateX(\").concat((direction * (window.innerHeight / 2 - event.y)) / -sensitiveX, \"deg)\\n            \");\r\n            this.style.transition = '0s';\r\n        }\r\n    }\r\n    function returnToOriginStateCardHandler() {\r\n        if ((0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getCurrentScrollBottomEnd)()) {\r\n            this.style.transform = \"rotateY(0deg) rotateX(0deg)\";\r\n            this.style.transition = '.4s';\r\n        }\r\n    }\r\n    var hoverFootCardButton = {\r\n        target: document.querySelector('footer .card-space'),\r\n        ARR_CLASS_NAME: [\r\n            'bg-mobile',\r\n            'bg-email',\r\n            'bg-git',\r\n            'bg-notion-01',\r\n            'bg-notion-02',\r\n        ],\r\n        enter: function (i) {\r\n            this.target.classList.add(this.ARR_CLASS_NAME[i]);\r\n        },\r\n        leave: function (i) {\r\n            this.target.classList.remove(this.ARR_CLASS_NAME[i]);\r\n        },\r\n    };\r\n}\r\nfunction rotateFooterCardByScoll(scrollBottom, winInnerHeight) {\r\n    var pageScrollHeight = document.body.scrollHeight;\r\n    var startPoint = pageScrollHeight - winInnerHeight;\r\n    if (scrollBottom > startPoint - winInnerHeight * 2) {\r\n        footerCard.style.display = 'block';\r\n    }\r\n    else {\r\n        footerCard.style.display = 'none';\r\n    }\r\n    if (scrollBottom > startPoint) {\r\n        var percentage = ((scrollBottom - startPoint) / (pageScrollHeight - startPoint)) * 180;\r\n        footerCard.style.transform = \"rotateX(\".concat(footerCardInitialAngleValue - percentage, \"deg)\");\r\n        footerCard.style.transition = '0s';\r\n    }\r\n    else {\r\n        footerCard.style.transform = \"rotateX(\".concat(footerCardInitialAngleValue, \"deg)\");\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://www/./src/client/js/module/actionStyleFooterCard.ts?");
 
-;// CONCATENATED MODULE: ./src/client/js/module/actionStyleFooterCard.ts
+/***/ }),
 
-var footer = document.querySelector('footer');
-var footerCard = footer.querySelector('.card');
-var cardOffsetTop = footer.offsetTop + footerCard.offsetTop;
-var footerCardInitialAngleValue = 180;
-var sensitiveY = 20;
-var sensitiveX = 10;
-var direction = 1;
-function bindFooterCard() {
-    var card = document.querySelector('footer .card');
-    card.addEventListener('mousemove', twistCardHandler);
-    card.addEventListener('mouseleave', returnToOriginStateCardHandler);
-    card.querySelectorAll('a').forEach(function (a, i) {
-        a.addEventListener('mouseenter', function () {
-            hoverFootCardButton.enter(i);
-        });
-        a.addEventListener('focus', function () {
-            hoverFootCardButton.enter(i);
-            window.scrollTo(0, document.body.scrollHeight);
-        });
-        a.addEventListener('mouseleave', function () {
-            hoverFootCardButton.leave(i);
-        });
-        a.addEventListener('blur', function () {
-            hoverFootCardButton.leave(i);
-        });
-    });
-    function twistCardHandler(event) {
-        if (getCurrentScrollBottomEnd()) {
-            this.style.transform = "\n                rotateY(".concat((direction * (window.innerWidth / 2 - event.x)) / sensitiveY, "deg) \n                rotateX(").concat((direction * (window.innerHeight / 2 - event.y)) / -sensitiveX, "deg)\n            ");
-            this.style.transition = '0s';
-        }
-    }
-    function returnToOriginStateCardHandler() {
-        if (getCurrentScrollBottomEnd()) {
-            this.style.transform = "rotateY(0deg) rotateX(0deg)";
-            this.style.transition = '.4s';
-        }
-    }
-    var hoverFootCardButton = {
-        target: document.querySelector('footer .card-space'),
-        ARR_CLASS_NAME: [
-            'bg-mobile',
-            'bg-email',
-            'bg-git',
-            'bg-notion-01',
-            'bg-notion-02',
-        ],
-        enter: function (i) {
-            this.target.classList.add(this.ARR_CLASS_NAME[i]);
-        },
-        leave: function (i) {
-            this.target.classList.remove(this.ARR_CLASS_NAME[i]);
-        },
-    };
-}
-function rotateFooterCardByScoll(scrollBottom, winInnerHeight) {
-    var pageScrollHeight = document.body.scrollHeight;
-    var startPoint = pageScrollHeight - winInnerHeight;
-    if (scrollBottom > startPoint - winInnerHeight * 2) {
-        footerCard.style.display = 'block';
-    }
-    else {
-        footerCard.style.display = 'none';
-    }
-    if (scrollBottom > startPoint) {
-        var percentage = ((scrollBottom - startPoint) / (pageScrollHeight - startPoint)) * 180;
-        footerCard.style.transform = "rotateX(".concat(footerCardInitialAngleValue - percentage, "deg)");
-        footerCard.style.transition = '0s';
-    }
-    else {
-        footerCard.style.transform = "rotateX(".concat(footerCardInitialAngleValue, "deg)");
-    }
-}
+/***/ "./src/client/js/module/actionStylePortfolioByScroll.ts":
+/*!**************************************************************!*\
+  !*** ./src/client/js/module/actionStylePortfolioByScroll.ts ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-;// CONCATENATED MODULE: ./src/client/js/module/clock.ts
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"activePortfolioByScroll\": () => (/* binding */ activePortfolioByScroll)\n/* harmony export */ });\n/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/utils */ \"./src/client/js/utils/utils.ts\");\n\r\nvar portfolioSection = document.querySelector('#portfolio-section');\r\nvar portfolioTitle = document.querySelector('#portfolio-section>h2');\r\nvar categoryTab = portfolioSection.querySelector('.category-tab-wrap');\r\nvar portfolioList = document.querySelectorAll('.portfolio-list>li.motion');\r\nvar winHeightHalf = window.innerHeight / 2;\r\nvar activePortfolioByScroll = {\r\n    titleMotion: {\r\n        startPoint: portfolioSection.offsetTop + window.innerHeight,\r\n        endPoint: portfolioSection.offsetTop + portfolioSection.scrollHeight,\r\n        action: function (scrollBottom) {\r\n            if (scrollBottom > this.startPoint && scrollBottom < this.endPoint) {\r\n                var parts = scrollBottom - this.startPoint;\r\n                var whole = window.innerHeight;\r\n                var opacityValue = 1 - (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getPercentage)(parts, whole, 1);\r\n                if (opacityValue < 0) {\r\n                    opacityValue = 0;\r\n                }\r\n                portfolioTitle.style.opacity = String(opacityValue);\r\n                portfolioTitle.classList.add('on');\r\n            }\r\n            else {\r\n                portfolioTitle.classList.remove('on');\r\n            }\r\n        },\r\n    },\r\n    tabMotion: {\r\n        elementRelativeTop: window.pageYOffset + categoryTab.getBoundingClientRect().top,\r\n        endPoint: portfolioSection.offsetTop + portfolioSection.scrollHeight,\r\n        action: function (scrollBottom) {\r\n            if (scrollBottom - window.innerHeight > this.elementRelativeTop &&\r\n                scrollBottom < this.endPoint) {\r\n                categoryTab.classList.add('on');\r\n            }\r\n            else {\r\n                categoryTab.classList.remove('on');\r\n            }\r\n        },\r\n    },\r\n    setImgActive: {\r\n        pc: function (scrollBottom, i, arr) {\r\n            var target = arr[i].querySelector('.img-area');\r\n            if (target) {\r\n                var CLASS_NAME_ON = 'on';\r\n                var startPoint = window.pageYOffset + arr[i].getBoundingClientRect().top <\r\n                    scrollBottom;\r\n                if (startPoint) {\r\n                    target.classList.add(CLASS_NAME_ON);\r\n                }\r\n                else {\r\n                    target.classList.remove(CLASS_NAME_ON);\r\n                }\r\n            }\r\n        },\r\n        mob: function (scrollBottom, i, arr) {\r\n            var mockup = arr[i].querySelector('.img-area');\r\n            var scroll = arr[i].querySelector('.img-area .img-wrap');\r\n            if (mockup) {\r\n                var CLASS_NAME_ON = 'on';\r\n                var startPoint = window.pageYOffset +\r\n                    arr[i].getBoundingClientRect().top +\r\n                    window.innerHeight <\r\n                    scrollBottom;\r\n                if (startPoint) {\r\n                    mockup.classList.add(CLASS_NAME_ON);\r\n                }\r\n                else {\r\n                    mockup.classList.remove(CLASS_NAME_ON);\r\n                }\r\n            }\r\n        },\r\n    },\r\n    setTxtActive: {\r\n        pc: function (scrollBottom, i, arr) {\r\n            var currentElement = arr[i];\r\n            var txtBox = currentElement.querySelector('.txt-area');\r\n            if (txtBox) {\r\n                var CLASS_NAME_ON = 'on';\r\n                var startPoint = scrollBottom - winHeightHalf >\r\n                    window.pageYOffset + currentElement.getBoundingClientRect().top, endPoint = scrollBottom - winHeightHalf <\r\n                    window.pageYOffset +\r\n                        currentElement.getBoundingClientRect().top +\r\n                        currentElement.offsetHeight;\r\n                if (startPoint && endPoint) {\r\n                    txtBox.classList.add(CLASS_NAME_ON);\r\n                }\r\n                else {\r\n                    txtBox.classList.remove(CLASS_NAME_ON);\r\n                }\r\n            }\r\n        },\r\n        mob: function (scrollBottom, i, arr) {\r\n            var currentElement = arr[i];\r\n            var txtBox = currentElement.querySelector('.txt-area');\r\n            if (txtBox) {\r\n                var CLASS_NAME_ON = 'on';\r\n            }\r\n        },\r\n    },\r\n    action: function (scrollBottom) {\r\n        var _this = this;\r\n        this.titleMotion.action(scrollBottom);\r\n        this.tabMotion.action(scrollBottom);\r\n        portfolioList.forEach(function (obj, i, arr) {\r\n            _this.setImgActive.pc(scrollBottom, i, arr);\r\n            _this.setTxtActive.pc(scrollBottom, i, arr);\r\n        });\r\n    },\r\n};\r\n\n\n//# sourceURL=webpack://www/./src/client/js/module/actionStylePortfolioByScroll.ts?");
 
-function checkTimeUserStay() {
-    var firstVisitTime;
-    var startClockTimer;
-    resetTimer();
-    function resetTimer() {
-        firstVisitTime = new Date();
-    }
-    function paintingClock() {
-        var clock = document.querySelector('#time-the-current-user-is-staying');
-        var currentTime = new Date();
-        var elapsedTimeMilliseconds = getElapsedTime(firstVisitTime, currentTime);
-        var seconds = getHoursMinutesSecondsFromMilliseconds(elapsedTimeMilliseconds).seconds();
-        var minutes = getHoursMinutesSecondsFromMilliseconds(elapsedTimeMilliseconds).minutes();
-        var hours = getHoursMinutesSecondsFromMilliseconds(elapsedTimeMilliseconds).hours();
-        seconds = padStart(2, '0', String(seconds));
-        minutes = padStart(2, '0', String(minutes));
-        hours = padStart(2, '0', String(hours));
-        clock.innerHTML = "\n            <p>\uBC8C\uC368 <span>".concat(hours, "</span>\uC2DC\uAC04 <span>").concat(minutes, "</span>\uBD84 <span>").concat(seconds, "</span>\uCD08 \uB3D9\uC548 \uC800\uC5D0\uAC8C \uAD00\uC2EC\uC744 \uBCF4\uC5EC\uC8FC\uC168\uC5B4\uC694!</p>\n            <p>\uC800\uC5D0 \uB300\uD574 \uB354\uC6B1 \uB9CE\uC740 \uAC83\uC744 \uC54C\uACE0 \uC2F6\uC73C\uC2DC\uBA74, <br />\n            \uC544\uB798 \uC5F0\uB77D\uCC98\uB85C \uC5F0\uB77D \uC8FC\uC138\uC694</p>\n            <p>\u2193</p>\n        ");
-    }
-    return {
-        playClock: function () {
-            startClockTimer = setInterval(paintingClock, 1000);
-        },
-        stopClock: function () {
-            clearInterval(startClockTimer);
-        }
-    };
-}
-function getElapsedTime(oldTime, newTime) {
-    var oldYear = oldTime.getFullYear();
-    var oldMonth = oldTime.getMonth() + 1;
-    var oldDay = oldTime.getDate();
-    var oldHour = oldTime.getHours();
-    var oldMinute = oldTime.getMinutes();
-    var oldSecond = oldTime.getSeconds();
-    var newYear = newTime.getFullYear();
-    var newMonth = newTime.getMonth() + 1;
-    var newDay = newTime.getDate();
-    var newHour = newTime.getHours();
-    var newMinute = newTime.getMinutes();
-    var newSecond = newTime.getSeconds();
-    var oldDate = new Date(oldYear, oldMonth, oldDay, oldHour, oldMinute, oldSecond);
-    var newDate = new Date(newYear, newMonth, newDay, newHour, newMinute, newSecond);
-    var elapsedTime = newDate.getTime() - oldDate.getTime();
-    return elapsedTime;
-}
-function getHoursMinutesSecondsFromMilliseconds(milliseconds) {
-    var hours = milliseconds % (1000 * 60 * 60 * 24) / (1000 * 60 * 60);
-    var minutes = milliseconds % (1000 * 60 * 60) / (1000 * 60);
-    var seconds = milliseconds % (1000 * 60) / (1000);
-    hours = Math.floor(hours);
-    minutes = Math.floor(minutes);
-    seconds = Math.floor(seconds);
-    return {
-        hours: function () {
-            return hours;
-        },
-        minutes: function () {
-            return minutes;
-        }, seconds: function () {
-            return seconds;
-        }
-    };
-}
+/***/ }),
 
-;// CONCATENATED MODULE: ./src/client/js/module/actionTab.ts
-function filteringCategoryByTab(currentBtn) {
-    var portfolios = document.querySelector('#portfolio-section .portfolio-list');
-    var portfolioListPositionRelativeTop = window.pageYOffset + portfolios.getBoundingClientRect().top + window.innerHeight;
-    var list = document.querySelectorAll('#portfolio-section .portfolio-list > li');
-    var CLASS_NAME_HIDDEN = 'hidden';
-    window.scrollTo(0, portfolioListPositionRelativeTop);
-    list.forEach(function (item) {
-        item.classList.add(CLASS_NAME_HIDDEN);
-        if (currentBtn.dataset.category === 'total' || currentBtn.dataset.category === item.dataset.category) {
-            item.classList.remove(CLASS_NAME_HIDDEN);
-        }
-    });
-}
+/***/ "./src/client/js/module/actionTab.ts":
+/*!*******************************************!*\
+  !*** ./src/client/js/module/actionTab.ts ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-;// CONCATENATED MODULE: ./src/client/js/module/bindTabButton.ts
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"filteringCategoryByTab\": () => (/* binding */ filteringCategoryByTab)\n/* harmony export */ });\nfunction filteringCategoryByTab(currentBtn) {\r\n    var portfolios = document.querySelector('#portfolio-section .portfolio-list');\r\n    var portfolioListPositionRelativeTop = window.pageYOffset + portfolios.getBoundingClientRect().top + window.innerHeight;\r\n    var list = document.querySelectorAll('#portfolio-section .portfolio-list > li');\r\n    var CLASS_NAME_HIDDEN = 'hidden';\r\n    window.scrollTo(0, portfolioListPositionRelativeTop);\r\n    list.forEach(function (item) {\r\n        item.classList.add(CLASS_NAME_HIDDEN);\r\n        if (currentBtn.dataset.category === 'total' || currentBtn.dataset.category === item.dataset.category) {\r\n            item.classList.remove(CLASS_NAME_HIDDEN);\r\n        }\r\n    });\r\n}\r\n\n\n//# sourceURL=webpack://www/./src/client/js/module/actionTab.ts?");
 
+/***/ }),
 
-function bindTabButton(tabArea, winInnerHeight) {
-    var CLASS_NAME_ON = 'on';
-    var currentTab = tabArea.querySelector("button.".concat(CLASS_NAME_ON));
-    filteringCategoryByTab(tabArea.querySelector(".".concat(CLASS_NAME_ON)));
-    tabArea.addEventListener('click', tabClickHandler);
-    function tabClickHandler(event) {
-        if (event.target.type === 'button') {
-            currentTab.classList.remove(CLASS_NAME_ON);
-            event.target.classList.add(CLASS_NAME_ON);
-            currentTab = event.target;
-            filteringCategoryByTab(event.target);
-        }
-        motionContactAreaByScroll.get(winInnerHeight);
-    }
-}
+/***/ "./src/client/js/module/bindTabButton.ts":
+/*!***********************************************!*\
+  !*** ./src/client/js/module/bindTabButton.ts ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-;// CONCATENATED MODULE: ./src/client/js/index.ts
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"bindTabButton\": () => (/* binding */ bindTabButton)\n/* harmony export */ });\n/* harmony import */ var _actionStyleContactArea__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actionStyleContactArea */ \"./src/client/js/module/actionStyleContactArea.ts\");\n/* harmony import */ var _actionTab__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actionTab */ \"./src/client/js/module/actionTab.ts\");\n\r\n\r\nfunction bindTabButton(tabArea, winInnerHeight) {\r\n    var CLASS_NAME_ON = 'on';\r\n    var currentTab = tabArea.querySelector(\"button.\".concat(CLASS_NAME_ON));\r\n    (0,_actionTab__WEBPACK_IMPORTED_MODULE_1__.filteringCategoryByTab)(tabArea.querySelector(\".\".concat(CLASS_NAME_ON)));\r\n    tabArea.addEventListener('click', tabClickHandler);\r\n    function tabClickHandler(event) {\r\n        if (event.target.type === 'button') {\r\n            currentTab.classList.remove(CLASS_NAME_ON);\r\n            event.target.classList.add(CLASS_NAME_ON);\r\n            currentTab = event.target;\r\n            (0,_actionTab__WEBPACK_IMPORTED_MODULE_1__.filteringCategoryByTab)(event.target);\r\n        }\r\n        _actionStyleContactArea__WEBPACK_IMPORTED_MODULE_0__.motionContactAreaByScroll.get(winInnerHeight);\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://www/./src/client/js/module/bindTabButton.ts?");
 
+/***/ }),
 
+/***/ "./src/client/js/module/clock.ts":
+/*!***************************************!*\
+  !*** ./src/client/js/module/clock.ts ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"checkTimeUserStay\": () => (/* binding */ checkTimeUserStay)\n/* harmony export */ });\n/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/utils */ \"./src/client/js/utils/utils.ts\");\n\r\nfunction checkTimeUserStay() {\r\n    var firstVisitTime;\r\n    var startClockTimer;\r\n    resetTimer();\r\n    function resetTimer() {\r\n        firstVisitTime = new Date();\r\n    }\r\n    function paintingClock() {\r\n        var clock = document.querySelector('#time-the-current-user-is-staying');\r\n        var currentTime = new Date();\r\n        var elapsedTimeMilliseconds = getElapsedTime(firstVisitTime, currentTime);\r\n        var seconds = getHoursMinutesSecondsFromMilliseconds(elapsedTimeMilliseconds).seconds();\r\n        var minutes = getHoursMinutesSecondsFromMilliseconds(elapsedTimeMilliseconds).minutes();\r\n        var hours = getHoursMinutesSecondsFromMilliseconds(elapsedTimeMilliseconds).hours();\r\n        seconds = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.padStart)(2, '0', String(seconds));\r\n        minutes = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.padStart)(2, '0', String(minutes));\r\n        hours = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.padStart)(2, '0', String(hours));\r\n        clock.innerHTML = \"\\n            <p>\\uBC8C\\uC368 <span>\".concat(hours, \"</span>\\uC2DC\\uAC04 <span>\").concat(minutes, \"</span>\\uBD84 <span>\").concat(seconds, \"</span>\\uCD08 \\uB3D9\\uC548 \\uC800\\uC5D0\\uAC8C \\uAD00\\uC2EC\\uC744 \\uBCF4\\uC5EC\\uC8FC\\uC168\\uC5B4\\uC694!</p>\\n            <p>\\uC800\\uC5D0 \\uB300\\uD574 \\uB354\\uC6B1 \\uB9CE\\uC740 \\uAC83\\uC744 \\uC54C\\uACE0 \\uC2F6\\uC73C\\uC2DC\\uBA74, <br />\\n            \\uC544\\uB798 \\uC5F0\\uB77D\\uCC98\\uB85C \\uC5F0\\uB77D \\uC8FC\\uC138\\uC694</p>\\n            <p>\\u2193</p>\\n        \");\r\n    }\r\n    return {\r\n        playClock: function () {\r\n            startClockTimer = setInterval(paintingClock, 1000);\r\n        },\r\n        stopClock: function () {\r\n            clearInterval(startClockTimer);\r\n        }\r\n    };\r\n}\r\nfunction getElapsedTime(oldTime, newTime) {\r\n    var oldYear = oldTime.getFullYear();\r\n    var oldMonth = oldTime.getMonth() + 1;\r\n    var oldDay = oldTime.getDate();\r\n    var oldHour = oldTime.getHours();\r\n    var oldMinute = oldTime.getMinutes();\r\n    var oldSecond = oldTime.getSeconds();\r\n    var newYear = newTime.getFullYear();\r\n    var newMonth = newTime.getMonth() + 1;\r\n    var newDay = newTime.getDate();\r\n    var newHour = newTime.getHours();\r\n    var newMinute = newTime.getMinutes();\r\n    var newSecond = newTime.getSeconds();\r\n    var oldDate = new Date(oldYear, oldMonth, oldDay, oldHour, oldMinute, oldSecond);\r\n    var newDate = new Date(newYear, newMonth, newDay, newHour, newMinute, newSecond);\r\n    var elapsedTime = newDate.getTime() - oldDate.getTime();\r\n    return elapsedTime;\r\n}\r\nfunction getHoursMinutesSecondsFromMilliseconds(milliseconds) {\r\n    var hours = milliseconds % (1000 * 60 * 60 * 24) / (1000 * 60 * 60);\r\n    var minutes = milliseconds % (1000 * 60 * 60) / (1000 * 60);\r\n    var seconds = milliseconds % (1000 * 60) / (1000);\r\n    hours = Math.floor(hours);\r\n    minutes = Math.floor(minutes);\r\n    seconds = Math.floor(seconds);\r\n    return {\r\n        hours: function () {\r\n            return hours;\r\n        },\r\n        minutes: function () {\r\n            return minutes;\r\n        }, seconds: function () {\r\n            return seconds;\r\n        }\r\n    };\r\n}\r\n\n\n//# sourceURL=webpack://www/./src/client/js/module/clock.ts?");
 
+/***/ }),
 
+/***/ "./src/client/js/module/setBackgroundColorByMouseMove.ts":
+/*!***************************************************************!*\
+  !*** ./src/client/js/module/setBackgroundColorByMouseMove.ts ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"setBackgroundColorByMouseMove\": () => (/* binding */ setBackgroundColorByMouseMove)\n/* harmony export */ });\n/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/utils */ \"./src/client/js/utils/utils.ts\");\n\r\nvar setBackgroundColorByMouseMove = {\r\n    gradient: true,\r\n    mediaCondition: matchMedia(\"screen and (min-width: 768px)\").matches,\r\n    eventX: 0,\r\n    eventY: 0,\r\n    R: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.random)(0, 255),\r\n    G: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.random)(0, 255),\r\n    B: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.random)(0, 255),\r\n    degree: 90,\r\n    getScrollForAlpha: function (targetSection) {\r\n        return 1 - (document.documentElement.scrollTop / targetSection.offsetHeight);\r\n    },\r\n    getMouseMove: function (event, target) {\r\n        var _this = this;\r\n        if (!target) {\r\n            return;\r\n        }\r\n        if (this.mediaCondition) {\r\n            this.eventX = Math.floor(event.x / target.offsetWidth * 100);\r\n            this.eventY = Math.floor(event.y / target.offsetHeight * 100);\r\n            var getColor = function () {\r\n                var moveXColor = Math.floor(event.x / target.offsetWidth * 255);\r\n                var moveYColor = Math.floor(event.y / target.offsetHeight * 255);\r\n                _this.R = 255 - moveXColor;\r\n                _this.G = moveXColor;\r\n                _this.B = 255 - moveYColor;\r\n            };\r\n            var getDegree = function () {\r\n                if (_this.gradient) {\r\n                    var center = {\r\n                        x: target.getBoundingClientRect().left + (target.clientWidth / 2),\r\n                        y: target.getBoundingClientRect().top + (target.clientHeight / 2)\r\n                    };\r\n                    var x = center.x - event.clientX;\r\n                    var y = center.y - event.clientY;\r\n                    var radian = Math.atan2(y, x);\r\n                    _this.degree = Number((radian * 180 / Math.PI).toFixed(0));\r\n                }\r\n            };\r\n            getColor();\r\n            getDegree();\r\n        }\r\n    },\r\n    setBackgroundColor: function (targetSection) {\r\n        var bgTg = document.querySelector('#main-background-area');\r\n        var alpha = this.getScrollForAlpha(targetSection);\r\n        if (this.mediaCondition) {\r\n            if (this.gradient) {\r\n                bgTg.style.background = \"linear-gradient(\".concat(this.degree, \"deg, rgba(\").concat(this.G, \",\").concat(this.B, \",\").concat(this.R, \",\").concat(alpha, \") 0%, rgba(\").concat(this.B, \",\").concat(this.R, \",\").concat(this.G, \",\").concat(alpha, \") 100%)\");\r\n            }\r\n            else {\r\n                bgTg.style.background = \"rgba(\".concat(this.R, \",\").concat(this.G, \",\").concat(this.B, \",\").concat(alpha, \")\");\r\n            }\r\n        }\r\n        else {\r\n            bgTg.style.background = \"linear-gradient(90deg, rgba(\".concat(this.G, \",\").concat(this.B, \",\").concat(this.R, \",\").concat(alpha, \") 0%, rgba(\").concat(this.B, \",\").concat(this.R, \",\").concat(this.G, \",\").concat(alpha, \") 100%)\");\r\n        }\r\n        if (alpha <= 0) {\r\n            bgTg.style.display = 'none';\r\n        }\r\n        else {\r\n            bgTg.style.display = 'block';\r\n        }\r\n    }\r\n};\r\n\n\n//# sourceURL=webpack://www/./src/client/js/module/setBackgroundColorByMouseMove.ts?");
 
+/***/ }),
 
+/***/ "./src/client/js/module/setBackgroundStyleByScroll.ts":
+/*!************************************************************!*\
+  !*** ./src/client/js/module/setBackgroundStyleByScroll.ts ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"setBackgroundStyleByScroll\": () => (/* binding */ setBackgroundStyleByScroll)\n/* harmony export */ });\n/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/utils */ \"./src/client/js/utils/utils.ts\");\n\r\nvar setBackgroundStyleByScroll = {\r\n    elBackCircle: document.querySelector('#main-background-area .circle'),\r\n    contactSection: document.querySelector('#contact-section'),\r\n    viewportHypotenuse: (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getPythagorean)(document.documentElement.clientWidth, document.documentElement.clientHeight),\r\n    start: 0,\r\n    setInit: function () {\r\n        this.start = this.contactSection.offsetTop;\r\n        this.elBackCircle.style['width'] = \"\".concat(this.viewportHypotenuse, \"px\");\r\n        this.elBackCircle.style['height'] = \"\".concat(this.viewportHypotenuse, \"px\");\r\n        this.elBackCircle.style['transform'] = \"scale(0)\";\r\n    },\r\n    move: function (scrollBottom) {\r\n        if (scrollBottom > this.start) {\r\n            this.elBackCircle.style['transform'] = \"scale(\".concat((scrollBottom - this.start) / 1000, \")\");\r\n        }\r\n        else {\r\n            this.elBackCircle.style['transform'] = \"scale(0)\";\r\n        }\r\n    }\r\n};\r\n\n\n//# sourceURL=webpack://www/./src/client/js/module/setBackgroundStyleByScroll.ts?");
 
+/***/ }),
 
-var mainSection, winInnerHeight, scrollBottom;
-document.addEventListener('DOMContentLoaded', mainHandler);
-window.addEventListener('load', windowLoadHandler);
-window.addEventListener('resize', windowResizeHandler);
-document.addEventListener('contextmenu', function (e) { return e.preventDefault(); });
-document.addEventListener('mousemove', documentMouseMoveHandler);
-document.addEventListener('scroll', documentScrollHandler, { passive: true });
-document.addEventListener('mouseenter', function (e) {
-    document.body.style.transition = '0s';
-});
-document.addEventListener('mouseleave', function (e) {
-    setBackgroundColorByMouseMove.setBackgroundColor(mainSection);
-    document.body.style.transition = "1s";
-});
-function mainHandler() {
-    mainSection = document.querySelector('#main-section');
-    checkTimeUserStay().playClock();
-    setIntervalTitle();
-    accessibility();
-    bindLnbButton();
-    bindMainMenuButton();
-    bindContactForm();
-    bindFooterCard();
-}
-function windowLoadHandler() {
-    winInnerHeight = window.innerHeight;
-    scrollBottom = document.documentElement.scrollTop + winInnerHeight;
-    setHeaderColorByScroll(mainSection);
-    lnbStylingByScroll();
-    setBackgroundStyleByScroll.setInit();
-    setBackgroundColorByMouseMove.setBackgroundColor(mainSection);
-    activePortfolioByScroll.action(scrollBottom);
-    motionContactAreaByScroll.get(winInnerHeight);
-    motionContactAreaByScroll.scrollHandler(scrollBottom);
-    rotateFooterCardByScoll(scrollBottom, winInnerHeight);
-    bindTabButton(document.querySelector('#portfolio-section .category-tab-wrap'), winInnerHeight);
-}
-function windowResizeHandler() {
-    (winInnerHeight = window.innerHeight),
-        (scrollBottom = document.documentElement.scrollTop + winInnerHeight);
-    activePortfolioByScroll.action(scrollBottom);
-    motionContactAreaByScroll.get(winInnerHeight);
-    motionContactAreaByScroll.scrollHandler(scrollBottom);
-    rotateFooterCardByScoll(scrollBottom, winInnerHeight);
-}
-function documentMouseMoveHandler(event) {
-    setBackgroundColorByMouseMove.getMouseMove(event, mainSection);
-    setBackgroundColorByMouseMove.setBackgroundColor(mainSection);
-}
-function documentScrollHandler(event) {
-    scrollBottom = document.documentElement.scrollTop + winInnerHeight;
-    setHeaderColorByScroll(mainSection);
-    lnbStylingByScroll(event);
-    setBackgroundColorByMouseMove.setBackgroundColor(mainSection);
-    animationMainSectionByScroll();
-    setBackgroundStyleByScroll.move(scrollBottom);
-    scrollRotate('circle-scroll-svg');
-    activePortfolioByScroll.action(scrollBottom);
-    optimizeAnimation(motionContactAreaByScroll.scrollHandler(scrollBottom));
-    rotateFooterCardByScoll(scrollBottom, winInnerHeight);
-}
-function animationMainSectionByScroll() {
-    mainSection.querySelector('.tit').style['left'] = "-".concat(document.documentElement.scrollTop * 1, "px");
-    mainSection.querySelector('.txt').style['top'] = "-".concat(document.documentElement.scrollTop * 0.02, "px");
-    mainSection.querySelector('.vertical').style['top'] = "".concat(document.documentElement.scrollTop * 0.4, "px");
-}
+/***/ "./src/client/js/module/setIntervalTitle.ts":
+/*!**************************************************!*\
+  !*** ./src/client/js/module/setIntervalTitle.ts ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"setIntervalTitle\": () => (/* binding */ setIntervalTitle)\n/* harmony export */ });\nfunction setIntervalTitle() {\r\n    var title = document.querySelector('title');\r\n    var ARR_TITLE_NAME = [\r\n        '안녕하세요',\r\n        'CH Portfolio',\r\n        '입니다.'\r\n    ];\r\n    var i = 0;\r\n    setInterval(function () {\r\n        title.textContent = ARR_TITLE_NAME[i];\r\n        i++;\r\n        if (i >= ARR_TITLE_NAME.length) {\r\n            i = 0;\r\n        }\r\n    }, 1000);\r\n}\r\n\n\n//# sourceURL=webpack://www/./src/client/js/module/setIntervalTitle.ts?");
+
+/***/ }),
+
+/***/ "./src/client/js/utils/utils.ts":
+/*!**************************************!*\
+  !*** ./src/client/js/utils/utils.ts ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"getCurrentScrollBottomEnd\": () => (/* binding */ getCurrentScrollBottomEnd),\n/* harmony export */   \"getPercentage\": () => (/* binding */ getPercentage),\n/* harmony export */   \"getPythagorean\": () => (/* binding */ getPythagorean),\n/* harmony export */   \"getScrollDirection\": () => (/* binding */ getScrollDirection),\n/* harmony export */   \"optimizeAnimation\": () => (/* binding */ optimizeAnimation),\n/* harmony export */   \"padStart\": () => (/* binding */ padStart),\n/* harmony export */   \"random\": () => (/* binding */ random),\n/* harmony export */   \"scrollRotate\": () => (/* binding */ scrollRotate)\n/* harmony export */ });\nvar scrollBaseValue = 0;\r\nvar getScrollDirection = function () {\r\n    var result;\r\n    if (scrollBaseValue < window.scrollY)\r\n        result = 'DOWN';\r\n    else\r\n        result = 'UP';\r\n    scrollBaseValue = window.scrollY;\r\n    return result;\r\n};\r\nfunction getCurrentScrollBottomEnd() {\r\n    var pageScrollHeight = document.body.scrollHeight;\r\n    var winInnerHeight = window.innerHeight;\r\n    var scrollBottom = document.documentElement.scrollTop + winInnerHeight;\r\n    if ((pageScrollHeight - scrollBottom) == 0) {\r\n        return true;\r\n    }\r\n    else {\r\n        return false;\r\n    }\r\n}\r\nfunction getPythagorean(a, b) {\r\n    var result = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));\r\n    return result;\r\n}\r\nfunction random(min, max) {\r\n    var num = Math.floor(Math.random() * (max - min + 1)) + min;\r\n    return num;\r\n}\r\nfunction getPercentage(parts, whole, standard) {\r\n    return (parts / whole) * standard;\r\n}\r\nfunction scrollRotate(id) {\r\n    var obj = document.getElementById(id);\r\n    var CLASS_NAME_ANIMATION = 'rotate-animate';\r\n    obj.style.transform = \"rotate(\" + window.pageYOffset / 10 + \"deg)\";\r\n    if (document.documentElement.scrollTop !== 0) {\r\n        obj.classList.remove(CLASS_NAME_ANIMATION);\r\n    }\r\n    else {\r\n        obj.classList.add(CLASS_NAME_ANIMATION);\r\n    }\r\n}\r\nfunction optimizeAnimation(callback) {\r\n    var ticking = false;\r\n    return function () {\r\n        if (!ticking) {\r\n            ticking = true;\r\n            requestAnimationFrame(function () {\r\n                callback();\r\n                ticking = false;\r\n            });\r\n        }\r\n    };\r\n}\r\nvar padStart = function (targetLength, padString, str) {\r\n    return str.length >= targetLength ? str : new Array(targetLength - str.length + 1).join(padString) + str;\r\n};\r\n\n\n//# sourceURL=webpack://www/./src/client/js/utils/utils.ts?");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/client/js/index.ts");
+/******/ 	
 /******/ })()
 ;
