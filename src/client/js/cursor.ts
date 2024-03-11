@@ -8,7 +8,6 @@
   document.querySelectorAll('a, button').forEach((tg) => {
     tg.addEventListener('mouseenter', function (e) {
       const targetElement = e.target;
-      console.log();
       if (
         targetElement instanceof HTMLButtonElement &&
         !targetElement?.disabled

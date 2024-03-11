@@ -80,7 +80,6 @@ export const activePortfolioByScroll = {
         } else {
           mockup.classList.remove(CLASS_NAME_ON);
         }
-        // console.log(scroll);
       }
     },
   },
@@ -90,7 +89,6 @@ export const activePortfolioByScroll = {
       const txtBox = currentElement.querySelector('.txt-area') as HTMLElement;
       if (txtBox) {
         const CLASS_NAME_ON = 'on';
-        // console.log(this);
         let startPoint: boolean =
             scrollBottom - winHeightHalf >
             window.pageYOffset + currentElement.getBoundingClientRect().top,

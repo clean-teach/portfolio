@@ -28,7 +28,6 @@ let mainSection: any, winInnerHeight: number, scrollBottom;
 document.addEventListener('DOMContentLoaded', mainHandler);
 window.addEventListener('load', windowLoadHandler);
 // window.addEventListener('onbeforeunload', () => {
-//   console.log('df');
 //   window.scrollTo(0, 0);
 // });
 
